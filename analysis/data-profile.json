@@ -1,0 +1,1185 @@
+{
+  "labels": {
+    "rows": 79,
+    "attacks": {
+      "network_scans": 8,
+      "service_scans": 8,
+      "dirb": 8,
+      "wpscan": 8,
+      "webshell": 8,
+      "cracking": 7,
+      "reverse_shell": 8,
+      "privilege_escalation": 8,
+      "service_stop": 8,
+      "dnsteal": 8
+    },
+    "scenarios": {
+      "russellmitchell": 10,
+      "fox": 10,
+      "harrison": 10,
+      "santos": 10,
+      "shaw": 10,
+      "wardbeck": 10,
+      "wheeler": 9,
+      "wilson": 10
+    },
+    "invalid_windows": 0,
+    "missing_cells": 0,
+    "duplicate_rows": 0,
+    "min_start": 1642317377.0,
+    "max_end": 1644318901.0
+  },
+  "files": [
+    {
+      "file": "fox_aminer.json",
+      "scenario": "fox",
+      "source": "aminer",
+      "bytes": 8879125,
+      "rows": 10581,
+      "bad_json": 0,
+      "missing_time": 0,
+      "min_time": 1642204801.16,
+      "max_time": 1642636516,
+      "inside_attack_windows": 9413,
+      "top_categories": [
+        [
+          "NewMatchPathValueDetector",
+          5547
+        ],
+        [
+          "CharsetDetector",
+          2562
+        ],
+        [
+          "NewMatchPathDetector",
+          1566
+        ],
+        [
+          "EntropyDetector",
+          457
+        ],
+        [
+          "EventCountClusterDetector",
+          229
+        ],
+        [
+          "NewMatchPathValueComboDetector",
+          129
+        ],
+        [
+          "EventFrequencyDetector",
+          46
+        ],
+        [
+          "ValueRangeDetector",
+          28
+        ]
+      ],
+      "daily": {
+        "2022-01-15": 744,
+        "2022-01-16": 78,
+        "2022-01-17": 109,
+        "2022-01-18": 9535,
+        "2022-01-19": 115
+      },
+      "fields": {
+        "AnalysisComponent": 10581,
+        "LogData": 10581,
+        "AMiner": 10581,
+        "CountData": 229,
+        "FrequencyData": 46
+      },
+      "training": {
+        "True": 824,
+        "False": 9757
+      },
+      "records_multiple_timestamps": 0,
+      "referenced_log_lines": 10581
+    },
+    {
+      "file": "fox_wazuh.json",
+      "scenario": "fox",
+      "source": "wazuh",
+      "bytes": 491410473,
+      "rows": 462523,
+      "bad_json": 0,
+      "missing_time": 0,
+      "min_time": 1642213952.0,
+      "max_time": 1642636536.0,
+      "inside_attack_windows": 412240,
+      "top_categories": [
+        [
+          "Web server 400 error code.",
+          380062
+        ],
+        [
+          "Multiple web server 400 error codes from same source ip.",
+          29285
+        ],
+        [
+          "Dovecot Authentication Success.",
+          27942
+        ],
+        [
+          "IDS event.",
+          10759
+        ],
+        [
+          "Suricata: Alert - SURICATA TLS invalid record/traffic",
+          5292
+        ],
+        [
+          "Suricata: Alert - SURICATA TLS invalid handshake message",
+          5290
+        ],
+        [
+          "ClamAV database update",
+          1180
+        ],
+        [
+          "Apache: Attempt to access forbidden file or directory.",
+          575
+        ]
+      ],
+      "daily": {
+        "2022-01-15": 10069,
+        "2022-01-16": 11631,
+        "2022-01-17": 9634,
+        "2022-01-18": 420075,
+        "2022-01-19": 11114
+      },
+      "fields": {
+        "predecoder": 40706,
+        "agent": 462523,
+        "manager": 462523,
+        "rule": 462523,
+        "decoder": 462523,
+        "full_log": 451439,
+        "input": 462523,
+        "@timestamp": 462523,
+        "location": 462523,
+        "id": 462523,
+        "data": 433359,
+        "GeoLocation": 5324,
+        "previous_output": 29331
+      },
+      "levels": {
+        "3": 40313,
+        "6": 11410,
+        "10": 29568,
+        "8": 48,
+        "4": 2,
+        "5": 381162,
+        "11": 20
+      },
+      "duplicate_ids": 0
+    },
+    {
+      "file": "harrison_aminer.json",
+      "scenario": "harrison",
+      "source": "aminer",
+      "bytes": 8693273,
+      "rows": 10194,
+      "bad_json": 0,
+      "missing_time": 0,
+      "min_time": 1643932801.88,
+      "max_time": 1644364786.13,
+      "inside_attack_windows": 9512,
+      "top_categories": [
+        [
+          "NewMatchPathValueDetector",
+          5637
+        ],
+        [
+          "CharsetDetector",
+          2540
+        ],
+        [
+          "NewMatchPathDetector",
+          1516
+        ],
+        [
+          "EntropyDetector",
+          158
+        ],
+        [
+          "NewMatchPathValueComboDetector",
+          121
+        ],
+        [
+          "EventCountClusterDetector",
+          78
+        ],
+        [
+          "MatchValueAverageChangeDetector",
+          73
+        ],
+        [
+          "EventFrequencyDetector",
+          39
+        ]
+      ],
+      "daily": {
+        "2022-02-04": 495,
+        "2022-02-05": 38,
+        "2022-02-06": 36,
+        "2022-02-07": 45,
+        "2022-02-08": 9580
+      },
+      "fields": {
+        "AnalysisComponent": 10194,
+        "LogData": 10194,
+        "AMiner": 10194,
+        "CountData": 78,
+        "FrequencyData": 39
+      },
+      "training": {
+        "True": 539,
+        "False": 9655
+      },
+      "records_multiple_timestamps": 0,
+      "referenced_log_lines": 10194
+    },
+    {
+      "file": "harrison_wazuh.json",
+      "scenario": "harrison",
+      "source": "wazuh",
+      "bytes": 632912134,
+      "rows": 583754,
+      "bad_json": 0,
+      "missing_time": 0,
+      "min_time": 1643932807.756748,
+      "max_time": 1644364044.0,
+      "inside_attack_windows": 421980,
+      "top_categories": [
+        [
+          "Web server 400 error code.",
+          384489
+        ],
+        [
+          "IDS event.",
+          63862
+        ],
+        [
+          "Suricata: Alert - ET INFO Observed DNS Query to .biz TLD",
+          47183
+        ],
+        [
+          "Dovecot Authentication Success.",
+          32238
+        ],
+        [
+          "Multiple web server 400 error codes from same source ip.",
+          29619
+        ],
+        [
+          "Suricata: Alert - SURICATA TLS invalid record/traffic",
+          9734
+        ],
+        [
+          "Suricata: Alert - SURICATA TLS invalid handshake message",
+          9731
+        ],
+        [
+          "Multiple IDS alerts for same id.",
+          2629
+        ]
+      ],
+      "daily": {
+        "2022-02-04": 39143,
+        "2022-02-05": 34867,
+        "2022-02-06": 34295,
+        "2022-02-07": 36074,
+        "2022-02-08": 439375
+      },
+      "fields": {
+        "agent": 583754,
+        "manager": 583754,
+        "data": 550490,
+        "rule": 583754,
+        "decoder": 583754,
+        "input": 583754,
+        "@timestamp": 583754,
+        "location": 583754,
+        "id": 583754,
+        "predecoder": 100852,
+        "full_log": 516370,
+        "previous_output": 30252,
+        "GeoLocation": 6957
+      },
+      "levels": {
+        "3": 100696,
+        "8": 72,
+        "6": 64515,
+        "10": 32469,
+        "11": 630,
+        "5": 385371,
+        "4": 1
+      },
+      "duplicate_ids": 0
+    },
+    {
+      "file": "russellmitchell_aminer.json",
+      "scenario": "russellmitchell",
+      "source": "aminer",
+      "bytes": 3411024,
+      "rows": 4056,
+      "bad_json": 0,
+      "missing_time": 0,
+      "min_time": 1642723201,
+      "max_time": 1643065505,
+      "inside_attack_windows": 3478,
+      "top_categories": [
+        [
+          "NewMatchPathValueDetector",
+          3255
+        ],
+        [
+          "NewMatchPathDetector",
+          477
+        ],
+        [
+          "NewMatchPathValueComboDetector",
+          111
+        ],
+        [
+          "CharsetDetector",
+          70
+        ],
+        [
+          "EntropyDetector",
+          44
+        ],
+        [
+          "EventCountClusterDetector",
+          41
+        ],
+        [
+          "EventFrequencyDetector",
+          32
+        ],
+        [
+          "ValueRangeDetector",
+          18
+        ]
+      ],
+      "daily": {
+        "2022-01-21": 375,
+        "2022-01-22": 24,
+        "2022-01-23": 14,
+        "2022-01-24": 3643
+      },
+      "fields": {
+        "AnalysisComponent": 4056,
+        "LogData": 4056,
+        "AMiner": 4056,
+        "CountData": 41,
+        "FrequencyData": 32
+      },
+      "training": {
+        "True": 400,
+        "False": 3656
+      },
+      "records_multiple_timestamps": 0,
+      "referenced_log_lines": 4056
+    },
+    {
+      "file": "russellmitchell_wazuh.json",
+      "scenario": "russellmitchell",
+      "source": "wazuh",
+      "bytes": 45282051,
+      "rows": 41488,
+      "bad_json": 0,
+      "missing_time": 0,
+      "min_time": 1642723347.0,
+      "max_time": 1643067553.0,
+      "inside_attack_windows": 8537,
+      "top_categories": [
+        [
+          "Dovecot Authentication Success.",
+          14436
+        ],
+        [
+          "IDS event.",
+          8958
+        ],
+        [
+          "Web server 400 error code.",
+          7105
+        ],
+        [
+          "Suricata: Alert - SURICATA TLS invalid record/traffic",
+          4402
+        ],
+        [
+          "Suricata: Alert - SURICATA TLS invalid handshake message",
+          4396
+        ],
+        [
+          "ClamAV database update",
+          776
+        ],
+        [
+          "Multiple web server 400 error codes from same source ip.",
+          550
+        ],
+        [
+          "Suricata: Alert - ET POLICY GNU/Linux APT User-Agent Outbound likely related to package management",
+          310
+        ]
+      ],
+      "daily": {
+        "2022-01-21": 8210,
+        "2022-01-22": 7428,
+        "2022-01-23": 9677,
+        "2022-01-24": 16173
+      },
+      "fields": {
+        "predecoder": 24582,
+        "agent": 41488,
+        "manager": 41488,
+        "rule": 41488,
+        "decoder": 41488,
+        "full_log": 32302,
+        "input": 41488,
+        "@timestamp": 41488,
+        "location": 41488,
+        "id": 41488,
+        "data": 26246,
+        "GeoLocation": 3385,
+        "previous_output": 562
+      },
+      "levels": {
+        "3": 24455,
+        "8": 47,
+        "6": 8976,
+        "10": 729,
+        "11": 7,
+        "5": 7274
+      },
+      "duplicate_ids": 0
+    },
+    {
+      "file": "santos_aminer.json",
+      "scenario": "santos",
+      "source": "aminer",
+      "bytes": 3634879,
+      "rows": 4266,
+      "bad_json": 0,
+      "missing_time": 0,
+      "min_time": 1642118401.75,
+      "max_time": 1642463502,
+      "inside_attack_windows": 3435,
+      "top_categories": [
+        [
+          "NewMatchPathValueDetector",
+          3389
+        ],
+        [
+          "NewMatchPathDetector",
+          238
+        ],
+        [
+          "EntropyDetector",
+          176
+        ],
+        [
+          "NewMatchPathValueComboDetector",
+          149
+        ],
+        [
+          "CharsetDetector",
+          135
+        ],
+        [
+          "EventCountClusterDetector",
+          123
+        ],
+        [
+          "EventFrequencyDetector",
+          30
+        ],
+        [
+          "ValueRangeDetector",
+          19
+        ]
+      ],
+      "daily": {
+        "2022-01-14": 480,
+        "2022-01-15": 43,
+        "2022-01-16": 195,
+        "2022-01-17": 3548
+      },
+      "fields": {
+        "AnalysisComponent": 4266,
+        "LogData": 4266,
+        "AMiner": 4266,
+        "CountData": 123,
+        "FrequencyData": 30
+      },
+      "training": {
+        "True": 524,
+        "False": 3742
+      },
+      "records_multiple_timestamps": 0,
+      "referenced_log_lines": 4266
+    },
+    {
+      "file": "santos_wazuh.json",
+      "scenario": "santos",
+      "source": "wazuh",
+      "bytes": 145438925,
+      "rows": 126513,
+      "bad_json": 0,
+      "missing_time": 0,
+      "min_time": 1642118409.728242,
+      "max_time": 1642459133.0,
+      "inside_attack_windows": 9569,
+      "top_categories": [
+        [
+          "IDS event.",
+          42007
+        ],
+        [
+          "Dovecot Authentication Success.",
+          29547
+        ],
+        [
+          "Suricata: Alert - ET INFO Observed DNS Query to .biz TLD",
+          25717
+        ],
+        [
+          "Suricata: Alert - SURICATA TLS invalid record/traffic",
+          8926
+        ],
+        [
+          "Suricata: Alert - SURICATA TLS invalid handshake message",
+          8922
+        ],
+        [
+          "Web server 400 error code.",
+          7163
+        ],
+        [
+          "Multiple IDS alerts for same id.",
+          1470
+        ],
+        [
+          "ClamAV database update",
+          760
+        ]
+      ],
+      "daily": {
+        "2022-01-14": 39437,
+        "2022-01-15": 40618,
+        "2022-01-16": 22725,
+        "2022-01-17": 23733
+      },
+      "fields": {
+        "agent": 126513,
+        "manager": 126513,
+        "data": 96146,
+        "rule": 126513,
+        "decoder": 126513,
+        "input": 126513,
+        "@timestamp": 126513,
+        "location": 126513,
+        "id": 126513,
+        "predecoder": 74641,
+        "full_log": 82401,
+        "previous_output": 899,
+        "GeoLocation": 7153
+      },
+      "levels": {
+        "3": 74460,
+        "8": 94,
+        "6": 42026,
+        "10": 2216,
+        "11": 347,
+        "5": 7368,
+        "4": 2
+      },
+      "duplicate_ids": 0
+    },
+    {
+      "file": "shaw_aminer.json",
+      "scenario": "shaw",
+      "source": "aminer",
+      "bytes": 1944470,
+      "rows": 2243,
+      "bad_json": 0,
+      "missing_time": 0,
+      "min_time": 1643068801,
+      "max_time": 1643581247,
+      "inside_attack_windows": 969,
+      "top_categories": [
+        [
+          "NewMatchPathValueDetector",
+          1358
+        ],
+        [
+          "NewMatchPathValueComboDetector",
+          300
+        ],
+        [
+          "NewMatchPathDetector",
+          199
+        ],
+        [
+          "CharsetDetector",
+          194
+        ],
+        [
+          "EventCountClusterDetector",
+          81
+        ],
+        [
+          "EventFrequencyDetector",
+          41
+        ],
+        [
+          "MatchValueAverageChangeDetector",
+          38
+        ],
+        [
+          "ValueRangeDetector",
+          16
+        ]
+      ],
+      "daily": {
+        "2022-01-25": 357,
+        "2022-01-26": 48,
+        "2022-01-27": 201,
+        "2022-01-28": 40,
+        "2022-01-29": 1206,
+        "2022-01-30": 391
+      },
+      "fields": {
+        "AnalysisComponent": 2243,
+        "LogData": 2243,
+        "AMiner": 2243,
+        "CountData": 81,
+        "FrequencyData": 41
+      },
+      "training": {
+        "True": 408,
+        "False": 1835
+      },
+      "records_multiple_timestamps": 0,
+      "referenced_log_lines": 2243
+    },
+    {
+      "file": "shaw_wazuh.json",
+      "scenario": "shaw",
+      "source": "wazuh",
+      "bytes": 74755213,
+      "rows": 68539,
+      "bad_json": 0,
+      "missing_time": 0,
+      "min_time": 1643069179.0,
+      "max_time": 1643585466.0,
+      "inside_attack_windows": 5966,
+      "top_categories": [
+        [
+          "Dovecot Authentication Success.",
+          28080
+        ],
+        [
+          "IDS event.",
+          16269
+        ],
+        [
+          "Suricata: Alert - SURICATA TLS invalid record/traffic",
+          8026
+        ],
+        [
+          "Suricata: Alert - SURICATA TLS invalid handshake message",
+          8026
+        ],
+        [
+          "Web server 400 error code.",
+          4860
+        ],
+        [
+          "ClamAV database update",
+          1291
+        ],
+        [
+          "Suricata: Alert - ET POLICY GNU/Linux APT User-Agent Outbound likely related to package management",
+          516
+        ],
+        [
+          "Multiple web server 400 error codes from same source ip.",
+          368
+        ]
+      ],
+      "daily": {
+        "2022-01-25": 8306,
+        "2022-01-26": 11221,
+        "2022-01-27": 9353,
+        "2022-01-28": 9416,
+        "2022-01-29": 14707,
+        "2022-01-30": 15536
+      },
+      "fields": {
+        "predecoder": 46588,
+        "agent": 68539,
+        "manager": 68539,
+        "rule": 68539,
+        "decoder": 68539,
+        "full_log": 51847,
+        "input": 68539,
+        "@timestamp": 68539,
+        "location": 68539,
+        "id": 68539,
+        "data": 39110,
+        "GeoLocation": 8038,
+        "previous_output": 428
+      },
+      "levels": {
+        "3": 46090,
+        "6": 16284,
+        "10": 773,
+        "8": 28,
+        "11": 33,
+        "5": 5330,
+        "4": 1
+      },
+      "duplicate_ids": 0
+    },
+    {
+      "file": "wardbeck_aminer.json",
+      "scenario": "wardbeck",
+      "source": "aminer",
+      "bytes": 2583498,
+      "rows": 3053,
+      "bad_json": 0,
+      "missing_time": 0,
+      "min_time": 1642550401,
+      "max_time": 1642982359.17,
+      "inside_attack_windows": 971,
+      "top_categories": [
+        [
+          "NewMatchPathValueDetector",
+          1473
+        ],
+        [
+          "EntropyDetector",
+          519
+        ],
+        [
+          "NewMatchPathValueComboDetector",
+          482
+        ],
+        [
+          "NewMatchPathDetector",
+          282
+        ],
+        [
+          "EventCountClusterDetector",
+          150
+        ],
+        [
+          "CharsetDetector",
+          65
+        ],
+        [
+          "EventFrequencyDetector",
+          45
+        ],
+        [
+          "ValueRangeDetector",
+          21
+        ]
+      ],
+      "daily": {
+        "2022-01-19": 668,
+        "2022-01-20": 79,
+        "2022-01-21": 1147,
+        "2022-01-22": 101,
+        "2022-01-23": 1058
+      },
+      "fields": {
+        "AnalysisComponent": 3053,
+        "LogData": 3053,
+        "AMiner": 3053,
+        "CountData": 150,
+        "FrequencyData": 45
+      },
+      "training": {
+        "True": 750,
+        "False": 2303
+      },
+      "records_multiple_timestamps": 0,
+      "referenced_log_lines": 3053
+    },
+    {
+      "file": "wardbeck_wazuh.json",
+      "scenario": "wardbeck",
+      "source": "wazuh",
+      "bytes": 96564119,
+      "rows": 88204,
+      "bad_json": 0,
+      "missing_time": 0,
+      "min_time": 1642552682.0,
+      "max_time": 1642980673.0,
+      "inside_attack_windows": 6069,
+      "top_categories": [
+        [
+          "Dovecot Authentication Success.",
+          32433
+        ],
+        [
+          "IDS event.",
+          23893
+        ],
+        [
+          "Suricata: Alert - SURICATA TLS invalid record/traffic",
+          11985
+        ],
+        [
+          "Suricata: Alert - SURICATA TLS invalid handshake message",
+          11981
+        ],
+        [
+          "Web server 400 error code.",
+          4951
+        ],
+        [
+          "ClamAV database update",
+          1080
+        ],
+        [
+          "Suricata: Alert - ET POLICY GNU/Linux APT User-Agent Outbound likely related to package management",
+          409
+        ],
+        [
+          "Multiple web server 400 error codes from same source ip.",
+          370
+        ]
+      ],
+      "daily": {
+        "2022-01-19": 18436,
+        "2022-01-20": 14489,
+        "2022-01-21": 20781,
+        "2022-01-22": 15227,
+        "2022-01-23": 19271
+      },
+      "fields": {
+        "predecoder": 58236,
+        "agent": 88204,
+        "manager": 88204,
+        "rule": 88204,
+        "decoder": 88204,
+        "full_log": 63694,
+        "input": 88204,
+        "@timestamp": 88204,
+        "location": 88204,
+        "id": 88204,
+        "data": 54643,
+        "GeoLocation": 11148,
+        "previous_output": 422
+      },
+      "levels": {
+        "3": 58198,
+        "6": 23911,
+        "10": 856,
+        "11": 51,
+        "5": 5105,
+        "8": 81,
+        "4": 2
+      },
+      "duplicate_ids": 0
+    },
+    {
+      "file": "wheeler_aminer.json",
+      "scenario": "wheeler",
+      "source": "aminer",
+      "bytes": 10220678,
+      "rows": 12222,
+      "bad_json": 0,
+      "missing_time": 0,
+      "min_time": 1643155201,
+      "max_time": 1643586855,
+      "inside_attack_windows": 11353,
+      "top_categories": [
+        [
+          "NewMatchPathValueDetector",
+          7454
+        ],
+        [
+          "CharsetDetector",
+          2523
+        ],
+        [
+          "NewMatchPathDetector",
+          1753
+        ],
+        [
+          "EntropyDetector",
+          178
+        ],
+        [
+          "EventCountClusterDetector",
+          130
+        ],
+        [
+          "NewMatchPathValueComboDetector",
+          114
+        ],
+        [
+          "EventFrequencyDetector",
+          40
+        ],
+        [
+          "ValueRangeDetector",
+          19
+        ]
+      ],
+      "daily": {
+        "2022-01-26": 535,
+        "2022-01-27": 28,
+        "2022-01-28": 170,
+        "2022-01-29": 44,
+        "2022-01-30": 11445
+      },
+      "fields": {
+        "AnalysisComponent": 12222,
+        "LogData": 12222,
+        "AMiner": 12222,
+        "CountData": 130,
+        "FrequencyData": 40
+      },
+      "training": {
+        "True": 563,
+        "False": 11659
+      },
+      "records_multiple_timestamps": 0,
+      "referenced_log_lines": 12222
+    },
+    {
+      "file": "wheeler_wazuh.json",
+      "scenario": "wheeler",
+      "source": "wazuh",
+      "bytes": 650679741,
+      "rows": 603939,
+      "bad_json": 0,
+      "missing_time": 0,
+      "min_time": 1643156730.0,
+      "max_time": 1643585466.0,
+      "inside_attack_windows": 420981,
+      "top_categories": [
+        [
+          "Web server 400 error code.",
+          387550
+        ],
+        [
+          "IDS event.",
+          66566
+        ],
+        [
+          "Dovecot Authentication Success.",
+          45711
+        ],
+        [
+          "Multiple web server 400 error codes from same source ip.",
+          30503
+        ],
+        [
+          "Suricata: Alert - SURICATA TLS invalid record/traffic",
+          24576
+        ],
+        [
+          "Suricata: Alert - SURICATA TLS invalid handshake message",
+          24574
+        ],
+        [
+          "Suricata: Alert - ET INFO Observed DNS Query to .biz TLD",
+          18838
+        ],
+        [
+          "ClamAV database update",
+          1200
+        ]
+      ],
+      "daily": {
+        "2022-01-26": 34468,
+        "2022-01-27": 37931,
+        "2022-01-28": 37092,
+        "2022-01-29": 38340,
+        "2022-01-30": 456108
+      },
+      "fields": {
+        "predecoder": 115938,
+        "agent": 603939,
+        "manager": 603939,
+        "rule": 603939,
+        "decoder": 603939,
+        "full_log": 535310,
+        "input": 603939,
+        "@timestamp": 603939,
+        "location": 603939,
+        "id": 603939,
+        "data": 556956,
+        "GeoLocation": 10891,
+        "previous_output": 30778
+      },
+      "levels": {
+        "3": 115585,
+        "8": 114,
+        "6": 67188,
+        "10": 32234,
+        "5": 388548,
+        "11": 269,
+        "4": 1
+      },
+      "duplicate_ids": 0
+    },
+    {
+      "file": "wilson_aminer.json",
+      "scenario": "wilson",
+      "source": "aminer",
+      "bytes": 7570675,
+      "rows": 8943,
+      "bad_json": 0,
+      "missing_time": 0,
+      "min_time": 1643846401,
+      "max_time": 1644364214,
+      "inside_attack_windows": 7926,
+      "top_categories": [
+        [
+          "NewMatchPathValueDetector",
+          4018
+        ],
+        [
+          "CharsetDetector",
+          2523
+        ],
+        [
+          "NewMatchPathDetector",
+          1629
+        ],
+        [
+          "EntropyDetector",
+          343
+        ],
+        [
+          "EventCountClusterDetector",
+          211
+        ],
+        [
+          "NewMatchPathValueComboDetector",
+          151
+        ],
+        [
+          "EventFrequencyDetector",
+          49
+        ],
+        [
+          "ValueRangeDetector",
+          13
+        ]
+      ],
+      "daily": {
+        "2022-02-03": 635,
+        "2022-02-04": 95,
+        "2022-02-05": 35,
+        "2022-02-06": 49,
+        "2022-02-07": 8024,
+        "2022-02-08": 105
+      },
+      "fields": {
+        "AnalysisComponent": 8943,
+        "LogData": 8943,
+        "AMiner": 8943,
+        "CountData": 211,
+        "FrequencyData": 49
+      },
+      "training": {
+        "True": 731,
+        "False": 8212
+      },
+      "records_multiple_timestamps": 0,
+      "referenced_log_lines": 8943
+    },
+    {
+      "file": "wilson_wazuh.json",
+      "scenario": "wilson",
+      "source": "wazuh",
+      "bytes": 673722526,
+      "rows": 625303,
+      "bad_json": 0,
+      "missing_time": 0,
+      "min_time": 1643849106.0,
+      "max_time": 1644364042.0,
+      "inside_attack_windows": 432182,
+      "top_categories": [
+        [
+          "Web server 400 error code.",
+          395133
+        ],
+        [
+          "Dovecot Authentication Success.",
+          66468
+        ],
+        [
+          "IDS event.",
+          62718
+        ],
+        [
+          "Suricata: Alert - SURICATA TLS invalid record/traffic",
+          32102
+        ],
+        [
+          "Suricata: Alert - SURICATA TLS invalid handshake message",
+          32096
+        ],
+        [
+          "Multiple web server 400 error codes from same source ip.",
+          30548
+        ],
+        [
+          "ClamAV database update",
+          1152
+        ],
+        [
+          "Multiple IDS alerts for same id.",
+          1012
+        ]
+      ],
+      "daily": {
+        "2022-02-03": 36820,
+        "2022-02-04": 36041,
+        "2022-02-05": 34933,
+        "2022-02-06": 34570,
+        "2022-02-07": 452780,
+        "2022-02-08": 30159
+      },
+      "fields": {
+        "predecoder": 133091,
+        "agent": 625303,
+        "manager": 625303,
+        "rule": 625303,
+        "decoder": 625303,
+        "full_log": 560265,
+        "input": 625303,
+        "@timestamp": 625303,
+        "location": 625303,
+        "id": 625303,
+        "data": 557625,
+        "GeoLocation": 11479,
+        "previous_output": 30872
+      },
+      "levels": {
+        "3": 132925,
+        "6": 63372,
+        "10": 32427,
+        "8": 145,
+        "11": 310,
+        "5": 396120,
+        "4": 4
+      },
+      "duplicate_ids": 0
+    }
+  ]
+}

@@ -1,0 +1,42 @@
+{
+  "id": "ef731fcb8960",
+  "status": "complete",
+  "total": 2655821,
+  "processed": 2655821,
+  "dataset_counts": {
+    "russellmitchell": 45544,
+    "fox": 473104,
+    "harrison": 593948,
+    "santos": 130779,
+    "shaw": 70782,
+    "wardbeck": 91257,
+    "wheeler": 616161,
+    "wilson": 634246
+  },
+  "categories": {
+    "background": 839028,
+    "dns": 175,
+    "anomaly": 20754,
+    "service": 194,
+    "recon": 59304,
+    "web": 1735967,
+    "privilege": 140,
+    "cracking": 225,
+    "execution": 25,
+    "callback": 9
+  },
+  "group_count": 52707,
+  "edge_count": 51,
+  "duration": 60.0,
+  "actual_elapsed": 60.014,
+  "priority_counts": {
+    "routine": 42900,
+    "investigate": 8594,
+    "context": 1190,
+    "high": 23
+  },
+  "priority_checks": "all episode totals conserved; shortlist ranked; real edge endpoints preserved",
+  "candidates": 41,
+  "labels": "not read",
+  "checks": "passed"
+}

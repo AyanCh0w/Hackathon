@@ -1,0 +1,16 @@
+.cache/
+/ait_ads/
+/ait_ads.zip
+/labels.csv
+__pycache__/
+*.py[cod]
+.pytest_cache/
+.venv/
+venv/
+.DS_Store
+._*
+tests/__pycache__/
+telemetry-inputs/
+.env
+.env.*
+!.env.example

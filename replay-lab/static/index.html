@@ -1,0 +1,94 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8"><meta name="color-scheme" content="light dark"><meta name="viewport" content="width=device-width,initial-scale=1">
+  <title>Trace / Live security replay</title>
+  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='16' fill='%230f1d29'/%3E%3Cpath d='M16 38 27 21 37 43 49 26' stroke='%235ae0c1' stroke-width='5' fill='none'/%3E%3C/svg%3E">
+  <link rel="stylesheet" href="/styles.css"><script src="/vendor/d3.v7.9.0.min.js" defer></script><script src="/force-graph.js" defer></script><script src="/horizontal-map.js" defer></script><script src="/app.js" defer></script>
+</head>
+<body>
+  <header class="topbar">
+    <a class="brand" href="/" aria-label="Trace home"><svg viewBox="0 0 34 34" aria-hidden="true"><path d="M4 21 12 8 21 27 30 12"/></svg><span>trace<span class="brand-sub">Replay lab</span></span></a>
+    <div class="top-links"><span class="local"><i></i> Local</span><button class="text-button" id="method-btn">Help</button></div>
+  </header>
+  <main>
+    <section class="intro">
+      <div><div class="eyebrow">SECURITY TELEMETRY / LIVE CORRELATION</div><h1>Security replay</h1><p>Replay alerts and inspect the evidence.</p></div>
+      <div class="isolation" id="isolation"><span class="lock-icon">▣</span><div><strong id="isolation-title">Labels sealed</strong><span id="isolation-copy">Analysis uses the selected telemetry; labels stay sealed.</span></div></div>
+    </section>
+    <section class="controls" aria-label="Replay controls">
+      <div class="control-field dataset-field"><label id="datasets-label">Datasets</label><details id="datasets"><summary id="dataset-summary" aria-labelledby="datasets-label dataset-summary">1 of 8 selected <span>⌄</span></summary><div class="dataset-popover"><div class="dataset-menu-head"><strong>Include datasets</strong><div><button id="select-all" type="button">Select all</button><button id="select-none" type="button">Clear</button></div></div><fieldset id="dataset-options"><legend class="sr-only">Datasets to replay</legend><label><input type="checkbox" value="russellmitchell" checked> <span>Russellmitchell<small>45,544 records</small></span></label><label><input type="checkbox" value="fox"> <span>Fox<small>473,104 records</small></span></label><label><input type="checkbox" value="harrison"> <span>Harrison<small>593,948 records</small></span></label><label><input type="checkbox" value="santos"> <span>Santos<small>130,779 records</small></span></label><label><input type="checkbox" value="shaw"> <span>Shaw<small>70,782 records</small></span></label><label><input type="checkbox" value="wardbeck"> <span>Wardbeck<small>91,257 records</small></span></label><label><input type="checkbox" value="wheeler"> <span>Wheeler<small>616,161 records</small></span></label><label><input type="checkbox" value="wilson"> <span>Wilson<small>634,246 records</small></span></label></fieldset><p>Combined replay · entities stay scoped to each dataset.</p></div></details></div>
+      <div class="control-actions"><button id="play" class="primary" disabled><span id="play-icon">▶</span> <span id="play-label">Preparing…</span></button><button id="verify" class="secondary verify" disabled>Verify at end <span>↗</span></button></div>
+      <details id="replay-settings" class="settings-menu"><summary>Replay settings</summary><div class="settings-popover">
+        <div class="control-field"><label for="duration">Duration</label><select id="duration"><option value="60">60 seconds</option><option value="120">2 minutes</option><option value="15">15 seconds</option></select></div>
+        <div class="control-field"><label for="pacing">Pacing</label><select id="pacing"><option value="events">Event paced</option><option value="time">Time scaled</option></select></div>
+        <div class="settings-actions"><button id="step" class="secondary" disabled title="Pause, then advance one record">Step +1</button><button id="reset" class="secondary" title="Reset replay">Reset replay</button></div>
+      </div></details>
+    </section>
+    <div class="preparation" id="preparation" role="status">Preparing chronological records from the selected scenario…</div>
+    <section class="run-strip" id="run-strip" aria-label="Replay progress">
+      <div class="run-heading"><span class="status" id="status"><i></i> READY</span><div class="event-clock"><span>Event time · UTC</span><strong id="event-time">—</strong></div><div class="wall-clock"><strong id="wall-time">00:00</strong><span id="wall-duration"> / 01:00</span></div></div>
+      <div class="progress-track"><div id="progress"></div></div>
+      <div class="range"><span id="range-start">—</span><span id="pacing-copy">Chronological order · quiet gaps compressed · no future evidence</span><span id="range-end">—</span></div>
+    </section>
+    <section class="metrics" aria-label="Analysis totals">
+      <div><span>Records</span><strong id="processed">0 <small id="total">/ —</small></strong><p id="source-counts">Wazuh + AMiner exports</p></div>
+      <div><span>Evidence groups</span><strong id="group-count">0</strong><p>Episodes by source, host, and rule family</p></div>
+      <div><span>Relationships</span><strong id="edge-count">0</strong><p>Explicit time and entity matches</p></div>
+      <div><span>Candidates</span><strong id="candidate-count">0</strong><p id="candidate-note">Connected signals across rule families</p></div>
+    </section>
+    <details id="processing-details" class="disclosure" data-remember><summary>Processing details <span>Rules, counts, and timings</span></summary><div class="disclosure-body">
+    <section class="pipeline" aria-label="Online analysis pipeline">
+      <div class="pipeline-label">Processing<span>Deterministic rules</span></div>
+      <div class="stage" data-stage="normalize"><span class="stage-number">01</span><div><strong>Read record</strong><span class="stage-count">0 decoded</span></div><span class="stage-time">0 ms</span></div><span class="pipeline-arrow">→</span>
+      <div class="stage" data-stage="classify"><span class="stage-number">02</span><div><strong>Classify</strong><span class="stage-count">0 evaluated</span></div><span class="stage-time">0 ms</span></div><span class="pipeline-arrow">→</span>
+      <div class="stage" data-stage="group"><span class="stage-number">03</span><div><strong>Group</strong><span class="stage-count">0 assigned</span></div><span class="stage-time">0 ms</span></div><span class="pipeline-arrow">→</span>
+      <div class="stage" data-stage="connect"><span class="stage-number">04</span><div><strong>Connect</strong><span class="stage-count">0 checked</span></div><span class="stage-time">0 ms</span></div>
+    </section>
+    </div></details>
+    <div class="view-toolbar"><label for="dataset-view">Dataset view</label><select id="dataset-view"><option value="all">All selected datasets</option></select><span id="dataset-progress">A combined chronological stream, with separate entity identities per dataset.</span></div>
+    <section class="workspace">
+      <details id="graph-panel" class="panel graph-panel panel-disclosure" open><summary>Relationships<span>Drag to arrange · scroll to zoom</span></summary><div class="panel-body">
+        <div class="panel-heading"><div><h2>Relationships</h2><p>Select a node to inspect evidence</p></div><button id="graph-mode" class="chip-button" title="Include or hide routine and training groups">All groups ▾</button></div>
+        <div class="map-toolbar"><div class="priority-key"><span class="high">High priority</span><span class="investigate">Investigate</span><span class="context">Context</span><span class="routine">Routine</span></div><div class="map-actions"><span id="horizontal-controls"><button id="map-collapse" class="chip-button">Collapse all</button><button id="map-expand" class="chip-button">Expand all</button><button id="map-zoom-out" class="chip-button" aria-label="Zoom out">−</button><span id="map-zoom-value">100%</span><button id="map-zoom-in" class="chip-button" aria-label="Zoom in">+</button></span><button id="graph-layout" class="chip-button" aria-pressed="false" aria-controls="graph horizontal-map" title="Switch between horizontal and original force maps">Show original map</button><button id="graph-motion" hidden class="chip-button" aria-pressed="false" title="Freeze the graph layout while replay continues">Freeze</button><button id="graph-fit" hidden class="chip-button" title="Fit every displayed circle in the map">Fit</button></div></div>
+        <div id="graph-container"><div id="horizontal-map" tabindex="0" role="region" aria-label="Horizontal evidence map. Drag the background to pan. Scroll to zoom. Drag cards to arrange. Expand or collapse relationships."><div id="horizontal-world"></div></div><svg id="graph" hidden role="group" aria-label="Live evidence relationship graph. Drag circles, pan the background, or scroll to zoom."></svg><div id="graph-empty" class="empty"><span class="empty-symbol">⌘</span><strong>No relationships yet</strong><p>Relationships appear as shared evidence is found.</p></div><div id="graph-tooltip" class="graph-tooltip" hidden></div><span id="map-hint" class="map-hint">Scroll to explore · select to inspect</span></div>
+        <div class="graph-legend"><span><i class="legend-line"></i> Same source + host</span><span><i class="legend-line dashed"></i> Host + time only</span><span id="graph-visible">0 groups shown</span></div>
+        <div class="finding" id="finding"><span class="finding-icon">↳</span><div><strong>Waiting for a connected candidate</strong><p>A relationship means shared evidence, not proven causality.</p></div></div>
+      </div></details>
+      <div id="workspace-divider" class="workspace-divider" role="separator" tabindex="0" aria-label="Resize tree and live records" aria-orientation="vertical" aria-controls="graph-panel feed-panel" aria-valuemin="20" aria-valuemax="80" aria-valuenow="50" title="Drag to resize · arrow keys to adjust · double-click to reset"></div>
+      <details id="feed-panel" class="panel feed-panel panel-disclosure" open><summary>Records<span>Search incoming telemetry</span></summary><div class="panel-body">
+        <div class="panel-heading"><div><h2><span class="live-dot"></span>Records</h2><p>Newest arrivals first</p></div><span class="counter" id="feed-rate">0 / sec</span></div>
+        <div class="feed-tools"><select id="source-filter" aria-label="Filter log source"><option value="all">All sources</option><option value="Wazuh">Wazuh</option><option value="AMiner">AMiner</option><option value="Telemetry">Raw telemetry</option></select><label class="search"><span>⌕</span><input id="search" placeholder="Find host, IP, or text" aria-label="Search arriving logs"></label></div>
+        <div class="feed" id="feed"><div class="empty"><span class="empty-symbol">≋</span><strong>No records yet</strong><p>Start a replay to view incoming records.</p></div></div>
+        <div class="panel-footer"><span id="feed-caption">Showing the latest 220 received records</span><span class="mono">Live buffer</span></div>
+      </div></details>
+
+      <details id="ledger-panel" class="panel ledger-panel panel-disclosure" data-remember><summary>Decisions<span>Review the analysis history</span></summary><div class="panel-body">
+        <div class="panel-heading"><div><h2>Decisions</h2><p>What happened, and when</p></div><button id="ledger-mode" class="chip-button" title="Switch between all decisions and retained signal decisions">All decisions ▾</button></div>
+        <div class="ledger" id="ledger"><div class="empty"><span class="empty-symbol">↳</span><strong>No decisions yet</strong><p>Classification and grouping decisions appear during replay.</p></div></div>
+        <div class="panel-footer"><span>Event timestamp + replay elapsed</span></div>
+      </div></details>
+    </section>
+    <details id="groups-panel" class="panel groups-panel panel-disclosure" data-remember open><summary>Evidence groups<span>Review by priority</span></summary><div class="panel-body">
+      <div class="panel-heading"><div><h2>Evidence groups</h2><p>Sorted by priority · select a group to inspect</p></div><label class="show-routine"><input type="checkbox" id="show-routine" checked> Include routine / training</label></div>
+      <div id="priority-summary" class="priority-summary" aria-label="Evidence group priority totals"><span>Groups are categorized as evidence arrives.</span></div>
+      <div id="groups" class="groups"><div class="empty horizontal"><strong>No evidence groups yet</strong><span>Start a replay to build groups.</span></div></div>
+    </div></details>
+    <details id="false-positive-panel" class="panel panel-disclosure" data-remember open><summary>False positive tracker<span>Analyst reviews</span></summary><div class="panel-body">
+      <div class="panel-heading"><div><h2>False positive tracker</h2><p>Flag a group in the evidence inspector, then record your review.</p></div><button id="fp-export" class="secondary">Export reviews</button></div>
+      <p class="fp-note">Saved in this browser across replays. Reviews do not change detection results. Label windows alone cannot establish a false positive.</p>
+      <div id="fp-summary" class="priority-summary" role="status"></div><div id="fp-cases"></div>
+    </div></details>
+    <section id="verification" class="panel verification-panel" hidden>
+      <div class="panel-heading"><div><div class="eyebrow">POST-REPLAY CHECK</div><h2>Verification</h2></div><span class="badge">ANALYSIS UNCHANGED</span></div>
+      <div id="verification-overview" class="verification-overview" aria-live="polite"></div>
+      <div id="verification-detected" class="verification-detected"></div>
+      <p id="verification-note"></p><details id="verification-windows" class="disclosure" data-remember><summary>Label window details<span>Evidence and limitations for each window</span></summary><div class="table-wrap"><table><thead><tr><th>Dataset / label window</th><th>UTC interval</th><th>Records</th><th>What was detected</th><th>Evidence status</th><th>Possible errors / limitations</th></tr></thead><tbody id="verification-rows"></tbody></table></div></details>
+    </section>
+    <footer class="page-footer"><span>AIT alert exports · timestamps preserved · deterministic online correlation</span><span id="training-note">Training-mode observations remain marked.</span></footer>
+  </main>
+  <dialog id="detail-dialog"><div class="dialog-heading"><span class="eyebrow">EVIDENCE INSPECTOR</span><button class="icon-button close-dialog" aria-label="Close evidence inspector">×</button></div><div id="detail-content"></div></dialog>
+  <dialog id="method-dialog"><div class="dialog-heading"><span class="eyebrow">HOW THIS ENVIRONMENT WORKS</span><button class="icon-button close-dialog" aria-label="Close explanation">×</button></div><h2>How replay works</h2><p>Preparation reads the selected Wazuh, AMiner, and optional native telemetry files, extracts structural fields, and sorts records by their actual timestamps. It does not classify them. Ingestion IDs and sensor IPs are never substituted for event timestamps or actor identities.</p><ol><li><strong>Replay.</strong> Event-paced mode spreads the ordered records across the selected duration, compressing quiet gaps. Time-scaled mode advances the original clock evenly. Pause freezes ingestion; Step advances one record.</li><li><strong>Classify.</strong> Versioned rules inspect the current record and bounded windows of earlier observations. Distinct flow fan-out, authentication failures, and DNS sequences can supply a signal. Encoded command parameters are decoded as data and never executed. A request is not proof of execution.</li><li><strong>Group.</strong> Records with the same rule family, observed source, and host form an episode. Thirty minutes of inactivity starts a new episode. Detector repeats remain counted, with distinct evidence counted separately.</li><li><strong>Connect.</strong> Signals connect within 15 minutes on the same observed source and host. Privilege or service records can connect by host and time alone; those weaker edges remain dashed. No IP equivalence or attack success is invented.</li><li><strong>Investigate.</strong> Review a group with up to three host-and-time queries. Each query records evidence, an empty result, or a failure, followed by a thesis, benign challenge, and qualified verdict. Queries can retrieve only records already received in the selected dataset.</li><li><strong>Verify.</strong> The inference pipeline never opens labels.csv. A separate endpoint can read it only after completion, to compare frozen results with temporal attack windows.</li></ol><p>The original alerts and selected native logs have uneven visibility. A quiet window does not mean a safe system. Training-mode anomalies stay marked, and labels cannot establish record-level precision or recall.</p><p class="method-credit">Research direction: bounded evidence, inspectable grouping, and uncertainty-aware incident review. Classification uses transparent rules. Optional AI node analysis explains the selected evidence and suggests next steps; configure OPENAI_API_KEY on the server to enable it. Clicking Analyze node with AI sends a redacted evidence snapshot to OpenAI.</p></dialog>
+  <div id="toast" class="toast" role="alert" hidden></div>
+</body>
+</html>

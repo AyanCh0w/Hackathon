@@ -1,0 +1,2213 @@
+{
+  "page": "https://arxiv.org/list/cs.CR/recent?skip=0&show=2000",
+  "entries": [
+    {
+      "id": "2610.13853",
+      "title": "Decision-Focused Learning for Cyber-Physical Risk-Aware Power Grid Operations",
+      "url": "https://arxiv.org/abs/2610.13853",
+      "review_depth": "title screening only",
+      "decision": "Not shortlisted from title: lower direct fit than selected work to AIT Linux alert correlation, evidence-led triage and DNS exfiltration. Not a scientific-quality judgment."
+    },
+    {
+      "id": "2610.13651",
+      "title": "ToFu: Exploiting and Fuzzing the LLM-Orchestrator-Tool Trust Boundary",
+      "url": "https://arxiv.org/abs/2610.13651",
+      "review_depth": "abstract",
+      "decision": "Future investigation-tool input validation; not a local attack detector."
+    },
+    {
+      "id": "2610.13623",
+      "title": "APEX-Harm: Evaluating Agent Safety in Shared Professional Workspaces",
+      "url": "https://arxiv.org/abs/2610.13623",
+      "review_depth": "title screening only",
+      "decision": "Not shortlisted from title: lower direct fit than selected work to AIT Linux alert correlation, evidence-led triage and DNS exfiltration. Not a scientific-quality judgment."
+    },
+    {
+      "id": "2610.13597",
+      "title": "A Systematic Study of Security Enforcement at Android Inter-Component Boundaries",
+      "url": "https://arxiv.org/abs/2610.13597",
+      "review_depth": "title screening only",
+      "decision": "Not shortlisted from title: lower direct fit than selected work to AIT Linux alert correlation, evidence-led triage and DNS exfiltration. Not a scientific-quality judgment."
+    },
+    {
+      "id": "2610.13491",
+      "title": "EviRepair: Evidence-Driven Agents for Reliable Vulnerability Repair",
+      "url": "https://arxiv.org/abs/2610.13491",
+      "review_depth": "title screening only",
+      "decision": "Not shortlisted from title: lower direct fit than selected work to AIT Linux alert correlation, evidence-led triage and DNS exfiltration. Not a scientific-quality judgment."
+    },
+    {
+      "id": "2610.13372",
+      "title": "Towards Safe World Models: Risks, Defenses, and Evaluation",
+      "url": "https://arxiv.org/abs/2610.13372",
+      "review_depth": "title screening only",
+      "decision": "Not shortlisted from title: lower direct fit than selected work to AIT Linux alert correlation, evidence-led triage and DNS exfiltration. Not a scientific-quality judgment."
+    },
+    {
+      "id": "2610.13367",
+      "title": "Secrets in Preamble: Practical and Robust PHY Information Hiding for Wi-Fi",
+      "url": "https://arxiv.org/abs/2610.13367",
+      "review_depth": "title screening only",
+      "decision": "Not shortlisted from title: lower direct fit than selected work to AIT Linux alert correlation, evidence-led triage and DNS exfiltration. Not a scientific-quality judgment."
+    },
+    {
+      "id": "2610.13311",
+      "title": "Quantization-Tolerant Gradient Auditing for Active Inference-Attack Detection in Federated Learning",
+      "url": "https://arxiv.org/abs/2610.13311",
+      "review_depth": "title screening only",
+      "decision": "Not shortlisted from title: lower direct fit than selected work to AIT Linux alert correlation, evidence-led triage and DNS exfiltration. Not a scientific-quality judgment."
+    },
+    {
+      "id": "2610.13227",
+      "title": "Understanding and Mitigating Cross-Session Attacks via Persistent Artifacts in Agent Skill Composition",
+      "url": "https://arxiv.org/abs/2610.13227",
+      "review_depth": "title screening only",
+      "decision": "Not shortlisted from title: lower direct fit than selected work to AIT Linux alert correlation, evidence-led triage and DNS exfiltration. Not a scientific-quality judgment."
+    },
+    {
+      "id": "2610.13170",
+      "title": "Understanding Verification Vulnerabilities in Cross-chain Bridges: An Empirical Study",
+      "url": "https://arxiv.org/abs/2610.13170",
+      "review_depth": "title screening only",
+      "decision": "Not shortlisted from title: lower direct fit than selected work to AIT Linux alert correlation, evidence-led triage and DNS exfiltration. Not a scientific-quality judgment."
+    },
+    {
+      "id": "2610.13086",
+      "title": "Safety Graph: When Safety Responses Become Attack Surfaces in Cyber-Physical Systems",
+      "url": "https://arxiv.org/abs/2610.13086",
+      "review_depth": "title screening only",
+      "decision": "Not shortlisted from title: lower direct fit than selected work to AIT Linux alert correlation, evidence-led triage and DNS exfiltration. Not a scientific-quality judgment."
+    },
+    {
+      "id": "2610.13083",
+      "title": "The Limits of Query Monitoring against Distributed Model Extraction",
+      "url": "https://arxiv.org/abs/2610.13083",
+      "review_depth": "title screening only",
+      "decision": "Not shortlisted from title: lower direct fit than selected work to AIT Linux alert correlation, evidence-led triage and DNS exfiltration. Not a scientific-quality judgment."
+    },
+    {
+      "id": "2610.13071",
+      "title": "CAPE - Context-Aware Prioritization Engine for Vulnerability Scoring and Management",
+      "url": "https://arxiv.org/abs/2610.13071",
+      "review_depth": "title screening only",
+      "decision": "Not shortlisted from title: lower direct fit than selected work to AIT Linux alert correlation, evidence-led triage and DNS exfiltration. Not a scientific-quality judgment."
+    },
+    {
+      "id": "2610.13051",
+      "title": "Space Over Statistic, Retraining Over Ranking: Auditing Training Labels Under Label-Only Backdoors",
+      "url": "https://arxiv.org/abs/2610.13051",
+      "review_depth": "title screening only",
+      "decision": "Not shortlisted from title: lower direct fit than selected work to AIT Linux alert correlation, evidence-led triage and DNS exfiltration. Not a scientific-quality judgment."
+    },
+    {
+      "id": "2610.13043",
+      "title": "Provably Subexponential Algorithms for Bounded-Error LWE with Few Samples",
+      "url": "https://arxiv.org/abs/2610.13043",
+      "review_depth": "title screening only",
+      "decision": "Not shortlisted from title: lower direct fit than selected work to AIT Linux alert correlation, evidence-led triage and DNS exfiltration. Not a scientific-quality judgment."
+    },
+    {
+      "id": "2610.13026",
+      "title": "Post-Quantum Session Establishment for Matter over Thread: Message Size, Transport, and Protocol Options",
+      "url": "https://arxiv.org/abs/2610.13026",
+      "review_depth": "title screening only",
+      "decision": "Not shortlisted from title: lower direct fit than selected work to AIT Linux alert correlation, evidence-led triage and DNS exfiltration. Not a scientific-quality judgment."
+    },
+    {
+      "id": "2610.12952",
+      "title": "WaveMark: Robust Wavelet-Domain Image Watermarking for Diffusion Models",
+      "url": "https://arxiv.org/abs/2610.12952",
+      "review_depth": "title screening only",
+      "decision": "Not shortlisted from title: lower direct fit than selected work to AIT Linux alert correlation, evidence-led triage and DNS exfiltration. Not a scientific-quality judgment."
+    },
+    {
+      "id": "2610.12948",
+      "title": "AgentValve: Sybil-Resilient Payment Authorization for Permissionless AI Markets",
+      "url": "https://arxiv.org/abs/2610.12948",
+      "review_depth": "title screening only",
+      "decision": "Not shortlisted from title: lower direct fit than selected work to AIT Linux alert correlation, evidence-led triage and DNS exfiltration. Not a scientific-quality judgment."
+    },
+    {
+      "id": "2610.12913",
+      "title": "Sample-Preserving Search-to-Decision Reduction for Noisy Linear Equations over Large Moduli",
+      "url": "https://arxiv.org/abs/2610.12913",
+      "review_depth": "title screening only",
+      "decision": "Not shortlisted from title: lower direct fit than selected work to AIT Linux alert correlation, evidence-led triage and DNS exfiltration. Not a scientific-quality judgment."
+    },
+    {
+      "id": "2610.12893",
+      "title": "Vulnerable Models in the AI Supply Chain: An Empirical Study of Adoption, Propagation, and Usage Patterns",
+      "url": "https://arxiv.org/abs/2610.12893",
+      "review_depth": "title screening only",
+      "decision": "Not shortlisted from title: lower direct fit than selected work to AIT Linux alert correlation, evidence-led triage and DNS exfiltration. Not a scientific-quality judgment."
+    },
+    {
+      "id": "2610.12795",
+      "title": "Power, Performance, and Area of HPC-Based Malware Detectors: An FPGA and Open-PDK ASIC Study",
+      "url": "https://arxiv.org/abs/2610.12795",
+      "review_depth": "title screening only",
+      "decision": "Not shortlisted from title: lower direct fit than selected work to AIT Linux alert correlation, evidence-led triage and DNS exfiltration. Not a scientific-quality judgment."
+    },
+    {
+      "id": "2610.12764",
+      "title": "Onions in the ATmosphere: Decentralizing Trust in Identity",
+      "url": "https://arxiv.org/abs/2610.12764",
+      "review_depth": "title screening only",
+      "decision": "Not shortlisted from title: lower direct fit than selected work to AIT Linux alert correlation, evidence-led triage and DNS exfiltration. Not a scientific-quality judgment."
+    },
+    {
+      "id": "2610.12712",
+      "title": "Better Batches, Better Privacy: Random Allocation for DP-BandMF",
+      "url": "https://arxiv.org/abs/2610.12712",
+      "review_depth": "title screening only",
+      "decision": "Not shortlisted from title: lower direct fit than selected work to AIT Linux alert correlation, evidence-led triage and DNS exfiltration. Not a scientific-quality judgment."
+    },
+    {
+      "id": "2610.12704",
+      "title": "PVBRF-ID: Private, Verifiable and Byzantine-Robust Federated Intrusion Detection for Oilfield Enterprise Networks",
+      "url": "https://arxiv.org/abs/2610.12704",
+      "review_depth": "title screening only",
+      "decision": "Not shortlisted from title: lower direct fit than selected work to AIT Linux alert correlation, evidence-led triage and DNS exfiltration. Not a scientific-quality judgment."
+    },
+    {
+      "id": "2610.12695",
+      "title": "Enabling Extended SGX Enclaves inside Confidential Virtual Machines",
+      "url": "https://arxiv.org/abs/2610.12695",
+      "review_depth": "title screening only",
+      "decision": "Not shortlisted from title: lower direct fit than selected work to AIT Linux alert correlation, evidence-led triage and DNS exfiltration. Not a scientific-quality judgment."
+    },
+    {
+      "id": "2610.12644",
+      "title": "Cancerous Backdoor Attack: Gradual Activation via Invisible Tokens and A Stage Controller",
+      "url": "https://arxiv.org/abs/2610.12644",
+      "review_depth": "title screening only",
+      "decision": "Not shortlisted from title: lower direct fit than selected work to AIT Linux alert correlation, evidence-led triage and DNS exfiltration. Not a scientific-quality judgment."
+    },
+    {
+      "id": "2610.12621",
+      "title": "HOMARD: Hammering Off-chip Memory via Aggregate power Rail Disclosure",
+      "url": "https://arxiv.org/abs/2610.12621",
+      "review_depth": "title screening only",
+      "decision": "Not shortlisted from title: lower direct fit than selected work to AIT Linux alert correlation, evidence-led triage and DNS exfiltration. Not a scientific-quality judgment."
+    },
+    {
+      "id": "2610.12540",
+      "title": "Organizational Context for the Enterprise Security Brain",
+      "url": "https://arxiv.org/abs/2610.12540",
+      "review_depth": "abstract and selected full-text sections",
+      "decision": "Organizational context and asset identity; requires unavailable authoritative policy/ownership data."
+    },
+    {
+      "id": "2610.12535",
+      "title": "SoK: Privacy-Preserving Order Matching",
+      "url": "https://arxiv.org/abs/2610.12535",
+      "review_depth": "title screening only",
+      "decision": "Not shortlisted from title: lower direct fit than selected work to AIT Linux alert correlation, evidence-led triage and DNS exfiltration. Not a scientific-quality judgment."
+    },
+    {
+      "id": "2610.12524",
+      "title": "An Exploration of Attacks on AI Agent Systems",
+      "url": "https://arxiv.org/abs/2610.12524",
+      "review_depth": "title screening only",
+      "decision": "Not shortlisted from title: lower direct fit than selected work to AIT Linux alert correlation, evidence-led triage and DNS exfiltration. Not a scientific-quality judgment."
+    },
+    {
+      "id": "2610.13928",
+      "title": "AI Models Can Provably Hide Arbitrary Capabilities",
+      "url": "https://arxiv.org/abs/2610.13928",
+      "review_depth": "title screening only",
+      "decision": "Not shortlisted from title: lower direct fit than selected work to AIT Linux alert correlation, evidence-led triage and DNS exfiltration. Not a scientific-quality judgment."
+    },
+    {
+      "id": "2610.13357",
+      "title": "ECGWmark: Deep Watermarking for Electrocardiogram Signals",
+      "url": "https://arxiv.org/abs/2610.13357",
+      "review_depth": "title screening only",
+      "decision": "Not shortlisted from title: lower direct fit than selected work to AIT Linux alert correlation, evidence-led triage and DNS exfiltration. Not a scientific-quality judgment."
+    },
+    {
+      "id": "2610.13333",
+      "title": "LETHE: Defending against Unauthorized Image-to-Video Generation via Value Diversity Collapse",
+      "url": "https://arxiv.org/abs/2610.13333",
+      "review_depth": "title screening only",
+      "decision": "Not shortlisted from title: lower direct fit than selected work to AIT Linux alert correlation, evidence-led triage and DNS exfiltration. Not a scientific-quality judgment."
+    },
+    {
+      "id": "2610.12858",
+      "title": "The False Allure of \"Security by Obscurity\": A Game-Theoretic Approach",
+      "url": "https://arxiv.org/abs/2610.12858",
+      "review_depth": "title screening only",
+      "decision": "Not shortlisted from title: lower direct fit than selected work to AIT Linux alert correlation, evidence-led triage and DNS exfiltration. Not a scientific-quality judgment."
+    },
+    {
+      "id": "2610.12822",
+      "title": "Reward Hacking as a Transmissible Strategy in Multi-Agent Coding Systems",
+      "url": "https://arxiv.org/abs/2610.12822",
+      "review_depth": "title screening only",
+      "decision": "Not shortlisted from title: lower direct fit than selected work to AIT Linux alert correlation, evidence-led triage and DNS exfiltration. Not a scientific-quality judgment."
+    },
+    {
+      "id": "2610.12813",
+      "title": "VEPA: Verified Evolving Formal Policy for Lifelong LLM Agent Guardrails",
+      "url": "https://arxiv.org/abs/2610.12813",
+      "review_depth": "title screening only",
+      "decision": "Not shortlisted from title: lower direct fit than selected work to AIT Linux alert correlation, evidence-led triage and DNS exfiltration. Not a scientific-quality judgment."
+    },
+    {
+      "id": "2610.12711",
+      "title": "Byzantine-Resilient Federated Large Language Model via Hypergraph Message Passing",
+      "url": "https://arxiv.org/abs/2610.12711",
+      "review_depth": "title screening only",
+      "decision": "Not shortlisted from title: lower direct fit than selected work to AIT Linux alert correlation, evidence-led triage and DNS exfiltration. Not a scientific-quality judgment."
+    },
+    {
+      "id": "2610.12463",
+      "title": "From Reactive Containment to Proactive Assurance: Lessons from OpenAI, Anthropic, and Google Agent Security Incidents",
+      "url": "https://arxiv.org/abs/2610.12463",
+      "review_depth": "title screening only",
+      "decision": "Not shortlisted from title: lower direct fit than selected work to AIT Linux alert correlation, evidence-led triage and DNS exfiltration. Not a scientific-quality judgment."
+    },
+    {
+      "id": "2610.12415",
+      "title": "ORCAGen: Orchestrating Context-Aware Malware Deception with RAG-Guided Generative AI",
+      "url": "https://arxiv.org/abs/2610.12415",
+      "review_depth": "title screening only",
+      "decision": "Not shortlisted from title: lower direct fit than selected work to AIT Linux alert correlation, evidence-led triage and DNS exfiltration. Not a scientific-quality judgment."
+    },
+    {
+      "id": "2610.12233",
+      "title": "ReSI: Recursive Safety Improvement toward Resistant and Resilient AI",
+      "url": "https://arxiv.org/abs/2610.12233",
+      "review_depth": "title screening only",
+      "decision": "Not shortlisted from title: lower direct fit than selected work to AIT Linux alert correlation, evidence-led triage and DNS exfiltration. Not a scientific-quality judgment."
+    },
+    {
+      "id": "2610.12220",
+      "title": "One Node, Two Roles: Simultaneous Contests for Validation and Attention in Rollups",
+      "url": "https://arxiv.org/abs/2610.12220",
+      "review_depth": "title screening only",
+      "decision": "Not shortlisted from title: lower direct fit than selected work to AIT Linux alert correlation, evidence-led triage and DNS exfiltration. Not a scientific-quality judgment."
+    },
+    {
+      "id": "2610.12137",
+      "title": "Poster: A Preliminary Study of LLM Distillation Inference",
+      "url": "https://arxiv.org/abs/2610.12137",
+      "review_depth": "title screening only",
+      "decision": "Not shortlisted from title: lower direct fit than selected work to AIT Linux alert correlation, evidence-led triage and DNS exfiltration. Not a scientific-quality judgment."
+    },
+    {
+      "id": "2610.12106",
+      "title": "Could LLM Watermark Detection be Public?",
+      "url": "https://arxiv.org/abs/2610.12106",
+      "review_depth": "title screening only",
+      "decision": "Not shortlisted from title: lower direct fit than selected work to AIT Linux alert correlation, evidence-led triage and DNS exfiltration. Not a scientific-quality judgment."
+    },
+    {
+      "id": "2610.12050",
+      "title": "Protecting CPU AI On Edge TEEs: WebAssembly's Promise and Practical Challenges",
+      "url": "https://arxiv.org/abs/2610.12050",
+      "review_depth": "title screening only",
+      "decision": "Not shortlisted from title: lower direct fit than selected work to AIT Linux alert correlation, evidence-led triage and DNS exfiltration. Not a scientific-quality judgment."
+    },
+    {
+      "id": "2610.12024",
+      "title": "HPQ-AKE: A Provably Secure Sign-Less Hybrid Authenticated Key Exchange Protocol for Bandwidth-Constrained IoT and Edge Networks",
+      "url": "https://arxiv.org/abs/2610.12024",
+      "review_depth": "title screening only",
+      "decision": "Not shortlisted from title: lower direct fit than selected work to AIT Linux alert correlation, evidence-led triage and DNS exfiltration. Not a scientific-quality judgment."
+    },
+    {
+      "id": "2610.11996",
+      "title": "Moving Target Defense in SDN-enabled EV Charging Network",
+      "url": "https://arxiv.org/abs/2610.11996",
+      "review_depth": "title screening only",
+      "decision": "Not shortlisted from title: lower direct fit than selected work to AIT Linux alert correlation, evidence-led triage and DNS exfiltration. Not a scientific-quality judgment."
+    },
+    {
+      "id": "2610.11932",
+      "title": "From Public Posts to AI-Search Citations: Measuring the Fragility of AI Search",
+      "url": "https://arxiv.org/abs/2610.11932",
+      "review_depth": "title screening only",
+      "decision": "Not shortlisted from title: lower direct fit than selected work to AIT Linux alert correlation, evidence-led triage and DNS exfiltration. Not a scientific-quality judgment."
+    },
+    {
+      "id": "2610.11893",
+      "title": "A Security Meta-Model for Retrieval-Augmented Generation Systems",
+      "url": "https://arxiv.org/abs/2610.11893",
+      "review_depth": "title screening only",
+      "decision": "Not shortlisted from title: lower direct fit than selected work to AIT Linux alert correlation, evidence-led triage and DNS exfiltration. Not a scientific-quality judgment."
+    },
+    {
+      "id": "2610.11873",
+      "title": "Secure Aggregate Encryption with Identity-Based Authentication for Multi-Vendor FPGA Cloud Deployment",
+      "url": "https://arxiv.org/abs/2610.11873",
+      "review_depth": "title screening only",
+      "decision": "Not shortlisted from title: lower direct fit than selected work to AIT Linux alert correlation, evidence-led triage and DNS exfiltration. Not a scientific-quality judgment."
+    },
+    {
+      "id": "2610.11848",
+      "title": "SemField: A Simple, Linear, Continuous, yet Robust Semantic Watermark",
+      "url": "https://arxiv.org/abs/2610.11848",
+      "review_depth": "title screening only",
+      "decision": "Not shortlisted from title: lower direct fit than selected work to AIT Linux alert correlation, evidence-led triage and DNS exfiltration. Not a scientific-quality judgment."
+    },
+    {
+      "id": "2610.11843",
+      "title": "Anytime-valid detection of LLM weight exfiltration",
+      "url": "https://arxiv.org/abs/2610.11843",
+      "review_depth": "title screening only",
+      "decision": "Not shortlisted from title: lower direct fit than selected work to AIT Linux alert correlation, evidence-led triage and DNS exfiltration. Not a scientific-quality judgment."
+    },
+    {
+      "id": "2610.11640",
+      "title": "Host Attack Graph for Botnet Propagation",
+      "url": "https://arxiv.org/abs/2610.11640",
+      "review_depth": "abstract",
+      "decision": "Botnet propagation/topology model has lower direct fit."
+    },
+    {
+      "id": "2610.11634",
+      "title": "LTBD: Learnable Trust-Boundary Delimiters for Prompt Injection Defense",
+      "url": "https://arxiv.org/abs/2610.11634",
+      "review_depth": "title screening only",
+      "decision": "Not shortlisted from title: lower direct fit than selected work to AIT Linux alert correlation, evidence-led triage and DNS exfiltration. Not a scientific-quality judgment."
+    },
+    {
+      "id": "2610.11602",
+      "title": "Where Do the Tokens Go? Understanding and Reducing Costs in LLM Agents for Vulnerability Discovery",
+      "url": "https://arxiv.org/abs/2610.11602",
+      "review_depth": "title screening only",
+      "decision": "Not shortlisted from title: lower direct fit than selected work to AIT Linux alert correlation, evidence-led triage and DNS exfiltration. Not a scientific-quality judgment."
+    },
+    {
+      "id": "2610.11556",
+      "title": "SoK: Are LLMs Reliable at Source Code Recovery? A Taxonomy and Empirical Evaluation",
+      "url": "https://arxiv.org/abs/2610.11556",
+      "review_depth": "title screening only",
+      "decision": "Not shortlisted from title: lower direct fit than selected work to AIT Linux alert correlation, evidence-led triage and DNS exfiltration. Not a scientific-quality judgment."
+    },
+    {
+      "id": "2610.11513",
+      "title": "Certifying Hidden Paths: Scalable Topology Assurance for QKD Networks",
+      "url": "https://arxiv.org/abs/2610.11513",
+      "review_depth": "title screening only",
+      "decision": "Not shortlisted from title: lower direct fit than selected work to AIT Linux alert correlation, evidence-led triage and DNS exfiltration. Not a scientific-quality judgment."
+    },
+    {
+      "id": "2610.11511",
+      "title": "EIFL: Efficiently Protecting Global Model Privacy and Integrity Against an Untrusted Server in Federated Learning",
+      "url": "https://arxiv.org/abs/2610.11511",
+      "review_depth": "title screening only",
+      "decision": "Not shortlisted from title: lower direct fit than selected work to AIT Linux alert correlation, evidence-led triage and DNS exfiltration. Not a scientific-quality judgment."
+    },
+    {
+      "id": "2610.11490",
+      "title": "A Zero-Knowledge Signature Framework for Efficient Post-Quantum Message Authentication in Cooperative Automated Driving",
+      "url": "https://arxiv.org/abs/2610.11490",
+      "review_depth": "title screening only",
+      "decision": "Not shortlisted from title: lower direct fit than selected work to AIT Linux alert correlation, evidence-led triage and DNS exfiltration. Not a scientific-quality judgment."
+    },
+    {
+      "id": "2610.11488",
+      "title": "MARC: Multi-Bit Watermarking for Autoregressive Audio Generation against Codec Attacks",
+      "url": "https://arxiv.org/abs/2610.11488",
+      "review_depth": "title screening only",
+      "decision": "Not shortlisted from title: lower direct fit than selected work to AIT Linux alert correlation, evidence-led triage and DNS exfiltration. Not a scientific-quality judgment."
+    },
+    {
+      "id": "2610.11471",
+      "title": "A Survey of Security Research for Operating Systems",
+      "url": "https://arxiv.org/abs/2610.11471",
+      "review_depth": "title screening only",
+      "decision": "Not shortlisted from title: lower direct fit than selected work to AIT Linux alert correlation, evidence-led triage and DNS exfiltration. Not a scientific-quality judgment."
+    },
+    {
+      "id": "2610.11467",
+      "title": "GROB: A Multi-Agent Architecture for Public-Trace Investigation of Candidate Agentic Activity",
+      "url": "https://arxiv.org/abs/2610.11467",
+      "review_depth": "title screening only",
+      "decision": "Not shortlisted from title: lower direct fit than selected work to AIT Linux alert correlation, evidence-led triage and DNS exfiltration. Not a scientific-quality judgment."
+    },
+    {
+      "id": "2610.11439",
+      "title": "On-Chain Archaeology of Bitcoin Oracles: Evidence of Use under Limited Observability",
+      "url": "https://arxiv.org/abs/2610.11439",
+      "review_depth": "title screening only",
+      "decision": "Not shortlisted from title: lower direct fit than selected work to AIT Linux alert correlation, evidence-led triage and DNS exfiltration. Not a scientific-quality judgment."
+    },
+    {
+      "id": "2610.11398",
+      "title": "MORDOR:Mitigating Overheads of Read Disturbance Preventive Operations via Elastic Refresh Scheduling",
+      "url": "https://arxiv.org/abs/2610.11398",
+      "review_depth": "title screening only",
+      "decision": "Not shortlisted from title: lower direct fit than selected work to AIT Linux alert correlation, evidence-led triage and DNS exfiltration. Not a scientific-quality judgment."
+    },
+    {
+      "id": "2610.11290",
+      "title": "ProxyEraseAgent: Blind Watermark Removal in the Wild",
+      "url": "https://arxiv.org/abs/2610.11290",
+      "review_depth": "title screening only",
+      "decision": "Not shortlisted from title: lower direct fit than selected work to AIT Linux alert correlation, evidence-led triage and DNS exfiltration. Not a scientific-quality judgment."
+    },
+    {
+      "id": "2610.11285",
+      "title": "Soft Voting for Policy-Aware Private Data Synthesis",
+      "url": "https://arxiv.org/abs/2610.11285",
+      "review_depth": "title screening only",
+      "decision": "Not shortlisted from title: lower direct fit than selected work to AIT Linux alert correlation, evidence-led triage and DNS exfiltration. Not a scientific-quality judgment."
+    },
+    {
+      "id": "2610.11254",
+      "title": "Provable Subexponential Algorithms for NIST Third-Round Lattice Families",
+      "url": "https://arxiv.org/abs/2610.11254",
+      "review_depth": "title screening only",
+      "decision": "Not shortlisted from title: lower direct fit than selected work to AIT Linux alert correlation, evidence-led triage and DNS exfiltration. Not a scientific-quality judgment."
+    },
+    {
+      "id": "2610.11218",
+      "title": "BRACE: Differential Privacy for Dense Associative Memory with LSR Energy",
+      "url": "https://arxiv.org/abs/2610.11218",
+      "review_depth": "title screening only",
+      "decision": "Not shortlisted from title: lower direct fit than selected work to AIT Linux alert correlation, evidence-led triage and DNS exfiltration. Not a scientific-quality judgment."
+    },
+    {
+      "id": "2610.11163",
+      "title": "Characterizing Statistical Separability in TP-CRIV for Probabilistic AI Models",
+      "url": "https://arxiv.org/abs/2610.11163",
+      "review_depth": "title screening only",
+      "decision": "Not shortlisted from title: lower direct fit than selected work to AIT Linux alert correlation, evidence-led triage and DNS exfiltration. Not a scientific-quality judgment."
+    },
+    {
+      "id": "2610.11112",
+      "title": "False Claims, Credible Images: A Red-Teaming Benchmark for Commercial Image Generators",
+      "url": "https://arxiv.org/abs/2610.11112",
+      "review_depth": "title screening only",
+      "decision": "Not shortlisted from title: lower direct fit than selected work to AIT Linux alert correlation, evidence-led triage and DNS exfiltration. Not a scientific-quality judgment."
+    },
+    {
+      "id": "2610.11107",
+      "title": "Accelerating HQC for Post-Quantum TLS 1.3 on x86 IoT Gateways",
+      "url": "https://arxiv.org/abs/2610.11107",
+      "review_depth": "title screening only",
+      "decision": "Not shortlisted from title: lower direct fit than selected work to AIT Linux alert correlation, evidence-led triage and DNS exfiltration. Not a scientific-quality judgment."
+    },
+    {
+      "id": "2610.11030",
+      "title": "NOMOS: Compiling Written Policies into Statically Verified Tool-Call Gates for LLM Agents",
+      "url": "https://arxiv.org/abs/2610.11030",
+      "review_depth": "title screening only",
+      "decision": "Not shortlisted from title: lower direct fit than selected work to AIT Linux alert correlation, evidence-led triage and DNS exfiltration. Not a scientific-quality judgment."
+    },
+    {
+      "id": "2610.10992",
+      "title": "The Hint Weight of ML-DSA Signatures Is Key-Dependent: An Empirical Study across the Three FIPS 204 Parameter Sets",
+      "url": "https://arxiv.org/abs/2610.10992",
+      "review_depth": "title screening only",
+      "decision": "Not shortlisted from title: lower direct fit than selected work to AIT Linux alert correlation, evidence-led triage and DNS exfiltration. Not a scientific-quality judgment."
+    },
+    {
+      "id": "2610.10929",
+      "title": "Speedbumps: Rejection Attacks on Speculative Decoding",
+      "url": "https://arxiv.org/abs/2610.10929",
+      "review_depth": "title screening only",
+      "decision": "Not shortlisted from title: lower direct fit than selected work to AIT Linux alert correlation, evidence-led triage and DNS exfiltration. Not a scientific-quality judgment."
+    },
+    {
+      "id": "2610.10909",
+      "title": "Power Side-Channel Membership Inference Attack on Embedded Machine Learning",
+      "url": "https://arxiv.org/abs/2610.10909",
+      "review_depth": "title screening only",
+      "decision": "Not shortlisted from title: lower direct fit than selected work to AIT Linux alert correlation, evidence-led triage and DNS exfiltration. Not a scientific-quality judgment."
+    },
+    {
+      "id": "2610.10844",
+      "title": "When Flaws Cascade: Understanding Vulnerabilities and Exploitation Chains in JavaScript Engines",
+      "url": "https://arxiv.org/abs/2610.10844",
+      "review_depth": "title screening only",
+      "decision": "Not shortlisted from title: lower direct fit than selected work to AIT Linux alert correlation, evidence-led triage and DNS exfiltration. Not a scientific-quality judgment."
+    },
+    {
+      "id": "2610.10766",
+      "title": "CPU-Auth: Device Fingerprinting for Authentication via DVFS Side-Channel",
+      "url": "https://arxiv.org/abs/2610.10766",
+      "review_depth": "title screening only",
+      "decision": "Not shortlisted from title: lower direct fit than selected work to AIT Linux alert correlation, evidence-led triage and DNS exfiltration. Not a scientific-quality judgment."
+    },
+    {
+      "id": "2610.10752",
+      "title": "Detection-Guided Adaptive Purification with Diffusion Models for Robust Audio Deepfake Detection",
+      "url": "https://arxiv.org/abs/2610.10752",
+      "review_depth": "title screening only",
+      "decision": "Not shortlisted from title: lower direct fit than selected work to AIT Linux alert correlation, evidence-led triage and DNS exfiltration. Not a scientific-quality judgment."
+    },
+    {
+      "id": "2610.10742",
+      "title": "BRANCH: Bypassing Multi-Scanner AI Guardrails",
+      "url": "https://arxiv.org/abs/2610.10742",
+      "review_depth": "title screening only",
+      "decision": "Not shortlisted from title: lower direct fit than selected work to AIT Linux alert correlation, evidence-led triage and DNS exfiltration. Not a scientific-quality judgment."
+    },
+    {
+      "id": "2610.10735",
+      "title": "DITTO: A Context-aware Pickle-based Pre-Trained Model Scanner for Effective Security Audits",
+      "url": "https://arxiv.org/abs/2610.10735",
+      "review_depth": "title screening only",
+      "decision": "Not shortlisted from title: lower direct fit than selected work to AIT Linux alert correlation, evidence-led triage and DNS exfiltration. Not a scientific-quality judgment."
+    },
+    {
+      "id": "2610.10644",
+      "title": "SoK: Failure Modes in Common Criteria Product Evaluation - A Taxonomy and Design-for-Evaluability Guidance",
+      "url": "https://arxiv.org/abs/2610.10644",
+      "review_depth": "title screening only",
+      "decision": "Not shortlisted from title: lower direct fit than selected work to AIT Linux alert correlation, evidence-led triage and DNS exfiltration. Not a scientific-quality judgment."
+    },
+    {
+      "id": "2610.10625",
+      "title": "Safe at One Loop, Risky at Another: Aligning Safety Across Recurrent Depths in Looped Language Models",
+      "url": "https://arxiv.org/abs/2610.10625",
+      "review_depth": "title screening only",
+      "decision": "Not shortlisted from title: lower direct fit than selected work to AIT Linux alert correlation, evidence-led triage and DNS exfiltration. Not a scientific-quality judgment."
+    },
+    {
+      "id": "2610.10620",
+      "title": "When AI Finds Hidden Messages, Does It Report?",
+      "url": "https://arxiv.org/abs/2610.10620",
+      "review_depth": "title screening only",
+      "decision": "Not shortlisted from title: lower direct fit than selected work to AIT Linux alert correlation, evidence-led triage and DNS exfiltration. Not a scientific-quality judgment."
+    },
+    {
+      "id": "2610.10617",
+      "title": "MRCert: Towards Post-deployment Patch Robustness Certification for Adversarially Patched Samples via Type-specific Masking",
+      "url": "https://arxiv.org/abs/2610.10617",
+      "review_depth": "title screening only",
+      "decision": "Not shortlisted from title: lower direct fit than selected work to AIT Linux alert correlation, evidence-led triage and DNS exfiltration. Not a scientific-quality judgment."
+    },
+    {
+      "id": "2610.10612",
+      "title": "PyCache Trap: The Inspection-Execution Gap in Agent Skill Scanners",
+      "url": "https://arxiv.org/abs/2610.10612",
+      "review_depth": "title screening only",
+      "decision": "Not shortlisted from title: lower direct fit than selected work to AIT Linux alert correlation, evidence-led triage and DNS exfiltration. Not a scientific-quality judgment."
+    },
+    {
+      "id": "2610.10608",
+      "title": "From Investigation Failures to Reliable SOC Agents: Understanding and Improving LLM-Based Alert Triage",
+      "url": "https://arxiv.org/abs/2610.10608",
+      "review_depth": "abstract and selected full-text sections",
+      "decision": "Primary: evidence-led triage on the same AIT dataset family; methods, results and limitations examined."
+    },
+    {
+      "id": "2610.10597",
+      "title": "Certified Corruption Budgets: Anytime-Valid Leaderboard Claims under Adaptive Rigging",
+      "url": "https://arxiv.org/abs/2610.10597",
+      "review_depth": "title screening only",
+      "decision": "Not shortlisted from title: lower direct fit than selected work to AIT Linux alert correlation, evidence-led triage and DNS exfiltration. Not a scientific-quality judgment."
+    },
+    {
+      "id": "2610.12357",
+      "title": "Improved Local Leakage Resilience of Shamir Secret Sharing and Worst-Case Optimal Polynomial Intersection",
+      "url": "https://arxiv.org/abs/2610.12357",
+      "review_depth": "title screening only",
+      "decision": "Not shortlisted from title: lower direct fit than selected work to AIT Linux alert correlation, evidence-led triage and DNS exfiltration. Not a scientific-quality judgment."
+    },
+    {
+      "id": "2610.12211",
+      "title": "Verification with Transfer: Exact Information Frontiers and Their Price in Calls",
+      "url": "https://arxiv.org/abs/2610.12211",
+      "review_depth": "title screening only",
+      "decision": "Not shortlisted from title: lower direct fit than selected work to AIT Linux alert correlation, evidence-led triage and DNS exfiltration. Not a scientific-quality judgment."
+    },
+    {
+      "id": "2610.11870",
+      "title": "Local Sensitivity in Exponential Selection: Failure Modes and Valid Calibrations",
+      "url": "https://arxiv.org/abs/2610.11870",
+      "review_depth": "title screening only",
+      "decision": "Not shortlisted from title: lower direct fit than selected work to AIT Linux alert correlation, evidence-led triage and DNS exfiltration. Not a scientific-quality judgment."
+    },
+    {
+      "id": "2610.11496",
+      "title": "Stop My Dancing! Understanding, Detecting and Attributing Motion-Aware Deepfake Videos",
+      "url": "https://arxiv.org/abs/2610.11496",
+      "review_depth": "title screening only",
+      "decision": "Not shortlisted from title: lower direct fit than selected work to AIT Linux alert correlation, evidence-led triage and DNS exfiltration. Not a scientific-quality judgment."
+    },
+    {
+      "id": "2610.11436",
+      "title": "Adversarial Cues in Decision Models Used as Judges: The Role of Request Presentation",
+      "url": "https://arxiv.org/abs/2610.11436",
+      "review_depth": "title screening only",
+      "decision": "Not shortlisted from title: lower direct fit than selected work to AIT Linux alert correlation, evidence-led triage and DNS exfiltration. Not a scientific-quality judgment."
+    },
+    {
+      "id": "2610.11169",
+      "title": "Skill Constellations: Tracing the Supply Chain of Agent Skills on GitHub",
+      "url": "https://arxiv.org/abs/2610.11169",
+      "review_depth": "title screening only",
+      "decision": "Not shortlisted from title: lower direct fit than selected work to AIT Linux alert correlation, evidence-led triage and DNS exfiltration. Not a scientific-quality judgment."
+    },
+    {
+      "id": "2610.11031",
+      "title": "Language Modeling is Monotone Compression",
+      "url": "https://arxiv.org/abs/2610.11031",
+      "review_depth": "title screening only",
+      "decision": "Not shortlisted from title: lower direct fit than selected work to AIT Linux alert correlation, evidence-led triage and DNS exfiltration. Not a scientific-quality judgment."
+    },
+    {
+      "id": "2610.10659",
+      "title": "Applying Security by Design at the Point of Execution: How Governed Security Requirements Affect the Security of AI-Generated Code",
+      "url": "https://arxiv.org/abs/2610.10659",
+      "review_depth": "title screening only",
+      "decision": "Not shortlisted from title: lower direct fit than selected work to AIT Linux alert correlation, evidence-led triage and DNS exfiltration. Not a scientific-quality judgment."
+    },
+    {
+      "id": "2610.10655",
+      "title": "Nullify: Null-Space Activation Steering for Training-Free LLM Unlearning",
+      "url": "https://arxiv.org/abs/2610.10655",
+      "review_depth": "title screening only",
+      "decision": "Not shortlisted from title: lower direct fit than selected work to AIT Linux alert correlation, evidence-led triage and DNS exfiltration. Not a scientific-quality judgment."
+    },
+    {
+      "id": "2610.10616",
+      "title": "When Routing Reveals Membership: Privacy Leakage from MoE Router Telemetry",
+      "url": "https://arxiv.org/abs/2610.10616",
+      "review_depth": "title screening only",
+      "decision": "Not shortlisted from title: lower direct fit than selected work to AIT Linux alert correlation, evidence-led triage and DNS exfiltration. Not a scientific-quality judgment."
+    },
+    {
+      "id": "2610.10613",
+      "title": "Temporal transformer CAN encoder with federated lightweight heads for anomaly detection",
+      "url": "https://arxiv.org/abs/2610.10613",
+      "review_depth": "title screening only",
+      "decision": "Not shortlisted from title: lower direct fit than selected work to AIT Linux alert correlation, evidence-led triage and DNS exfiltration. Not a scientific-quality judgment."
+    },
+    {
+      "id": "2610.10360",
+      "title": "Receiver-Domain Behavioral Probing for Backdoor-Resilient Federated GPS Spoofing Detection in UAV Networks",
+      "url": "https://arxiv.org/abs/2610.10360",
+      "review_depth": "title screening only",
+      "decision": "Not shortlisted from title: lower direct fit than selected work to AIT Linux alert correlation, evidence-led triage and DNS exfiltration. Not a scientific-quality judgment."
+    },
+    {
+      "id": "2610.10345",
+      "title": "SLDR: Defending Against Malicious Fine-tuning via Selective Layers Recovery and Dynamic Routing",
+      "url": "https://arxiv.org/abs/2610.10345",
+      "review_depth": "title screening only",
+      "decision": "Not shortlisted from title: lower direct fit than selected work to AIT Linux alert correlation, evidence-led triage and DNS exfiltration. Not a scientific-quality judgment."
+    },
+    {
+      "id": "2610.10176",
+      "title": "Collusion-Secure Semi-Quantum Secret Sharing Scheme using a Quantum Third Party",
+      "url": "https://arxiv.org/abs/2610.10176",
+      "review_depth": "title screening only",
+      "decision": "Not shortlisted from title: lower direct fit than selected work to AIT Linux alert correlation, evidence-led triage and DNS exfiltration. Not a scientific-quality judgment."
+    },
+    {
+      "id": "2610.10150",
+      "title": "On the Reliability of LLM-Based Vulnerability Patching Benchmarks",
+      "url": "https://arxiv.org/abs/2610.10150",
+      "review_depth": "title screening only",
+      "decision": "Not shortlisted from title: lower direct fit than selected work to AIT Linux alert correlation, evidence-led triage and DNS exfiltration. Not a scientific-quality judgment."
+    },
+    {
+      "id": "2610.10149",
+      "title": "Pump-and-Dump meets Honeypot Tokens: Detection and Analysis of Telegram Bait-and-Trap Schemes",
+      "url": "https://arxiv.org/abs/2610.10149",
+      "review_depth": "title screening only",
+      "decision": "Not shortlisted from title: lower direct fit than selected work to AIT Linux alert correlation, evidence-led triage and DNS exfiltration. Not a scientific-quality judgment."
+    },
+    {
+      "id": "2610.10075",
+      "title": "BetweenCut: Private Heavy-Node Classification with Doubly Logarithmic Error in Tree Height",
+      "url": "https://arxiv.org/abs/2610.10075",
+      "review_depth": "title screening only",
+      "decision": "Not shortlisted from title: lower direct fit than selected work to AIT Linux alert correlation, evidence-led triage and DNS exfiltration. Not a scientific-quality judgment."
+    },
+    {
+      "id": "2610.10010",
+      "title": "Defining Purpose-Limited Secrets",
+      "url": "https://arxiv.org/abs/2610.10010",
+      "review_depth": "title screening only",
+      "decision": "Not shortlisted from title: lower direct fit than selected work to AIT Linux alert correlation, evidence-led triage and DNS exfiltration. Not a scientific-quality judgment."
+    },
+    {
+      "id": "2610.09981",
+      "title": "Sensitive-Topic Leakage Through LLM Routing Metadata: Measurement and Mitigation",
+      "url": "https://arxiv.org/abs/2610.09981",
+      "review_depth": "title screening only",
+      "decision": "Not shortlisted from title: lower direct fit than selected work to AIT Linux alert correlation, evidence-led triage and DNS exfiltration. Not a scientific-quality judgment."
+    },
+    {
+      "id": "2610.09918",
+      "title": "CYBERFORT: A Compliance-Chain Platform Operationalising the Cyber Resilience Act for SMEs",
+      "url": "https://arxiv.org/abs/2610.09918",
+      "review_depth": "title screening only",
+      "decision": "Not shortlisted from title: lower direct fit than selected work to AIT Linux alert correlation, evidence-led triage and DNS exfiltration. Not a scientific-quality judgment."
+    },
+    {
+      "id": "2610.09906",
+      "title": "Constrained-Action AI Remediation for SIEM/XDR via a NeMo-Guardrails Proxy",
+      "url": "https://arxiv.org/abs/2610.09906",
+      "review_depth": "abstract and selected full-text sections",
+      "decision": "Response architecture and hostile telemetry boundaries; only needed if remediation is added."
+    },
+    {
+      "id": "2610.09892",
+      "title": "Defensive Sufficiency in a Stackelberg Model of AI Security",
+      "url": "https://arxiv.org/abs/2610.09892",
+      "review_depth": "title screening only",
+      "decision": "Not shortlisted from title: lower direct fit than selected work to AIT Linux alert correlation, evidence-led triage and DNS exfiltration. Not a scientific-quality judgment."
+    },
+    {
+      "id": "2610.09825",
+      "title": "Hybrid Hierarchical Runtime Verification for Edge-IoT Security: Combining MonPoly and RTLola",
+      "url": "https://arxiv.org/abs/2610.09825",
+      "review_depth": "title screening only",
+      "decision": "Not shortlisted from title: lower direct fit than selected work to AIT Linux alert correlation, evidence-led triage and DNS exfiltration. Not a scientific-quality judgment."
+    },
+    {
+      "id": "2610.09817",
+      "title": "Hierarchical Security Monitoring for Edge-IoT: A Formal Methods Approach",
+      "url": "https://arxiv.org/abs/2610.09817",
+      "review_depth": "title screening only",
+      "decision": "Not shortlisted from title: lower direct fit than selected work to AIT Linux alert correlation, evidence-led triage and DNS exfiltration. Not a scientific-quality judgment."
+    },
+    {
+      "id": "2610.09793",
+      "title": "Formal Runtime Verification for Tool-Using LLM Agents: An Offline Same-Benchmark Study on AgentDojo and STAC",
+      "url": "https://arxiv.org/abs/2610.09793",
+      "review_depth": "title screening only",
+      "decision": "Not shortlisted from title: lower direct fit than selected work to AIT Linux alert correlation, evidence-led triage and DNS exfiltration. Not a scientific-quality judgment."
+    },
+    {
+      "id": "2610.09767",
+      "title": "Faster PMNS Multi-precision Multiplications Using Truncated Montgomery Technique",
+      "url": "https://arxiv.org/abs/2610.09767",
+      "review_depth": "title screening only",
+      "decision": "Not shortlisted from title: lower direct fit than selected work to AIT Linux alert correlation, evidence-led triage and DNS exfiltration. Not a scientific-quality judgment."
+    },
+    {
+      "id": "2610.09730",
+      "title": "Trust a Few: The Weakest Assumptions a Protocol Needs",
+      "url": "https://arxiv.org/abs/2610.09730",
+      "review_depth": "title screening only",
+      "decision": "Not shortlisted from title: lower direct fit than selected work to AIT Linux alert correlation, evidence-led triage and DNS exfiltration. Not a scientific-quality judgment."
+    },
+    {
+      "id": "2610.09708",
+      "title": "Black-Box Adversarial Patch Attacks on VLAs via Ancestor VLM Exploitation",
+      "url": "https://arxiv.org/abs/2610.09708",
+      "review_depth": "title screening only",
+      "decision": "Not shortlisted from title: lower direct fit than selected work to AIT Linux alert correlation, evidence-led triage and DNS exfiltration. Not a scientific-quality judgment."
+    },
+    {
+      "id": "2610.09703",
+      "title": "Understanding and Mitigating Token-Pruning-Induced Vulnerabilities in VLMs",
+      "url": "https://arxiv.org/abs/2610.09703",
+      "review_depth": "title screening only",
+      "decision": "Not shortlisted from title: lower direct fit than selected work to AIT Linux alert correlation, evidence-led triage and DNS exfiltration. Not a scientific-quality judgment."
+    },
+    {
+      "id": "2610.09697",
+      "title": "Automotive Hardware Attacks: An Architect's Guide to TARA",
+      "url": "https://arxiv.org/abs/2610.09697",
+      "review_depth": "title screening only",
+      "decision": "Not shortlisted from title: lower direct fit than selected work to AIT Linux alert correlation, evidence-led triage and DNS exfiltration. Not a scientific-quality judgment."
+    },
+    {
+      "id": "2610.09581",
+      "title": "Correct Answers, Unsupported Findings: Evidence Binding in Forensic Reconstruction of LLM Agent Logs",
+      "url": "https://arxiv.org/abs/2610.09581",
+      "review_depth": "abstract and selected full-text sections",
+      "decision": "Adapt explicit source-record bindings; forensic agent-log study rather than IDS detection."
+    },
+    {
+      "id": "2610.09553",
+      "title": "MARS: Malware Analysis with Rule-Based Scoring of LLM Claims",
+      "url": "https://arxiv.org/abs/2610.09553",
+      "review_depth": "title screening only",
+      "decision": "Not shortlisted from title: lower direct fit than selected work to AIT Linux alert correlation, evidence-led triage and DNS exfiltration. Not a scientific-quality judgment."
+    },
+    {
+      "id": "2610.09552",
+      "title": "Constitution-Guided Watermarking",
+      "url": "https://arxiv.org/abs/2610.09552",
+      "review_depth": "title screening only",
+      "decision": "Not shortlisted from title: lower direct fit than selected work to AIT Linux alert correlation, evidence-led triage and DNS exfiltration. Not a scientific-quality judgment."
+    },
+    {
+      "id": "2610.09469",
+      "title": "Secure-CUA: Controlling Untrusted Influence in Computer-Use Agents",
+      "url": "https://arxiv.org/abs/2610.09469",
+      "review_depth": "title screening only",
+      "decision": "Not shortlisted from title: lower direct fit than selected work to AIT Linux alert correlation, evidence-led triage and DNS exfiltration. Not a scientific-quality judgment."
+    },
+    {
+      "id": "2610.09337",
+      "title": "Ask the Expert: LLM-Guided Reinforcement Learning for Autonomous Cyber Defense",
+      "url": "https://arxiv.org/abs/2610.09337",
+      "review_depth": "title screening only",
+      "decision": "Not shortlisted from title: lower direct fit than selected work to AIT Linux alert correlation, evidence-led triage and DNS exfiltration. Not a scientific-quality judgment."
+    },
+    {
+      "id": "2610.09264",
+      "title": "Package Hallucination Attacks on Coding Agents through Prompt Injection in Rule Files",
+      "url": "https://arxiv.org/abs/2610.09264",
+      "review_depth": "title screening only",
+      "decision": "Not shortlisted from title: lower direct fit than selected work to AIT Linux alert correlation, evidence-led triage and DNS exfiltration. Not a scientific-quality judgment."
+    },
+    {
+      "id": "2610.09240",
+      "title": "Adversarial Images Hijack Web Agents from Visual Grounding to Browser Execution",
+      "url": "https://arxiv.org/abs/2610.09240",
+      "review_depth": "title screening only",
+      "decision": "Not shortlisted from title: lower direct fit than selected work to AIT Linux alert correlation, evidence-led triage and DNS exfiltration. Not a scientific-quality judgment."
+    },
+    {
+      "id": "2610.09138",
+      "title": "SwarmReconGuard: Black-Box Detection of Distributed Collective Reconnaissance by Individually Benign-Looking Agent Populations",
+      "url": "https://arxiv.org/abs/2610.09138",
+      "review_depth": "abstract",
+      "decision": "Future distributed reconnaissance test; studied behavior not established by local labels."
+    },
+    {
+      "id": "2610.09029",
+      "title": "Cost of Delay for Post-Quantum Migration: Putting Classical and Harvest-Now-Decrypt-Later Risk on One Ordered List",
+      "url": "https://arxiv.org/abs/2610.09029",
+      "review_depth": "title screening only",
+      "decision": "Not shortlisted from title: lower direct fit than selected work to AIT Linux alert correlation, evidence-led triage and DNS exfiltration. Not a scientific-quality judgment."
+    },
+    {
+      "id": "2610.09027",
+      "title": "Visual Memory Attacks Can Persist Through The KV Cache",
+      "url": "https://arxiv.org/abs/2610.09027",
+      "review_depth": "title screening only",
+      "decision": "Not shortlisted from title: lower direct fit than selected work to AIT Linux alert correlation, evidence-led triage and DNS exfiltration. Not a scientific-quality judgment."
+    },
+    {
+      "id": "2610.09012",
+      "title": "TwinGuard-Lite: A Rule-Based State-Admission Gateway for Generative Patient Digital Twins",
+      "url": "https://arxiv.org/abs/2610.09012",
+      "review_depth": "title screening only",
+      "decision": "Not shortlisted from title: lower direct fit than selected work to AIT Linux alert correlation, evidence-led triage and DNS exfiltration. Not a scientific-quality judgment."
+    },
+    {
+      "id": "2610.08951",
+      "title": "ASPIRE: Agentic Safety & Prompt Injection Red-teaming Engine",
+      "url": "https://arxiv.org/abs/2610.08951",
+      "review_depth": "title screening only",
+      "decision": "Not shortlisted from title: lower direct fit than selected work to AIT Linux alert correlation, evidence-led triage and DNS exfiltration. Not a scientific-quality judgment."
+    },
+    {
+      "id": "2610.08928",
+      "title": "Multi-Aspect Runtime Verification for Simulation-Based V&V of LLM-Enabled Autonomous Agents",
+      "url": "https://arxiv.org/abs/2610.08928",
+      "review_depth": "title screening only",
+      "decision": "Not shortlisted from title: lower direct fit than selected work to AIT Linux alert correlation, evidence-led triage and DNS exfiltration. Not a scientific-quality judgment."
+    },
+    {
+      "id": "2610.08895",
+      "title": "Contextualization of Third-Party Cloud Security Findings",
+      "url": "https://arxiv.org/abs/2610.08895",
+      "review_depth": "title screening only",
+      "decision": "Not shortlisted from title: lower direct fit than selected work to AIT Linux alert correlation, evidence-led triage and DNS exfiltration. Not a scientific-quality judgment."
+    },
+    {
+      "id": "2610.08876",
+      "title": "Towards Verifying Neural Networks Against Multi-Parameter Bit-Flip Perturbations",
+      "url": "https://arxiv.org/abs/2610.08876",
+      "review_depth": "title screening only",
+      "decision": "Not shortlisted from title: lower direct fit than selected work to AIT Linux alert correlation, evidence-led triage and DNS exfiltration. Not a scientific-quality judgment."
+    },
+    {
+      "id": "2610.08871",
+      "title": "CredLeakBench: Evaluating Credential Leakage and Recovery in LLM Agents",
+      "url": "https://arxiv.org/abs/2610.08871",
+      "review_depth": "title screening only",
+      "decision": "Not shortlisted from title: lower direct fit than selected work to AIT Linux alert correlation, evidence-led triage and DNS exfiltration. Not a scientific-quality judgment."
+    },
+    {
+      "id": "2610.08868",
+      "title": "Visible-Spectrum Optical Covert Channels in Commodity Smart Lighting",
+      "url": "https://arxiv.org/abs/2610.08868",
+      "review_depth": "title screening only",
+      "decision": "Not shortlisted from title: lower direct fit than selected work to AIT Linux alert correlation, evidence-led triage and DNS exfiltration. Not a scientific-quality judgment."
+    },
+    {
+      "id": "2610.08867",
+      "title": "A Deployment-Aware Feasibility Framework for Machine Learning-Based IoT Intrusion Detection Across Edge, Fog, and Cloud Architectures",
+      "url": "https://arxiv.org/abs/2610.08867",
+      "review_depth": "title screening only",
+      "decision": "Not shortlisted from title: lower direct fit than selected work to AIT Linux alert correlation, evidence-led triage and DNS exfiltration. Not a scientific-quality judgment."
+    },
+    {
+      "id": "2610.08864",
+      "title": "Adversarial RL for Port-Scan Evasion: Attacker Feature Visibility in Edge-Deployed IDS",
+      "url": "https://arxiv.org/abs/2610.08864",
+      "review_depth": "title screening only",
+      "decision": "Not shortlisted from title: lower direct fit than selected work to AIT Linux alert correlation, evidence-led triage and DNS exfiltration. Not a scientific-quality judgment."
+    },
+    {
+      "id": "2610.10333",
+      "title": "The Economic Security of Exponential EIP-1559",
+      "url": "https://arxiv.org/abs/2610.10333",
+      "review_depth": "title screening only",
+      "decision": "Not shortlisted from title: lower direct fit than selected work to AIT Linux alert correlation, evidence-led triage and DNS exfiltration. Not a scientific-quality judgment."
+    },
+    {
+      "id": "2610.10276",
+      "title": "PatchBench: Measuring Collateral Damage in Activation Patching",
+      "url": "https://arxiv.org/abs/2610.10276",
+      "review_depth": "title screening only",
+      "decision": "Not shortlisted from title: lower direct fit than selected work to AIT Linux alert correlation, evidence-led triage and DNS exfiltration. Not a scientific-quality judgment."
+    },
+    {
+      "id": "2610.10260",
+      "title": "PairAudit: Guiding Human Review with Graph Tokens under Distribution Shift",
+      "url": "https://arxiv.org/abs/2610.10260",
+      "review_depth": "title screening only",
+      "decision": "Not shortlisted from title: lower direct fit than selected work to AIT Linux alert correlation, evidence-led triage and DNS exfiltration. Not a scientific-quality judgment."
+    },
+    {
+      "id": "2610.10068",
+      "title": "Efficient Provably Private Classification with a Tabular Foundation Model",
+      "url": "https://arxiv.org/abs/2610.10068",
+      "review_depth": "title screening only",
+      "decision": "Not shortlisted from title: lower direct fit than selected work to AIT Linux alert correlation, evidence-led triage and DNS exfiltration. Not a scientific-quality judgment."
+    },
+    {
+      "id": "2610.10002",
+      "title": "The Price of Privacy: Randomness Complexity of Graph-Based Multi-Secret Sharing",
+      "url": "https://arxiv.org/abs/2610.10002",
+      "review_depth": "title screening only",
+      "decision": "Not shortlisted from title: lower direct fit than selected work to AIT Linux alert correlation, evidence-led triage and DNS exfiltration. Not a scientific-quality judgment."
+    },
+    {
+      "id": "2610.09717",
+      "title": "Pareto-optimal quantum kernel selection for unsupervised anomaly detection on real malware beaconing data",
+      "url": "https://arxiv.org/abs/2610.09717",
+      "review_depth": "title screening only",
+      "decision": "Not shortlisted from title: lower direct fit than selected work to AIT Linux alert correlation, evidence-led triage and DNS exfiltration. Not a scientific-quality judgment."
+    },
+    {
+      "id": "2610.09651",
+      "title": "Closed-Form Noise Calibration Against Membership Inference for Random-Allocation DP-SGD",
+      "url": "https://arxiv.org/abs/2610.09651",
+      "review_depth": "title screening only",
+      "decision": "Not shortlisted from title: lower direct fit than selected work to AIT Linux alert correlation, evidence-led triage and DNS exfiltration. Not a scientific-quality judgment."
+    },
+    {
+      "id": "2610.09580",
+      "title": "Beyond FAIR: A Fitness Function Framework for Sustainable Research Software",
+      "url": "https://arxiv.org/abs/2610.09580",
+      "review_depth": "title screening only",
+      "decision": "Not shortlisted from title: lower direct fit than selected work to AIT Linux alert correlation, evidence-led triage and DNS exfiltration. Not a scientific-quality judgment."
+    },
+    {
+      "id": "2610.09033",
+      "title": "Quad-State Safety Evaluation of Open-Weight Large Language Models on Non-Canonical Inputs",
+      "url": "https://arxiv.org/abs/2610.09033",
+      "review_depth": "title screening only",
+      "decision": "Not shortlisted from title: lower direct fit than selected work to AIT Linux alert correlation, evidence-led triage and DNS exfiltration. Not a scientific-quality judgment."
+    },
+    {
+      "id": "2610.09007",
+      "title": "Sigma-Hunter: A Domain-Specific Language Model for Threat Hunting and Detection Engineering",
+      "url": "https://arxiv.org/abs/2610.09007",
+      "review_depth": "abstract and selected full-text sections",
+      "decision": "Adapt local detection-rule drafting; semantic benchmark scores are not operational detection performance."
+    },
+    {
+      "id": "2610.09004",
+      "title": "Removing Information Content Does Not Certify Tamper Resistance in Open-Weight Models",
+      "url": "https://arxiv.org/abs/2610.09004",
+      "review_depth": "title screening only",
+      "decision": "Not shortlisted from title: lower direct fit than selected work to AIT Linux alert correlation, evidence-led triage and DNS exfiltration. Not a scientific-quality judgment."
+    },
+    {
+      "id": "2610.09000",
+      "title": "How Fragile Is On-Device Language Model Safety? Localizing Safety-Critical Parameters for Sparse Fault Analysis",
+      "url": "https://arxiv.org/abs/2610.09000",
+      "review_depth": "title screening only",
+      "decision": "Not shortlisted from title: lower direct fit than selected work to AIT Linux alert correlation, evidence-led triage and DNS exfiltration. Not a scientific-quality judgment."
+    },
+    {
+      "id": "2610.08771",
+      "title": "Mission-Aware Attestation Envelopes for Time-Critical Autonomous Action: A Hardware-in-the-Loop V2I Study",
+      "url": "https://arxiv.org/abs/2610.08771",
+      "review_depth": "title screening only",
+      "decision": "Not shortlisted from title: lower direct fit than selected work to AIT Linux alert correlation, evidence-led triage and DNS exfiltration. Not a scientific-quality judgment."
+    },
+    {
+      "id": "2610.08739",
+      "title": "BARE-AI: Bit-Flip Attack Resilience in AI Hardware through Built-in Performance Monitors",
+      "url": "https://arxiv.org/abs/2610.08739",
+      "review_depth": "title screening only",
+      "decision": "Not shortlisted from title: lower direct fit than selected work to AIT Linux alert correlation, evidence-led triage and DNS exfiltration. Not a scientific-quality judgment."
+    },
+    {
+      "id": "2610.08678",
+      "title": "Secure Speculative Decoding for Large Language Models",
+      "url": "https://arxiv.org/abs/2610.08678",
+      "review_depth": "title screening only",
+      "decision": "Not shortlisted from title: lower direct fit than selected work to AIT Linux alert correlation, evidence-led triage and DNS exfiltration. Not a scientific-quality judgment."
+    },
+    {
+      "id": "2610.08668",
+      "title": "Semantic Behavioral Watermarking: Paraphrase-Robust and Forgery-Resistant Provenance for LLM Agents",
+      "url": "https://arxiv.org/abs/2610.08668",
+      "review_depth": "title screening only",
+      "decision": "Not shortlisted from title: lower direct fit than selected work to AIT Linux alert correlation, evidence-led triage and DNS exfiltration. Not a scientific-quality judgment."
+    },
+    {
+      "id": "2610.08590",
+      "title": "TwinViT-DeepJSCC: Adversarially Robust Semantic Image Communication",
+      "url": "https://arxiv.org/abs/2610.08590",
+      "review_depth": "title screening only",
+      "decision": "Not shortlisted from title: lower direct fit than selected work to AIT Linux alert correlation, evidence-led triage and DNS exfiltration. Not a scientific-quality judgment."
+    },
+    {
+      "id": "2610.08571",
+      "title": "RAG-PIBench: A Leakage-Aware Benchmark for Prompt-Injection Detection in Trustworthy RAG Systems",
+      "url": "https://arxiv.org/abs/2610.08571",
+      "review_depth": "title screening only",
+      "decision": "Not shortlisted from title: lower direct fit than selected work to AIT Linux alert correlation, evidence-led triage and DNS exfiltration. Not a scientific-quality judgment."
+    },
+    {
+      "id": "2610.08464",
+      "title": "Federated Bayesian Surveillance of Mechanical Thrombectomy Adverse Events: A Population Risk Layer for Surgical Digital Twins",
+      "url": "https://arxiv.org/abs/2610.08464",
+      "review_depth": "title screening only",
+      "decision": "Not shortlisted from title: lower direct fit than selected work to AIT Linux alert correlation, evidence-led triage and DNS exfiltration. Not a scientific-quality judgment."
+    },
+    {
+      "id": "2610.08406",
+      "title": "Case-Level Verification in Scanner-LLM Cascades: Overcoming the Alert Aggregation Bottleneck to Expand the FRR-TPR Trade-off Space",
+      "url": "https://arxiv.org/abs/2610.08406",
+      "review_depth": "abstract",
+      "decision": "Preserve per-case evidence during aggregation; DAST benchmark differs from passive logs."
+    },
+    {
+      "id": "2610.08316",
+      "title": "MARCO: The Radioactive Watermark for Protein Generative Models",
+      "url": "https://arxiv.org/abs/2610.08316",
+      "review_depth": "title screening only",
+      "decision": "Not shortlisted from title: lower direct fit than selected work to AIT Linux alert correlation, evidence-led triage and DNS exfiltration. Not a scientific-quality judgment."
+    },
+    {
+      "id": "2610.08301",
+      "title": "Zeppelin: Client-Side BFV Encryption and Decryption for Helium-Powered Microcontrollers",
+      "url": "https://arxiv.org/abs/2610.08301",
+      "review_depth": "title screening only",
+      "decision": "Not shortlisted from title: lower direct fit than selected work to AIT Linux alert correlation, evidence-led triage and DNS exfiltration. Not a scientific-quality judgment."
+    },
+    {
+      "id": "2610.08262",
+      "title": "Contextual Chain: Lightweight Continuity Authentication for Intermittently Connected Devices",
+      "url": "https://arxiv.org/abs/2610.08262",
+      "review_depth": "title screening only",
+      "decision": "Not shortlisted from title: lower direct fit than selected work to AIT Linux alert correlation, evidence-led triage and DNS exfiltration. Not a scientific-quality judgment."
+    },
+    {
+      "id": "2610.08255",
+      "title": "HE-OFT: Privacy-Preserving One-Shot Federated Fine-Tuning under Homomorphic Encryption",
+      "url": "https://arxiv.org/abs/2610.08255",
+      "review_depth": "title screening only",
+      "decision": "Not shortlisted from title: lower direct fit than selected work to AIT Linux alert correlation, evidence-led triage and DNS exfiltration. Not a scientific-quality judgment."
+    },
+    {
+      "id": "2610.08174",
+      "title": "FBAN: A Fully Homomorphic Encryption Compatible Bottleneck Attention Network for Privacy-Preserving Behavioral Authentication",
+      "url": "https://arxiv.org/abs/2610.08174",
+      "review_depth": "title screening only",
+      "decision": "Not shortlisted from title: lower direct fit than selected work to AIT Linux alert correlation, evidence-led triage and DNS exfiltration. Not a scientific-quality judgment."
+    },
+    {
+      "id": "2610.08137",
+      "title": "Rethinking Visual Provenance: Detection and Watermarking Across Direct Visual Generation and LLM-Driven Code Rendering",
+      "url": "https://arxiv.org/abs/2610.08137",
+      "review_depth": "title screening only",
+      "decision": "Not shortlisted from title: lower direct fit than selected work to AIT Linux alert correlation, evidence-led triage and DNS exfiltration. Not a scientific-quality judgment."
+    },
+    {
+      "id": "2610.08098",
+      "title": "Surviving the Router: Optimizing Skill Injections for Retrieval and Execution",
+      "url": "https://arxiv.org/abs/2610.08098",
+      "review_depth": "title screening only",
+      "decision": "Not shortlisted from title: lower direct fit than selected work to AIT Linux alert correlation, evidence-led triage and DNS exfiltration. Not a scientific-quality judgment."
+    },
+    {
+      "id": "2610.08097",
+      "title": "When Tools Lie: Reliability of Mathematical Agents Under Corrupted Tool Feedback",
+      "url": "https://arxiv.org/abs/2610.08097",
+      "review_depth": "title screening only",
+      "decision": "Not shortlisted from title: lower direct fit than selected work to AIT Linux alert correlation, evidence-led triage and DNS exfiltration. Not a scientific-quality judgment."
+    },
+    {
+      "id": "2610.08090",
+      "title": "Explainable Rule Mining of IPv6 Extension-Header Presence Patterns from Paired-Vantage Captures",
+      "url": "https://arxiv.org/abs/2610.08090",
+      "review_depth": "title screening only",
+      "decision": "Not shortlisted from title: lower direct fit than selected work to AIT Linux alert correlation, evidence-led triage and DNS exfiltration. Not a scientific-quality judgment."
+    },
+    {
+      "id": "2610.08066",
+      "title": "Systematically Optimized CNN-Transformer with Focal Loss for Imbalanced Intrusion Detection on NSL-KDD",
+      "url": "https://arxiv.org/abs/2610.08066",
+      "review_depth": "title screening only",
+      "decision": "Not shortlisted from title: lower direct fit than selected work to AIT Linux alert correlation, evidence-led triage and DNS exfiltration. Not a scientific-quality judgment."
+    },
+    {
+      "id": "2610.08061",
+      "title": "ASCENT: First-Order Optimal Fine-Tuning with Recalibration for Safety--Utility Co-Enhancement",
+      "url": "https://arxiv.org/abs/2610.08061",
+      "review_depth": "title screening only",
+      "decision": "Not shortlisted from title: lower direct fit than selected work to AIT Linux alert correlation, evidence-led triage and DNS exfiltration. Not a scientific-quality judgment."
+    },
+    {
+      "id": "2610.07976",
+      "title": "Quantifying the Privacy Posture of Operator-Side 5G/O-RAN Profiles",
+      "url": "https://arxiv.org/abs/2610.07976",
+      "review_depth": "title screening only",
+      "decision": "Not shortlisted from title: lower direct fit than selected work to AIT Linux alert correlation, evidence-led triage and DNS exfiltration. Not a scientific-quality judgment."
+    },
+    {
+      "id": "2610.07931",
+      "title": "Where does a rust speedup come from? Language and algorithm effects in sliding window threat scorer",
+      "url": "https://arxiv.org/abs/2610.07931",
+      "review_depth": "title screening only",
+      "decision": "Not shortlisted from title: lower direct fit than selected work to AIT Linux alert correlation, evidence-led triage and DNS exfiltration. Not a scientific-quality judgment."
+    },
+    {
+      "id": "2610.07875",
+      "title": "Don't Let One Lie Survive A Hundred Truths: A Selective Bayesian Trust Estimator for Collaborative Perception",
+      "url": "https://arxiv.org/abs/2610.07875",
+      "review_depth": "title screening only",
+      "decision": "Not shortlisted from title: lower direct fit than selected work to AIT Linux alert correlation, evidence-led triage and DNS exfiltration. Not a scientific-quality judgment."
+    },
+    {
+      "id": "2610.07873",
+      "title": "Preparing an AI-Augmented SIEM for the EU Cyber Resilience Act: A Practitioner Case Study",
+      "url": "https://arxiv.org/abs/2610.07873",
+      "review_depth": "abstract",
+      "decision": "Operational governance; not a detector improvement."
+    },
+    {
+      "id": "2610.07870",
+      "title": "Plug-and-Play Quantum-Resistant BLE Pairing for Medical Implants via NFC Out-of-Band",
+      "url": "https://arxiv.org/abs/2610.07870",
+      "review_depth": "title screening only",
+      "decision": "Not shortlisted from title: lower direct fit than selected work to AIT Linux alert correlation, evidence-led triage and DNS exfiltration. Not a scientific-quality judgment."
+    },
+    {
+      "id": "2610.07866",
+      "title": "The Amplifier Effect: Human-Factor Risks of AI-Suggested Correlation and Auto-Propagation in Multi-Framework GRC Self-Assessment",
+      "url": "https://arxiv.org/abs/2610.07866",
+      "review_depth": "title screening only",
+      "decision": "Not shortlisted from title: lower direct fit than selected work to AIT Linux alert correlation, evidence-led triage and DNS exfiltration. Not a scientific-quality judgment."
+    },
+    {
+      "id": "2610.07854",
+      "title": "Lifecycle-Based Design and Evaluation of Real-Time Backup Triggers for Ransomware Damage Mitigation",
+      "url": "https://arxiv.org/abs/2610.07854",
+      "review_depth": "title screening only",
+      "decision": "Not shortlisted from title: lower direct fit than selected work to AIT Linux alert correlation, evidence-led triage and DNS exfiltration. Not a scientific-quality judgment."
+    },
+    {
+      "id": "2610.07820",
+      "title": "Efficient and Implementation-Hardened RBLWE on Commodity Cortex-M Microcontrollers",
+      "url": "https://arxiv.org/abs/2610.07820",
+      "review_depth": "title screening only",
+      "decision": "Not shortlisted from title: lower direct fit than selected work to AIT Linux alert correlation, evidence-led triage and DNS exfiltration. Not a scientific-quality judgment."
+    },
+    {
+      "id": "2610.07776",
+      "title": "SCSM: A Traffic-Native Foundation Model for Transferable Website Fingerprinting",
+      "url": "https://arxiv.org/abs/2610.07776",
+      "review_depth": "title screening only",
+      "decision": "Not shortlisted from title: lower direct fit than selected work to AIT Linux alert correlation, evidence-led triage and DNS exfiltration. Not a scientific-quality judgment."
+    },
+    {
+      "id": "2610.07771",
+      "title": "What Response Marginals Miss: Adaptive Query Complexity of Functional Backdoor Recovery",
+      "url": "https://arxiv.org/abs/2610.07771",
+      "review_depth": "title screening only",
+      "decision": "Not shortlisted from title: lower direct fit than selected work to AIT Linux alert correlation, evidence-led triage and DNS exfiltration. Not a scientific-quality judgment."
+    },
+    {
+      "id": "2610.07723",
+      "title": "The Model Plants the Trigger: Answer-Side Backdoor Attacks in Multi-Turn Large Language Models",
+      "url": "https://arxiv.org/abs/2610.07723",
+      "review_depth": "title screening only",
+      "decision": "Not shortlisted from title: lower direct fit than selected work to AIT Linux alert correlation, evidence-led triage and DNS exfiltration. Not a scientific-quality judgment."
+    },
+    {
+      "id": "2610.07691",
+      "title": "PerSpectron: Detecting Invariant Footprints of Microarchitectural Attacks with Perceptron",
+      "url": "https://arxiv.org/abs/2610.07691",
+      "review_depth": "title screening only",
+      "decision": "Not shortlisted from title: lower direct fit than selected work to AIT Linux alert correlation, evidence-led triage and DNS exfiltration. Not a scientific-quality judgment."
+    },
+    {
+      "id": "2610.07645",
+      "title": "SkillPoison: Progressive Skill Poisoning via Successful Experiences",
+      "url": "https://arxiv.org/abs/2610.07645",
+      "review_depth": "title screening only",
+      "decision": "Not shortlisted from title: lower direct fit than selected work to AIT Linux alert correlation, evidence-led triage and DNS exfiltration. Not a scientific-quality judgment."
+    },
+    {
+      "id": "2610.07639",
+      "title": "HarnessSecurity-Bench: Do Security Mechanisms Really Protect Coding Agent Harnesses?",
+      "url": "https://arxiv.org/abs/2610.07639",
+      "review_depth": "title screening only",
+      "decision": "Not shortlisted from title: lower direct fit than selected work to AIT Linux alert correlation, evidence-led triage and DNS exfiltration. Not a scientific-quality judgment."
+    },
+    {
+      "id": "2610.07635",
+      "title": "CISB-Bench: An Auditable Source--IR Dataset of Compiler-Introduced Security Bugs",
+      "url": "https://arxiv.org/abs/2610.07635",
+      "review_depth": "title screening only",
+      "decision": "Not shortlisted from title: lower direct fit than selected work to AIT Linux alert correlation, evidence-led triage and DNS exfiltration. Not a scientific-quality judgment."
+    },
+    {
+      "id": "2610.07532",
+      "title": "Safeguarding LLMs via Model-Agnostic Latent Safety Signals from Dark Knowledge",
+      "url": "https://arxiv.org/abs/2610.07532",
+      "review_depth": "title screening only",
+      "decision": "Not shortlisted from title: lower direct fit than selected work to AIT Linux alert correlation, evidence-led triage and DNS exfiltration. Not a scientific-quality judgment."
+    },
+    {
+      "id": "2610.07531",
+      "title": "BVI: Lightweight, Data-Centric Blockchain-Based Verification of Identity Claims",
+      "url": "https://arxiv.org/abs/2610.07531",
+      "review_depth": "title screening only",
+      "decision": "Not shortlisted from title: lower direct fit than selected work to AIT Linux alert correlation, evidence-led triage and DNS exfiltration. Not a scientific-quality judgment."
+    },
+    {
+      "id": "2610.07510",
+      "title": "Understanding and Enhancing Backdoor Persistency in LLM Agent Post-Training",
+      "url": "https://arxiv.org/abs/2610.07510",
+      "review_depth": "title screening only",
+      "decision": "Not shortlisted from title: lower direct fit than selected work to AIT Linux alert correlation, evidence-led triage and DNS exfiltration. Not a scientific-quality judgment."
+    },
+    {
+      "id": "2610.07489",
+      "title": "Deep Defence on Wheels: A Dual Intrusion Detection System Architecture for Comprehensive In-Vehicle Network Security",
+      "url": "https://arxiv.org/abs/2610.07489",
+      "review_depth": "title screening only",
+      "decision": "Not shortlisted from title: lower direct fit than selected work to AIT Linux alert correlation, evidence-led triage and DNS exfiltration. Not a scientific-quality judgment."
+    },
+    {
+      "id": "2610.07386",
+      "title": "NetAgent: Multi-Task Agentic Network Traffic Analysis Made Practical",
+      "url": "https://arxiv.org/abs/2610.07386",
+      "review_depth": "abstract and selected full-text sections",
+      "decision": "Traffic-analysis tool orchestration; full application needs packet/flow telemetry."
+    },
+    {
+      "id": "2610.07351",
+      "title": "Simple Extremely Lossy Functions from Small-Exponent Hashing",
+      "url": "https://arxiv.org/abs/2610.07351",
+      "review_depth": "title screening only",
+      "decision": "Not shortlisted from title: lower direct fit than selected work to AIT Linux alert correlation, evidence-led triage and DNS exfiltration. Not a scientific-quality judgment."
+    },
+    {
+      "id": "2610.07345",
+      "title": "Evaluating Behavioral Context for Interpretable IAM Policy Risk Scoring in Cloud Environments",
+      "url": "https://arxiv.org/abs/2610.07345",
+      "review_depth": "title screening only",
+      "decision": "Not shortlisted from title: lower direct fit than selected work to AIT Linux alert correlation, evidence-led triage and DNS exfiltration. Not a scientific-quality judgment."
+    },
+    {
+      "id": "2610.07310",
+      "title": "From Sandbox to Enforcement: Confidence-Qualified Threat Intelligence for Critical Infrastructure",
+      "url": "https://arxiv.org/abs/2610.07310",
+      "review_depth": "title screening only",
+      "decision": "Not shortlisted from title: lower direct fit than selected work to AIT Linux alert correlation, evidence-led triage and DNS exfiltration. Not a scientific-quality judgment."
+    },
+    {
+      "id": "2610.07298",
+      "title": "Polar: LLM-Powered Synthesis of Real-World Cyber Evidence for Prioritization and Mitigation",
+      "url": "https://arxiv.org/abs/2610.07298",
+      "review_depth": "abstract",
+      "decision": "Vulnerability/threat-intelligence enrichment has lower direct fit."
+    },
+    {
+      "id": "2610.07282",
+      "title": "A Resilient Runtime-Verification Fabric for Security Monitoring of Critical Edge-IoT Infrastructure",
+      "url": "https://arxiv.org/abs/2610.07282",
+      "review_depth": "title screening only",
+      "decision": "Not shortlisted from title: lower direct fit than selected work to AIT Linux alert correlation, evidence-led triage and DNS exfiltration. Not a scientific-quality judgment."
+    },
+    {
+      "id": "2610.07258",
+      "title": "Lineage-Aware Memory Governance: A Derivation-Gated Framework for Privacy-Preserving Column-Level Access Control in Enterprise AI Agents",
+      "url": "https://arxiv.org/abs/2610.07258",
+      "review_depth": "title screening only",
+      "decision": "Not shortlisted from title: lower direct fit than selected work to AIT Linux alert correlation, evidence-led triage and DNS exfiltration. Not a scientific-quality judgment."
+    },
+    {
+      "id": "2610.07256",
+      "title": "Efficient Auditing of Adversarial AI Agent Behavior from Agent Traces",
+      "url": "https://arxiv.org/abs/2610.07256",
+      "review_depth": "title screening only",
+      "decision": "Not shortlisted from title: lower direct fit than selected work to AIT Linux alert correlation, evidence-led triage and DNS exfiltration. Not a scientific-quality judgment."
+    },
+    {
+      "id": "2610.07125",
+      "title": "Jailbreaking Open-Weight LLMs via Random Embedding Perturbations",
+      "url": "https://arxiv.org/abs/2610.07125",
+      "review_depth": "title screening only",
+      "decision": "Not shortlisted from title: lower direct fit than selected work to AIT Linux alert correlation, evidence-led triage and DNS exfiltration. Not a scientific-quality judgment."
+    },
+    {
+      "id": "2610.07089",
+      "title": "Towards a Unified Misuse Monitoring Benchmark",
+      "url": "https://arxiv.org/abs/2610.07089",
+      "review_depth": "title screening only",
+      "decision": "Not shortlisted from title: lower direct fit than selected work to AIT Linux alert correlation, evidence-led triage and DNS exfiltration. Not a scientific-quality judgment."
+    },
+    {
+      "id": "2610.07009",
+      "title": "Which Image Property Carries the Jailbreak? A Controlled Dissection of Image-to-Text Jailbreaks",
+      "url": "https://arxiv.org/abs/2610.07009",
+      "review_depth": "title screening only",
+      "decision": "Not shortlisted from title: lower direct fit than selected work to AIT Linux alert correlation, evidence-led triage and DNS exfiltration. Not a scientific-quality judgment."
+    },
+    {
+      "id": "2610.06994",
+      "title": "TARE: Weigh a Never-Poisoned Twin Before Reading Backdoor-Defense Costs",
+      "url": "https://arxiv.org/abs/2610.06994",
+      "review_depth": "title screening only",
+      "decision": "Not shortlisted from title: lower direct fit than selected work to AIT Linux alert correlation, evidence-led triage and DNS exfiltration. Not a scientific-quality judgment."
+    },
+    {
+      "id": "2610.06966",
+      "title": "APEX: Active Protection at Execution Boundaries for LLM Agents",
+      "url": "https://arxiv.org/abs/2610.06966",
+      "review_depth": "title screening only",
+      "decision": "Not shortlisted from title: lower direct fit than selected work to AIT Linux alert correlation, evidence-led triage and DNS exfiltration. Not a scientific-quality judgment."
+    },
+    {
+      "id": "2610.06898",
+      "title": "DIBench: Benchmarking Decision Integrity of GUI-based Mobile Agents Under Deceptive Injections",
+      "url": "https://arxiv.org/abs/2610.06898",
+      "review_depth": "title screening only",
+      "decision": "Not shortlisted from title: lower direct fit than selected work to AIT Linux alert correlation, evidence-led triage and DNS exfiltration. Not a scientific-quality judgment."
+    },
+    {
+      "id": "2610.08460",
+      "title": "One-Shot Private Confidence Regions via Resampling",
+      "url": "https://arxiv.org/abs/2610.08460",
+      "review_depth": "title screening only",
+      "decision": "Not shortlisted from title: lower direct fit than selected work to AIT Linux alert correlation, evidence-led triage and DNS exfiltration. Not a scientific-quality judgment."
+    },
+    {
+      "id": "2610.08417",
+      "title": "Ariadne's Thread of LipSync: Unraveling Forgeries via Inconsistency between Lip Motions and Head Poses",
+      "url": "https://arxiv.org/abs/2610.08417",
+      "review_depth": "title screening only",
+      "decision": "Not shortlisted from title: lower direct fit than selected work to AIT Linux alert correlation, evidence-led triage and DNS exfiltration. Not a scientific-quality judgment."
+    },
+    {
+      "id": "2610.08410",
+      "title": "Decoy and disclosure radii of invariant shape descriptors",
+      "url": "https://arxiv.org/abs/2610.08410",
+      "review_depth": "title screening only",
+      "decision": "Not shortlisted from title: lower direct fit than selected work to AIT Linux alert correlation, evidence-led triage and DNS exfiltration. Not a scientific-quality judgment."
+    },
+    {
+      "id": "2610.08405",
+      "title": "Learning from Failures: A Failure-Driven Prompt Refinement for LLM-Based Vulnerability Analysis",
+      "url": "https://arxiv.org/abs/2610.08405",
+      "review_depth": "title screening only",
+      "decision": "Not shortlisted from title: lower direct fit than selected work to AIT Linux alert correlation, evidence-led triage and DNS exfiltration. Not a scientific-quality judgment."
+    },
+    {
+      "id": "2610.08240",
+      "title": "Newer and Bigger, but Safer? A Longitudinal Study of the Functionality-Security Gap in LLM-Generated Code",
+      "url": "https://arxiv.org/abs/2610.08240",
+      "review_depth": "title screening only",
+      "decision": "Not shortlisted from title: lower direct fit than selected work to AIT Linux alert correlation, evidence-led triage and DNS exfiltration. Not a scientific-quality judgment."
+    },
+    {
+      "id": "2610.08178",
+      "title": "On the Intrinsic Limited Robustness of Latent-Based Watermarking",
+      "url": "https://arxiv.org/abs/2610.08178",
+      "review_depth": "title screening only",
+      "decision": "Not shortlisted from title: lower direct fit than selected work to AIT Linux alert correlation, evidence-led triage and DNS exfiltration. Not a scientific-quality judgment."
+    },
+    {
+      "id": "2610.07759",
+      "title": "When Can Stateless Recovery Defeat Byzantine Quorum Safety? A Tight Normal Form for Single-Step BFT",
+      "url": "https://arxiv.org/abs/2610.07759",
+      "review_depth": "title screening only",
+      "decision": "Not shortlisted from title: lower direct fit than selected work to AIT Linux alert correlation, evidence-led triage and DNS exfiltration. Not a scientific-quality judgment."
+    },
+    {
+      "id": "2610.07677",
+      "title": "Adaptive Model Inversion Attacks Generalize a Privacy-Robustness Tradeoff",
+      "url": "https://arxiv.org/abs/2610.07677",
+      "review_depth": "title screening only",
+      "decision": "Not shortlisted from title: lower direct fit than selected work to AIT Linux alert correlation, evidence-led triage and DNS exfiltration. Not a scientific-quality judgment."
+    },
+    {
+      "id": "2610.07657",
+      "title": "Where Rules End and Judges Begin: Measuring the Judgment Boundary in Multi-Agent Systems Security",
+      "url": "https://arxiv.org/abs/2610.07657",
+      "review_depth": "title screening only",
+      "decision": "Not shortlisted from title: lower direct fit than selected work to AIT Linux alert correlation, evidence-led triage and DNS exfiltration. Not a scientific-quality judgment."
+    },
+    {
+      "id": "2610.07557",
+      "title": "CheckerBench: Can Long-Horizon Agents Synthesize Static-Analysis Checkers?",
+      "url": "https://arxiv.org/abs/2610.07557",
+      "review_depth": "title screening only",
+      "decision": "Not shortlisted from title: lower direct fit than selected work to AIT Linux alert correlation, evidence-led triage and DNS exfiltration. Not a scientific-quality judgment."
+    },
+    {
+      "id": "2610.07519",
+      "title": "Not What a Child Expressed: Auditing the Sign-to-Text Safety Interface in Child-Facing AI",
+      "url": "https://arxiv.org/abs/2610.07519",
+      "review_depth": "title screening only",
+      "decision": "Not shortlisted from title: lower direct fit than selected work to AIT Linux alert correlation, evidence-led triage and DNS exfiltration. Not a scientific-quality judgment."
+    },
+    {
+      "id": "2610.07518",
+      "title": "Harmful SFT Leaves a Continuous Trace in LLM Checkpoint Updates",
+      "url": "https://arxiv.org/abs/2610.07518",
+      "review_depth": "title screening only",
+      "decision": "Not shortlisted from title: lower direct fit than selected work to AIT Linux alert correlation, evidence-led triage and DNS exfiltration. Not a scientific-quality judgment."
+    },
+    {
+      "id": "2610.07476",
+      "title": "Can Power Draw Constrain Covert Compute? Limits of Analogue Verification for AI Governance",
+      "url": "https://arxiv.org/abs/2610.07476",
+      "review_depth": "title screening only",
+      "decision": "Not shortlisted from title: lower direct fit than selected work to AIT Linux alert correlation, evidence-led triage and DNS exfiltration. Not a scientific-quality judgment."
+    },
+    {
+      "id": "2610.07334",
+      "title": "Weight Oracles: Reading Neural Network Weights with Language Models",
+      "url": "https://arxiv.org/abs/2610.07334",
+      "review_depth": "title screening only",
+      "decision": "Not shortlisted from title: lower direct fit than selected work to AIT Linux alert correlation, evidence-led triage and DNS exfiltration. Not a scientific-quality judgment."
+    },
+    {
+      "id": "2610.07323",
+      "title": "ATLAS-AL: Adaptive Trust-Region for Latent Adversarial Searches via Active Learning",
+      "url": "https://arxiv.org/abs/2610.07323",
+      "review_depth": "title screening only",
+      "decision": "Not shortlisted from title: lower direct fit than selected work to AIT Linux alert correlation, evidence-led triage and DNS exfiltration. Not a scientific-quality judgment."
+    },
+    {
+      "id": "2610.07276",
+      "title": "SAFESHIELD: A Decision-Organization Framework for Deployment-Time Safety of Small Language Models",
+      "url": "https://arxiv.org/abs/2610.07276",
+      "review_depth": "title screening only",
+      "decision": "Not shortlisted from title: lower direct fit than selected work to AIT Linux alert correlation, evidence-led triage and DNS exfiltration. Not a scientific-quality judgment."
+    },
+    {
+      "id": "2610.07251",
+      "title": "Pauli Error Composition Determines the Multipartite Advantage in Conference Key Agreement",
+      "url": "https://arxiv.org/abs/2610.07251",
+      "review_depth": "title screening only",
+      "decision": "Not shortlisted from title: lower direct fit than selected work to AIT Linux alert correlation, evidence-led triage and DNS exfiltration. Not a scientific-quality judgment."
+    },
+    {
+      "id": "2610.07212",
+      "title": "Reward-Driven Learning under Prompt-Level Differential Privacy",
+      "url": "https://arxiv.org/abs/2610.07212",
+      "review_depth": "title screening only",
+      "decision": "Not shortlisted from title: lower direct fit than selected work to AIT Linux alert correlation, evidence-led triage and DNS exfiltration. Not a scientific-quality judgment."
+    },
+    {
+      "id": "2610.07124",
+      "title": "Black Hole Radiation Decoding in the Haar Random Oracle Model",
+      "url": "https://arxiv.org/abs/2610.07124",
+      "review_depth": "title screening only",
+      "decision": "Not shortlisted from title: lower direct fit than selected work to AIT Linux alert correlation, evidence-led triage and DNS exfiltration. Not a scientific-quality judgment."
+    },
+    {
+      "id": "2610.07005",
+      "title": "Where Does the Audio Jailbreak Live? A Controlled Frequency-Depth Audit of AdvWave-P on Qwen2-Audio",
+      "url": "https://arxiv.org/abs/2610.07005",
+      "review_depth": "title screening only",
+      "decision": "Not shortlisted from title: lower direct fit than selected work to AIT Linux alert correlation, evidence-led triage and DNS exfiltration. Not a scientific-quality judgment."
+    },
+    {
+      "id": "2610.06900",
+      "title": "ASAP: Assembly-Source Aligned Pseudocode Refinement For Binary Decompilation",
+      "url": "https://arxiv.org/abs/2610.06900",
+      "review_depth": "title screening only",
+      "decision": "Not shortlisted from title: lower direct fit than selected work to AIT Linux alert correlation, evidence-led triage and DNS exfiltration. Not a scientific-quality judgment."
+    },
+    {
+      "id": "2610.06885",
+      "title": "Dynamical low-rank equilibrium computation for stochastic games between advanced persistent threats and moving target defense",
+      "url": "https://arxiv.org/abs/2610.06885",
+      "review_depth": "title screening only",
+      "decision": "Not shortlisted from title: lower direct fit than selected work to AIT Linux alert correlation, evidence-led triage and DNS exfiltration. Not a scientific-quality judgment."
+    },
+    {
+      "id": "2610.06848",
+      "title": "TranScope: What the Software Hides About LLM Training Data, the Hardware Reveals at Scale, and Accelerators Magnify",
+      "url": "https://arxiv.org/abs/2610.06848",
+      "review_depth": "title screening only",
+      "decision": "Not shortlisted from title: lower direct fit than selected work to AIT Linux alert correlation, evidence-led triage and DNS exfiltration. Not a scientific-quality judgment."
+    },
+    {
+      "id": "2610.06584",
+      "title": "Does AI Help Cyber Attackers or Defenders? Evidence from Nonpublic Vulnerabilities and Subsequent Attacks",
+      "url": "https://arxiv.org/abs/2610.06584",
+      "review_depth": "title screening only",
+      "decision": "Not shortlisted from title: lower direct fit than selected work to AIT Linux alert correlation, evidence-led triage and DNS exfiltration. Not a scientific-quality judgment."
+    },
+    {
+      "id": "2610.06517",
+      "title": "GCTAuto-encoder: A Cross modal Framework for Security Flaw Detection in IoT Networks",
+      "url": "https://arxiv.org/abs/2610.06517",
+      "review_depth": "title screening only",
+      "decision": "Not shortlisted from title: lower direct fit than selected work to AIT Linux alert correlation, evidence-led triage and DNS exfiltration. Not a scientific-quality judgment."
+    },
+    {
+      "id": "2610.06507",
+      "title": "An Evaluation of the Semantic Understanding Capabilities of Large Language Models for Web Attack Payloads",
+      "url": "https://arxiv.org/abs/2610.06507",
+      "review_depth": "title screening only",
+      "decision": "Not shortlisted from title: lower direct fit than selected work to AIT Linux alert correlation, evidence-led triage and DNS exfiltration. Not a scientific-quality judgment."
+    },
+    {
+      "id": "2610.06401",
+      "title": "RAISED: Self-Distillation for Robustness to Prompt Injection in LLM Agents",
+      "url": "https://arxiv.org/abs/2610.06401",
+      "review_depth": "title screening only",
+      "decision": "Not shortlisted from title: lower direct fit than selected work to AIT Linux alert correlation, evidence-led triage and DNS exfiltration. Not a scientific-quality judgment."
+    },
+    {
+      "id": "2610.06366",
+      "title": "Correct Verdicts, Flawed Reasoning: Structured Auditing of LLM-based Vulnerability Reasoning",
+      "url": "https://arxiv.org/abs/2610.06366",
+      "review_depth": "title screening only",
+      "decision": "Not shortlisted from title: lower direct fit than selected work to AIT Linux alert correlation, evidence-led triage and DNS exfiltration. Not a scientific-quality judgment."
+    },
+    {
+      "id": "2610.06362",
+      "title": "Explicit Nonlinear Functions beyond the Fourier bound",
+      "url": "https://arxiv.org/abs/2610.06362",
+      "review_depth": "title screening only",
+      "decision": "Not shortlisted from title: lower direct fit than selected work to AIT Linux alert correlation, evidence-led triage and DNS exfiltration. Not a scientific-quality judgment."
+    },
+    {
+      "id": "2610.06317",
+      "title": "Watermarking: from Impossibility to Auditable Compliance",
+      "url": "https://arxiv.org/abs/2610.06317",
+      "review_depth": "title screening only",
+      "decision": "Not shortlisted from title: lower direct fit than selected work to AIT Linux alert correlation, evidence-led triage and DNS exfiltration. Not a scientific-quality judgment."
+    },
+    {
+      "id": "2610.06312",
+      "title": "Cryptanalysis of a Class of Ideal Secret Sharing Schemes Based on the CRT for Polynomial Rings",
+      "url": "https://arxiv.org/abs/2610.06312",
+      "review_depth": "title screening only",
+      "decision": "Not shortlisted from title: lower direct fit than selected work to AIT Linux alert correlation, evidence-led triage and DNS exfiltration. Not a scientific-quality judgment."
+    },
+    {
+      "id": "2610.06258",
+      "title": "SatBleed: Security of Commoditized Communication Modules in Satellites",
+      "url": "https://arxiv.org/abs/2610.06258",
+      "review_depth": "title screening only",
+      "decision": "Not shortlisted from title: lower direct fit than selected work to AIT Linux alert correlation, evidence-led triage and DNS exfiltration. Not a scientific-quality judgment."
+    },
+    {
+      "id": "2610.06236",
+      "title": "DP-ES: Differentially Private Evolution Strategies for Prompt Optimization",
+      "url": "https://arxiv.org/abs/2610.06236",
+      "review_depth": "title screening only",
+      "decision": "Not shortlisted from title: lower direct fit than selected work to AIT Linux alert correlation, evidence-led triage and DNS exfiltration. Not a scientific-quality judgment."
+    },
+    {
+      "id": "2610.06163",
+      "title": "Where Did the Repair First Go Wrong? Localizing the Origins of Silent Failures in Agentic Vulnerability Repair",
+      "url": "https://arxiv.org/abs/2610.06163",
+      "review_depth": "title screening only",
+      "decision": "Not shortlisted from title: lower direct fit than selected work to AIT Linux alert correlation, evidence-led triage and DNS exfiltration. Not a scientific-quality judgment."
+    },
+    {
+      "id": "2610.06132",
+      "title": "Security Is More Than a Library Call: How Security Features Live in Code",
+      "url": "https://arxiv.org/abs/2610.06132",
+      "review_depth": "title screening only",
+      "decision": "Not shortlisted from title: lower direct fit than selected work to AIT Linux alert correlation, evidence-led triage and DNS exfiltration. Not a scientific-quality judgment."
+    },
+    {
+      "id": "2610.06061",
+      "title": "PRA-TLS: Attestation of a Client Application for TEE",
+      "url": "https://arxiv.org/abs/2610.06061",
+      "review_depth": "title screening only",
+      "decision": "Not shortlisted from title: lower direct fit than selected work to AIT Linux alert correlation, evidence-led triage and DNS exfiltration. Not a scientific-quality judgment."
+    },
+    {
+      "id": "2610.06058",
+      "title": "Efficient HQC Implementations on RISC-V: A Cross-Layer Design Space Exploration",
+      "url": "https://arxiv.org/abs/2610.06058",
+      "review_depth": "title screening only",
+      "decision": "Not shortlisted from title: lower direct fit than selected work to AIT Linux alert correlation, evidence-led triage and DNS exfiltration. Not a scientific-quality judgment."
+    },
+    {
+      "id": "2610.06049",
+      "title": "Backdooring Sparse Autoencoders",
+      "url": "https://arxiv.org/abs/2610.06049",
+      "review_depth": "title screening only",
+      "decision": "Not shortlisted from title: lower direct fit than selected work to AIT Linux alert correlation, evidence-led triage and DNS exfiltration. Not a scientific-quality judgment."
+    },
+    {
+      "id": "2610.05989",
+      "title": "H-CRSPV: Preventing Semantic Omission in Late-Bound Large Language Model Releases",
+      "url": "https://arxiv.org/abs/2610.05989",
+      "review_depth": "title screening only",
+      "decision": "Not shortlisted from title: lower direct fit than selected work to AIT Linux alert correlation, evidence-led triage and DNS exfiltration. Not a scientific-quality judgment."
+    },
+    {
+      "id": "2610.05943",
+      "title": "Runaway Reaction: When Benign Skills Compose into Malicious Behavior",
+      "url": "https://arxiv.org/abs/2610.05943",
+      "review_depth": "title screening only",
+      "decision": "Not shortlisted from title: lower direct fit than selected work to AIT Linux alert correlation, evidence-led triage and DNS exfiltration. Not a scientific-quality judgment."
+    },
+    {
+      "id": "2610.05840",
+      "title": "Compromise Is Not Consequence: Evaluating Task-Scoped Authorization in LLM Agents with Paired Replay",
+      "url": "https://arxiv.org/abs/2610.05840",
+      "review_depth": "title screening only",
+      "decision": "Not shortlisted from title: lower direct fit than selected work to AIT Linux alert correlation, evidence-led triage and DNS exfiltration. Not a scientific-quality judgment."
+    },
+    {
+      "id": "2610.05835",
+      "title": "Adaptive-Shot Hybrid Quantum Anomaly Detection for Tactile Internet Security: Reliability-Aware Measurement Allocation Under Resource Constraints",
+      "url": "https://arxiv.org/abs/2610.05835",
+      "review_depth": "title screening only",
+      "decision": "Not shortlisted from title: lower direct fit than selected work to AIT Linux alert correlation, evidence-led triage and DNS exfiltration. Not a scientific-quality judgment."
+    },
+    {
+      "id": "2610.05826",
+      "title": "Bounded Provisional Visibility: Controlling Poisoning Exposure in Continuously Ingested RAG Vector Stores",
+      "url": "https://arxiv.org/abs/2610.05826",
+      "review_depth": "title screening only",
+      "decision": "Not shortlisted from title: lower direct fit than selected work to AIT Linux alert correlation, evidence-led triage and DNS exfiltration. Not a scientific-quality judgment."
+    },
+    {
+      "id": "2610.05810",
+      "title": "Online AutoML: Evaluating Poisoning Attacks on Adversarial Training Defense Strategy in IoT Networks",
+      "url": "https://arxiv.org/abs/2610.05810",
+      "review_depth": "title screening only",
+      "decision": "Not shortlisted from title: lower direct fit than selected work to AIT Linux alert correlation, evidence-led triage and DNS exfiltration. Not a scientific-quality judgment."
+    },
+    {
+      "id": "2610.05712",
+      "title": "SimpleMark: Fast Multi-Bit Text Watermarking under f -Divergence Constraints",
+      "url": "https://arxiv.org/abs/2610.05712",
+      "review_depth": "title screening only",
+      "decision": "Not shortlisted from title: lower direct fit than selected work to AIT Linux alert correlation, evidence-led triage and DNS exfiltration. Not a scientific-quality judgment."
+    },
+    {
+      "id": "2610.05586",
+      "title": "AgentDoxx: Agentic Re-identification of Anonymized Text with Web Search",
+      "url": "https://arxiv.org/abs/2610.05586",
+      "review_depth": "title screening only",
+      "decision": "Not shortlisted from title: lower direct fit than selected work to AIT Linux alert correlation, evidence-led triage and DNS exfiltration. Not a scientific-quality judgment."
+    },
+    {
+      "id": "2610.05561",
+      "title": "Beyond Monolithic Perturbation: Heterogeneous Mechanism Design for Multi-Attribute Metric Differential Privacy",
+      "url": "https://arxiv.org/abs/2610.05561",
+      "review_depth": "title screening only",
+      "decision": "Not shortlisted from title: lower direct fit than selected work to AIT Linux alert correlation, evidence-led triage and DNS exfiltration. Not a scientific-quality judgment."
+    },
+    {
+      "id": "2610.05453",
+      "title": "The Poisoned Conversation: Privacy-Leaking Watermarks in Unified Multimodal Models",
+      "url": "https://arxiv.org/abs/2610.05453",
+      "review_depth": "title screening only",
+      "decision": "Not shortlisted from title: lower direct fit than selected work to AIT Linux alert correlation, evidence-led triage and DNS exfiltration. Not a scientific-quality judgment."
+    },
+    {
+      "id": "2610.05369",
+      "title": "AutoDP-LLM: Automating Data Pre-processing for Intrusion Detection Systems using Large Language Models",
+      "url": "https://arxiv.org/abs/2610.05369",
+      "review_depth": "title screening only",
+      "decision": "Not shortlisted from title: lower direct fit than selected work to AIT Linux alert correlation, evidence-led triage and DNS exfiltration. Not a scientific-quality judgment."
+    },
+    {
+      "id": "2610.05335",
+      "title": "StateSync-GKR: Machine-Checking the Trust Chain from Sparse-Merkle State Transitions to GKR Verification",
+      "url": "https://arxiv.org/abs/2610.05335",
+      "review_depth": "title screening only",
+      "decision": "Not shortlisted from title: lower direct fit than selected work to AIT Linux alert correlation, evidence-led triage and DNS exfiltration. Not a scientific-quality judgment."
+    },
+    {
+      "id": "2610.05323",
+      "title": "Grammar-Guided Code Watermarking with Green Temperature",
+      "url": "https://arxiv.org/abs/2610.05323",
+      "review_depth": "title screening only",
+      "decision": "Not shortlisted from title: lower direct fit than selected work to AIT Linux alert correlation, evidence-led triage and DNS exfiltration. Not a scientific-quality judgment."
+    },
+    {
+      "id": "2610.05266",
+      "title": "Who Is Your Agent Serving? Provider-Side Indirect Prompt Injection in Proactive Agents",
+      "url": "https://arxiv.org/abs/2610.05266",
+      "review_depth": "title screening only",
+      "decision": "Not shortlisted from title: lower direct fit than selected work to AIT Linux alert correlation, evidence-led triage and DNS exfiltration. Not a scientific-quality judgment."
+    },
+    {
+      "id": "2610.05246",
+      "title": "What a Policy Gate Can and Cannot Know: Measured Boundaries of Cross-Platform Command Adjudication",
+      "url": "https://arxiv.org/abs/2610.05246",
+      "review_depth": "title screening only",
+      "decision": "Not shortlisted from title: lower direct fit than selected work to AIT Linux alert correlation, evidence-led triage and DNS exfiltration. Not a scientific-quality judgment."
+    },
+    {
+      "id": "2610.05163",
+      "title": "Blocking at the Boundary: Auditing Long-Horizon Agents against Staged Prompt Injection",
+      "url": "https://arxiv.org/abs/2610.05163",
+      "review_depth": "title screening only",
+      "decision": "Not shortlisted from title: lower direct fit than selected work to AIT Linux alert correlation, evidence-led triage and DNS exfiltration. Not a scientific-quality judgment."
+    },
+    {
+      "id": "2610.05103",
+      "title": "VulValidate: Auditing Function-Level Vulnerability Labels with Executable Evidence",
+      "url": "https://arxiv.org/abs/2610.05103",
+      "review_depth": "title screening only",
+      "decision": "Not shortlisted from title: lower direct fit than selected work to AIT Linux alert correlation, evidence-led triage and DNS exfiltration. Not a scientific-quality judgment."
+    },
+    {
+      "id": "2610.05089",
+      "title": "Cooldown Landmines: Cross-Tenant Interference Attacks on LLM Gateways",
+      "url": "https://arxiv.org/abs/2610.05089",
+      "review_depth": "title screening only",
+      "decision": "Not shortlisted from title: lower direct fit than selected work to AIT Linux alert correlation, evidence-led triage and DNS exfiltration. Not a scientific-quality judgment."
+    },
+    {
+      "id": "2610.05054",
+      "title": "Cross-chain Access Control for Permissioned Blockchain Interoperation",
+      "url": "https://arxiv.org/abs/2610.05054",
+      "review_depth": "title screening only",
+      "decision": "Not shortlisted from title: lower direct fit than selected work to AIT Linux alert correlation, evidence-led triage and DNS exfiltration. Not a scientific-quality judgment."
+    },
+    {
+      "id": "2610.05007",
+      "title": "Toward Lightweight Aerial 5G gNBs: Reproducible OAI Testbed on Commodity ARM Platforms",
+      "url": "https://arxiv.org/abs/2610.05007",
+      "review_depth": "title screening only",
+      "decision": "Not shortlisted from title: lower direct fit than selected work to AIT Linux alert correlation, evidence-led triage and DNS exfiltration. Not a scientific-quality judgment."
+    },
+    {
+      "id": "2610.04992",
+      "title": "ContractLens: Latent Security Knowledge for Malicious Smart Contract Detection",
+      "url": "https://arxiv.org/abs/2610.04992",
+      "review_depth": "title screening only",
+      "decision": "Not shortlisted from title: lower direct fit than selected work to AIT Linux alert correlation, evidence-led triage and DNS exfiltration. Not a scientific-quality judgment."
+    },
+    {
+      "id": "2610.04985",
+      "title": "Hidden Risks of Jev: An Empirical Study of Security, Privacy, and Dual Use",
+      "url": "https://arxiv.org/abs/2610.04985",
+      "review_depth": "title screening only",
+      "decision": "Not shortlisted from title: lower direct fit than selected work to AIT Linux alert correlation, evidence-led triage and DNS exfiltration. Not a scientific-quality judgment."
+    },
+    {
+      "id": "2610.04912",
+      "title": "Static Bootstrap Placement for Encrypted Language Model Decoding",
+      "url": "https://arxiv.org/abs/2610.04912",
+      "review_depth": "title screening only",
+      "decision": "Not shortlisted from title: lower direct fit than selected work to AIT Linux alert correlation, evidence-led triage and DNS exfiltration. Not a scientific-quality judgment."
+    },
+    {
+      "id": "2610.04897",
+      "title": "WLPA: A Network Management Framework for Allocating Scarce Quantum-Safe Link Postures under Weakest-Link Exposure",
+      "url": "https://arxiv.org/abs/2610.04897",
+      "review_depth": "title screening only",
+      "decision": "Not shortlisted from title: lower direct fit than selected work to AIT Linux alert correlation, evidence-led triage and DNS exfiltration. Not a scientific-quality judgment."
+    },
+    {
+      "id": "2610.04878",
+      "title": "Bounded Reasoning: Cognitive Hierarchy in Human-versus-AI Cyber Defense",
+      "url": "https://arxiv.org/abs/2610.04878",
+      "review_depth": "title screening only",
+      "decision": "Not shortlisted from title: lower direct fit than selected work to AIT Linux alert correlation, evidence-led triage and DNS exfiltration. Not a scientific-quality judgment."
+    },
+    {
+      "id": "2610.04860",
+      "title": "Invisible Ink, Visible Lies: How Production Watermarking Causes LLMs to Hallucinate",
+      "url": "https://arxiv.org/abs/2610.04860",
+      "review_depth": "title screening only",
+      "decision": "Not shortlisted from title: lower direct fit than selected work to AIT Linux alert correlation, evidence-led triage and DNS exfiltration. Not a scientific-quality judgment."
+    },
+    {
+      "id": "2610.04818",
+      "title": "Trusted Hardware Acceleration for Malicious-Secure Function Secret Sharing",
+      "url": "https://arxiv.org/abs/2610.04818",
+      "review_depth": "title screening only",
+      "decision": "Not shortlisted from title: lower direct fit than selected work to AIT Linux alert correlation, evidence-led triage and DNS exfiltration. Not a scientific-quality judgment."
+    },
+    {
+      "id": "2610.04798",
+      "title": "Forecasting Cybersecurity Incidents Using Geopolitical Data and Large Language Models",
+      "url": "https://arxiv.org/abs/2610.04798",
+      "review_depth": "title screening only",
+      "decision": "Not shortlisted from title: lower direct fit than selected work to AIT Linux alert correlation, evidence-led triage and DNS exfiltration. Not a scientific-quality judgment."
+    },
+    {
+      "id": "2610.04674",
+      "title": "Indistinguishability Lifting for Keyed Oracles, Compressed Ideal Cipher, and More Applications",
+      "url": "https://arxiv.org/abs/2610.04674",
+      "review_depth": "title screening only",
+      "decision": "Not shortlisted from title: lower direct fit than selected work to AIT Linux alert correlation, evidence-led triage and DNS exfiltration. Not a scientific-quality judgment."
+    },
+    {
+      "id": "2610.04661",
+      "title": "Post-Quantum Authentication Protocol for Internet of Medical Things",
+      "url": "https://arxiv.org/abs/2610.04661",
+      "review_depth": "title screening only",
+      "decision": "Not shortlisted from title: lower direct fit than selected work to AIT Linux alert correlation, evidence-led triage and DNS exfiltration. Not a scientific-quality judgment."
+    },
+    {
+      "id": "2610.04589",
+      "title": "StegoMemory: Agentic Memory Acts as Covert Steganographic Channel",
+      "url": "https://arxiv.org/abs/2610.04589",
+      "review_depth": "title screening only",
+      "decision": "Not shortlisted from title: lower direct fit than selected work to AIT Linux alert correlation, evidence-led triage and DNS exfiltration. Not a scientific-quality judgment."
+    },
+    {
+      "id": "2610.04543",
+      "title": "Quantum Machine Learning Protection of Military Quantum Key Distribution Against Cryptographically Camouflaged Attacks",
+      "url": "https://arxiv.org/abs/2610.04543",
+      "review_depth": "title screening only",
+      "decision": "Not shortlisted from title: lower direct fit than selected work to AIT Linux alert correlation, evidence-led triage and DNS exfiltration. Not a scientific-quality judgment."
+    },
+    {
+      "id": "2610.04504",
+      "title": "The Same Zero: Why Identical ASR Can Imply Different Guarantees in LLM-Agent Security",
+      "url": "https://arxiv.org/abs/2610.04504",
+      "review_depth": "title screening only",
+      "decision": "Not shortlisted from title: lower direct fit than selected work to AIT Linux alert correlation, evidence-led triage and DNS exfiltration. Not a scientific-quality judgment."
+    },
+    {
+      "id": "2610.04480",
+      "title": "Attestable Audit: Property-Based Attestation for Proprietary Workloads without Artifact Disclosure",
+      "url": "https://arxiv.org/abs/2610.04480",
+      "review_depth": "title screening only",
+      "decision": "Not shortlisted from title: lower direct fit than selected work to AIT Linux alert correlation, evidence-led triage and DNS exfiltration. Not a scientific-quality judgment."
+    },
+    {
+      "id": "2610.04442",
+      "title": "CHAMP: Cayley HAshing with Matrix Products",
+      "url": "https://arxiv.org/abs/2610.04442",
+      "review_depth": "title screening only",
+      "decision": "Not shortlisted from title: lower direct fit than selected work to AIT Linux alert correlation, evidence-led triage and DNS exfiltration. Not a scientific-quality judgment."
+    },
+    {
+      "id": "2610.04436",
+      "title": "Guess My Weight: Profiled Side-Channel Recovery of Floating-Point Neural-Network Weights",
+      "url": "https://arxiv.org/abs/2610.04436",
+      "review_depth": "title screening only",
+      "decision": "Not shortlisted from title: lower direct fit than selected work to AIT Linux alert correlation, evidence-led triage and DNS exfiltration. Not a scientific-quality judgment."
+    },
+    {
+      "id": "2610.04396",
+      "title": "JASPER: Special Session on Joint Reliability And Security Assessment of SPlit Computing for Edge Robustness",
+      "url": "https://arxiv.org/abs/2610.04396",
+      "review_depth": "title screening only",
+      "decision": "Not shortlisted from title: lower direct fit than selected work to AIT Linux alert correlation, evidence-led triage and DNS exfiltration. Not a scientific-quality judgment."
+    },
+    {
+      "id": "2610.04378",
+      "title": "COPEX: Benchmarking LLM Robustness to Adversarial Context Across Model Context Protocol Layers",
+      "url": "https://arxiv.org/abs/2610.04378",
+      "review_depth": "title screening only",
+      "decision": "Not shortlisted from title: lower direct fit than selected work to AIT Linux alert correlation, evidence-led triage and DNS exfiltration. Not a scientific-quality judgment."
+    },
+    {
+      "id": "2610.04319",
+      "title": "GrayShield: Bit-Level Sanitization for Transformer Model Supply-Chain Security",
+      "url": "https://arxiv.org/abs/2610.04319",
+      "review_depth": "title screening only",
+      "decision": "Not shortlisted from title: lower direct fit than selected work to AIT Linux alert correlation, evidence-led triage and DNS exfiltration. Not a scientific-quality judgment."
+    },
+    {
+      "id": "2610.04286",
+      "title": "CyTReX: Explainable AI-Based Cybersecurity Threat Reasoning Framework for DER Networks",
+      "url": "https://arxiv.org/abs/2610.04286",
+      "review_depth": "title screening only",
+      "decision": "Not shortlisted from title: lower direct fit than selected work to AIT Linux alert correlation, evidence-led triage and DNS exfiltration. Not a scientific-quality judgment."
+    },
+    {
+      "id": "2610.04243",
+      "title": "Autonomous Active Directory Exploitation via Multi-Model Harness Orchestration: A Benchmark Study with NeuroSploit on GOAD",
+      "url": "https://arxiv.org/abs/2610.04243",
+      "review_depth": "title screening only",
+      "decision": "Not shortlisted from title: lower direct fit than selected work to AIT Linux alert correlation, evidence-led triage and DNS exfiltration. Not a scientific-quality judgment."
+    },
+    {
+      "id": "2610.04235",
+      "title": "Learning to Watermark Speech Synthesis Against Model-Driven Reconstruction",
+      "url": "https://arxiv.org/abs/2610.04235",
+      "review_depth": "title screening only",
+      "decision": "Not shortlisted from title: lower direct fit than selected work to AIT Linux alert correlation, evidence-led triage and DNS exfiltration. Not a scientific-quality judgment."
+    },
+    {
+      "id": "2610.04169",
+      "title": "Language Model Fingerprinting Requires Rethinking Watermark Teachers",
+      "url": "https://arxiv.org/abs/2610.04169",
+      "review_depth": "title screening only",
+      "decision": "Not shortlisted from title: lower direct fit than selected work to AIT Linux alert correlation, evidence-led triage and DNS exfiltration. Not a scientific-quality judgment."
+    },
+    {
+      "id": "2610.04163",
+      "title": "Fully Homomorphic Encryption for Statistical Modeling",
+      "url": "https://arxiv.org/abs/2610.04163",
+      "review_depth": "title screening only",
+      "decision": "Not shortlisted from title: lower direct fit than selected work to AIT Linux alert correlation, evidence-led triage and DNS exfiltration. Not a scientific-quality judgment."
+    },
+    {
+      "id": "2610.04141",
+      "title": "From Temporary Access to Persistent Surveillance: Why Matter Matters in Smart Homes",
+      "url": "https://arxiv.org/abs/2610.04141",
+      "review_depth": "title screening only",
+      "decision": "Not shortlisted from title: lower direct fit than selected work to AIT Linux alert correlation, evidence-led triage and DNS exfiltration. Not a scientific-quality judgment."
+    },
+    {
+      "id": "2610.04128",
+      "title": "What Gradients Add to Text Leakage in Split Language Models, Counted per Token and per Document",
+      "url": "https://arxiv.org/abs/2610.04128",
+      "review_depth": "title screening only",
+      "decision": "Not shortlisted from title: lower direct fit than selected work to AIT Linux alert correlation, evidence-led triage and DNS exfiltration. Not a scientific-quality judgment."
+    },
+    {
+      "id": "2610.04060",
+      "title": "Auditing the Privacy of Synthetic Gene Expression Data: A Unified Weighted-Distance Framework for No-Box Membership Inference",
+      "url": "https://arxiv.org/abs/2610.04060",
+      "review_depth": "title screening only",
+      "decision": "Not shortlisted from title: lower direct fit than selected work to AIT Linux alert correlation, evidence-led triage and DNS exfiltration. Not a scientific-quality judgment."
+    },
+    {
+      "id": "2610.04026",
+      "title": "The TellTail of Embeddings: Fingerprinting Retrievers in Black-Box Systems",
+      "url": "https://arxiv.org/abs/2610.04026",
+      "review_depth": "title screening only",
+      "decision": "Not shortlisted from title: lower direct fit than selected work to AIT Linux alert correlation, evidence-led triage and DNS exfiltration. Not a scientific-quality judgment."
+    },
+    {
+      "id": "2610.03999",
+      "title": "SERA-IDS: Structured Experience Retrieval-Augmented Intrusion Detection with Small Language Models",
+      "url": "https://arxiv.org/abs/2610.03999",
+      "review_depth": "abstract and selected full-text sections",
+      "decision": "Adapt structured rules and frozen experience retrieval; numerical flow benchmarks differ from local alerts."
+    },
+    {
+      "id": "2610.03970",
+      "title": "SCRM: An Actionable Framework for Space Cyber Risk Management",
+      "url": "https://arxiv.org/abs/2610.03970",
+      "review_depth": "title screening only",
+      "decision": "Not shortlisted from title: lower direct fit than selected work to AIT Linux alert correlation, evidence-led triage and DNS exfiltration. Not a scientific-quality judgment."
+    },
+    {
+      "id": "2610.03960",
+      "title": "Localize-and-Detect: Auditing Task-Level Poisoning in Instruction-Tuned Models",
+      "url": "https://arxiv.org/abs/2610.03960",
+      "review_depth": "title screening only",
+      "decision": "Not shortlisted from title: lower direct fit than selected work to AIT Linux alert correlation, evidence-led triage and DNS exfiltration. Not a scientific-quality judgment."
+    },
+    {
+      "id": "2610.03955",
+      "title": "Adaptive Co-Serving LLM Watermarking on Modern Inference Engines",
+      "url": "https://arxiv.org/abs/2610.03955",
+      "review_depth": "title screening only",
+      "decision": "Not shortlisted from title: lower direct fit than selected work to AIT Linux alert correlation, evidence-led triage and DNS exfiltration. Not a scientific-quality judgment."
+    },
+    {
+      "id": "2610.03857",
+      "title": "Beware EviLLM: Enabling Vulnerability Injection via Large Language Models",
+      "url": "https://arxiv.org/abs/2610.03857",
+      "review_depth": "title screening only",
+      "decision": "Not shortlisted from title: lower direct fit than selected work to AIT Linux alert correlation, evidence-led triage and DNS exfiltration. Not a scientific-quality judgment."
+    },
+    {
+      "id": "2610.03820",
+      "title": "From Requirements to Attack Trees: Grounded LLM Agents for Design-Time Security Review",
+      "url": "https://arxiv.org/abs/2610.03820",
+      "review_depth": "title screening only",
+      "decision": "Not shortlisted from title: lower direct fit than selected work to AIT Linux alert correlation, evidence-led triage and DNS exfiltration. Not a scientific-quality judgment."
+    },
+    {
+      "id": "2610.03818",
+      "title": "Control OSWorld: An AI Control Environment for GUI Computer Use Agents",
+      "url": "https://arxiv.org/abs/2610.03818",
+      "review_depth": "title screening only",
+      "decision": "Not shortlisted from title: lower direct fit than selected work to AIT Linux alert correlation, evidence-led triage and DNS exfiltration. Not a scientific-quality judgment."
+    },
+    {
+      "id": "2610.06822",
+      "title": "Private online learning and prediction for Littlestone classes",
+      "url": "https://arxiv.org/abs/2610.06822",
+      "review_depth": "title screening only",
+      "decision": "Not shortlisted from title: lower direct fit than selected work to AIT Linux alert correlation, evidence-led triage and DNS exfiltration. Not a scientific-quality judgment."
+    },
+    {
+      "id": "2610.06721",
+      "title": "Tight Query Lower Bounds for Quantum Sampling, with an Application to Certified Randomness",
+      "url": "https://arxiv.org/abs/2610.06721",
+      "review_depth": "title screening only",
+      "decision": "Not shortlisted from title: lower direct fit than selected work to AIT Linux alert correlation, evidence-led triage and DNS exfiltration. Not a scientific-quality judgment."
+    },
+    {
+      "id": "2610.06636",
+      "title": "Differentially Private Mixing of Public Datasets Improves Private Learning",
+      "url": "https://arxiv.org/abs/2610.06636",
+      "review_depth": "title screening only",
+      "decision": "Not shortlisted from title: lower direct fit than selected work to AIT Linux alert correlation, evidence-led triage and DNS exfiltration. Not a scientific-quality judgment."
+    },
+    {
+      "id": "2610.06475",
+      "title": "Terracotta: Enabling the Adoption of New DRAM Techniques via a Flexible DRAM Interface and Memory Controller",
+      "url": "https://arxiv.org/abs/2610.06475",
+      "review_depth": "title screening only",
+      "decision": "Not shortlisted from title: lower direct fit than selected work to AIT Linux alert correlation, evidence-led triage and DNS exfiltration. Not a scientific-quality judgment."
+    },
+    {
+      "id": "2610.06420",
+      "title": "Efficient Secure Federated Learning via Information-Theoretically Secure Key Distribution: A Medical Imaging Case Study",
+      "url": "https://arxiv.org/abs/2610.06420",
+      "review_depth": "title screening only",
+      "decision": "Not shortlisted from title: lower direct fit than selected work to AIT Linux alert correlation, evidence-led triage and DNS exfiltration. Not a scientific-quality judgment."
+    },
+    {
+      "id": "2610.06093",
+      "title": "Cross-Lingual Transferability of Training Data Extraction Attacks to Recover Memorized PII",
+      "url": "https://arxiv.org/abs/2610.06093",
+      "review_depth": "title screening only",
+      "decision": "Not shortlisted from title: lower direct fit than selected work to AIT Linux alert correlation, evidence-led triage and DNS exfiltration. Not a scientific-quality judgment."
+    },
+    {
+      "id": "2610.05782",
+      "title": "Agentic-ZTA: A Multi-Agent Architecture for Autonomous Zero Trust Enforcement",
+      "url": "https://arxiv.org/abs/2610.05782",
+      "review_depth": "title screening only",
+      "decision": "Not shortlisted from title: lower direct fit than selected work to AIT Linux alert correlation, evidence-led triage and DNS exfiltration. Not a scientific-quality judgment."
+    },
+    {
+      "id": "2610.05637",
+      "title": "Visual Grounding Safety in Vision-Language Models",
+      "url": "https://arxiv.org/abs/2610.05637",
+      "review_depth": "title screening only",
+      "decision": "Not shortlisted from title: lower direct fit than selected work to AIT Linux alert correlation, evidence-led triage and DNS exfiltration. Not a scientific-quality judgment."
+    },
+    {
+      "id": "2610.05541",
+      "title": "Don't Judge an LLM Only by Its Activations: Discovering Suppressed Safety Features via Counterfactual Activation Potential",
+      "url": "https://arxiv.org/abs/2610.05541",
+      "review_depth": "title screening only",
+      "decision": "Not shortlisted from title: lower direct fit than selected work to AIT Linux alert correlation, evidence-led triage and DNS exfiltration. Not a scientific-quality judgment."
+    },
+    {
+      "id": "2610.05346",
+      "title": "Reflections and Fragments: Securing LLMs Against Sequential Mosaic Attacks",
+      "url": "https://arxiv.org/abs/2610.05346",
+      "review_depth": "title screening only",
+      "decision": "Not shortlisted from title: lower direct fit than selected work to AIT Linux alert correlation, evidence-led triage and DNS exfiltration. Not a scientific-quality judgment."
+    },
+    {
+      "id": "2610.05282",
+      "title": "Red-TTT: Test-Time Training for Automated Jailbreaking Large Language Models",
+      "url": "https://arxiv.org/abs/2610.05282",
+      "review_depth": "title screening only",
+      "decision": "Not shortlisted from title: lower direct fit than selected work to AIT Linux alert correlation, evidence-led triage and DNS exfiltration. Not a scientific-quality judgment."
+    },
+    {
+      "id": "2610.05102",
+      "title": "Private Component-by-Component Learning",
+      "url": "https://arxiv.org/abs/2610.05102",
+      "review_depth": "title screening only",
+      "decision": "Not shortlisted from title: lower direct fit than selected work to AIT Linux alert correlation, evidence-led triage and DNS exfiltration. Not a scientific-quality judgment."
+    },
+    {
+      "id": "2610.05036",
+      "title": "Characterizing Security Effects of OSS Vulnerabilities in Agent Systems",
+      "url": "https://arxiv.org/abs/2610.05036",
+      "review_depth": "title screening only",
+      "decision": "Not shortlisted from title: lower direct fit than selected work to AIT Linux alert correlation, evidence-led triage and DNS exfiltration. Not a scientific-quality judgment."
+    },
+    {
+      "id": "2610.04975",
+      "title": "Runtime Authorization of Self-Generated Subgoals in Long-Horizon Tool-Using AI Agents",
+      "url": "https://arxiv.org/abs/2610.04975",
+      "review_depth": "title screening only",
+      "decision": "Not shortlisted from title: lower direct fit than selected work to AIT Linux alert correlation, evidence-led triage and DNS exfiltration. Not a scientific-quality judgment."
+    },
+    {
+      "id": "2610.04763",
+      "title": "Tracing model-generated DNA with position-independent watermarking",
+      "url": "https://arxiv.org/abs/2610.04763",
+      "review_depth": "title screening only",
+      "decision": "Not shortlisted from title: lower direct fit than selected work to AIT Linux alert correlation, evidence-led triage and DNS exfiltration. Not a scientific-quality judgment."
+    },
+    {
+      "id": "2610.04699",
+      "title": "Not Self-Decidable: LLMs Cannot Draw the Boundary of What an Agent Verifier Can Check",
+      "url": "https://arxiv.org/abs/2610.04699",
+      "review_depth": "title screening only",
+      "decision": "Not shortlisted from title: lower direct fit than selected work to AIT Linux alert correlation, evidence-led triage and DNS exfiltration. Not a scientific-quality judgment."
+    },
+    {
+      "id": "2610.04693",
+      "title": "Penumbra: Sample-Efficient Adversarial Search for Regulatory Obligations",
+      "url": "https://arxiv.org/abs/2610.04693",
+      "review_depth": "title screening only",
+      "decision": "Not shortlisted from title: lower direct fit than selected work to AIT Linux alert correlation, evidence-led triage and DNS exfiltration. Not a scientific-quality judgment."
+    },
+    {
+      "id": "2610.04639",
+      "title": "When Talk Isn't Code: Comparing LLM Agents That Simulate and Develop Software",
+      "url": "https://arxiv.org/abs/2610.04639",
+      "review_depth": "title screening only",
+      "decision": "Not shortlisted from title: lower direct fit than selected work to AIT Linux alert correlation, evidence-led triage and DNS exfiltration. Not a scientific-quality judgment."
+    },
+    {
+      "id": "2610.04470",
+      "title": "Reactivating Alignment: Defending LLMs from Jailbreaks via Intention-Aware Input-Output Matching",
+      "url": "https://arxiv.org/abs/2610.04470",
+      "review_depth": "title screening only",
+      "decision": "Not shortlisted from title: lower direct fit than selected work to AIT Linux alert correlation, evidence-led triage and DNS exfiltration. Not a scientific-quality judgment."
+    },
+    {
+      "id": "2610.04412",
+      "title": "Large Language Models and Augmented Democracy",
+      "url": "https://arxiv.org/abs/2610.04412",
+      "review_depth": "title screening only",
+      "decision": "Not shortlisted from title: lower direct fit than selected work to AIT Linux alert correlation, evidence-led triage and DNS exfiltration. Not a scientific-quality judgment."
+    },
+    {
+      "id": "2610.04359",
+      "title": "A Cheat-Sensitive Primitive for Destination-Private Quantum Routing",
+      "url": "https://arxiv.org/abs/2610.04359",
+      "review_depth": "title screening only",
+      "decision": "Not shortlisted from title: lower direct fit than selected work to AIT Linux alert correlation, evidence-led triage and DNS exfiltration. Not a scientific-quality judgment."
+    },
+    {
+      "id": "2610.04310",
+      "title": "Modeling Deletion Requests in Machine Unlearning",
+      "url": "https://arxiv.org/abs/2610.04310",
+      "review_depth": "title screening only",
+      "decision": "Not shortlisted from title: lower direct fit than selected work to AIT Linux alert correlation, evidence-led triage and DNS exfiltration. Not a scientific-quality judgment."
+    },
+    {
+      "id": "2610.04269",
+      "title": "Self-Reflection Fine-Tuning: Enhancing Agent Security against Prompt Injection Attacks from Failure Experience",
+      "url": "https://arxiv.org/abs/2610.04269",
+      "review_depth": "title screening only",
+      "decision": "Not shortlisted from title: lower direct fit than selected work to AIT Linux alert correlation, evidence-led triage and DNS exfiltration. Not a scientific-quality judgment."
+    }
+  ],
+  "captured_at_utc": "2026-10-12T16:21:38.751610+00:00",
+  "screened_title_count": 315,
+  "deeper_candidate_count": 13
+}

@@ -1,0 +1,306 @@
+{
+  "schemaVersion": 1,
+  "items": [
+    {
+      "id": "dataset-and-coverage",
+      "title": "What do these logs contain?",
+      "queries": [
+        {
+          "id": "full-log-scan",
+          "source": {
+            "label": "Local AIT-ADS alert export",
+            "files": [
+              {
+                "label": "security-log-evidence.json"
+              },
+              {
+                "label": "labels.csv"
+              },
+              {
+                "label": "investigate_security_logs.py"
+              }
+            ],
+            "metricDefinitions": [
+              {
+                "label": "Alert counts",
+                "definition": "Alert counts include every parseable nonempty NDJSON row in all 16 local files; Wazuh files also contain Suricata alerts."
+              }
+            ],
+            "filters": [
+              "Scenarios: all eight local environments"
+            ],
+            "caveats": [
+              "The export contains selected detector alerts, not complete raw telemetry.",
+              "Attack labels are half-open time intervals and do not establish event-level maliciousness."
+            ],
+            "executedAt": "2026-10-12T16:23:41.338442+00:00",
+            "evidenceFlow": [
+              {
+                "kind": "validation",
+                "title": "Recorded checks",
+                "detail": "Streamed all files: 2,655,821 rows, no bad JSON or missing event times; no duplicate Wazuh event IDs within files. Local labels MD5 matches the publisher checksum."
+              }
+            ]
+          },
+          "columns": [
+            {
+              "field": "scenario",
+              "label": "Scenario"
+            },
+            {
+              "field": "wazuh_file_alerts",
+              "label": "Wazuh + Suricata alerts"
+            },
+            {
+              "field": "aminer_alerts",
+              "label": "AMiner alerts"
+            }
+          ],
+          "rows": [
+            {
+              "scenario": "fox",
+              "wazuh_file_alerts": 462523,
+              "aminer_alerts": 10581
+            },
+            {
+              "scenario": "harrison",
+              "wazuh_file_alerts": 583754,
+              "aminer_alerts": 10194
+            },
+            {
+              "scenario": "russellmitchell",
+              "wazuh_file_alerts": 41488,
+              "aminer_alerts": 4056
+            },
+            {
+              "scenario": "santos",
+              "wazuh_file_alerts": 126513,
+              "aminer_alerts": 4266
+            },
+            {
+              "scenario": "shaw",
+              "wazuh_file_alerts": 68539,
+              "aminer_alerts": 2243
+            },
+            {
+              "scenario": "wardbeck",
+              "wazuh_file_alerts": 88204,
+              "aminer_alerts": 3053
+            },
+            {
+              "scenario": "wheeler",
+              "wazuh_file_alerts": 603939,
+              "aminer_alerts": 12222
+            },
+            {
+              "scenario": "wilson",
+              "wazuh_file_alerts": 625303,
+              "aminer_alerts": 8943
+            }
+          ],
+          "reportingPeriod": "January 14\u2013February 8, 2022 UTC",
+          "preview": {
+            "kind": "aggregate",
+            "note": "Counts by scenario across the full local export.",
+            "totalRows": 2655821
+          }
+        }
+      ]
+    },
+    {
+      "id": "alert-flood-and-gaps",
+      "title": "Where are the flood and evidence gaps?",
+      "queries": [
+        {
+          "id": "flood-coverage",
+          "source": {
+            "label": "Local full-file investigation",
+            "files": [
+              {
+                "label": "security-log-evidence.json"
+              }
+            ],
+            "metricDefinitions": [
+              {
+                "label": "HTTP-error share",
+                "definition": "The HTTP-error share counts Wazuh-file alerts whose rule description is Web server 400 error code., divided by all Wazuh-file alerts."
+              },
+              {
+                "label": "Phase overlap",
+                "definition": "Phase overlap counts records with an event timestamp inside a labeled interval for the same scenario."
+              }
+            ],
+            "caveats": [
+              "Phase overlap is not a measured attack detection rate.",
+              "Training-mode records can overlap attack intervals.",
+              "Any cross-source incident linkage is an interpretation requiring evidence review."
+            ]
+          },
+          "columns": [
+            "finding",
+            "count",
+            "denominator"
+          ],
+          "rows": [
+            {
+              "finding": "Wazuh-file HTTP 400 error alerts",
+              "count": 1571313,
+              "denominator": 2600263
+            },
+            {
+              "finding": "AMiner training-mode alerts",
+              "count": 4739,
+              "denominator": 55558
+            },
+            {
+              "finding": "AMiner training-mode alerts inside phase intervals",
+              "count": 13,
+              "denominator": 4739
+            },
+            {
+              "finding": "Russellmitchell reverse-shell-window Wazuh-file alerts",
+              "count": 0,
+              "denominator": null
+            },
+            {
+              "finding": "Russellmitchell reverse-shell-window AMiner alerts",
+              "count": 3,
+              "denominator": null
+            }
+          ],
+          "methods": [
+            {
+              "language": "calculation",
+              "code": "HTTP-error share = 1,571,313 / 2,600,263 = 60.429%\nAMiner training-mode share = 4,739 / 55,558 = 8.530%"
+            }
+          ],
+          "preview": {
+            "kind": "aggregate",
+            "note": "Selected findings from the full-file scan and temporal-label joins."
+          }
+        }
+      ]
+    },
+    {
+      "id": "research-fit",
+      "title": "Which research ideas fit this dataset?",
+      "assumptions": [
+        "Applying these architectures to the local export is a recommendation, not a reproduced experimental result."
+      ],
+      "queries": [
+        {
+          "id": "paper-2610-10608",
+          "source": {
+            "label": "From Investigation Failures to Reliable SOC Agents: Understanding and Improving LLM-Based Alert Triage",
+            "links": [
+              {
+                "label": "From Investigation Failures to Reliable SOC Agents: Understanding and Improving LLM-Based Alert Triage",
+                "href": "https://arxiv.org/abs/2610.10608"
+              }
+            ],
+            "caveats": [
+              "Paper results were not reproduced on the local logs."
+            ]
+          },
+          "summary": "AIDA evaluates evidence-led triage on Russellmitchell and Wardbeck in the same AIT dataset family. The system starts from detector alerts and uses underlying telemetry plus event-level labels."
+        },
+        {
+          "id": "paper-2610-03999",
+          "source": {
+            "label": "SERA-IDS: Structured Experience Retrieval-Augmented Intrusion Detection with Small Language Models",
+            "links": [
+              {
+                "label": "SERA-IDS: Structured Experience Retrieval-Augmented Intrusion Detection with Small Language Models",
+                "href": "https://arxiv.org/abs/2610.03999"
+              }
+            ],
+            "caveats": [
+              "Paper results were not reproduced on the local logs."
+            ]
+          },
+          "summary": "SERA-IDS retrieves structured feature rules from a library frozen at test time. Its benchmarks use numerical network flows, not this alert export."
+        },
+        {
+          "id": "paper-2610-09007",
+          "source": {
+            "label": "Sigma-Hunter: A Domain-Specific Language Model for Threat Hunting and Detection Engineering",
+            "links": [
+              {
+                "label": "Sigma-Hunter: A Domain-Specific Language Model for Threat Hunting and Detection Engineering",
+                "href": "https://arxiv.org/abs/2610.09007"
+              }
+            ],
+            "caveats": [
+              "Paper results were not reproduced on the local logs."
+            ]
+          },
+          "summary": "Sigma-Hunter adapts local language models for detection-rule drafting; semantic evaluation scores do not measure deployed attack recall."
+        },
+        {
+          "id": "paper-2610-09581",
+          "source": {
+            "label": "Correct Answers, Unsupported Findings: Evidence Binding in Forensic Reconstruction of LLM Agent Logs",
+            "links": [
+              {
+                "label": "Correct Answers, Unsupported Findings: Evidence Binding in Forensic Reconstruction of LLM Agent Logs",
+                "href": "https://arxiv.org/abs/2610.09581"
+              }
+            ],
+            "caveats": [
+              "Paper results were not reproduced on the local logs."
+            ]
+          },
+          "summary": "The forensic audit distinguishes a correct answer from a finding bound to its actual preserved evidence record."
+        },
+        {
+          "id": "paper-2610-09906",
+          "source": {
+            "label": "Constrained-Action AI Remediation for SIEM/XDR via a NeMo-Guardrails Proxy",
+            "links": [
+              {
+                "label": "Constrained-Action AI Remediation for SIEM/XDR via a NeMo-Guardrails Proxy",
+                "href": "https://arxiv.org/abs/2610.09906"
+              }
+            ],
+            "caveats": [
+              "Paper results were not reproduced on the local logs."
+            ]
+          },
+          "summary": "The SIEM/XDR design uses constrained intents and separately validated command templates for response; it does not establish all remediation choices are correct."
+        },
+        {
+          "id": "paper-2610-12540",
+          "source": {
+            "label": "Organizational Context for the Enterprise Security Brain",
+            "links": [
+              {
+                "label": "Organizational Context for the Enterprise Security Brain",
+                "href": "https://arxiv.org/abs/2610.12540"
+              }
+            ],
+            "caveats": [
+              "Paper results were not reproduced on the local logs."
+            ]
+          },
+          "summary": "The context model links organizational claims to asset identities; applying it requires ownership, policy and change records missing from these files."
+        },
+        {
+          "id": "paper-2604-09849",
+          "source": {
+            "label": "Improving DNS Exfiltration Detection via Transformer Pretraining",
+            "links": [
+              {
+                "label": "Improving DNS Exfiltration Detection via Transformer Pretraining",
+                "href": "https://arxiv.org/abs/2604.09849"
+              }
+            ],
+            "caveats": [
+              "Paper results were not reproduced on the local logs."
+            ]
+          },
+          "summary": "DNS-specific in-domain transformer pretraining is evaluated at low false-positive operating points. Full DNS logs and appropriate labels are needed; this paper is outside the supplied recent page."
+        }
+      ]
+    }
+  ]
+}

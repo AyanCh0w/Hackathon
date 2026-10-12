@@ -1,0 +1,53 @@
+{
+  "coverage": [
+    {
+      "scenario": "fox",
+      "attack_windows": 10,
+      "aminer_windows_within_date_range": 10,
+      "wazuh_windows_within_date_range": 10
+    },
+    {
+      "scenario": "harrison",
+      "attack_windows": 10,
+      "aminer_windows_within_date_range": 10,
+      "wazuh_windows_within_date_range": 10
+    },
+    {
+      "scenario": "russellmitchell",
+      "attack_windows": 10,
+      "aminer_windows_within_date_range": 10,
+      "wazuh_windows_within_date_range": 10
+    },
+    {
+      "scenario": "santos",
+      "attack_windows": 10,
+      "aminer_windows_within_date_range": 10,
+      "wazuh_windows_within_date_range": 10
+    },
+    {
+      "scenario": "shaw",
+      "attack_windows": 10,
+      "aminer_windows_within_date_range": 10,
+      "wazuh_windows_within_date_range": 10
+    },
+    {
+      "scenario": "wardbeck",
+      "attack_windows": 10,
+      "aminer_windows_within_date_range": 10,
+      "wazuh_windows_within_date_range": 10
+    },
+    {
+      "scenario": "wheeler",
+      "attack_windows": 9,
+      "aminer_windows_within_date_range": 9,
+      "wazuh_windows_within_date_range": 9
+    },
+    {
+      "scenario": "wilson",
+      "attack_windows": 10,
+      "aminer_windows_within_date_range": 10,
+      "wazuh_windows_within_date_range": 10
+    }
+  ],
+  "limitation": "Date coverage only; no detection performance has been measured."
+}

@@ -1,0 +1,25 @@
+'use strict';
+const assert=require('node:assert/strict');
+const fs=require('node:fs');
+const vm=require('node:vm');
+const sandbox={};vm.createContext(sandbox);
+vm.runInContext(fs.readFileSync(require('node:path').join(__dirname,'../static/horizontal-map.js'),'utf8'),sandbox);
+const groups=Array.from({length:125},(_,index)=>({id:'g'+index}));
+const edges=groups.slice(1).map((group,index)=>({from:'g'+index,to:group.id}));
+edges.push({from:'g2',to:'g0',confidence:'low'},{from:'missing',to:'g0'});
+const layout=sandbox.horizontalLayout(groups,edges);
+assert.equal(layout.clusters.length,1,'Cycles remain one expandable relationship cluster');
+assert.equal(layout.clusters[0].members.length,125,'Cluster membership covers every connected endpoint');
+assert.equal(layout.positions.size,125,'Every endpoint survives a large cyclic component');
+assert.equal(layout.links.length,125,'Only edges with visible endpoints are drawn');
+assert.ok(layout.positions.get('g1').x>layout.positions.get('g0').x);
+assert.equal(layout.positions.get('g1').x,layout.positions.get('g2').x,'Cycle closes across nodes in the same level');
+const bounds=[...layout.positions.values()];
+assert.equal(new Set(bounds.map(p=>`${p.x},${p.y}`)).size,125,'Cards never occupy the same slot');
+for(const p of bounds){assert.ok(p.x+248<=layout.width);assert.ok(p.y+108<=layout.height);}
+const isolated=sandbox.horizontalLayout([{id:'a'},{id:'b'}],[]);
+assert.equal(isolated.clusters.length,2,'Unconnected groups stay separate');
+assert.equal(isolated.links.length,0,'Isolated evidence creates no invented links');
+assert.ok(isolated.positions.get('b').y>isolated.positions.get('a').y);
+assert.equal(sandbox.horizontalLayout([],[]).positions.size,0);
+console.log('Horizontal map checks passed: cycles, complete endpoints, isolated nodes, and canvas bounds.');

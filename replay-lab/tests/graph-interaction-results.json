@@ -1,0 +1,52 @@
+{
+  "library": "D3 7.9.0, vendored locally",
+  "checks": {
+    "circle_moves": true,
+    "connected_neighbor_moves": true,
+    "drag_does_not_open_inspector": true,
+    "frozen_neighbor_stays_fixed": true,
+    "keyboard_move_is_12_pixels": true,
+    "keyboard_inspector_opens": true,
+    "pan_changes_camera": true,
+    "scroll_changes_zoom": true,
+    "lines_follow_circle_centers": true,
+    "readable_labels_have_zero_overlaps": true,
+    "reset_clears_circles_and_cards": true,
+    "completed_run_restores_after_refresh": true
+  },
+  "additional_checks": [
+    "priority tiers appear in descending order",
+    "dataset filter scopes circles and priority totals",
+    "Signals excludes routine circles",
+    "routine checkbox hides routine cards",
+    "collapsed category persists after rendering"
+  ],
+  "status": "passed",
+  "completed_all_dataset_replay": {
+    "records": 2655821,
+    "active_seconds": 60.014,
+    "groups": 52707,
+    "high_priority_groups": 23
+  },
+  "final_verification": {
+    "label_windows": 79,
+    "inference_unchanged": true
+  },
+  "current_telemetry_preview": {
+    "processed": 620619,
+    "duration": 15.0,
+    "actual_elapsed": 15.0,
+    "group_count": 6412,
+    "edge_count": 23,
+    "priority_counts": {
+      "routine": 5623,
+      "context": 60,
+      "investigate": 726,
+      "high": 3
+    }
+  },
+  "current_test_suite": {
+    "tests": 26,
+    "status": "passed"
+  }
+}
