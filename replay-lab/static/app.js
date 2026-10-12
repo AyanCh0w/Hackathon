@@ -1,6 +1,6 @@
 'use strict';
 const $ = id => document.getElementById(id);
-const state = {meta:null, run:null, stream:null, catalog:null, graphAll:true, signalLedger:false, lastRender:0, rate:0, lastCount:0, lastTick:0, preparing:false};
+const state = {meta:null, run:null, stream:null, catalog:null, signalLedger:false, lastRender:0, rate:0, lastCount:0, lastTick:0, preparing:false};
 const names = {background:'Routine', anomaly:'Anomaly', recon:'Recon', web:'Web probing', execution:'Web commands', callback:'Callback request', privilege:'Privilege', service:'Service change', dns:'DNS anomaly', cracking:'Credential attack'};
 const priorities = {high:'High priority', investigate:'Investigate', context:'Context', routine:'Routine / training'};
 const importanceOrder = (a,b) => b.priority_score-a.priority_score || b.last_ts-a.last_ts || Number(a.id.slice(1))-Number(b.id.slice(1));
@@ -16,26 +16,27 @@ const shortDate = value => value ? new Date(value).toLocaleString('en-US',{month
 const selected = () => [...document.querySelectorAll('#dataset-options input:checked')].map(input=>input.value);
 const inView = row => $('dataset-view').value==='all'||row.scenario===$('dataset-view').value;
 function el(tag, cls, text) { const node = document.createElement(tag); if(cls) node.className=cls; if(text!==undefined) node.textContent=text; return node; }
-async function api(path, body) { const response = await fetch(path, body ? {method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify(body)} : {}); const result=await response.json(); if(!response.ok)throw Error(result.error || `HTTP ${response.status}`); return result; }
+async function api(path, body) { const response = await fetch(path, body ? {method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify(body)} : {}); const result=await response.json(); if(!response.ok){const error=Error(result.error || `HTTP ${response.status}`);error.status=response.status;throw error;} return result; }
 function toast(message) { $('toast').textContent=message; $('toast').hidden=false; clearTimeout(toast.timer); toast.timer=setTimeout(()=>$('toast').hidden=true,6000); }
 function showEmpty(target,title,copy,symbol='↳') { const empty=el('div','empty');empty.append(el('span','empty-symbol',symbol),el('strong','',title),el('p','',copy));target.replaceChildren(empty); }
 
 async function prepareSelected() {
+  const includeTelemetry=!$('ignore-telemetry').checked;
   const selections=selected(),generation=(state.prepGeneration||0)+1;state.prepGeneration=generation;
   $('dataset-summary').replaceChildren(document.createTextNode(selections.length===8?'All 8 selected':`${selections.length} of 8 selected`),el('span','','⌄'));
   state.preparing=true;state.meta=null;state.run=null;
   const view=$('dataset-view');view.replaceChildren(el('option','','All selected datasets'));view.firstChild.value='all';
   for(const name of selections){const option=el('option','',name[0].toUpperCase()+name.slice(1));option.value=name;view.append(option);}
-  $('play').disabled=true;$('play-label').textContent='Preparing…';$('preparation').textContent='Reading and sorting the two alert files. No inference or label access during preparation.';
+  $('play').disabled=true;$('play-label').textContent='Preparing…';$('preparation').textContent='Reading and sorting the selected inputs. No inference or label access during preparation.';
   if(!selections.length){state.preparing=false;$('play-label').textContent='Select datasets';$('preparation').textContent='Choose at least one dataset to prepare the replay.';$('total').textContent='/ —';return;}
   try {
-    await api('/api/prepare',{scenarios:selections});
+    await api('/api/prepare',{scenarios:selections,include_telemetry:includeTelemetry});
     let catalog;
     do {
       catalog=await api('/api/catalog');
       if(state.prepGeneration!==generation)return;
       state.catalog=catalog;
-      const datasets=selections.map(name=>catalog.catalog[name]);
+      const datasets=selections.map(name=>catalog.catalog[includeTelemetry?name:name+":alerts"]);
       const failure=datasets.find(meta=>meta?.status==='error');if(failure)throw Error(failure.error);
       if(datasets.every(meta=>meta?.status==='ready')){
         const start=Math.min(...datasets.map(m=>m.start_ts)),end=Math.max(...datasets.map(m=>m.end_ts));
@@ -111,7 +112,7 @@ function renderReady() {
 }
 function setControls(run) {
   const status=run?.status;const active=status==='running'||status==='paused';
-  for(const id of ['duration','pacing','select-all','select-none'])$(id).disabled=active;
+  for(const id of ['duration','pacing','select-all','select-none','ignore-telemetry'])$(id).disabled=active;
   for(const input of document.querySelectorAll('#dataset-options input'))input.disabled=active;
   $('step').disabled=status!=='paused';$('verify').disabled=status!=='complete';
   if(status==='running'){$('play-icon').textContent='Ⅱ';$('play-label').textContent='Pause replay';}
@@ -125,24 +126,26 @@ async function start() {
     $('play').disabled=true;
     if(state.stream)state.stream.close();
     $('datasets').open=false;
-    const result=await api('/api/start',{scenarios:selected(),duration:Number($('duration').value),pacing:$('pacing').value});
+    const result=await api('/api/start',{scenarios:selected(),include_telemetry:!$('ignore-telemetry').checked,duration:Number($('duration').value),pacing:$('pacing').value});
     history.replaceState(null,'','/');
     evidenceGraph.reset();horizontalMap.reset();state.lastRender=0;
     $('verification').hidden=true;$('verify').textContent='Verify at end ↗';$('isolation-title').textContent='Labels sealed';$('isolation-copy').textContent='Analysis uses the selected telemetry; labels stay sealed.';
     state.lastCount=0;state.lastTick=performance.now();
-    state.stream=new EventSource(`/api/stream?id=${result.id}`);
+    const stream=new EventSource(`/api/stream?id=${result.id}`);state.stream=stream;
     $('run-strip').style.scrollMarginTop=(document.querySelector('.controls').getBoundingClientRect().height+24)+'px';
     $('run-strip')?.scrollIntoView({behavior:'instant',block:'nearest'});
-    state.stream.addEventListener('snapshot',event=>{
+    stream.addEventListener('snapshot',event=>{
+      if(state.stream!==stream)return;
       const run=JSON.parse(event.data);state.run=run;
       const now=performance.now();state.rate=run.status==='running'?Math.max(0,(run.processed-state.lastCount)/((now-state.lastTick)/1000)):0;
       state.lastTick=now;state.lastCount=run.processed;
       render(run);
       if(['complete','cancelled','error'].includes(run.status)){state.stream.close();if(run.status==='complete')history.replaceState(null,'','/?run='+encodeURIComponent(run.id));if(run.error)toast(run.error);}
     });
-    state.stream.onerror=async()=>{
+    stream.onerror=async()=>{
+      if(state.stream!==stream)return;
       if(state.run&&!['complete','cancelled'].includes(state.run.status)){
-        try{const latest=await api(`/api/run?id=${result.id}`);state.run=latest;render(latest);if(latest.status==='complete')state.stream.close();}
+        try{const latest=await api(`/api/run?id=${result.id}`);if(state.stream!==stream)return;state.run=latest;render(latest);if(latest.status==='complete')state.stream.close();}
         catch(error){toast('Connection interrupted: '+error.message);}
       }
     };
@@ -154,10 +157,12 @@ async function action(action) {
 }
 async function reset() {
   history.replaceState(null,'','/');
+  state.inspectionGeneration=(state.inspectionGeneration||0)+1;
+  if($('detail-dialog').open)$('detail-dialog').close();
   if(state.stream)state.stream.close();
   if(state.run&&['running','paused'].includes(state.run.status))await action('cancel');
-  state.run=null;state.lastCount=0;state.lastRender=0;
-  for(const id of ['duration','pacing','select-all','select-none'])$(id).disabled=false;
+  state.stream=null;state.run=null;state.lastCount=0;state.lastRender=0;
+  for(const id of ['duration','pacing','select-all','select-none','ignore-telemetry'])$(id).disabled=false;
   for(const input of document.querySelectorAll('#dataset-options input'))input.disabled=false;
   $('status').className='status';$('status').replaceChildren(el('i'),document.createTextNode(' READY'));
   $('progress').style.width='0%';$('processed').replaceChildren(document.createTextNode('0 '),el('small','','/ '+fmt(state.meta?.total)));
@@ -234,30 +239,25 @@ function renderLedger() {
   $('ledger').replaceChildren(fragment);
 }
 function graphGroups() {
-  const connected=new Set(state.run.edges.flatMap(edge=>[edge.from,edge.to]));
-  const pool=(state.run?.groups||[]).filter(g=>inView(g)&&(connected.has(g.id)||state.graphAll||g.priority!=='routine')).sort(importanceOrder);
-  const available=new Map(pool.map(g=>[g.id,g])), chosen=new Map(),limit=80;
-  // Every relationship endpoint is mandatory; the cap applies only to isolated context.
-  for(const id of connected)if(available.has(id))chosen.set(id,available.get(id));
-  const add=group=>{if(group&&chosen.size<limit)chosen.set(group.id,group);};
-  // Give each selected dataset an important starting point, then preserve real edge pairs.
-  for(const dataset of new Set(pool.map(g=>g.scenario))){
-    for(const group of pool.filter(g=>g.scenario===dataset&&g.priority==='high').slice(0,2))add(group);
-    add(pool.find(g=>g.scenario===dataset&&g.priority==='investigate'));
+  if(!state.run)return [];
+  const pool=(state.run.groups||[]).filter(inView);
+  const available=new Map(pool.map(group=>[group.id,group]));
+  const investigations=pool.filter(group=>group.priority==='investigate');
+  const chosen=new Set(pool.filter(group=>group.priority==='high'||group.priority==='investigate').map(group=>group.id));
+  const neighbors=new Map(investigations.map(group=>[group.id,new Set()]));
+  for(const edge of state.run.edges||[]){
+    if(!available.has(edge.from)||!available.has(edge.to))continue;
+    neighbors.get(edge.from)?.add(edge.to);
+    neighbors.get(edge.to)?.add(edge.from);
   }
-  const edges=state.run.edges.filter(e=>available.has(e.from)&&available.has(e.to)).sort((a,b)=>
-    Math.max(available.get(b.from).priority_score,available.get(b.to).priority_score)-Math.max(available.get(a.from).priority_score,available.get(a.to).priority_score));
-  for(const edge of edges){
-    const needed=Number(!chosen.has(edge.from))+Number(!chosen.has(edge.to));
-    if(chosen.size+needed<=limit){add(available.get(edge.from));add(available.get(edge.to));}
+  // Each investigation gets at most one supporting node. Never expand that node.
+  for(const group of investigations){
+    const supporting=[...neighbors.get(group.id)].map(id=>available.get(id))
+      .filter(node=>node.priority!=='high'&&node.priority!=='investigate')
+      .sort(importanceOrder);
+    if(supporting.length)chosen.add(supporting[0].id);
   }
-  const represented=new Set([...chosen.values()].map(g=>g.scenario+':'+g.family+':'+g.priority));
-  for(const group of pool){
-    const key=group.scenario+':'+group.family+':'+group.priority;
-    if(!represented.has(key)){add(group);represented.add(key);}
-  }
-  for(const group of pool)if(group.priority==='high')add(group);
-  return [...chosen.values()].sort(importanceOrder);
+  return pool.filter(group=>chosen.has(group.id)).sort(importanceOrder);
 }
 function renderGraph() {
   if(!state.run)return;
@@ -275,21 +275,30 @@ function renderGroups() {
   const totals=$('dataset-view').value==='all'?state.run.priority_counts:state.run.dataset_priority_counts[$('dataset-view').value]||{};
   const summary=document.createDocumentFragment();
   for(const [tier,label] of Object.entries(priorities)){
-    const item=el('span','priority-total '+tier);item.append(el('i'),el('strong','',fmt(totals[tier])),document.createTextNode(' '+label));summary.append(item);
+    const actionable=tier==='high'||tier==='investigate';
+    const queue=state.run.review_queue?.filter(item=>($('dataset-view').value==='all'||item.scenario===$('dataset-view').value)&&item.priority===tier);
+    const count=actionable&&queue?queue.length:totals[tier];
+    const item=el('span','priority-total '+tier);item.append(el('i'),el('strong','',fmt(count)),document.createTextNode(' '+label+(actionable&&queue?' review items':'')));item.title=`${fmt(totals[tier])} evidence episodes`;summary.append(item);
   }
   $('priority-summary').replaceChildren(summary);
   if(!groups.length){$('groups').replaceChildren(el('div','empty horizontal','No matching evidence groups yet.'));return;}
   const openSections=new Map([...$('groups').querySelectorAll('.priority-section')].map(node=>[node.dataset.priority,node.open]));
   const fragment=document.createDocumentFragment();
   for(const [tier,label] of Object.entries(priorities)){
-    const candidates=groups.filter(g=>g.priority===tier);if(!candidates.length)continue;
+    const queue=state.run.review_queue?.filter(item=>($('dataset-view').value==='all'||item.scenario===$('dataset-view').value)&&item.priority===tier);
+    const actionable=tier==='high'||tier==='investigate';
+    const candidates=actionable&&queue?queue.map(item=>{const group=groups.find(g=>g.id===item.representative);return group?{...group,review_episodes:item.groups.length}:null;}).filter(Boolean):groups.filter(g=>g.priority===tier);if(!candidates.length)continue;
     const section=el('details','priority-section '+tier);section.dataset.priority=tier;section.open=openSections.get(tier)??(tier==='high'||tier==='investigate');
-    const heading=el('summary','priority-heading');heading.append(el('span','',label),el('small','',`${Math.min(8,candidates.length)} representative / ${fmt(totals[tier])} total`));section.append(heading);
+    const heading=el('summary','priority-heading');heading.append(el('span','',label),el('small','',actionable&&queue?`${Math.min(8,candidates.length)} shown / ${fmt(queue.length)} review items · ${fmt(totals[tier])} episodes`:`${Math.min(8,candidates.length)} representative / ${fmt(totals[tier])} total`));section.append(heading);
     const list=el('div','priority-list');
     for(const group of candidates.slice(0,8)){
       const node=el('button','group-card priority-'+tier);node.dataset.group=group.id;node.dataset.priority=tier;
       const top=el('div','group-top');top.append(el('span','',group.id.toUpperCase()+' · '+shortTime(group.last)),el('span','confidence '+group.confidence,group.confidence+' confidence'));
+      if(group.review_episodes>1)top.append(el('span','',`${group.review_episodes} linked episodes`));
       node.append(top,el('p','group-scenario',group.scenario),el('h3','',group.title),el('p','group-host',`${group.host} ← ${group.actor}`));
+      node.append(el('p','detail-subtitle',`${dateTime(group.first)} – ${dateTime(group.last)} UTC`));
+      const sample=group.evidence?.find(record=>!record.training)||group.evidence?.[0];
+      if(sample)node.append(el('p','group-observation',`${sample.description||sample.detector||'Observed record'} · ${sample.file}:${sample.line}`));
       const reason=el('p','priority-reason',group.priority_reason);reason.title=group.priority_reason;node.append(reason);
       const bottom=el('div','group-bottom'),count=el('strong','',fmt(group.count)+' ');count.append(el('span','','records'));
       bottom.append(count,el('span','',fmt(group.unique)+' distinct'+(group.training?' · '+fmt(group.training)+' training':'')));node.append(bottom);
@@ -366,12 +375,14 @@ function inspectRecord(row){
 function nodeAnalysis(group,runId){
   const section=el('section','ai-analysis'),button=el('button','','Analyze node with AI');
   const result=el('div','ai-analysis-result');result.setAttribute('role','status');result.setAttribute('aria-live','polite');
+  const question=el('input');question.placeholder='Ask an investigation question';question.setAttribute('aria-label','Investigation question');
+  section.append(question);
   section.append(el('h3','','Understand this node'),el('p','detail-subtitle','Get an evidence-backed assessment and prioritized next steps. Sends redacted node details, sampled member traces, connections, and investigation results to OpenAI.'),button,result);
   button.onclick=async()=>{
     button.disabled=true;button.textContent='Analyzing node…';result.setAttribute('aria-busy','true');
     result.replaceChildren(el('p','','Gathering evidence and analyzing what to check next. This can take up to a minute.'));
     try{
-      const response=await api('/api/analyze-node',{id:runId,group:group.id});
+      const response=await api('/api/analyze-node',{id:runId,group:group.id,question:question.value});
       const report=response.analysis,coverage=response.coverage;
       result.replaceChildren(el('h3','',report.assessment.replaceAll('_',' ')),el('p','ai-summary',report.summary),
         el('p','',`Confidence: ${report.confidence} — ${report.confidence_reason}`));
@@ -387,6 +398,8 @@ function nodeAnalysis(group,runId){
           };refs.append(ref);
         }parent.append(refs);
       };
+      citations(result,report.narrative_evidence_ids||[]);
+      for(const answer of report.answers||[]){const item=el('div','ai-finding');item.append(el('strong','',answer.question),el('p','',`${answer.status}: ${answer.answer}`));citations(item,answer.evidence_ids);result.append(item);}
       result.append(el('h3','','What the evidence shows'));
       for(const finding of report.findings){const item=el('div','ai-finding');item.append(el('strong','',finding.observation),el('p','',finding.meaning));citations(item,finding.evidence_ids);result.append(item);}
       result.append(el('h3','','What to do next'));
@@ -403,6 +416,8 @@ function nodeAnalysis(group,runId){
   return section;
 }
 async function inspectGroup(id,decision=null){
+  const inspectionGeneration=state.inspectionGeneration=(state.inspectionGeneration||0)+1;
+  const inspectedRunId=state.run?.id;if(!inspectedRunId)return;
   let group=state.run?.groups.find(g=>g.id===id);
   if(!group){
     try{const result=await api(`/api/group?id=${state.run.id}&group=${encodeURIComponent(id)}`);group=result.group;}
@@ -418,7 +433,14 @@ async function inspectGroup(id,decision=null){
       }
     }catch(error){toast(`Episode summary retrieval: ${error.message}`);}
   }
-  const content=el('div');content.append(el('h2','',group.title),el('div','rule-note',group.reason));
+  if(state.run?.id!==inspectedRunId||state.inspectionGeneration!==inspectionGeneration)return;
+  const content=el('div');content.append(el('p','detail-subtitle',`${group.scenario} · Run ${inspectedRunId} · Group ${group.id}`),el('h2','',group.title),el('div','rule-note',group.reason));
+  const reviewItem=state.run.review_queue?.find(item=>item.groups.includes(id));
+  if(reviewItem&&reviewItem.groups.length>1){
+    const section=el('section');section.append(el('h3','',`${reviewItem.groups.length} episodes in this review item`));
+    for(const member of reviewItem.groups){const button=el('button','secondary',member.toUpperCase());button.disabled=member===id;button.onclick=()=>inspectGroup(member);section.append(button);}
+    content.append(section);
+  }
   if(decision){
     const section=el('section','decision-context');section.append(el('h3','','Decision at event time'),el('p','',`${decision.stage.toUpperCase()} · ${dateTime(decision.time)} UTC · event ${decision.event}`),el('p','',decision.detail));
     const button=el('button','secondary','Show triggering event');button.onclick=async()=>{button.disabled=true;try{const result=await api(`/api/evidence?id=${state.run.id}&record=${encodeURIComponent(decision.event)}`);section.append(evidenceNode(result.record));}catch(error){toast(error.message);button.disabled=false;}};
@@ -426,12 +448,13 @@ async function inspectGroup(id,decision=null){
   }
   content.append(el('div','priority-detail priority-'+group.priority,`${priorities[group.priority]} · ${group.priority_reason}`));
   content.append(falsePositiveAction(group,state.run.id));
+  content.append(incidentControls(group, inspectedRunId));
   content.append(nodeAnalysis(group,state.run.id));
   content.append(analystSummary(group),el('p','detail-subtitle','Snapshot at selection. Credentials and embedded command payloads are redacted.'));
   const edges=state.run.edges.filter(edge=>edge.from===id||edge.to===id);
   if(edges.length){
-    content.append(el('h3','',`${edges.length} connections · all shown in the map`));
-    for(const edge of edges){const other=edge.from===id?edge.to:edge.from;const button=el('button','member-reference',`${edge.from} → ${edge.to}: ${edge.basis}`);button.onclick=()=>inspectGroup(other);content.append(button);}
+    content.append(el('h3','',`${edges.length} connections · full list`));
+    for(const edge of edges){const other=edge.from===id?edge.to:edge.from;const button=el('button','member-reference',`${edge.from} → ${edge.to}: ${edge.relationship || 'inferred'} · ${edge.basis} · alerts ${(edge.evidence_ids||[]).join(', ')}`);button.onclick=()=>inspectGroup(other);content.append(button);}
   }
   content.append(disclosure(`Supporting records (${group.evidence.length})`,...group.evidence.map(evidenceNode)));
   const rules=el('details','rule-details');rules.append(el('summary','','Rule conditions and counterexamples'));
@@ -472,11 +495,29 @@ async function inspectGroup(id,decision=null){
   };
   actions.append(reviewButton,membersButton);content.append(actions,reviewTarget,membersTarget);openDetail(content);
 }
+function verificationForView(result,scenario) {
+  if(scenario==='all')return result;
+  const rows=result.rows.filter(row=>row.scenario===scenario),summary={},phases={};
+  for(const row of rows){summary[row.evidence_status]=(summary[row.evidence_status]||0)+1;const phase=phases[row.phase]??={windows:0,specific_signal:0};phase.windows++;phase.specific_signal+=Number(row.evidence_status==='specific_signal');}
+  const detected=summary.specific_signal||0,total=rows.length;
+  return {...result,rows,summary,phases,score:{...result.score,total,detected,percent:total?Math.round(1000*detected/total)/10:null,possible_misses:(summary.unsupported_behavior||0)+(summary.training_only||0),insufficient_telemetry:summary.insufficient_telemetry||0}};
+}
 async function verify(scroll=true){
   if(state.run?.status!=='complete')return;
   $('verify').disabled=true;
   try{
-    const result=await api('/api/verify',{id:state.run.id});state.run.verification=result;
+    const verifiedRun=state.run;
+    const fullResult=verifiedRun.verification||await api('/api/verify',{id:verifiedRun.id});
+    if(state.run!==verifiedRun)return;
+    verifiedRun.verification=fullResult;
+    const result=verificationForView(fullResult,$('dataset-view').value);
+    $('verification-scope').textContent=`${$('dataset-view').value==='all'?verifiedRun.scenarios.join(', '):$('dataset-view').value} · Run ${verifiedRun.id}`;
+    const findings=document.createDocumentFragment();
+    for(const row of result.rows){
+      const entry=el('p','',`${row.scenario} / ${row.phase.replaceAll('_',' ')} · ${dateTime(row.start)} – ${dateTime(row.end)} UTC: ${fmt(row.relevant)} technique-specific records out of ${fmt(row.records)} received. ${row.interpretation}.`);
+      findings.append(entry);
+    }
+    $('verification-findings').replaceChildren(findings);
     const total=result.rows.length, matched=result.summary?.specific_signal??0;
     const score=result.score??{percent:total?Math.round(1000*matched/total)/10:null,detected:matched,total,possible_misses:(result.summary?.unsupported_behavior??0)+(result.summary?.training_only??0),insufficient_telemetry:result.summary?.insufficient_telemetry??0,definition:'Percentage of labeled attack windows with an operational technique-specific signal. All labeled windows are included; this is detection coverage, not record-level accuracy.'};
     const overview=document.createDocumentFragment();
@@ -501,7 +542,7 @@ async function verify(scroll=true){
       const signals=el('td');signals.append(el('strong',row.relevant?'good':'gap',fmt(row.relevant)+' specific'),el('div','',`${fmt(row.generic_anomalies)} generic anomalies · ${fmt(row.training_related)} training-related`),el('div','',Object.entries(row.categories).map(([name,count])=>`${names[name]} ${fmt(count)}`).join(' · ')));
       const interpretation=el('td');interpretation.append(el('span',row.relevant?'good':'gap',row.interpretation));
       const detail=el('details');detail.append(el('summary','','Evidence and telemetry'),el('p','',row.diagnosis),el('p','',`Observed operational excerpts: ${Object.entries(row.telemetry.operational).map(([key,count])=>`${key} ${fmt(count)}`).join(' · ')||'none with relevant fields'}`),el('p','',`Needed: ${row.telemetry.needed_any.join(' or ')}. Collection completeness unknown.`));
-      for(const ref of row.references){const button=el('button','member-reference',ref.id+(ref.training?' · training':''));button.onclick=async()=>{try{const r=await api(`/api/evidence?id=${state.run.id}&record=${encodeURIComponent(ref.id)}`);const content=el('div');content.append(el('h2','',ref.rule),evidenceNode(r.record));openDetail(content);}catch(error){toast(error.message);}};detail.append(button);}
+      for(const ref of row.references){const button=el('button','member-reference',ref.id+(ref.training?' · training':''));button.onclick=async()=>{try{const r=await api(`/api/evidence?id=${verifiedRun.id}&record=${encodeURIComponent(ref.id)}`);const content=el('div');content.append(el('h2','',ref.rule),evidenceNode(r.record));openDetail(content);}catch(error){toast(error.message);}};detail.append(button);}
       const errors={specific_signal:'Possible false positive: overlap does not confirm attack attribution.',training_only:'Possible operational miss: related evidence was excluded as training.',unsupported_behavior:'Possible missed detection: relevant excerpts exist, but no specific rule fired.',insufficient_telemetry:'Unknown: relevant operational telemetry is missing.'};
       interpretation.append(detail);tr.append(signals,interpretation,el('td','verification-error',errors[row.evidence_status]));fragment.append(tr);
     }
@@ -513,14 +554,15 @@ async function verify(scroll=true){
 $('play').onclick=()=>state.run?.status==='running'?action('pause'):state.run?.status==='paused'?action('resume'):start();
 $('step').onclick=()=>action('step');$('reset').onclick=reset;$('verify').onclick=()=>verify();
 async function selectionChanged(){try{localStorage.setItem('trace-datasets',JSON.stringify(selected()));}catch{}await reset();prepareSelected();}
+$('ignore-telemetry').onchange=()=>{try{localStorage.setItem('trace-ignore-telemetry',String($('ignore-telemetry').checked));}catch{}selectionChanged();};
 for(const input of document.querySelectorAll('#dataset-options input'))input.onchange=selectionChanged;
 $('select-all').onclick=()=>{for(const input of document.querySelectorAll('#dataset-options input'))input.checked=true;selectionChanged();};
 $('select-none').onclick=()=>{for(const input of document.querySelectorAll('#dataset-options input'))input.checked=false;selectionChanged();};
-$('dataset-view').onchange=()=>{renderFeed();renderGraph();renderGroups();renderLedger();if(state.run)render(state.run);};
+$('dataset-view').onchange=()=>{renderFeed();renderGraph();renderGroups();renderLedger();if(state.run)render(state.run);if(state.run?.verification)verify(false);};
 for(const id of ['duration','pacing'])$(id).onchange=renderReady;
 for(const id of ['source-filter','search'])$(id).addEventListener(id==='search'?'input':'change',renderFeed);
 $('show-routine').onchange=renderGroups;
-$('graph-mode').onclick=()=>{state.graphAll=!state.graphAll;$('graph-mode').textContent=state.graphAll?'All groups ▾':'Signals ▾';renderGraph();};
+
 function setGraphLayout(original) {
   originalMap=original;
   $('graph').toggleAttribute('hidden',!original);
@@ -549,8 +591,8 @@ $('ledger-mode').onclick=()=>{state.signalLedger=!state.signalLedger;$('ledger-m
 $('method-btn').onclick=()=>$('method-dialog').showModal();
 for(const button of document.querySelectorAll('.close-dialog'))button.onclick=()=>button.closest('dialog').close();
 for(const dialog of document.querySelectorAll('dialog'))dialog.addEventListener('click',event=>{if(event.target===dialog){const r=dialog.getBoundingClientRect();if(event.clientX<r.left||event.clientX>r.right||event.clientY<r.top||event.clientY>r.bottom)dialog.close();}});
-$('graph-mode').textContent='All groups ▾';
 try{const saved=JSON.parse(localStorage.getItem('trace-datasets'));if(Array.isArray(saved)&&saved.length&&saved.every(name=>[...document.querySelectorAll('#dataset-options input')].some(input=>input.value===name))){for(const input of document.querySelectorAll('#dataset-options input'))input.checked=saved.includes(input.value);}}catch{}
+try{$('ignore-telemetry').checked=localStorage.getItem('trace-ignore-telemetry')==='true';}catch{}
 async function initialize() {
   const id=new URLSearchParams(location.search).get('run');
   let completed=null;
@@ -559,6 +601,7 @@ async function initialize() {
       const run=await api('/api/run?id='+encodeURIComponent(id));
       if(run.status!=='complete')throw Error('This replay has not completed. Start a fresh replay to continue.');
       completed=run;
+      $('ignore-telemetry').checked=run.include_telemetry===false;
       for(const input of document.querySelectorAll('#dataset-options input'))input.checked=run.scenarios.includes(input.value);
       $('duration').value=String(run.duration);$('pacing').value=run.pacing;
     }catch(error){toast('Saved replay unavailable: '+error.message);history.replaceState(null,'','/');}
@@ -616,6 +659,7 @@ workspaceDivider.addEventListener('keydown', event => {
   if(Object.hasOwn(changes, event.key)) { event.preventDefault(); setWorkspaceSplit(changes[event.key]); }
 });
 renderFalsePositives();
+
 initialize();
 
 // Native details stays keyboard accessible; dismiss the menu like a standard popover.
@@ -625,3 +669,97 @@ document.addEventListener('pointerdown', event => {
 document.addEventListener('keydown', event => {
   if(event.key==='Escape')for(const id of ['datasets','replay-settings'])if($(id).open){$(id).open=false;$(id).querySelector('summary').focus();}
 });
+
+function incidentControls(group, runId) {
+  const section=el('section','incident-demo');
+  const header=el('div','incident-demo-header');
+  header.append(el('h3','','Incident chain & suppression'));
+  section.append(header,el('p','incident-demo-description','Inspect observed incident evidence. Suppression controls below are for demo only.'));
+  const timeline=el('div','incident-demo-timeline');
+  const timelineCopy=el('div');timelineCopy.append(el('strong','','Attack-chain timeline'),el('p','','Connected evidence, ordered by time.'));
+  const show=el('button','secondary','View timeline');show.type='button';
+  const view=el('div','incident-timeline-view');view.hidden=true;view.id=`incident-timeline-${runId}-${group.id}`;
+  show.setAttribute('aria-controls',view.id);show.setAttribute('aria-expanded','false');
+  const citations=(parent,ids)=>{
+    const refs=el('div','ai-citations');
+    for(const id of ids||[]){
+      const button=el('button','member-reference',id);button.type='button';
+      button.onclick=async()=>{
+        button.disabled=true;
+        try{const response=await api(`/api/evidence?id=${encodeURIComponent(runId)}&record=${encodeURIComponent(id)}`);refs.append(evidenceNode(response.record));}
+        catch(error){toast(error.message);}
+        finally{button.disabled=false;}
+      };refs.append(button);
+    }parent.append(refs);
+  };
+  let loaded=false;
+  show.onclick=async()=>{
+    if(loaded){view.hidden=!view.hidden;show.textContent=view.hidden?'View timeline':'Hide timeline';show.setAttribute('aria-expanded',String(!view.hidden));return;}
+    show.disabled=true;show.textContent='Loading timeline…';view.hidden=false;view.setAttribute('aria-busy','true');
+    view.replaceChildren(el('p','detail-subtitle','Retrieving the observed incident chain…'));
+    try{
+      const result=await loadIncidentTimeline(group,runId);
+      view.replaceChildren(el('p','detail-subtitle',result.scope));
+      const list=el('ol','incident-timeline-list');
+      for(const row of result.timeline){
+        const item=el('li','incident-timeline-item');
+        item.append(el('p','incident-timeline-time',`${dateTime(row.first)} – ${dateTime(row.last)} UTC`),el('strong','',`${names[row.technique]||row.technique} · ${row.host}`),el('p','detail-subtitle',`${row.group} · ${row.actor} · ${priorities[row.priority]||row.priority}`),el('p','',row.reason));
+        citations(item,row.evidence_ids);list.append(item);
+      }
+      view.append(list);
+      if(!result.timeline.length)view.append(el('p','detail-subtitle','No observed episodes available.'));
+      if(result.edges.length){
+        const relationships=el('details','incident-timeline-relationships');relationships.append(el('summary','',`${result.edges.length} evidence relationships`));
+        for(const edge of result.edges){
+          const item=el('div','incident-timeline-item');item.append(el('strong','',`${edge.from} → ${edge.to} · ${edge.relationship||'inferred'} relationship`),el('p','',edge.basis));
+          citations(item,edge.evidence_ids);
+          for(const fact of edge.confirmed_evidence||[]){const line=el('div');line.append(el('p','detail-subtitle',`Confirmed matching field: ${fact.field} = ${fact.value}`));citations(line,fact.evidence_ids);item.append(line);}
+          relationships.append(item);
+        }view.append(relationships);
+      }
+      loaded=true;show.textContent='Hide timeline';show.setAttribute('aria-expanded','true');
+    }catch(error){view.replaceChildren(el('p','gap',error.message));show.textContent='Retry timeline';show.setAttribute('aria-expanded','true');}
+    finally{show.disabled=false;view.setAttribute('aria-busy','false');}
+  };
+  timeline.append(timelineCopy,show);section.append(timeline,view);
+  const form=el('fieldset','incident-demo-fields');form.disabled=true;
+  const legend=el('legend');legend.append(el('span','','Suppression preview'),el('span','incident-demo-badge','For demo only'));form.append(legend);
+  const field=(labelText,control)=>{const label=el('label','incident-demo-field');label.append(el('span','',labelText),control);return label;};
+  const analyst=el('input');analyst.type='text';analyst.placeholder='Analyst name';analyst.disabled=true;
+  const expiry=el('input');expiry.type='text';expiry.placeholder='Select an expiry date';expiry.disabled=true;
+  const reason=el('textarea');reason.placeholder='Add reviewed benign evidence and a reason…';reason.rows=2;reason.disabled=true;
+  const row=el('div','incident-demo-row');row.append(field('Approving analyst',analyst),field('Expires at',expiry));
+  form.append(row,field('Supporting evidence',reason));section.append(form);
+  const footer=el('div','incident-demo-footer');
+  const actions=el('div','incident-demo-actions');
+  for(const text of ['Approve suppression','Unsuppress']){const button=el('button','secondary',text);button.type='button';button.disabled=true;actions.append(button);}
+  footer.append(el('span','','Demo preview · no changes are saved'),actions);section.append(footer);
+  return section;
+}
+
+async function loadIncidentTimeline(group,runId) {
+  try{return await api(`/api/incident?id=${encodeURIComponent(runId)}&group=${encodeURIComponent(group.id)}`);}
+  catch(error){if(error.status!==404)throw error;}
+  // Older running servers retain real replay data but lack the incident route.
+  // Read their complete edge list and fetch any endpoints outside the visible pool.
+  const run=await api(`/api/run?id=${encodeURIComponent(runId)}`);
+  const adjacency=new Map();
+  for(const edge of run.edges||[]){
+    for(const [from,to] of [[edge.from,edge.to],[edge.to,edge.from]]){
+      if(!adjacency.has(from))adjacency.set(from,new Set());adjacency.get(from).add(to);
+    }
+  }
+  const ids=new Set(),pending=[group.id];
+  while(pending.length){const id=pending.pop();if(ids.has(id))continue;ids.add(id);pending.push(...(adjacency.get(id)||[]));}
+  const available=new Map((run.groups||[]).map(row=>[row.id,row]));
+  const groups=await Promise.all([...ids].map(async id=>{
+    if(available.has(id))return available.get(id);
+    const result=await api(`/api/group?id=${encodeURIComponent(runId)}&group=${encodeURIComponent(id)}`);return result.group;
+  }));
+  return {groups,
+    timeline:groups.map(row=>({group:row.id,first:row.first,last:row.last,technique:row.family,host:row.host,actor:row.actor,
+      evidence_ids:(row.evidence||[]).map(record=>record.id),priority:row.priority,reason:row.priority_reason||row.reason}))
+      .sort((a,b)=>a.first.localeCompare(b.first)||a.group.localeCompare(b.group)),
+    edges:(run.edges||[]).filter(edge=>ids.has(edge.from)&&ids.has(edge.to)).map(edge=>({...edge,relationship:edge.relationship||'inferred'})),
+    scope:'Connected observed episodes from this replay; collection may be incomplete. Relationships do not prove causality or attack success.'};
+}

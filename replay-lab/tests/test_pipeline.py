@@ -28,6 +28,46 @@ def aminer(raw, stamp=1642996800, training=False):
 
 
 class PipelineTests(unittest.TestCase):
+    def test_administrative_changes_need_attack_corroboration(self):
+        engine = OnlineEngine()
+        for i, raw in enumerate(('Jan 24 03:00:00 intranet-server sudo: session opened for user root',
+                                 'Jan 24 03:00:01 intranet-server Stopped apache')):
+            engine.ingest(normalize(wazuh(raw), 'test_wazuh.json', i + 1))
+        self.assertTrue(all(g['priority'] == 'context' for g in engine.groups.values()))
+        self.assertEqual(engine.review_queue(), [])
+
+    def test_attack_link_promotes_service_and_consolidates_review(self):
+        engine = OnlineEngine()
+        for i, raw in enumerate(('Jan 24 03:00:00 intranet-server GET /x.php?cmd=whoami',
+                                 'Jan 24 03:00:01 intranet-server Stopped apache')):
+            event = normalize(wazuh(raw), 'test_wazuh.json', i + 1)
+            if i == 0:
+                event['path'] = '/x.php'
+                event['_payload'] = '/x.php?cmd=whoami'
+            engine.ingest(event)
+        self.assertEqual([g['priority'] for g in engine.groups.values()], ['high', 'investigate'])
+        queue = engine.snapshot()['review_queue']
+        self.assertEqual(len(queue), 1)
+        self.assertEqual(set(queue[0]['groups']), set(engine.groups))
+        self.assertEqual(queue[0]['priority'], 'high')
+
+    def test_separate_hosts_and_datasets_remain_separate_review_items(self):
+        engine = OnlineEngine()
+        for i, (scenario, host) in enumerate((('fox', 'a'), ('fox', 'b'), ('shaw', 'a'))):
+            engine.ingest(normalize(wazuh('Jan 24 03:00:00 '+host+' su: Successful su for root by www-data', predecoder={'hostname': host}), scenario + '_wazuh.json', i + 1))
+        self.assertEqual(len(engine.review_queue()), 3)
+
+    def test_different_supported_behaviors_promote_but_repeated_scans_do_not(self):
+        engine = OnlineEngine()
+        for i, raw in enumerate(('nmap scan', 'nmap scan again', 'SQL injection')):
+            event = normalize(wazuh(raw), 'test_wazuh.json', i + 1)
+            event['src'] = '192.0.2.5'
+            engine.ingest(event)
+            if i < 2:
+                self.assertEqual(engine.review_queue(), [])
+        self.assertTrue(all(g['priority'] == 'investigate' for g in engine.groups.values()))
+        self.assertEqual(len(engine.review_queue()), 1)
+
     def test_event_time_and_eve_without_full_log(self):
         event = normalize(wazuh(data={'src_ip': '192.0.2.5', 'dest_ip': '192.0.2.8', 'alert': {'signature': 'port scan'}}, full_log=''), 'test_wazuh.json', 7)
         self.assertEqual(event['time'], '2022-01-24T03:00:00Z')
@@ -210,7 +250,7 @@ class PipelineTests(unittest.TestCase):
         for i in range(1, 10):
             engine.ingest(normalize(aminer(raw, 1642996820 + i), 'test_aminer.json', 60 + i))
         group = engine.snapshot()['groups'][0]
-        self.assertEqual(group['priority'], 'investigate')
+        self.assertEqual(group['priority'], 'context')
         self.assertIn('scan.ssh_identification', group['rules'])
 
     def test_ssh_identification_window_expires(self):
@@ -220,19 +260,19 @@ class PipelineTests(unittest.TestCase):
             engine.ingest(normalize(aminer(raw, 1642996800 + i * 301), 'test_aminer.json', i + 1))
         self.assertTrue(all(g['priority'] == 'context' for g in engine.groups.values()))
 
-    def test_explicit_scan_remains_investigate(self):
+    def test_explicit_scan_needs_corroboration(self):
         engine = OnlineEngine()
         engine.ingest(normalize(wazuh('Explicit nmap scan signature'), 'test_wazuh.json', 1))
-        self.assertEqual(engine.snapshot()['groups'][0]['priority'], 'investigate')
+        self.assertEqual(engine.snapshot()['groups'][0]['priority'], 'context')
 
-    def test_distinct_web_burst_moves_from_context_to_investigate(self):
+    def test_distinct_web_burst_stays_context_without_corroboration(self):
         engine=OnlineEngine()
         for i in range(25):
             raw=f'172.19.131.174 - - [24/Jan/2022:04:00:00 +0000] "GET /path-{i} HTTP/1.1" 404 14'
             engine.ingest(normalize(aminer(raw,1642996800+i),'test_aminer.json',i+1))
         group=engine.snapshot()['groups'][0]
-        self.assertEqual((group['priority'],group['confidence'],group['unique']),('investigate','medium',25))
-        self.assertEqual(engine.snapshot()['priority_counts'].get('context',0),0)
+        self.assertEqual((group['priority'],group['confidence'],group['unique']),('context','medium',25))
+        self.assertEqual(engine.snapshot()['priority_counts'].get('context',0),1)
 
     def test_priority_shortlist_preserves_earlier_dataset_and_tier(self):
         engine=OnlineEngine()

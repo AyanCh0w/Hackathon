@@ -3,7 +3,7 @@ from collections import Counter, OrderedDict, deque
 import math
 import re
 
-RULES_VERSION = '2026-10-12.5'
+RULES_VERSION = '2026-10-12.6'
 # Thresholds are engineering starting points, not calibrated deployment operating points.
 RULES = {
     'scan.signature': {'family': 'recon', 'condition': 'explicit scan signature', 'counterexample': 'approved vulnerability scanner'},

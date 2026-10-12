@@ -33,12 +33,14 @@ def importance(group):
         tier, reason = 'routine', 'Training-only observations; no operational evidence in this episode.'
     elif family in ('callback', 'execution') or (family == 'privilege' and confidence == 'high'):
         tier, reason = 'high', 'Command / callback content or a web-account identity transition merits prompt review; success remains unconfirmed.'
-    elif family in ('service', 'privilege', 'cracking') or (family in ('recon', 'web', 'dns') and confidence in ('medium', 'high')):
-        tier, reason = 'investigate', 'A specific scan, service / privilege change, sensor signature, or distinct probing burst needs investigation.'
+    elif (family in ('service', 'privilege') and group.get('corroborated_signal')) or (family in ('cracking', 'recon', 'web', 'dns') and confidence in ('medium', 'high') and group.get('corroborated_signal')):
+        tier, reason = 'investigate', 'A supported attack pattern or an operational change linked to a supported attack signal merits investigation.'
+    elif family in ('service', 'privilege'):
+        tier, reason = 'context', 'An operational change alone is consistent with administration or maintenance; a supported attack signal is required.'
     elif family == 'background':
         tier, reason = 'routine', 'Routine sensor activity without a supported attack signal.'
     else:
-        tier, reason = 'context', 'An isolated anomaly, SSH identification failure, or unsuccessful request provides context; stronger evidence is needed.'
+        tier, reason = 'context', 'An anomaly or standalone attack signal provides context; corroboration by a different supported behavior is needed for investigation.'
     base = {'high': 90, 'investigate': 60, 'context': 30, 'routine': 0}[tier]
     weight = {'callback': 9, 'execution': 8, 'privilege': 7, 'cracking': 6, 'recon': 5, 'web': 4, 'service': 3, 'dns': 2, 'anomaly': 1, 'background': 0}[family]
     related = len(group.get('related_families', ()))
@@ -105,6 +107,9 @@ class OnlineEngine:
         self.recent_groups = deque(maxlen=500)
         self.group_lookup = {}
         self.edges = {}
+        from incident_workflow import EntityLinks
+        self.entity_links = EntityLinks()
+        self.suppressions = None
         self.host_groups = {}
         self.recent = deque(maxlen=220)
         self.history = deque(maxlen=240)
@@ -118,12 +123,16 @@ class OnlineEngine:
         self.dataset_priority_counts = {}
         self.priority_representatives = {}
         self.behavior = BehavioralDetectors()
+        self.priority_observer = None
+        self.current_event = None
 
     def rank_group(self, group):
         tier, score, reason = importance(group)
         previous = group.get('priority')
         counts = self.dataset_priority_counts.setdefault(group['scenario'], Counter())
         if previous != tier:
+            if self.priority_observer and tier in ('high', 'investigate'):
+                self.priority_observer(group, self.current_event)
             if previous:
                 self.priority_counts[previous] -= 1
                 counts[previous] -= 1
@@ -146,6 +155,7 @@ class OnlineEngine:
             self.dataset_signal_history.setdefault(e['scenario'], deque(maxlen=120)).append(entry)
 
     def ingest(self, e):
+        self.current_event = e
         self.processed += 1
         self.sources[e['source']] += 1
         self.training += int(e['training'])
@@ -178,9 +188,9 @@ class OnlineEngine:
                 'last_ts': e['timestamp'], 'confidence': confidence, 'reason': reason,
                 'training': 0, 'detectors': Counter(), 'evidence': [], 'keys': set(),
                 'paths': set(), 'rate_elevated': False, 'operational_unique': 0,
-                'related_families': set(), 'connections': 0,
+                'related_families': set(), 'connections': 0, 'corroborated_signal': False,
                 'rules': Counter(), 'operational_keys': set(), 'web_window': deque(maxlen=4096),
-                'context_counts': {key: Counter() for key in ('src', 'dst', 'sensor', 'location', 'source', 'description')},
+                'context_counts': {key: Counter() for key in ('src', 'dst', 'user', 'sensor', 'location', 'source', 'description')},
             }
             self.groups[gid] = group
             self.recent_groups.append(gid)
@@ -191,6 +201,8 @@ class OnlineEngine:
         else:
             gid = previous
             group = self.groups[gid]
+        if not e['training']:
+            group['latest_operational_alert'] = e['id']
         previous_confidence = group['confidence']
         first_operational = not e['training'] and group['count'] == group['training']
         group['count'] += 1
@@ -216,7 +228,7 @@ class OnlineEngine:
             example.update({key:e[key] for key in ('origin_file','origin_line','origin_hash') if key in e})
             if len(group['evidence']) < 7:
                 group['evidence'].append(example)
-            elif family in ('execution', 'callback', 'privilege', 'service', 'dns', 'cracking'):
+            elif first_operational or family in ('execution', 'callback', 'privilege', 'service', 'dns', 'cracking'):
                 group['evidence'][-1] = example
         operational_new = not e['training'] and e['evidence_key'] not in group['operational_keys']
         if operational_new:
@@ -262,13 +274,33 @@ class OnlineEngine:
                 if edge_key not in self.edges:
                     basis = 'same observed source and host within 15 min' if same_actor else 'same host within 15 min; actor continuity unproven'
                     self.edges[edge_key] = {'id': '|'.join(edge_key), 'from': other_id, 'to': gid, 'basis': basis,
-                                            'time': e['time'], 'confidence': 'medium' if same_actor else 'low'}
+                                            'time': e['time'], 'confidence': 'medium' if same_actor else 'low',
+                                            'relationship': 'inferred', 'evidence_ids': [other['latest_operational_alert'], e['id']],
+                                            'confirmed_evidence': [{'field': 'host', 'value': e['host'],
+                                                'evidence_ids': [other['latest_operational_alert'], e['id']]}]}
                     for current, related_group in ((group, other), (other, group)):
                         current['connections'] += 1
+                        if current['family'] != related_group['family'] and (related_group['family'] in ('execution', 'callback') or
+                                (same_actor and related_group['family'] in ('recon', 'web', 'dns', 'cracking')
+                                 and related_group['confidence'] in ('medium', 'high'))):
+                            current['corroborated_signal'] = True
                         if current['family'] != related_group['family']:
                             current['related_families'].add(related_group['family'])
                         self.rank_group(current)
                     self.audit('connect', e, f"Connected {other['title']} → {group['title']}: {basis}.", gid)
+        # A previously contextual neighbor can become supported as its window fills.
+        if elevated or previous_confidence != group['confidence']:
+            for edge in self.edges.values():
+                if gid not in (edge['from'], edge['to']):
+                    continue
+                other = self.groups[edge['to'] if edge['from'] == gid else edge['from']]
+                if (other['family'] != group['family'] and group['operational_unique'] and group['confidence'] in ('medium', 'high') and
+                        group['family'] in ('recon', 'web', 'dns', 'cracking', 'execution', 'callback') and
+                        (edge['confidence'] == 'medium' or group['family'] in ('execution', 'callback')) and
+                        0 <= e['timestamp'] - other['last_ts'] <= 900):
+                    other['corroborated_signal'] = True
+                    self.rank_group(other)
+        self.entity_links.observe(self, e, group)
         self.stages['connect']['count'] += 1
         self.stages['connect']['ms'] += (time.perf_counter() - start) * 1000
         self.stages['connect']['last'] = e['time']
@@ -281,6 +313,13 @@ class OnlineEngine:
 
     def public_group(self, group):
         out = {k: v for k, v in group.items() if k not in ('keys', 'operational_keys', 'web_window', 'paths', 'detectors', 'rules', 'evidence', 'related_families', 'context_counts')}
+        if self.suppressions:
+            out['suppression'] = self.suppressions.status(group, self.groups.values())
+            if out['suppression'].get('reopened') and group['priority'] not in ('high', 'investigate'):
+                out['detection_priority'] = group['priority']
+                out['priority'] = 'investigate'
+                out['priority_score'] = 200
+                out['priority_reason'] = out['suppression']['reason']
         out['context'] = {key: {'values': [{'value': value, 'records': count} for value, count in counts.most_common(12)],
                                'total_values': len(counts)} for key, counts in group['context_counts'].items()}
         duration = max(0, group['last_ts'] - group['first_ts'])
@@ -320,8 +359,38 @@ class OnlineEngine:
                                'status': 'candidate; execution / intent not confirmed'})
         return result
 
+    def review_queue(self):
+        """One review item per connected set of actionable episodes."""
+        actionable = {gid for gid, g in self.groups.items() if g['priority'] in ('high', 'investigate')}
+        adjacency = {gid: set() for gid in actionable}
+        for edge in self.edges.values():
+            a, b = edge['from'], edge['to']
+            if a in actionable and b in actionable and (edge['confidence'] == 'medium' or
+                    self.groups[a]['family'] in ('execution', 'callback') or
+                    self.groups[b]['family'] in ('execution', 'callback')):
+                adjacency[a].add(b)
+                adjacency[b].add(a)
+        visited, result = set(), []
+        for gid in sorted(actionable, key=lambda x: int(x[1:])):
+            if gid in visited:
+                continue
+            pending, ids = [gid], []
+            while pending:
+                current = pending.pop()
+                if current in visited:
+                    continue
+                visited.add(current)
+                ids.append(current)
+                pending.extend(adjacency[current] - visited)
+            representative = min(ids, key=lambda x: (-self.groups[x]['priority_score'], -self.groups[x]['last_ts'], int(x[1:])))
+            result.append({'id': gid, 'representative': representative, 'groups': sorted(ids, key=lambda x: int(x[1:])),
+                           'scenario': self.groups[gid]['scenario'], 'priority': self.groups[representative]['priority']})
+        return result
+
     def snapshot(self, include_logs=True):
+        queue = self.review_queue()
         pool = self.focus_groups | set(self.recent_groups)
+        pool.update(item['representative'] for item in queue)
         for ids in self.priority_representatives.values():
             pool.update(ids)
         groups = sorted((self.groups[gid] for gid in pool), key=lambda g: (
@@ -335,6 +404,8 @@ class OnlineEngine:
                 visible_by_id[group['id']] = group
             scenario_shown[scenario] += 1
             tier_shown[key] += 1
+        for item in queue:
+            visible_by_id[item['representative']] = self.groups[item['representative']]
         # Preserve endpoints of actual relationships in the map's available pool.
         for edge in self.edges.values():
             for gid in (edge['from'], edge['to']):
@@ -348,6 +419,7 @@ class OnlineEngine:
             all_signals.update({entry['id']: entry for entry in entries})
         return {'processed': self.processed, 'sources': dict(self.sources), 'categories': dict(self.categories),
                 'training': self.training, 'group_count': len(self.groups), 'edge_count': len(self.edges),
+                'review_queue': queue, 'review_queue_counts': dict(Counter(item['priority'] for item in queue)),
                 'priority_counts': dict(self.priority_counts),
                 'dataset_priority_counts': {name: dict(counts) for name, counts in self.dataset_priority_counts.items()},
                 'groups': [self.public_group(g) for g in visible], 'edges': list(self.edges.values()),

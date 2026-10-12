@@ -27,9 +27,9 @@ class HorizontalEvidenceMap {
     this.changed=changed;this.world=world;this.viewport=world.parentElement;this.inspect=inspect;this.signature='';
     this.collapsed=new Set();this.offsets=new Map();this.transform=d3.zoomIdentity;
     this.zoom=d3.zoom().scaleExtent([.2,3])
-      .filter(event=>(event.type==='wheel'||!event.target.closest('.horizontal-node,.relationship-toggle'))&&!event.button)
+      .filter(event=>event.type!=='wheel'&&!event.target.closest('.horizontal-node,.relationship-toggle')&&!event.button)
       .on('zoom',event=>{this.transform=event.transform;this.world.style.transform=`translate(${event.transform.x}px,${event.transform.y}px) scale(${event.transform.k})`;document.getElementById('map-zoom-value').textContent=Math.round(event.transform.k*100)+'%';});
-    d3.select(this.viewport).call(this.zoom).on('dblclick.zoom',null);
+    d3.select(this.viewport).call(this.zoom).on('wheel.zoom',null).on('dblclick.zoom',null);
   }
   zoomBy(factor){d3.select(this.viewport).call(this.zoom.scaleBy,factor);}
   fit(){
@@ -78,6 +78,7 @@ class HorizontalEvidenceMap {
     for(const edge of layout.links){
       const path=document.createElementNS(svg.namespaceURI,'path');
       path.setAttribute('class','graph-edge'+(edge.confidence==='low'?' weak':''));
+      const title=document.createElementNS(svg.namespaceURI,'title');title.textContent=`${edge.relationship||'inferred'} relationship · ${edge.basis||''} · alerts ${(edge.evidence_ids||[]).join(', ')}`;path.append(title);
       path.dataset.from=edge.from;path.dataset.to=edge.to;svg.append(path);
     }
     fragment.append(svg);

@@ -422,7 +422,7 @@ main { max-width: 1400px; padding-top: 22px; }
 .horizontal-updated { color: var(--dim); }
 .horizontal-node.dimmed { opacity: .35; }
 #graph-container:has(#horizontal-map:not([hidden])) .map-hint { display: none; }
-#horizontal-map { overflow: hidden; cursor: grab; touch-action: none; }
+#horizontal-map { overflow: auto; cursor: grab; touch-action: none; }
 #horizontal-map:active, .horizontal-node.dragging { cursor: grabbing; }
 #horizontal-world { transform-origin: 0 0; }
 .horizontal-node { cursor: grab; touch-action: none; user-select: none; }
@@ -456,3 +456,42 @@ main { max-width: 1400px; padding-top: 22px; }
 .fp-case label { display: block; margin: 12px 0; font-size: 12px; }
 .fp-case select, .fp-case textarea { display: block; margin-top: 6px; width: 100%; }
 .fp-case textarea { box-sizing: border-box; background: var(--panel2); color: inherit; border: 1px solid var(--border); border-radius: 6px; padding: 10px; font: inherit; resize: vertical; }
+
+/* Integrated, inert preview of the analyst workflow. */
+.incident-demo { margin: 14px 0; padding: 16px; border: 1px solid var(--border); border-radius: var(--radius); background: var(--panel2); }
+.incident-demo-header, .incident-demo-timeline, .incident-demo-footer { display: flex; align-items: center; justify-content: space-between; gap: 12px; }
+.incident-demo-header h3 { margin: 0; font-size: 13px; font-weight: 600; }
+.incident-demo-badge { flex: none; padding: 3px 8px; border: 1px solid var(--border); border-radius: 20px; color: var(--muted); background: var(--panel); font-size: 10px; font-weight: 600; }
+.incident-demo-description { margin-top: 7px; color: var(--muted); font-size: 12px; line-height: 1.6; }
+.incident-demo-timeline { margin: 14px 0; padding: 12px; border: 1px solid var(--border); border-radius: var(--radius); background: var(--panel); }
+.incident-demo-timeline strong { font-size: 12px; font-weight: 600; }
+.incident-demo-timeline p { margin-top: 2px; color: var(--muted); font-size: 11px; }
+.incident-demo-fields { min-width: 0; margin: 0; padding: 0; border: 0; }
+.incident-demo-fields legend { padding: 0; margin-bottom: 10px; font-size: 11px; font-weight: 600; color: var(--muted); }
+.incident-demo-row { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; }
+.incident-demo-field { display: flex; flex-direction: column; gap: 6px; margin-bottom: 12px; min-width: 0; }
+.incident-demo-field > span { font-size: 11px; color: var(--muted); }
+.incident-demo-field input, .incident-demo-field textarea { display: block; width: 100%; min-width: 0; padding: 9px 10px; border: 1px solid var(--border); border-radius: var(--radius); background: var(--panel); color: var(--muted); font: inherit; font-size: 12px; line-height: 1.5; opacity: 1; -webkit-text-fill-color: var(--muted); resize: none; }
+.incident-demo-field input::placeholder, .incident-demo-field textarea::placeholder { color: var(--dim); opacity: 1; }
+.incident-demo-footer { padding-top: 12px; border-top: 1px solid var(--border); }
+.incident-demo-footer > span { color: var(--muted); font-size: 11px; }
+.incident-demo-actions { display: flex; gap: 8px; }
+.incident-demo button:disabled { opacity: .65; cursor: default; white-space: nowrap; }
+.ai-analysis > input { display: block; width: 100%; padding: 9px 10px; border: 1px solid var(--border); border-radius: var(--radius); background: var(--panel); font: inherit; }
+@media (max-width: 540px) {
+  .incident-demo-row { grid-template-columns: 1fr; gap: 0; }
+  .incident-demo-footer { align-items: flex-start; flex-direction: column; }
+  .incident-demo-header { align-items: flex-start; }
+}
+.incident-demo-fields legend { width: 100%; }
+.incident-demo-fields legend > span:first-child { margin-right: 10px; }
+.incident-timeline-view { margin: 0 0 18px; font-size: 12px; }
+.incident-timeline-list { list-style: none; margin: 12px 0; padding: 0 0 0 14px; border-left: 1px solid var(--border); }
+.incident-timeline-item { position: relative; padding: 12px; margin: 0 0 10px; border: 1px solid var(--border); border-radius: var(--radius); background: var(--panel); overflow-wrap: anywhere; }
+.incident-timeline-list > li::before { content: ''; position: absolute; left: -19px; top: 18px; width: 7px; height: 7px; border-radius: 50%; background: var(--context); box-shadow: 0 0 0 3px var(--panel2); }
+.incident-timeline-time { margin-bottom: 6px; font: 10px/1.5 var(--mono); color: var(--muted); }
+.incident-timeline-item > p { margin-top: 5px; }
+.incident-timeline-relationships > summary { margin-bottom: 10px; color: var(--muted); }
+
+
+.telemetry-help { margin: -8px 0 0; color: var(--muted); font-size: 11px; }

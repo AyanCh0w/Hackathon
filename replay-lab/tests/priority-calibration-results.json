@@ -1,0 +1,28 @@
+{
+  "dataset": "fox",
+  "records": 1306112,
+  "previous_episode_counts": {
+    "routine": 15523,
+    "investigate": 1764,
+    "context": 359,
+    "high": 3
+  },
+  "new_episode_counts": {
+    "routine": 15523,
+    "context": 2101,
+    "investigate": 22,
+    "high": 3
+  },
+  "review_item_counts": {
+    "investigate": 6,
+    "high": 2
+  },
+  "investigate_families": {
+    "dns": 10,
+    "recon": 9,
+    "web": 1,
+    "cracking": 1,
+    "service": 1
+  },
+  "seconds": 18.8
+}

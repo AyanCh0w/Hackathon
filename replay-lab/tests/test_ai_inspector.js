@@ -23,7 +23,7 @@ vm.createContext(sandbox);
 vm.runInContext(source.slice(source.indexOf('function nodeAnalysis('),source.indexOf('async function inspectGroup(')),sandbox);
 (async()=>{
   const section=sandbox.nodeAnalysis({id:'g1'},'frozen-run');
-  const button=section.children[2],result=section.children[3];
+  const button=section.children.find(child=>child.textContent==='Analyze node with AI'),result=section.children.find(child=>child.className==='ai-analysis-result');
   const pending=button.onclick();
   assert.equal(button.disabled,true);
   assert.equal(result.attributes['aria-busy'],'true');

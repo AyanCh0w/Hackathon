@@ -1,0 +1,17 @@
+'use strict';
+const assert=require('node:assert/strict');
+const fs=require('node:fs');
+const vm=require('node:vm');
+const source=fs.readFileSync(require('node:path').join(__dirname,'../static/app.js'),'utf8');
+const context={};vm.createContext(context);
+vm.runInContext(source.slice(source.indexOf('function verificationForView('),source.indexOf('async function verify(')),context);
+const report={rows:[{scenario:'fox',phase:'webshell',evidence_status:'specific_signal',references:[{id:'fox-e1'}]},{scenario:'wilson',phase:'webshell',evidence_status:'unsupported_behavior',references:[{id:'wilson-e1'}]},{scenario:'wilson',phase:'dnsteal',evidence_status:'insufficient_telemetry',references:[]}],score:{definition:'Coverage'}};
+const fox=context.verificationForView(report,'fox');
+const wilson=context.verificationForView(report,'wilson');
+assert.equal(fox.score.percent,100);assert.equal(wilson.score.percent,0);
+assert.equal(fox.rows.length,1);assert.equal(wilson.rows.length,2);
+assert.equal(fox.rows[0].references[0].id,'fox-e1');assert.equal(wilson.rows[0].references[0].id,'wilson-e1');
+assert.equal(wilson.score.possible_misses,1);assert.equal(wilson.score.insufficient_telemetry,1);
+assert.equal(context.verificationForView(report,'all'),report);assert.equal(report.rows.length,3);
+assert.equal(context.verificationForView(report,'missing').score.percent,null);
+console.log('Verification dataset filtering passed: scores, phases, evidence references, empty view, immutable source.');

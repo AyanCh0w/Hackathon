@@ -33,6 +33,8 @@ CACHE = Path(__file__).resolve().parent / '.cache'
 INPUTS = Path(__file__).resolve().parent / 'telemetry-inputs'
 CATALOG, RUNS = {}, {}
 CATALOG_LOCK = threading.RLock()
+from incident_workflow import Suppressions, incident
+SUPPRESSIONS = Suppressions(CACHE / 'analyst-suppressions.json')
 
 
 def iso(stamp):
@@ -46,28 +48,42 @@ def selected_scenarios(body):
     return [name for name in SCENARIOS if name in names]
 
 
-def source_files(scenario):
+def catalog_key(scenario, include_telemetry=True):
+    return scenario if include_telemetry else scenario + ":alerts"
+
+
+def telemetry_option(body):
+    value = body.get("include_telemetry", True)
+    if not isinstance(value, bool):
+        raise ValueError("include_telemetry must be a boolean")
+    return value
+
+
+def source_files(scenario, include_telemetry=True):
     sources = [('wazuh', ROOT / 'ait_ads' / (scenario + '_wazuh.json')),
                ('aminer', ROOT / 'ait_ads' / (scenario + '_aminer.json'))]
     external = INPUTS / (scenario + '.jsonl')
-    if external.is_file():
+    if include_telemetry and external.is_file():
         sources.append(('telemetry', external))
     return sources
 
 
-def fingerprint(scenario):
+def fingerprint(scenario, include_telemetry=True):
     return [VERSION] + [(str(path), path.stat().st_size, path.stat().st_mtime_ns)
-                       for _, path in source_files(scenario)]
+                       for _, path in source_files(scenario, include_telemetry)]
 
 
-def prepare_worker(scenario):
-    cache = CACHE / (scenario + f'-v{VERSION}.sqlite3')
+def prepare_worker(scenario, include_telemetry=True):
+    key = catalog_key(scenario, include_telemetry)
+    suffix = "" if include_telemetry else "-alerts"
+    cache = CACHE / (scenario + suffix + f'-v{VERSION}.sqlite3')
     temporary = CACHE / (scenario + f'.{uuid.uuid4().hex}.building.sqlite3')
     db = None
     try:
         CACHE.mkdir(exist_ok=True)
-        signature = json.dumps(fingerprint(scenario))
-        legacy = CACHE / (scenario + '.sqlite3')
+        signature = json.dumps(fingerprint(scenario, include_telemetry))
+        legacy = (CACHE / (scenario + '.sqlite3') if include_telemetry else
+                  CACHE / 'alerts-only' / (scenario + f'-v{VERSION}.sqlite3'))
         if not cache.exists() and legacy.exists():
             try:
                 with closing(sqlite3.connect(legacy)) as cached:
@@ -86,7 +102,7 @@ def prepare_worker(scenario):
                 metadata = dict(cached.execute('SELECT key,value FROM metadata'))
             if metadata.get('fingerprint') == signature:
                 with CATALOG_LOCK:
-                    CATALOG[scenario] = {**json.loads(metadata['summary']), 'status': 'ready', 'cache': str(cache)}
+                    CATALOG[key] = {**json.loads(metadata['summary']), 'include_telemetry': include_telemetry, 'status': 'ready', 'cache': str(cache)}
                 return
         temporary.unlink(missing_ok=True)
         db = sqlite3.connect(temporary)
@@ -95,7 +111,7 @@ def prepare_worker(scenario):
         db.execute('CREATE TABLE events(ts REAL, source_order INTEGER, line INTEGER, payload TEXT, record_id TEXT, host TEXT, actor TEXT, capabilities INTEGER)')
         db.execute('CREATE TABLE metadata(key TEXT PRIMARY KEY,value TEXT)')
         count, errors, by_source, bounds = 0, 0, {}, [float('inf'), float('-inf')]
-        for order, (source, path) in enumerate(source_files(scenario)):
+        for order, (source, path) in enumerate(source_files(scenario, include_telemetry)):
             filename = path.name
             source_count = 0
             buffer = []
@@ -118,14 +134,14 @@ def prepare_worker(scenario):
                         db.executemany('INSERT INTO events VALUES(?,?,?,?,?,?,?,?)', buffer)
                         buffer.clear()
                         with CATALOG_LOCK:
-                            CATALOG[scenario].update({'loaded': count, 'errors': errors, 'file': filename})
+                            CATALOG[key].update({'loaded': count, 'errors': errors, 'file': filename})
             if buffer:
                 db.executemany('INSERT INTO events VALUES(?,?,?,?,?,?,?,?)', buffer)
             by_source[source] = source_count
         db.execute('CREATE INDEX chronology ON events(ts,source_order,line)')
         db.execute('CREATE UNIQUE INDEX record_lookup ON events(record_id)')
         db.execute('CREATE INDEX host_time ON events(host,ts)')
-        summary = {'scenario': scenario, 'total': count, 'errors': errors, 'sources': by_source,
+        summary = {'scenario': scenario, 'include_telemetry': include_telemetry, 'total': count, 'errors': errors, 'sources': by_source,
                    'start': iso(bounds[0]), 'end': iso(bounds[1]), 'start_ts': bounds[0], 'end_ts': bounds[1],
                    'loaded': count, 'status': 'ready'}
         db.executemany('INSERT INTO metadata VALUES(?,?)', [('fingerprint', signature), ('summary', json.dumps(summary))])
@@ -134,31 +150,33 @@ def prepare_worker(scenario):
         db = None
         os.replace(temporary, cache)
         with CATALOG_LOCK:
-            CATALOG[scenario] = {**summary, 'cache': str(cache)}
+            CATALOG[key] = {**summary, 'cache': str(cache)}
     except Exception as exc:
         with CATALOG_LOCK:
-            CATALOG[scenario] = {'scenario': scenario, 'status': 'error', 'error': str(exc)}
+            CATALOG[key] = {'scenario': scenario, 'status': 'error', 'error': str(exc)}
     finally:
         if db:
             db.close()
 
 
-def prepare(scenario):
+def prepare(scenario, include_telemetry=True):
+    key = catalog_key(scenario, include_telemetry)
     if scenario not in SCENARIOS:
         raise ValueError('Unknown scenario')
     with CATALOG_LOCK:
-        if CATALOG.get(scenario, {}).get('status') not in ('loading', 'ready'):
-            CATALOG[scenario] = {'scenario': scenario, 'status': 'loading', 'loaded': 0}
-            threading.Thread(target=prepare_worker, args=(scenario,), daemon=True).start()
-        return {k: v for k, v in CATALOG[scenario].items() if k != 'cache'}
+        if CATALOG.get(key, {}).get('status') not in ('loading', 'ready'):
+            CATALOG[key] = {'scenario': scenario, 'status': 'loading', 'loaded': 0}
+            threading.Thread(target=prepare_worker, args=(scenario, include_telemetry), daemon=True).start()
+        return {k: v for k, v in CATALOG[key].items() if k != 'cache'}
 
 
 class Run:
-    def __init__(self, scenarios, duration, pacing):
+    def __init__(self, scenarios, duration, pacing, include_telemetry=True):
+        self.include_telemetry = include_telemetry
         self.id = uuid.uuid4().hex[:12]
         self.scenarios = [scenarios] if isinstance(scenarios, str) else list(scenarios)
         self.scenario, self.duration, self.pacing = ', '.join(self.scenarios), duration, pacing
-        self.dataset_meta = [dict(CATALOG[s]) for s in self.scenarios]
+        self.dataset_meta = [dict(CATALOG[catalog_key(s, include_telemetry)]) for s in self.scenarios]
         self.meta = {'total': sum(m['total'] for m in self.dataset_meta),
                      'start_ts': min(m['start_ts'] for m in self.dataset_meta),
                      'end_ts': max(m['end_ts'] for m in self.dataset_meta)}
@@ -262,9 +280,11 @@ class Run:
 
     def snapshot(self):
         with self.lock:
+            self.engine.suppressions = None  # Suppression controls are a visual demo.
             snapshot = self.engine.snapshot()
+            snapshot['suppression_demo_only'] = True
             return {**snapshot, 'id': self.id, 'scenario': self.scenario, 'status': self.status,
-                    'scenarios': self.scenarios, 'dataset_counts': self.dataset_counts.copy(),
+                    'include_telemetry': self.include_telemetry, 'scenarios': self.scenarios, 'dataset_counts': self.dataset_counts.copy(),
                     'dataset_totals': {m['scenario']: m['total'] for m in self.dataset_meta},
                     'elapsed': round(self.elapsed, 3), 'duration': self.duration, 'pacing': self.pacing,
                     'actual_elapsed': round(self.active_seconds, 3),
@@ -393,12 +413,15 @@ class Run:
                                'retrieval_queries': investigation['queries'], 'redacted': True}
         return context
 
-    def ai_analysis(self, gid):
+    def ai_analysis(self, gid, question=''):
         if not self.analysis_gate.acquire(blocking=False):
             raise AnalysisError('An analysis is already running for this replay. Wait for it to finish, then retry.', 409)
         try:
+            if not isinstance(question, str) or len(question) > 2000:
+                raise ValueError('Question must be at most 2000 characters')
             context = self.analysis_context(gid)
-            key = (gid, context['snapshot']['processed'], os.environ.get('OPENAI_MODEL', 'gpt-6-astra'))
+            context['analyst_question'] = question
+            key = (gid, question, context['snapshot']['processed'], os.environ.get('OPENAI_MODEL', 'gpt-6-astra'))
             if key not in self.analyses:
                 result = analyze(context)
                 if len(self.analyses) >= 24:
@@ -449,6 +472,10 @@ class Handler(BaseHTTPRequestHandler):
                 return self.send_json(self.run_for(query).members(query.get('group', [''])[0], int(query.get('cursor', ['0'])[0])))
             if url.path == '/api/investigate':
                 return self.send_json(self.run_for(query).investigate(query.get('group', [''])[0]))
+            if url.path == '/api/incident':
+                run = self.run_for(query)
+                with run.lock:
+                    return self.send_json(incident(run.engine, query.get('group', [''])[0]))
             if url.path == '/api/group':
                 run = self.run_for(query)
                 with run.lock:
@@ -504,20 +531,24 @@ class Handler(BaseHTTPRequestHandler):
                 raise ValueError('Invalid request size')
             body = json.loads(self.rfile.read(length))
             path = urlsplit(self.path).path
+            if path in ('/api/suppress', '/api/unsuppress'):
+                return self.send_json({'error': 'For demo only. Suppression controls are inactive.'}, 403)
             if path == '/api/analyze-node':
                 run = self.run_for({'id': [body.get('id', '')]})
                 gid = body.get('group')
                 if not isinstance(gid, str):
                     raise ValueError('Select a node to analyze')
-                return self.send_json(run.ai_analysis(gid))
+                return self.send_json(run.ai_analysis(gid, body.get('question', '')))
             if path == '/api/prepare':
+                include_telemetry = telemetry_option(body)
                 if 'scenarios' in body:
                     names = selected_scenarios(body)
-                    return self.send_json({'datasets': [prepare(name) for name in names]})
-                return self.send_json(prepare(body.get('scenario', '')))
+                    return self.send_json({'datasets': [prepare(name, include_telemetry) for name in names]})
+                return self.send_json(prepare(body.get('scenario', ''), include_telemetry))
             if path == '/api/start':
                 scenarios = selected_scenarios(body)
-                if any(CATALOG.get(s, {}).get('status') != 'ready' for s in scenarios):
+                include_telemetry = telemetry_option(body)
+                if any(CATALOG.get(catalog_key(s, include_telemetry), {}).get('status') != 'ready' for s in scenarios):
                     return self.send_json({'error': 'Prepare scenario first'}, 409)
                 duration = float(body.get('duration', 60))
                 pacing = body.get('pacing', 'events')
@@ -526,7 +557,7 @@ class Handler(BaseHTTPRequestHandler):
                 for old in RUNS.values():
                     if old.status in ('running', 'paused'):
                         old.action('cancel')
-                run = Run(scenarios, duration, pacing)
+                run = Run(scenarios, duration, pacing, include_telemetry)
                 RUNS[run.id] = run
                 # Keep completed sessions bounded, preserving the current run.
                 for key in list(RUNS)[:-4]:

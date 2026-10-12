@@ -1,0 +1,6110 @@
+{
+  "methods": {
+    "raw_severity": {
+      "attack_window_review_coverage": {
+        "covered": 45,
+        "total": 79
+      },
+      "review_items": 132939,
+      "selected_records": 132939,
+      "alert_reduction_fraction": 0.9498548139967002,
+      "detection_latency_seconds": {
+        "median": 15.533458948135376,
+        "per_covered_window": [
+          15.0,
+          1.0,
+          11.0,
+          2375.9668180942535,
+          462.61319398880005,
+          29.0,
+          5.0,
+          0.0,
+          251.6098759174347,
+          119.98939394950867,
+          0.8108510971069336,
+          16.0,
+          1.0,
+          10.871248006820679,
+          131.3877079486847,
+          23.91869807243347,
+          705.3455240726471,
+          224.8340458869934,
+          16.0,
+          2.0,
+          3.0,
+          25.357553005218506,
+          79.06204509735107,
+          68.61524796485901,
+          8.0,
+          0.0,
+          281.39333295822144,
+          15.533458948135376,
+          3.0,
+          0.0,
+          679.3650488853455,
+          3.9583048820495605,
+          15.971869945526123,
+          5.0,
+          0.0,
+          7.559952974319458,
+          1543.38263297081,
+          36.583942890167236,
+          16.17638611793518,
+          4.0,
+          0.0,
+          1.6272709369659424,
+          5.881580114364624,
+          19.463046073913574,
+          155.4710910320282
+        ]
+      },
+      "missed_windows": [
+        {
+          "scenario": "russellmitchell",
+          "attack": "network_scans",
+          "start": 1642993260.0,
+          "end": 1642996606.0
+        },
+        {
+          "scenario": "russellmitchell",
+          "attack": "webshell",
+          "start": 1642996699.0,
+          "end": 1642996762.0
+        },
+        {
+          "scenario": "russellmitchell",
+          "attack": "cracking",
+          "start": 1642996762.0,
+          "end": 1642999016.0
+        },
+        {
+          "scenario": "russellmitchell",
+          "attack": "reverse_shell",
+          "start": 1642999016.0,
+          "end": 1642999059.0
+        },
+        {
+          "scenario": "russellmitchell",
+          "attack": "privilege_escalation",
+          "start": 1642999059.0,
+          "end": 1642999093.0
+        },
+        {
+          "scenario": "russellmitchell",
+          "attack": "service_stop",
+          "start": 1643032238.0,
+          "end": 1643032240.0
+        },
+        {
+          "scenario": "fox",
+          "attack": "webshell",
+          "start": 1642509480.0,
+          "end": 1642509510.0
+        },
+        {
+          "scenario": "fox",
+          "attack": "reverse_shell",
+          "start": 1642511630.0,
+          "end": 1642511670.0
+        },
+        {
+          "scenario": "fox",
+          "attack": "privilege_escalation",
+          "start": 1642511670.0,
+          "end": 1642511693.0
+        },
+        {
+          "scenario": "fox",
+          "attack": "service_stop",
+          "start": 1642410286.0,
+          "end": 1642410288.0
+        },
+        {
+          "scenario": "fox",
+          "attack": "dnsteal",
+          "start": 1642410288.0,
+          "end": 1642413600.0
+        },
+        {
+          "scenario": "harrison",
+          "attack": "reverse_shell",
+          "start": 1644309359.0,
+          "end": 1644309397.0
+        },
+        {
+          "scenario": "harrison",
+          "attack": "service_stop",
+          "start": 1644311699.0,
+          "end": 1644311701.0
+        },
+        {
+          "scenario": "santos",
+          "attack": "reverse_shell",
+          "start": 1642420655.0,
+          "end": 1642420697.0
+        },
+        {
+          "scenario": "santos",
+          "attack": "privilege_escalation",
+          "start": 1642420697.0,
+          "end": 1642420739.0
+        },
+        {
+          "scenario": "santos",
+          "attack": "service_stop",
+          "start": 1642317377.0,
+          "end": 1642317379.0
+        },
+        {
+          "scenario": "shaw",
+          "attack": "network_scans",
+          "start": 1643467020.0,
+          "end": 1643467117.0
+        },
+        {
+          "scenario": "shaw",
+          "attack": "service_scans",
+          "start": 1643467117.0,
+          "end": 1643467130.0
+        },
+        {
+          "scenario": "shaw",
+          "attack": "webshell",
+          "start": 1643467180.0,
+          "end": 1643467201.0
+        },
+        {
+          "scenario": "shaw",
+          "attack": "reverse_shell",
+          "start": 1643469610.0,
+          "end": 1643469650.0
+        },
+        {
+          "scenario": "shaw",
+          "attack": "privilege_escalation",
+          "start": 1643469650.0,
+          "end": 1643469672.0
+        },
+        {
+          "scenario": "shaw",
+          "attack": "service_stop",
+          "start": 1643404080.0,
+          "end": 1643404082.0
+        },
+        {
+          "scenario": "shaw",
+          "attack": "dnsteal",
+          "start": 1643404082.0,
+          "end": 1643407682.0
+        },
+        {
+          "scenario": "wardbeck",
+          "attack": "network_scans",
+          "start": 1642939800.0,
+          "end": 1642939860.0
+        },
+        {
+          "scenario": "wardbeck",
+          "attack": "webshell",
+          "start": 1642939937.0,
+          "end": 1642940025.0
+        },
+        {
+          "scenario": "wardbeck",
+          "attack": "reverse_shell",
+          "start": 1642942457.0,
+          "end": 1642942500.0
+        },
+        {
+          "scenario": "wardbeck",
+          "attack": "privilege_escalation",
+          "start": 1642942500.0,
+          "end": 1642942531.0
+        },
+        {
+          "scenario": "wardbeck",
+          "attack": "service_stop",
+          "start": 1642716747.0,
+          "end": 1642716749.0
+        },
+        {
+          "scenario": "wardbeck",
+          "attack": "dnsteal",
+          "start": 1642716749.0,
+          "end": 1642720349.0
+        },
+        {
+          "scenario": "wheeler",
+          "attack": "webshell",
+          "start": 1643529406.0,
+          "end": 1643529428.0
+        },
+        {
+          "scenario": "wheeler",
+          "attack": "privilege_escalation",
+          "start": 1643565112.0,
+          "end": 1643565140.0
+        },
+        {
+          "scenario": "wheeler",
+          "attack": "service_stop",
+          "start": 1643434044.0,
+          "end": 1643434046.0
+        },
+        {
+          "scenario": "wilson",
+          "attack": "privilege_escalation",
+          "start": 1644234498.0,
+          "end": 1644234533.0
+        },
+        {
+          "scenario": "wilson",
+          "attack": "service_stop",
+          "start": 1644144435.0,
+          "end": 1644144437.0
+        }
+      ],
+      "analyst_review_burden": {
+        "units": 132939,
+        "measured_minutes": null
+      },
+      "reviewed_benign": {
+        "cases": 0,
+        "selected_cases": 0,
+        "case_selection_rate": null
+      }
+    },
+    "time_correlation": {
+      "attack_window_review_coverage": {
+        "covered": 45,
+        "total": 79
+      },
+      "review_items": 3411,
+      "selected_records": 132939,
+      "alert_reduction_fraction": 0.9987133555280447,
+      "detection_latency_seconds": {
+        "median": 15.533458948135376,
+        "per_covered_window": [
+          15.0,
+          1.0,
+          11.0,
+          2375.9668180942535,
+          462.61319398880005,
+          29.0,
+          5.0,
+          0.0,
+          251.6098759174347,
+          119.98939394950867,
+          0.8108510971069336,
+          16.0,
+          1.0,
+          10.871248006820679,
+          131.3877079486847,
+          23.91869807243347,
+          705.3455240726471,
+          224.8340458869934,
+          16.0,
+          2.0,
+          3.0,
+          25.357553005218506,
+          79.06204509735107,
+          68.61524796485901,
+          8.0,
+          0.0,
+          281.39333295822144,
+          15.533458948135376,
+          3.0,
+          0.0,
+          679.3650488853455,
+          3.9583048820495605,
+          15.971869945526123,
+          5.0,
+          0.0,
+          7.559952974319458,
+          1543.38263297081,
+          36.583942890167236,
+          16.17638611793518,
+          4.0,
+          0.0,
+          1.6272709369659424,
+          5.881580114364624,
+          19.463046073913574,
+          155.4710910320282
+        ]
+      },
+      "missed_windows": [
+        {
+          "scenario": "russellmitchell",
+          "attack": "network_scans",
+          "start": 1642993260.0,
+          "end": 1642996606.0
+        },
+        {
+          "scenario": "russellmitchell",
+          "attack": "webshell",
+          "start": 1642996699.0,
+          "end": 1642996762.0
+        },
+        {
+          "scenario": "russellmitchell",
+          "attack": "cracking",
+          "start": 1642996762.0,
+          "end": 1642999016.0
+        },
+        {
+          "scenario": "russellmitchell",
+          "attack": "reverse_shell",
+          "start": 1642999016.0,
+          "end": 1642999059.0
+        },
+        {
+          "scenario": "russellmitchell",
+          "attack": "privilege_escalation",
+          "start": 1642999059.0,
+          "end": 1642999093.0
+        },
+        {
+          "scenario": "russellmitchell",
+          "attack": "service_stop",
+          "start": 1643032238.0,
+          "end": 1643032240.0
+        },
+        {
+          "scenario": "fox",
+          "attack": "webshell",
+          "start": 1642509480.0,
+          "end": 1642509510.0
+        },
+        {
+          "scenario": "fox",
+          "attack": "reverse_shell",
+          "start": 1642511630.0,
+          "end": 1642511670.0
+        },
+        {
+          "scenario": "fox",
+          "attack": "privilege_escalation",
+          "start": 1642511670.0,
+          "end": 1642511693.0
+        },
+        {
+          "scenario": "fox",
+          "attack": "service_stop",
+          "start": 1642410286.0,
+          "end": 1642410288.0
+        },
+        {
+          "scenario": "fox",
+          "attack": "dnsteal",
+          "start": 1642410288.0,
+          "end": 1642413600.0
+        },
+        {
+          "scenario": "harrison",
+          "attack": "reverse_shell",
+          "start": 1644309359.0,
+          "end": 1644309397.0
+        },
+        {
+          "scenario": "harrison",
+          "attack": "service_stop",
+          "start": 1644311699.0,
+          "end": 1644311701.0
+        },
+        {
+          "scenario": "santos",
+          "attack": "reverse_shell",
+          "start": 1642420655.0,
+          "end": 1642420697.0
+        },
+        {
+          "scenario": "santos",
+          "attack": "privilege_escalation",
+          "start": 1642420697.0,
+          "end": 1642420739.0
+        },
+        {
+          "scenario": "santos",
+          "attack": "service_stop",
+          "start": 1642317377.0,
+          "end": 1642317379.0
+        },
+        {
+          "scenario": "shaw",
+          "attack": "network_scans",
+          "start": 1643467020.0,
+          "end": 1643467117.0
+        },
+        {
+          "scenario": "shaw",
+          "attack": "service_scans",
+          "start": 1643467117.0,
+          "end": 1643467130.0
+        },
+        {
+          "scenario": "shaw",
+          "attack": "webshell",
+          "start": 1643467180.0,
+          "end": 1643467201.0
+        },
+        {
+          "scenario": "shaw",
+          "attack": "reverse_shell",
+          "start": 1643469610.0,
+          "end": 1643469650.0
+        },
+        {
+          "scenario": "shaw",
+          "attack": "privilege_escalation",
+          "start": 1643469650.0,
+          "end": 1643469672.0
+        },
+        {
+          "scenario": "shaw",
+          "attack": "service_stop",
+          "start": 1643404080.0,
+          "end": 1643404082.0
+        },
+        {
+          "scenario": "shaw",
+          "attack": "dnsteal",
+          "start": 1643404082.0,
+          "end": 1643407682.0
+        },
+        {
+          "scenario": "wardbeck",
+          "attack": "network_scans",
+          "start": 1642939800.0,
+          "end": 1642939860.0
+        },
+        {
+          "scenario": "wardbeck",
+          "attack": "webshell",
+          "start": 1642939937.0,
+          "end": 1642940025.0
+        },
+        {
+          "scenario": "wardbeck",
+          "attack": "reverse_shell",
+          "start": 1642942457.0,
+          "end": 1642942500.0
+        },
+        {
+          "scenario": "wardbeck",
+          "attack": "privilege_escalation",
+          "start": 1642942500.0,
+          "end": 1642942531.0
+        },
+        {
+          "scenario": "wardbeck",
+          "attack": "service_stop",
+          "start": 1642716747.0,
+          "end": 1642716749.0
+        },
+        {
+          "scenario": "wardbeck",
+          "attack": "dnsteal",
+          "start": 1642716749.0,
+          "end": 1642720349.0
+        },
+        {
+          "scenario": "wheeler",
+          "attack": "webshell",
+          "start": 1643529406.0,
+          "end": 1643529428.0
+        },
+        {
+          "scenario": "wheeler",
+          "attack": "privilege_escalation",
+          "start": 1643565112.0,
+          "end": 1643565140.0
+        },
+        {
+          "scenario": "wheeler",
+          "attack": "service_stop",
+          "start": 1643434044.0,
+          "end": 1643434046.0
+        },
+        {
+          "scenario": "wilson",
+          "attack": "privilege_escalation",
+          "start": 1644234498.0,
+          "end": 1644234533.0
+        },
+        {
+          "scenario": "wilson",
+          "attack": "service_stop",
+          "start": 1644144435.0,
+          "end": 1644144437.0
+        }
+      ],
+      "analyst_review_burden": {
+        "units": 3411,
+        "measured_minutes": null
+      },
+      "reviewed_benign": {
+        "cases": 0,
+        "selected_cases": 0,
+        "case_selection_rate": null
+      }
+    },
+    "pipeline": {
+      "attack_window_review_coverage": {
+        "covered": 30,
+        "total": 79
+      },
+      "review_items": 16,
+      "selected_records": 112,
+      "alert_reduction_fraction": 0.9999939647283638,
+      "detection_latency_seconds": {
+        "median": 8.0,
+        "per_covered_window": [
+          55.0,
+          0.0,
+          29.0,
+          1.0,
+          25.0,
+          41.0,
+          28.0,
+          1.0,
+          32.0,
+          0.0,
+          29.0,
+          1.0,
+          76.0,
+          0.0,
+          29.0,
+          0.0,
+          16.0,
+          0.0,
+          29.0,
+          1.0,
+          19.0,
+          0.0,
+          1.0,
+          6.0,
+          29.0,
+          0.0,
+          10.0,
+          0.0,
+          28.0,
+          0.0
+        ]
+      },
+      "missed_windows": [
+        {
+          "scenario": "russellmitchell",
+          "attack": "network_scans",
+          "start": 1642993260.0,
+          "end": 1642996606.0
+        },
+        {
+          "scenario": "russellmitchell",
+          "attack": "service_scans",
+          "start": 1642996606.0,
+          "end": 1642996645.0
+        },
+        {
+          "scenario": "russellmitchell",
+          "attack": "dirb",
+          "start": 1642996645.0,
+          "end": 1642996668.0
+        },
+        {
+          "scenario": "russellmitchell",
+          "attack": "wpscan",
+          "start": 1642996668.0,
+          "end": 1642996699.0
+        },
+        {
+          "scenario": "russellmitchell",
+          "attack": "service_stop",
+          "start": 1643032238.0,
+          "end": 1643032240.0
+        },
+        {
+          "scenario": "russellmitchell",
+          "attack": "dnsteal",
+          "start": 1643032240.0,
+          "end": 1643035840.0
+        },
+        {
+          "scenario": "fox",
+          "attack": "network_scans",
+          "start": 1642507140.0,
+          "end": 1642508220.0
+        },
+        {
+          "scenario": "fox",
+          "attack": "service_scans",
+          "start": 1642508220.0,
+          "end": 1642508267.0
+        },
+        {
+          "scenario": "fox",
+          "attack": "wpscan",
+          "start": 1642508267.0,
+          "end": 1642508310.0
+        },
+        {
+          "scenario": "fox",
+          "attack": "dirb",
+          "start": 1642508310.0,
+          "end": 1642509480.0
+        },
+        {
+          "scenario": "fox",
+          "attack": "service_stop",
+          "start": 1642410286.0,
+          "end": 1642410288.0
+        },
+        {
+          "scenario": "fox",
+          "attack": "dnsteal",
+          "start": 1642410288.0,
+          "end": 1642413600.0
+        },
+        {
+          "scenario": "harrison",
+          "attack": "network_scans",
+          "start": 1644303900.0,
+          "end": 1644304579.0
+        },
+        {
+          "scenario": "harrison",
+          "attack": "service_scans",
+          "start": 1644304579.0,
+          "end": 1644305316.0
+        },
+        {
+          "scenario": "harrison",
+          "attack": "wpscan",
+          "start": 1644305316.0,
+          "end": 1644305380.0
+        },
+        {
+          "scenario": "harrison",
+          "attack": "dirb",
+          "start": 1644305380.0,
+          "end": 1644306959.0
+        },
+        {
+          "scenario": "harrison",
+          "attack": "service_stop",
+          "start": 1644311699.0,
+          "end": 1644311701.0
+        },
+        {
+          "scenario": "harrison",
+          "attack": "dnsteal",
+          "start": 1644311701.0,
+          "end": 1644318901.0
+        },
+        {
+          "scenario": "santos",
+          "attack": "network_scans",
+          "start": 1642418100.0,
+          "end": 1642418490.0
+        },
+        {
+          "scenario": "santos",
+          "attack": "service_scans",
+          "start": 1642418490.0,
+          "end": 1642418520.0
+        },
+        {
+          "scenario": "santos",
+          "attack": "dirb",
+          "start": 1642418520.0,
+          "end": 1642418541.0
+        },
+        {
+          "scenario": "santos",
+          "attack": "wpscan",
+          "start": 1642418541.0,
+          "end": 1642418578.0
+        },
+        {
+          "scenario": "santos",
+          "attack": "service_stop",
+          "start": 1642317377.0,
+          "end": 1642317379.0
+        },
+        {
+          "scenario": "santos",
+          "attack": "dnsteal",
+          "start": 1642317379.0,
+          "end": 1642320979.0
+        },
+        {
+          "scenario": "shaw",
+          "attack": "network_scans",
+          "start": 1643467020.0,
+          "end": 1643467117.0
+        },
+        {
+          "scenario": "shaw",
+          "attack": "service_scans",
+          "start": 1643467117.0,
+          "end": 1643467130.0
+        },
+        {
+          "scenario": "shaw",
+          "attack": "wpscan",
+          "start": 1643467130.0,
+          "end": 1643467154.0
+        },
+        {
+          "scenario": "shaw",
+          "attack": "dirb",
+          "start": 1643467154.0,
+          "end": 1643467180.0
+        },
+        {
+          "scenario": "shaw",
+          "attack": "service_stop",
+          "start": 1643404080.0,
+          "end": 1643404082.0
+        },
+        {
+          "scenario": "shaw",
+          "attack": "dnsteal",
+          "start": 1643404082.0,
+          "end": 1643407682.0
+        },
+        {
+          "scenario": "wardbeck",
+          "attack": "network_scans",
+          "start": 1642939800.0,
+          "end": 1642939860.0
+        },
+        {
+          "scenario": "wardbeck",
+          "attack": "service_scans",
+          "start": 1642939860.0,
+          "end": 1642939887.0
+        },
+        {
+          "scenario": "wardbeck",
+          "attack": "wpscan",
+          "start": 1642939887.0,
+          "end": 1642939909.0
+        },
+        {
+          "scenario": "wardbeck",
+          "attack": "dirb",
+          "start": 1642939909.0,
+          "end": 1642939937.0
+        },
+        {
+          "scenario": "wardbeck",
+          "attack": "reverse_shell",
+          "start": 1642942457.0,
+          "end": 1642942500.0
+        },
+        {
+          "scenario": "wardbeck",
+          "attack": "service_stop",
+          "start": 1642716747.0,
+          "end": 1642716749.0
+        },
+        {
+          "scenario": "wardbeck",
+          "attack": "dnsteal",
+          "start": 1642716749.0,
+          "end": 1642720349.0
+        },
+        {
+          "scenario": "wheeler",
+          "attack": "network_scans",
+          "start": 1643528113.0,
+          "end": 1643528343.0
+        },
+        {
+          "scenario": "wheeler",
+          "attack": "service_scans",
+          "start": 1643528343.0,
+          "end": 1643528369.0
+        },
+        {
+          "scenario": "wheeler",
+          "attack": "wpscan",
+          "start": 1643529364.0,
+          "end": 1643529406.0
+        },
+        {
+          "scenario": "wheeler",
+          "attack": "dirb",
+          "start": 1643528369.0,
+          "end": 1643529364.0
+        },
+        {
+          "scenario": "wheeler",
+          "attack": "service_stop",
+          "start": 1643434044.0,
+          "end": 1643434046.0
+        },
+        {
+          "scenario": "wheeler",
+          "attack": "dnsteal",
+          "start": 1643434046.0,
+          "end": 1643437646.0
+        },
+        {
+          "scenario": "wilson",
+          "attack": "network_scans",
+          "start": 1644231437.0,
+          "end": 1644231553.0
+        },
+        {
+          "scenario": "wilson",
+          "attack": "service_scans",
+          "start": 1644231553.0,
+          "end": 1644231584.0
+        },
+        {
+          "scenario": "wilson",
+          "attack": "wpscan",
+          "start": 1644232793.0,
+          "end": 1644232827.0
+        },
+        {
+          "scenario": "wilson",
+          "attack": "dirb",
+          "start": 1644231584.0,
+          "end": 1644232793.0
+        },
+        {
+          "scenario": "wilson",
+          "attack": "service_stop",
+          "start": 1644144435.0,
+          "end": 1644144437.0
+        },
+        {
+          "scenario": "wilson",
+          "attack": "dnsteal",
+          "start": 1644144437.0,
+          "end": 1644148037.0
+        }
+      ],
+      "analyst_review_burden": {
+        "units": 16,
+        "measured_minutes": null
+      },
+      "reviewed_benign": {
+        "cases": 0,
+        "selected_cases": 0,
+        "case_selection_rate": null
+      }
+    }
+  },
+  "records": 2655821,
+  "operational_records": 2651082,
+  "input_evidence_digest": "8a531a2aa1e4d6efde1e654e883f15f5d4c535606c0e21864d48c6cb24ce06cc",
+  "raw_severity_ranking_preview": [
+    {
+      "level": 11,
+      "timestamp": 1644345098.533815,
+      "alert_id": "wilson:w:624520"
+    },
+    {
+      "level": 11,
+      "timestamp": 1644341655.839448,
+      "alert_id": "wilson:w:623898"
+    },
+    {
+      "level": 11,
+      "timestamp": 1644338521.305705,
+      "alert_id": "wilson:w:622887"
+    },
+    {
+      "level": 11,
+      "timestamp": 1644335703.051451,
+      "alert_id": "wilson:w:621295"
+    },
+    {
+      "level": 11,
+      "timestamp": 1644333785.950491,
+      "alert_id": "wilson:w:620009"
+    },
+    {
+      "level": 11,
+      "timestamp": 1644333683.460461,
+      "alert_id": "wilson:w:619943"
+    },
+    {
+      "level": 11,
+      "timestamp": 1644332242.584573,
+      "alert_id": "harrison:w:581177"
+    },
+    {
+      "level": 11,
+      "timestamp": 1644331979.415445,
+      "alert_id": "wilson:w:618889"
+    },
+    {
+      "level": 11,
+      "timestamp": 1644331977.315452,
+      "alert_id": "wilson:w:618864"
+    },
+    {
+      "level": 11,
+      "timestamp": 1644331082.200309,
+      "alert_id": "wilson:w:618249"
+    },
+    {
+      "level": 11,
+      "timestamp": 1644330931.315859,
+      "alert_id": "wilson:w:618130"
+    },
+    {
+      "level": 11,
+      "timestamp": 1644329447.589312,
+      "alert_id": "harrison:w:580273"
+    },
+    {
+      "level": 11,
+      "timestamp": 1644327858.647115,
+      "alert_id": "wilson:w:616169"
+    },
+    {
+      "level": 11,
+      "timestamp": 1644327630.699762,
+      "alert_id": "wilson:w:615985"
+    },
+    {
+      "level": 11,
+      "timestamp": 1644327523.961758,
+      "alert_id": "wilson:w:615864"
+    },
+    {
+      "level": 11,
+      "timestamp": 1644326937.575501,
+      "alert_id": "wilson:w:615237"
+    },
+    {
+      "level": 11,
+      "timestamp": 1644326676.793406,
+      "alert_id": "wilson:w:614996"
+    },
+    {
+      "level": 11,
+      "timestamp": 1644325642.058566,
+      "alert_id": "wilson:w:614238"
+    },
+    {
+      "level": 11,
+      "timestamp": 1644325074.190709,
+      "alert_id": "wilson:w:613822"
+    },
+    {
+      "level": 11,
+      "timestamp": 1644325001.662165,
+      "alert_id": "wilson:w:613731"
+    },
+    {
+      "level": 11,
+      "timestamp": 1644324300.057152,
+      "alert_id": "wilson:w:613297"
+    },
+    {
+      "level": 11,
+      "timestamp": 1644323466.518818,
+      "alert_id": "wilson:w:612757"
+    },
+    {
+      "level": 11,
+      "timestamp": 1644323397.479168,
+      "alert_id": "wilson:w:612688"
+    },
+    {
+      "level": 11,
+      "timestamp": 1644321735.910284,
+      "alert_id": "harrison:w:576761"
+    },
+    {
+      "level": 11,
+      "timestamp": 1644321526.875429,
+      "alert_id": "wilson:w:611133"
+    },
+    {
+      "level": 11,
+      "timestamp": 1644321121.409369,
+      "alert_id": "wilson:w:610958"
+    },
+    {
+      "level": 11,
+      "timestamp": 1644320833.816936,
+      "alert_id": "harrison:w:576295"
+    },
+    {
+      "level": 11,
+      "timestamp": 1644320561.931752,
+      "alert_id": "wilson:w:610311"
+    },
+    {
+      "level": 11,
+      "timestamp": 1644319663.149349,
+      "alert_id": "wilson:w:609340"
+    },
+    {
+      "level": 11,
+      "timestamp": 1644319290.795257,
+      "alert_id": "wilson:w:608817"
+    },
+    {
+      "level": 11,
+      "timestamp": 1644318405.791192,
+      "alert_id": "wilson:w:608350"
+    },
+    {
+      "level": 11,
+      "timestamp": 1644317837.830231,
+      "alert_id": "wilson:w:607932"
+    },
+    {
+      "level": 11,
+      "timestamp": 1644316932.137116,
+      "alert_id": "wilson:w:607238"
+    },
+    {
+      "level": 11,
+      "timestamp": 1644315532.091574,
+      "alert_id": "wilson:w:606047"
+    },
+    {
+      "level": 11,
+      "timestamp": 1644315351.975661,
+      "alert_id": "wilson:w:605820"
+    },
+    {
+      "level": 11,
+      "timestamp": 1644314668.225673,
+      "alert_id": "harrison:w:573942"
+    },
+    {
+      "level": 11,
+      "timestamp": 1644314488.739395,
+      "alert_id": "wilson:w:605089"
+    },
+    {
+      "level": 11,
+      "timestamp": 1644314151.628547,
+      "alert_id": "wilson:w:604743"
+    },
+    {
+      "level": 11,
+      "timestamp": 1644314070.604699,
+      "alert_id": "wilson:w:604678"
+    },
+    {
+      "level": 11,
+      "timestamp": 1644313970.229748,
+      "alert_id": "wilson:w:604498"
+    },
+    {
+      "level": 11,
+      "timestamp": 1644312825.966367,
+      "alert_id": "harrison:w:573068"
+    },
+    {
+      "level": 11,
+      "timestamp": 1644312782.937174,
+      "alert_id": "wilson:w:603725"
+    },
+    {
+      "level": 11,
+      "timestamp": 1644312472.591954,
+      "alert_id": "wilson:w:603529"
+    },
+    {
+      "level": 11,
+      "timestamp": 1644312192.38436,
+      "alert_id": "wilson:w:603404"
+    },
+    {
+      "level": 11,
+      "timestamp": 1644311295.661129,
+      "alert_id": "harrison:w:571892"
+    },
+    {
+      "level": 11,
+      "timestamp": 1644310953.497099,
+      "alert_id": "wilson:w:602537"
+    },
+    {
+      "level": 11,
+      "timestamp": 1644310712.032564,
+      "alert_id": "harrison:w:571606"
+    },
+    {
+      "level": 11,
+      "timestamp": 1644310105.630215,
+      "alert_id": "wilson:w:601614"
+    },
+    {
+      "level": 11,
+      "timestamp": 1644310083.301789,
+      "alert_id": "harrison:w:571201"
+    },
+    {
+      "level": 11,
+      "timestamp": 1644309859.956496,
+      "alert_id": "wilson:w:601258"
+    },
+    {
+      "level": 11,
+      "timestamp": 1644309420.918698,
+      "alert_id": "harrison:w:570701"
+    },
+    {
+      "level": 11,
+      "timestamp": 1644309164.718493,
+      "alert_id": "wilson:w:600220"
+    },
+    {
+      "level": 11,
+      "timestamp": 1644308750.66333,
+      "alert_id": "harrison:w:570268"
+    },
+    {
+      "level": 11,
+      "timestamp": 1644308688.89051,
+      "alert_id": "wilson:w:599893"
+    },
+    {
+      "level": 11,
+      "timestamp": 1644308055.446974,
+      "alert_id": "harrison:w:569975"
+    },
+    {
+      "level": 11,
+      "timestamp": 1644307810.491082,
+      "alert_id": "wilson:w:599386"
+    },
+    {
+      "level": 11,
+      "timestamp": 1644307712.877832,
+      "alert_id": "wilson:w:599321"
+    },
+    {
+      "level": 11,
+      "timestamp": 1644307676.042272,
+      "alert_id": "wilson:w:599310"
+    },
+    {
+      "level": 11,
+      "timestamp": 1644307642.608906,
+      "alert_id": "wilson:w:599252"
+    },
+    {
+      "level": 11,
+      "timestamp": 1644307475.70077,
+      "alert_id": "harrison:w:569664"
+    },
+    {
+      "level": 11,
+      "timestamp": 1644305902.967852,
+      "alert_id": "wilson:w:598206"
+    },
+    {
+      "level": 11,
+      "timestamp": 1644305442.589849,
+      "alert_id": "wilson:w:597987"
+    },
+    {
+      "level": 11,
+      "timestamp": 1644305249.094528,
+      "alert_id": "harrison:w:153006"
+    },
+    {
+      "level": 11,
+      "timestamp": 1644305244.509536,
+      "alert_id": "wilson:w:597869"
+    },
+    {
+      "level": 11,
+      "timestamp": 1644304654.036817,
+      "alert_id": "harrison:w:152389"
+    },
+    {
+      "level": 11,
+      "timestamp": 1644304091.237116,
+      "alert_id": "harrison:w:152108"
+    },
+    {
+      "level": 11,
+      "timestamp": 1644303656.312033,
+      "alert_id": "wilson:w:596947"
+    },
+    {
+      "level": 11,
+      "timestamp": 1644303507.324065,
+      "alert_id": "harrison:w:151835"
+    },
+    {
+      "level": 11,
+      "timestamp": 1644302909.180633,
+      "alert_id": "harrison:w:151546"
+    },
+    {
+      "level": 11,
+      "timestamp": 1644302009.391415,
+      "alert_id": "harrison:w:150919"
+    },
+    {
+      "level": 11,
+      "timestamp": 1644301570.825075,
+      "alert_id": "wilson:w:596275"
+    },
+    {
+      "level": 11,
+      "timestamp": 1644301418.539742,
+      "alert_id": "harrison:w:150607"
+    },
+    {
+      "level": 11,
+      "timestamp": 1644300650.350112,
+      "alert_id": "harrison:w:150234"
+    },
+    {
+      "level": 11,
+      "timestamp": 1644300001.493876,
+      "alert_id": "harrison:w:150064"
+    },
+    {
+      "level": 11,
+      "timestamp": 1644299411.765663,
+      "alert_id": "harrison:w:149918"
+    },
+    {
+      "level": 11,
+      "timestamp": 1644298845.602818,
+      "alert_id": "harrison:w:149732"
+    },
+    {
+      "level": 11,
+      "timestamp": 1644298257.881956,
+      "alert_id": "harrison:w:149546"
+    },
+    {
+      "level": 11,
+      "timestamp": 1644297586.673199,
+      "alert_id": "harrison:w:149259"
+    },
+    {
+      "level": 11,
+      "timestamp": 1644296973.782266,
+      "alert_id": "harrison:w:149083"
+    },
+    {
+      "level": 11,
+      "timestamp": 1644296321.741335,
+      "alert_id": "harrison:w:148923"
+    },
+    {
+      "level": 11,
+      "timestamp": 1644295696.813601,
+      "alert_id": "harrison:w:148734"
+    },
+    {
+      "level": 11,
+      "timestamp": 1644295077.168104,
+      "alert_id": "harrison:w:148588"
+    },
+    {
+      "level": 11,
+      "timestamp": 1644294425.283551,
+      "alert_id": "harrison:w:148429"
+    },
+    {
+      "level": 11,
+      "timestamp": 1644293855.601793,
+      "alert_id": "harrison:w:148287"
+    },
+    {
+      "level": 11,
+      "timestamp": 1644293297.852126,
+      "alert_id": "harrison:w:148147"
+    },
+    {
+      "level": 11,
+      "timestamp": 1644292811.540147,
+      "alert_id": "harrison:w:148046"
+    },
+    {
+      "level": 11,
+      "timestamp": 1644292151.636232,
+      "alert_id": "harrison:w:147887"
+    },
+    {
+      "level": 11,
+      "timestamp": 1644291514.660048,
+      "alert_id": "harrison:w:147721"
+    },
+    {
+      "level": 11,
+      "timestamp": 1644290879.742328,
+      "alert_id": "harrison:w:147561"
+    },
+    {
+      "level": 11,
+      "timestamp": 1644290448.524586,
+      "alert_id": "harrison:w:147459"
+    },
+    {
+      "level": 11,
+      "timestamp": 1644289884.665452,
+      "alert_id": "harrison:w:147303"
+    },
+    {
+      "level": 11,
+      "timestamp": 1644289307.761213,
+      "alert_id": "harrison:w:147140"
+    },
+    {
+      "level": 11,
+      "timestamp": 1644288763.128246,
+      "alert_id": "harrison:w:147001"
+    },
+    {
+      "level": 11,
+      "timestamp": 1644288159.299519,
+      "alert_id": "harrison:w:146841"
+    },
+    {
+      "level": 11,
+      "timestamp": 1644287646.829789,
+      "alert_id": "harrison:w:146714"
+    },
+    {
+      "level": 11,
+      "timestamp": 1644287069.02609,
+      "alert_id": "harrison:w:146572"
+    },
+    {
+      "level": 11,
+      "timestamp": 1644286431.154409,
+      "alert_id": "harrison:w:146413"
+    },
+    {
+      "level": 11,
+      "timestamp": 1644285878.451667,
+      "alert_id": "harrison:w:146272"
+    },
+    {
+      "level": 11,
+      "timestamp": 1644285295.750119,
+      "alert_id": "harrison:w:146133"
+    },
+    {
+      "level": 11,
+      "timestamp": 1644284726.013031,
+      "alert_id": "harrison:w:145995"
+    }
+  ],
+  "rules_version": "2026-10-12.6",
+  "parameters": {
+    "severity_threshold": 10,
+    "correlation_seconds": 900
+  },
+  "methodology": "Identical chronological inputs, training excluded. Raw baseline ranks by severity and selects severity >= threshold; time baseline groups by scenario/host with inactivity timeout. Pipeline decisions use online priority. Coverage is any selected review signal in [start,end), not proof of technique detection. Latency is from window start to first selected signal; misses excluded from latency and reported separately. Review units are a workload proxy, not measured human time. Benign rates use only explicitly reviewed cases and sampled reference intersection; no population false-positive rate is claimed. Suppressions disabled for reproducibility.",
+  "pipeline_technique_coverage": {
+    "scenarios": [
+      "russellmitchell",
+      "fox",
+      "harrison",
+      "santos",
+      "shaw",
+      "wardbeck",
+      "wheeler",
+      "wilson"
+    ],
+    "rows": [
+      {
+        "scenario": "russellmitchell",
+        "phase": "network_scans",
+        "start": "2022-01-24T03:01:00+00:00",
+        "end": "2022-01-24T03:56:46+00:00",
+        "records": 8,
+        "training": 0,
+        "categories": {
+          "background": 8
+        },
+        "relevant": 0,
+        "expected": [
+          "recon"
+        ],
+        "training_related": 0,
+        "generic_anomalies": 0,
+        "evidence_status": "insufficient_telemetry",
+        "interpretation": "Insufficient relevant telemetry in exported records",
+        "diagnosis": "No operational excerpts with the required field types were observed. Obtain original telemetry before tuning detection.",
+        "references": [],
+        "telemetry": {
+          "operational": {
+            "service": 8
+          },
+          "training": {},
+          "needed_any": [
+            "connection"
+          ],
+          "collection_complete": false
+        }
+      },
+      {
+        "scenario": "russellmitchell",
+        "phase": "service_scans",
+        "start": "2022-01-24T03:56:46+00:00",
+        "end": "2022-01-24T03:57:25+00:00",
+        "records": 367,
+        "training": 0,
+        "categories": {
+          "recon": 58,
+          "anomaly": 161,
+          "web": 94,
+          "background": 54
+        },
+        "relevant": 58,
+        "expected": [
+          "recon"
+        ],
+        "training_related": 0,
+        "generic_anomalies": 161,
+        "evidence_status": "specific_signal",
+        "interpretation": "Technique-specific signal observed; attribution unverified",
+        "diagnosis": "A related operational rule fired. Window overlap does not establish malicious membership or attack success.",
+        "references": [
+          {
+            "id": "russellmitchell:w:25376",
+            "rule": "ssh.identification",
+            "time": "2022-01-24T03:56:47+00:00",
+            "training": false
+          },
+          {
+            "id": "russellmitchell:w:25377",
+            "rule": "ssh.identification",
+            "time": "2022-01-24T03:56:47+00:00",
+            "training": false
+          },
+          {
+            "id": "russellmitchell:w:25378",
+            "rule": "ssh.identification",
+            "time": "2022-01-24T03:56:47+00:00",
+            "training": false
+          },
+          {
+            "id": "russellmitchell:w:25379",
+            "rule": "ssh.identification",
+            "time": "2022-01-24T03:56:47+00:00",
+            "training": false
+          },
+          {
+            "id": "russellmitchell:a:426",
+            "rule": "ssh.identification",
+            "time": "2022-01-24T03:56:47+00:00",
+            "training": false
+          },
+          {
+            "id": "russellmitchell:a:427",
+            "rule": "ssh.identification",
+            "time": "2022-01-24T03:56:47+00:00",
+            "training": false
+          },
+          {
+            "id": "russellmitchell:a:436",
+            "rule": "ssh.identification",
+            "time": "2022-01-24T03:56:47+00:00",
+            "training": false
+          },
+          {
+            "id": "russellmitchell:a:437",
+            "rule": "ssh.identification",
+            "time": "2022-01-24T03:56:47+00:00",
+            "training": false
+          }
+        ],
+        "telemetry": {
+          "operational": {
+            "auth": 60,
+            "web": 98,
+            "dns": 1,
+            "connection": 88
+          },
+          "training": {},
+          "needed_any": [
+            "connection",
+            "auth",
+            "web"
+          ],
+          "collection_complete": false
+        }
+      },
+      {
+        "scenario": "russellmitchell",
+        "phase": "dirb",
+        "start": "2022-01-24T03:57:25+00:00",
+        "end": "2022-01-24T03:57:48+00:00",
+        "records": 4522,
+        "training": 0,
+        "categories": {
+          "web": 4485,
+          "background": 8,
+          "anomaly": 29
+        },
+        "relevant": 4485,
+        "expected": [
+          "web"
+        ],
+        "training_related": 0,
+        "generic_anomalies": 29,
+        "evidence_status": "specific_signal",
+        "interpretation": "Technique-specific signal observed; attribution unverified",
+        "diagnosis": "A related operational rule fired. Window overlap does not establish malicious membership or attack success.",
+        "references": [
+          {
+            "id": "russellmitchell:w:25543",
+            "rule": "web.probing",
+            "time": "2022-01-24T03:57:26+00:00",
+            "training": false
+          },
+          {
+            "id": "russellmitchell:w:25544",
+            "rule": "web.probing",
+            "time": "2022-01-24T03:57:26+00:00",
+            "training": false
+          },
+          {
+            "id": "russellmitchell:w:25545",
+            "rule": "web.probing",
+            "time": "2022-01-24T03:57:26+00:00",
+            "training": false
+          },
+          {
+            "id": "russellmitchell:w:25546",
+            "rule": "web.probing",
+            "time": "2022-01-24T03:57:26+00:00",
+            "training": false
+          },
+          {
+            "id": "russellmitchell:w:25547",
+            "rule": "web.probing",
+            "time": "2022-01-24T03:57:26+00:00",
+            "training": false
+          },
+          {
+            "id": "russellmitchell:w:25548",
+            "rule": "web.probing",
+            "time": "2022-01-24T03:57:26+00:00",
+            "training": false
+          },
+          {
+            "id": "russellmitchell:w:25549",
+            "rule": "web.probing",
+            "time": "2022-01-24T03:57:26+00:00",
+            "training": false
+          },
+          {
+            "id": "russellmitchell:w:25550",
+            "rule": "web.probing",
+            "time": "2022-01-24T03:57:26+00:00",
+            "training": false
+          }
+        ],
+        "telemetry": {
+          "operational": {
+            "web": 4492
+          },
+          "training": {},
+          "needed_any": [
+            "web"
+          ],
+          "collection_complete": false
+        }
+      },
+      {
+        "scenario": "russellmitchell",
+        "phase": "wpscan",
+        "start": "2022-01-24T03:57:48+00:00",
+        "end": "2022-01-24T03:58:19+00:00",
+        "records": 6359,
+        "training": 0,
+        "categories": {
+          "web": 6341,
+          "anomaly": 14,
+          "background": 4
+        },
+        "relevant": 6341,
+        "expected": [
+          "web"
+        ],
+        "training_related": 0,
+        "generic_anomalies": 14,
+        "evidence_status": "specific_signal",
+        "interpretation": "Technique-specific signal observed; attribution unverified",
+        "diagnosis": "A related operational rule fired. Window overlap does not establish malicious membership or attack success.",
+        "references": [
+          {
+            "id": "russellmitchell:w:30002",
+            "rule": "web.probing",
+            "time": "2022-01-24T03:57:52+00:00",
+            "training": false
+          },
+          {
+            "id": "russellmitchell:a:689",
+            "rule": "web.probing",
+            "time": "2022-01-24T03:57:52+00:00",
+            "training": false
+          },
+          {
+            "id": "russellmitchell:w:30003",
+            "rule": "web.probing",
+            "time": "2022-01-24T03:57:53+00:00",
+            "training": false
+          },
+          {
+            "id": "russellmitchell:w:30004",
+            "rule": "web.probing",
+            "time": "2022-01-24T03:57:53+00:00",
+            "training": false
+          },
+          {
+            "id": "russellmitchell:w:30005",
+            "rule": "web.probing",
+            "time": "2022-01-24T03:57:53+00:00",
+            "training": false
+          },
+          {
+            "id": "russellmitchell:w:30006",
+            "rule": "web.probing",
+            "time": "2022-01-24T03:57:53+00:00",
+            "training": false
+          },
+          {
+            "id": "russellmitchell:w:30007",
+            "rule": "web.probing",
+            "time": "2022-01-24T03:57:53+00:00",
+            "training": false
+          },
+          {
+            "id": "russellmitchell:w:30008",
+            "rule": "web.probing",
+            "time": "2022-01-24T03:57:53+00:00",
+            "training": false
+          }
+        ],
+        "telemetry": {
+          "operational": {
+            "web": 6341,
+            "connection": 4
+          },
+          "training": {},
+          "needed_any": [
+            "web"
+          ],
+          "collection_complete": false
+        }
+      },
+      {
+        "scenario": "russellmitchell",
+        "phase": "webshell",
+        "start": "2022-01-24T03:58:19+00:00",
+        "end": "2022-01-24T03:59:22+00:00",
+        "records": 5,
+        "training": 0,
+        "categories": {
+          "background": 4,
+          "execution": 1
+        },
+        "relevant": 1,
+        "expected": [
+          "execution"
+        ],
+        "training_related": 0,
+        "generic_anomalies": 0,
+        "evidence_status": "specific_signal",
+        "interpretation": "Technique-specific signal observed; attribution unverified",
+        "diagnosis": "A related operational rule fired. Window overlap does not establish malicious membership or attack success.",
+        "references": [
+          {
+            "id": "russellmitchell:a:3876",
+            "rule": "web.command",
+            "time": "2022-01-24T03:59:14+00:00",
+            "training": false
+          }
+        ],
+        "telemetry": {
+          "operational": {
+            "connection": 4,
+            "web": 1
+          },
+          "training": {},
+          "needed_any": [
+            "web",
+            "process"
+          ],
+          "collection_complete": false
+        }
+      },
+      {
+        "scenario": "russellmitchell",
+        "phase": "cracking",
+        "start": "2022-01-24T03:59:22+00:00",
+        "end": "2022-01-24T04:36:56+00:00",
+        "records": 14,
+        "training": 1,
+        "categories": {
+          "execution": 1,
+          "cracking": 1,
+          "background": 11,
+          "anomaly": 1
+        },
+        "relevant": 1,
+        "expected": [
+          "cracking"
+        ],
+        "training_related": 0,
+        "generic_anomalies": 1,
+        "evidence_status": "specific_signal",
+        "interpretation": "Technique-specific signal observed; attribution unverified",
+        "diagnosis": "A related operational rule fired. Window overlap does not establish malicious membership or attack success.",
+        "references": [
+          {
+            "id": "russellmitchell:a:3878",
+            "rule": "cracking.tool",
+            "time": "2022-01-24T03:59:48+00:00",
+            "training": false
+          }
+        ],
+        "telemetry": {
+          "operational": {
+            "web": 3,
+            "connection": 2,
+            "service": 8
+          },
+          "training": {},
+          "needed_any": [
+            "process",
+            "auth",
+            "web"
+          ],
+          "collection_complete": false
+        }
+      },
+      {
+        "scenario": "russellmitchell",
+        "phase": "reverse_shell",
+        "start": "2022-01-24T04:36:56+00:00",
+        "end": "2022-01-24T04:37:39+00:00",
+        "records": 3,
+        "training": 0,
+        "categories": {
+          "callback": 3
+        },
+        "relevant": 3,
+        "expected": [
+          "callback"
+        ],
+        "training_related": 0,
+        "generic_anomalies": 0,
+        "evidence_status": "specific_signal",
+        "interpretation": "Technique-specific signal observed; attribution unverified",
+        "diagnosis": "A related operational rule fired. Window overlap does not establish malicious membership or attack success.",
+        "references": [
+          {
+            "id": "russellmitchell:a:3881",
+            "rule": "callback.command",
+            "time": "2022-01-24T04:37:25+00:00",
+            "training": false
+          },
+          {
+            "id": "russellmitchell:a:3882",
+            "rule": "callback.command",
+            "time": "2022-01-24T04:37:25+00:00",
+            "training": false
+          },
+          {
+            "id": "russellmitchell:a:3883",
+            "rule": "callback.command",
+            "time": "2022-01-24T04:37:25+00:00",
+            "training": false
+          }
+        ],
+        "telemetry": {
+          "operational": {
+            "web": 3
+          },
+          "training": {},
+          "needed_any": [
+            "process",
+            "connection",
+            "web"
+          ],
+          "collection_complete": false
+        }
+      },
+      {
+        "scenario": "russellmitchell",
+        "phase": "privilege_escalation",
+        "start": "2022-01-24T04:37:39+00:00",
+        "end": "2022-01-24T04:38:13+00:00",
+        "records": 24,
+        "training": 0,
+        "categories": {
+          "background": 3,
+          "privilege": 11,
+          "anomaly": 10
+        },
+        "relevant": 11,
+        "expected": [
+          "privilege"
+        ],
+        "training_related": 0,
+        "generic_anomalies": 10,
+        "evidence_status": "specific_signal",
+        "interpretation": "Technique-specific signal observed; attribution unverified",
+        "diagnosis": "A related operational rule fired. Window overlap does not establish malicious membership or attack success.",
+        "references": [
+          {
+            "id": "russellmitchell:a:3884",
+            "rule": "privilege.transition",
+            "time": "2022-01-24T04:37:40+00:00",
+            "training": false
+          },
+          {
+            "id": "russellmitchell:a:3887",
+            "rule": "privilege.transition",
+            "time": "2022-01-24T04:37:40.600000+00:00",
+            "training": false
+          },
+          {
+            "id": "russellmitchell:a:3888",
+            "rule": "privilege.transition",
+            "time": "2022-01-24T04:37:40.600000+00:00",
+            "training": false
+          },
+          {
+            "id": "russellmitchell:a:3889",
+            "rule": "privilege.transition",
+            "time": "2022-01-24T04:37:40.620000+00:00",
+            "training": false
+          },
+          {
+            "id": "russellmitchell:a:3890",
+            "rule": "privilege.transition",
+            "time": "2022-01-24T04:37:40.630000+00:00",
+            "training": false
+          },
+          {
+            "id": "russellmitchell:w:33190",
+            "rule": "privilege.transition",
+            "time": "2022-01-24T04:37:58+00:00",
+            "training": false
+          },
+          {
+            "id": "russellmitchell:a:3891",
+            "rule": "privilege.transition",
+            "time": "2022-01-24T04:37:58+00:00",
+            "training": false
+          },
+          {
+            "id": "russellmitchell:w:33191",
+            "rule": "privilege.transition",
+            "time": "2022-01-24T04:38:06+00:00",
+            "training": false
+          }
+        ],
+        "telemetry": {
+          "operational": {
+            "auth": 16,
+            "process": 2
+          },
+          "training": {},
+          "needed_any": [
+            "auth",
+            "process"
+          ],
+          "collection_complete": false
+        }
+      },
+      {
+        "scenario": "russellmitchell",
+        "phase": "service_stop",
+        "start": "2022-01-24T13:50:38+00:00",
+        "end": "2022-01-24T13:50:40+00:00",
+        "records": 2,
+        "training": 0,
+        "categories": {
+          "anomaly": 1,
+          "service": 1
+        },
+        "relevant": 1,
+        "expected": [
+          "service"
+        ],
+        "training_related": 0,
+        "generic_anomalies": 1,
+        "evidence_status": "specific_signal",
+        "interpretation": "Technique-specific signal observed; attribution unverified",
+        "diagnosis": "A related operational rule fired. Window overlap does not establish malicious membership or attack success.",
+        "references": [
+          {
+            "id": "russellmitchell:a:4042",
+            "rule": "service.stop",
+            "time": "2022-01-24T13:50:39.300000+00:00",
+            "training": false
+          }
+        ],
+        "telemetry": {
+          "operational": {
+            "service": 2
+          },
+          "training": {},
+          "needed_any": [
+            "service"
+          ],
+          "collection_complete": false
+        }
+      },
+      {
+        "scenario": "russellmitchell",
+        "phase": "dnsteal",
+        "start": "2022-01-24T13:50:40+00:00",
+        "end": "2022-01-24T14:50:40+00:00",
+        "records": 711,
+        "training": 0,
+        "categories": {
+          "background": 709,
+          "anomaly": 2
+        },
+        "relevant": 0,
+        "expected": [
+          "dns"
+        ],
+        "training_related": 0,
+        "generic_anomalies": 2,
+        "evidence_status": "insufficient_telemetry",
+        "interpretation": "Insufficient relevant telemetry in exported records",
+        "diagnosis": "No operational excerpts with the required field types were observed. Obtain original telemetry before tuning detection.",
+        "references": [],
+        "telemetry": {
+          "operational": {
+            "auth": 375,
+            "connection": 328,
+            "service": 8
+          },
+          "training": {},
+          "needed_any": [
+            "dns"
+          ],
+          "collection_complete": false
+        }
+      },
+      {
+        "scenario": "fox",
+        "phase": "network_scans",
+        "start": "2022-01-18T11:59:00+00:00",
+        "end": "2022-01-18T12:17:00+00:00",
+        "records": 323,
+        "training": 0,
+        "categories": {
+          "background": 321,
+          "anomaly": 2
+        },
+        "relevant": 0,
+        "expected": [
+          "recon"
+        ],
+        "training_related": 0,
+        "generic_anomalies": 2,
+        "evidence_status": "unsupported_behavior",
+        "interpretation": "Relevant excerpts available; no technique-specific signal",
+        "diagnosis": "Review fields and behavior against the rules. Available excerpts do not establish complete collection or a detector false negative.",
+        "references": [],
+        "telemetry": {
+          "operational": {
+            "auth": 123,
+            "connection": 200
+          },
+          "training": {},
+          "needed_any": [
+            "connection"
+          ],
+          "collection_complete": false
+        }
+      },
+      {
+        "scenario": "fox",
+        "phase": "service_scans",
+        "start": "2022-01-18T12:17:00+00:00",
+        "end": "2022-01-18T12:17:47+00:00",
+        "records": 270,
+        "training": 0,
+        "categories": {
+          "background": 42,
+          "anomaly": 95,
+          "recon": 46,
+          "web": 87
+        },
+        "relevant": 46,
+        "expected": [
+          "recon"
+        ],
+        "training_related": 0,
+        "generic_anomalies": 95,
+        "evidence_status": "specific_signal",
+        "interpretation": "Technique-specific signal observed; attribution unverified",
+        "diagnosis": "A related operational rule fired. Window overlap does not establish malicious membership or attack success.",
+        "references": [
+          {
+            "id": "fox:w:35625",
+            "rule": "ssh.identification",
+            "time": "2022-01-18T12:17:15+00:00",
+            "training": false
+          },
+          {
+            "id": "fox:w:35626",
+            "rule": "ssh.identification",
+            "time": "2022-01-18T12:17:15+00:00",
+            "training": false
+          },
+          {
+            "id": "fox:w:35627",
+            "rule": "ssh.identification",
+            "time": "2022-01-18T12:17:15+00:00",
+            "training": false
+          },
+          {
+            "id": "fox:w:35628",
+            "rule": "ssh.identification",
+            "time": "2022-01-18T12:17:15+00:00",
+            "training": false
+          },
+          {
+            "id": "fox:a:1039",
+            "rule": "ssh.identification",
+            "time": "2022-01-18T12:17:15+00:00",
+            "training": false
+          },
+          {
+            "id": "fox:a:1046",
+            "rule": "ssh.identification",
+            "time": "2022-01-18T12:17:15+00:00",
+            "training": false
+          },
+          {
+            "id": "fox:a:1047",
+            "rule": "ssh.identification",
+            "time": "2022-01-18T12:17:15+00:00",
+            "training": false
+          },
+          {
+            "id": "fox:a:1048",
+            "rule": "ssh.identification",
+            "time": "2022-01-18T12:17:15+00:00",
+            "training": false
+          }
+        ],
+        "telemetry": {
+          "operational": {
+            "auth": 36,
+            "web": 87,
+            "connection": 64
+          },
+          "training": {},
+          "needed_any": [
+            "connection",
+            "auth",
+            "web"
+          ],
+          "collection_complete": false
+        }
+      },
+      {
+        "scenario": "fox",
+        "phase": "wpscan",
+        "start": "2022-01-18T12:17:47+00:00",
+        "end": "2022-01-18T12:18:30+00:00",
+        "records": 9527,
+        "training": 0,
+        "categories": {
+          "web": 9480,
+          "anomaly": 30,
+          "background": 17
+        },
+        "relevant": 9480,
+        "expected": [
+          "web"
+        ],
+        "training_related": 0,
+        "generic_anomalies": 30,
+        "evidence_status": "specific_signal",
+        "interpretation": "Technique-specific signal observed; attribution unverified",
+        "diagnosis": "A related operational rule fired. Window overlap does not establish malicious membership or attack success.",
+        "references": [
+          {
+            "id": "fox:w:35762",
+            "rule": "web.probing",
+            "time": "2022-01-18T12:17:50+00:00",
+            "training": false
+          },
+          {
+            "id": "fox:a:1149",
+            "rule": "web.probing",
+            "time": "2022-01-18T12:17:50+00:00",
+            "training": false
+          },
+          {
+            "id": "fox:w:35763",
+            "rule": "web.probing",
+            "time": "2022-01-18T12:17:52+00:00",
+            "training": false
+          },
+          {
+            "id": "fox:w:35764",
+            "rule": "web.probing",
+            "time": "2022-01-18T12:17:52+00:00",
+            "training": false
+          },
+          {
+            "id": "fox:w:35765",
+            "rule": "web.probing",
+            "time": "2022-01-18T12:17:52+00:00",
+            "training": false
+          },
+          {
+            "id": "fox:w:35766",
+            "rule": "web.probing",
+            "time": "2022-01-18T12:17:52+00:00",
+            "training": false
+          },
+          {
+            "id": "fox:w:35767",
+            "rule": "web.probing",
+            "time": "2022-01-18T12:17:52+00:00",
+            "training": false
+          },
+          {
+            "id": "fox:w:35768",
+            "rule": "web.probing",
+            "time": "2022-01-18T12:17:52+00:00",
+            "training": false
+          }
+        ],
+        "telemetry": {
+          "operational": {
+            "web": 9480,
+            "auth": 12
+          },
+          "training": {},
+          "needed_any": [
+            "web"
+          ],
+          "collection_complete": false
+        }
+      },
+      {
+        "scenario": "fox",
+        "phase": "dirb",
+        "start": "2022-01-18T12:18:30+00:00",
+        "end": "2022-01-18T12:38:00+00:00",
+        "records": 410564,
+        "training": 0,
+        "categories": {
+          "web": 408309,
+          "background": 863,
+          "anomaly": 1392
+        },
+        "relevant": 408309,
+        "expected": [
+          "web"
+        ],
+        "training_related": 0,
+        "generic_anomalies": 1392,
+        "evidence_status": "specific_signal",
+        "interpretation": "Technique-specific signal observed; attribution unverified",
+        "diagnosis": "A related operational rule fired. Window overlap does not establish malicious membership or attack success.",
+        "references": [
+          {
+            "id": "fox:w:40511",
+            "rule": "web.probing",
+            "time": "2022-01-18T12:18:30+00:00",
+            "training": false
+          },
+          {
+            "id": "fox:w:40512",
+            "rule": "web.probing",
+            "time": "2022-01-18T12:18:30+00:00",
+            "training": false
+          },
+          {
+            "id": "fox:w:40513",
+            "rule": "web.probing",
+            "time": "2022-01-18T12:18:30+00:00",
+            "training": false
+          },
+          {
+            "id": "fox:w:40514",
+            "rule": "web.probing",
+            "time": "2022-01-18T12:18:30+00:00",
+            "training": false
+          },
+          {
+            "id": "fox:w:40515",
+            "rule": "web.probing",
+            "time": "2022-01-18T12:18:30+00:00",
+            "training": false
+          },
+          {
+            "id": "fox:w:40516",
+            "rule": "web.probing",
+            "time": "2022-01-18T12:18:30+00:00",
+            "training": false
+          },
+          {
+            "id": "fox:w:40517",
+            "rule": "web.probing",
+            "time": "2022-01-18T12:18:30+00:00",
+            "training": false
+          },
+          {
+            "id": "fox:w:40518",
+            "rule": "web.probing",
+            "time": "2022-01-18T12:18:30+00:00",
+            "training": false
+          }
+        ],
+        "telemetry": {
+          "operational": {
+            "web": 408407,
+            "auth": 216,
+            "connection": 8,
+            "service": 4
+          },
+          "training": {},
+          "needed_any": [
+            "web"
+          ],
+          "collection_complete": false
+        }
+      },
+      {
+        "scenario": "fox",
+        "phase": "webshell",
+        "start": "2022-01-18T12:38:00+00:00",
+        "end": "2022-01-18T12:38:30+00:00",
+        "records": 2,
+        "training": 0,
+        "categories": {
+          "execution": 2
+        },
+        "relevant": 2,
+        "expected": [
+          "execution"
+        ],
+        "training_related": 0,
+        "generic_anomalies": 0,
+        "evidence_status": "specific_signal",
+        "interpretation": "Technique-specific signal observed; attribution unverified",
+        "diagnosis": "A related operational rule fired. Window overlap does not establish malicious membership or attack success.",
+        "references": [
+          {
+            "id": "fox:a:10408",
+            "rule": "web.command",
+            "time": "2022-01-18T12:38:25+00:00",
+            "training": false
+          },
+          {
+            "id": "fox:a:10409",
+            "rule": "web.command",
+            "time": "2022-01-18T12:38:29+00:00",
+            "training": false
+          }
+        ],
+        "telemetry": {
+          "operational": {
+            "web": 2
+          },
+          "training": {},
+          "needed_any": [
+            "web",
+            "process"
+          ],
+          "collection_complete": false
+        }
+      },
+      {
+        "scenario": "fox",
+        "phase": "cracking",
+        "start": "2022-01-18T12:38:30+00:00",
+        "end": "2022-01-18T13:13:50+00:00",
+        "records": 559,
+        "training": 0,
+        "categories": {
+          "background": 548,
+          "cracking": 1,
+          "anomaly": 10
+        },
+        "relevant": 1,
+        "expected": [
+          "cracking"
+        ],
+        "training_related": 0,
+        "generic_anomalies": 10,
+        "evidence_status": "specific_signal",
+        "interpretation": "Technique-specific signal observed; attribution unverified",
+        "diagnosis": "A related operational rule fired. Window overlap does not establish malicious membership or attack success.",
+        "references": [
+          {
+            "id": "fox:a:10410",
+            "rule": "cracking.tool",
+            "time": "2022-01-18T12:39:11+00:00",
+            "training": false
+          }
+        ],
+        "telemetry": {
+          "operational": {
+            "auth": 166,
+            "connection": 380,
+            "web": 5,
+            "service": 6,
+            "dns": 1
+          },
+          "training": {},
+          "needed_any": [
+            "process",
+            "auth",
+            "web"
+          ],
+          "collection_complete": false
+        }
+      },
+      {
+        "scenario": "fox",
+        "phase": "reverse_shell",
+        "start": "2022-01-18T13:13:50+00:00",
+        "end": "2022-01-18T13:14:30+00:00",
+        "records": 1,
+        "training": 0,
+        "categories": {
+          "callback": 1
+        },
+        "relevant": 1,
+        "expected": [
+          "callback"
+        ],
+        "training_related": 0,
+        "generic_anomalies": 0,
+        "evidence_status": "specific_signal",
+        "interpretation": "Technique-specific signal observed; attribution unverified",
+        "diagnosis": "A related operational rule fired. Window overlap does not establish malicious membership or attack success.",
+        "references": [
+          {
+            "id": "fox:a:10415",
+            "rule": "callback.command",
+            "time": "2022-01-18T13:14:18+00:00",
+            "training": false
+          }
+        ],
+        "telemetry": {
+          "operational": {
+            "web": 1
+          },
+          "training": {},
+          "needed_any": [
+            "process",
+            "connection",
+            "web"
+          ],
+          "collection_complete": false
+        }
+      },
+      {
+        "scenario": "fox",
+        "phase": "privilege_escalation",
+        "start": "2022-01-18T13:14:30+00:00",
+        "end": "2022-01-18T13:14:53+00:00",
+        "records": 17,
+        "training": 0,
+        "categories": {
+          "background": 5,
+          "privilege": 10,
+          "anomaly": 2
+        },
+        "relevant": 10,
+        "expected": [
+          "privilege"
+        ],
+        "training_related": 0,
+        "generic_anomalies": 2,
+        "evidence_status": "specific_signal",
+        "interpretation": "Technique-specific signal observed; attribution unverified",
+        "diagnosis": "A related operational rule fired. Window overlap does not establish malicious membership or attack success.",
+        "references": [
+          {
+            "id": "fox:a:10416",
+            "rule": "privilege.transition",
+            "time": "2022-01-18T13:14:31+00:00",
+            "training": false
+          },
+          {
+            "id": "fox:a:10419",
+            "rule": "privilege.transition",
+            "time": "2022-01-18T13:14:31.630000+00:00",
+            "training": false
+          },
+          {
+            "id": "fox:a:10420",
+            "rule": "privilege.transition",
+            "time": "2022-01-18T13:14:31.630000+00:00",
+            "training": false
+          },
+          {
+            "id": "fox:a:10421",
+            "rule": "privilege.transition",
+            "time": "2022-01-18T13:14:31.660000+00:00",
+            "training": false
+          },
+          {
+            "id": "fox:a:10422",
+            "rule": "privilege.transition",
+            "time": "2022-01-18T13:14:32.400000+00:00",
+            "training": false
+          },
+          {
+            "id": "fox:w:447151",
+            "rule": "privilege.transition",
+            "time": "2022-01-18T13:14:41+00:00",
+            "training": false
+          },
+          {
+            "id": "fox:w:447152",
+            "rule": "privilege.transition",
+            "time": "2022-01-18T13:14:43+00:00",
+            "training": false
+          },
+          {
+            "id": "fox:w:447154",
+            "rule": "privilege.transition",
+            "time": "2022-01-18T13:14:43+00:00",
+            "training": false
+          }
+        ],
+        "telemetry": {
+          "operational": {
+            "auth": 10,
+            "process": 3
+          },
+          "training": {},
+          "needed_any": [
+            "auth",
+            "process"
+          ],
+          "collection_complete": false
+        }
+      },
+      {
+        "scenario": "fox",
+        "phase": "service_stop",
+        "start": "2022-01-17T09:04:46+00:00",
+        "end": "2022-01-17T09:04:48+00:00",
+        "records": 2,
+        "training": 0,
+        "categories": {
+          "anomaly": 1,
+          "service": 1
+        },
+        "relevant": 1,
+        "expected": [
+          "service"
+        ],
+        "training_related": 0,
+        "generic_anomalies": 1,
+        "evidence_status": "specific_signal",
+        "interpretation": "Technique-specific signal observed; attribution unverified",
+        "diagnosis": "A related operational rule fired. Window overlap does not establish malicious membership or attack success.",
+        "references": [
+          {
+            "id": "fox:a:826",
+            "rule": "service.stop",
+            "time": "2022-01-17T09:04:47.680000+00:00",
+            "training": false
+          }
+        ],
+        "telemetry": {
+          "operational": {
+            "service": 2
+          },
+          "training": {},
+          "needed_any": [
+            "service"
+          ],
+          "collection_complete": false
+        }
+      },
+      {
+        "scenario": "fox",
+        "phase": "dnsteal",
+        "start": "2022-01-17T09:04:48+00:00",
+        "end": "2022-01-17T10:00:00+00:00",
+        "records": 388,
+        "training": 0,
+        "categories": {
+          "background": 381,
+          "anomaly": 7
+        },
+        "relevant": 0,
+        "expected": [
+          "dns"
+        ],
+        "training_related": 0,
+        "generic_anomalies": 7,
+        "evidence_status": "unsupported_behavior",
+        "interpretation": "Relevant excerpts available; no technique-specific signal",
+        "diagnosis": "Review fields and behavior against the rules. Available excerpts do not establish complete collection or a detector false negative.",
+        "references": [],
+        "telemetry": {
+          "operational": {
+            "auth": 336,
+            "connection": 34,
+            "web": 1,
+            "service": 10,
+            "dns": 3
+          },
+          "training": {},
+          "needed_any": [
+            "dns"
+          ],
+          "collection_complete": false
+        }
+      },
+      {
+        "scenario": "harrison",
+        "phase": "network_scans",
+        "start": "2022-02-08T07:05:00+00:00",
+        "end": "2022-02-08T07:16:19+00:00",
+        "records": 296,
+        "training": 0,
+        "categories": {
+          "background": 290,
+          "anomaly": 6
+        },
+        "relevant": 0,
+        "expected": [
+          "recon"
+        ],
+        "training_related": 0,
+        "generic_anomalies": 6,
+        "evidence_status": "unsupported_behavior",
+        "interpretation": "Relevant excerpts available; no technique-specific signal",
+        "diagnosis": "Review fields and behavior against the rules. Available excerpts do not establish complete collection or a detector false negative.",
+        "references": [],
+        "telemetry": {
+          "operational": {
+            "auth": 72,
+            "connection": 224
+          },
+          "training": {},
+          "needed_any": [
+            "connection"
+          ],
+          "collection_complete": false
+        }
+      },
+      {
+        "scenario": "harrison",
+        "phase": "service_scans",
+        "start": "2022-02-08T07:16:19+00:00",
+        "end": "2022-02-08T07:28:36+00:00",
+        "records": 829,
+        "training": 0,
+        "categories": {
+          "background": 699,
+          "anomaly": 54,
+          "recon": 34,
+          "web": 42
+        },
+        "relevant": 34,
+        "expected": [
+          "recon"
+        ],
+        "training_related": 0,
+        "generic_anomalies": 54,
+        "evidence_status": "specific_signal",
+        "interpretation": "Technique-specific signal observed; attribution unverified",
+        "diagnosis": "A related operational rule fired. Window overlap does not establish malicious membership or attack success.",
+        "references": [
+          {
+            "id": "harrison:w:152280",
+            "rule": "ssh.identification",
+            "time": "2022-02-08T07:16:20+00:00",
+            "training": false
+          },
+          {
+            "id": "harrison:w:152281",
+            "rule": "ssh.identification",
+            "time": "2022-02-08T07:16:20+00:00",
+            "training": false
+          },
+          {
+            "id": "harrison:a:629",
+            "rule": "ssh.identification",
+            "time": "2022-02-08T07:16:20+00:00",
+            "training": false
+          },
+          {
+            "id": "harrison:a:630",
+            "rule": "ssh.identification",
+            "time": "2022-02-08T07:16:20+00:00",
+            "training": false
+          },
+          {
+            "id": "harrison:w:152325",
+            "rule": "scan.signature",
+            "time": "2022-02-08T07:16:34.863926+00:00",
+            "training": false
+          },
+          {
+            "id": "harrison:w:152327",
+            "rule": "scan.signature",
+            "time": "2022-02-08T07:16:34.864535+00:00",
+            "training": false
+          },
+          {
+            "id": "harrison:w:152329",
+            "rule": "scan.signature",
+            "time": "2022-02-08T07:16:34.865498+00:00",
+            "training": false
+          },
+          {
+            "id": "harrison:w:152331",
+            "rule": "scan.signature",
+            "time": "2022-02-08T07:16:34.865961+00:00",
+            "training": false
+          }
+        ],
+        "telemetry": {
+          "operational": {
+            "connection": 660,
+            "auth": 90,
+            "web": 42,
+            "service": 2
+          },
+          "training": {},
+          "needed_any": [
+            "connection",
+            "auth",
+            "web"
+          ],
+          "collection_complete": false
+        }
+      },
+      {
+        "scenario": "harrison",
+        "phase": "wpscan",
+        "start": "2022-02-08T07:28:36+00:00",
+        "end": "2022-02-08T07:29:40+00:00",
+        "records": 9709,
+        "training": 0,
+        "categories": {
+          "background": 37,
+          "web": 9643,
+          "anomaly": 29
+        },
+        "relevant": 9643,
+        "expected": [
+          "web"
+        ],
+        "training_related": 0,
+        "generic_anomalies": 29,
+        "evidence_status": "specific_signal",
+        "interpretation": "Technique-specific signal observed; attribution unverified",
+        "diagnosis": "A related operational rule fired. Window overlap does not establish malicious membership or attack success.",
+        "references": [
+          {
+            "id": "harrison:w:153052",
+            "rule": "web.probing",
+            "time": "2022-02-08T07:28:41+00:00",
+            "training": false
+          },
+          {
+            "id": "harrison:a:689",
+            "rule": "web.probing",
+            "time": "2022-02-08T07:28:41+00:00",
+            "training": false
+          },
+          {
+            "id": "harrison:w:153053",
+            "rule": "web.probing",
+            "time": "2022-02-08T07:28:43+00:00",
+            "training": false
+          },
+          {
+            "id": "harrison:w:153054",
+            "rule": "web.probing",
+            "time": "2022-02-08T07:28:43+00:00",
+            "training": false
+          },
+          {
+            "id": "harrison:a:690",
+            "rule": "web.probing",
+            "time": "2022-02-08T07:28:43+00:00",
+            "training": false
+          },
+          {
+            "id": "harrison:a:691",
+            "rule": "web.probing",
+            "time": "2022-02-08T07:28:43+00:00",
+            "training": false
+          },
+          {
+            "id": "harrison:a:692",
+            "rule": "web.probing",
+            "time": "2022-02-08T07:28:43+00:00",
+            "training": false
+          },
+          {
+            "id": "harrison:w:153055",
+            "rule": "web.probing",
+            "time": "2022-02-08T07:28:44+00:00",
+            "training": false
+          }
+        ],
+        "telemetry": {
+          "operational": {
+            "auth": 9,
+            "connection": 24,
+            "web": 9643
+          },
+          "training": {},
+          "needed_any": [
+            "web"
+          ],
+          "collection_complete": false
+        }
+      },
+      {
+        "scenario": "harrison",
+        "phase": "dirb",
+        "start": "2022-02-08T07:29:40+00:00",
+        "end": "2022-02-08T07:55:59+00:00",
+        "records": 416011,
+        "training": 0,
+        "categories": {
+          "web": 413055,
+          "anomaly": 1415,
+          "background": 1461,
+          "recon": 80
+        },
+        "relevant": 413055,
+        "expected": [
+          "web"
+        ],
+        "training_related": 0,
+        "generic_anomalies": 1415,
+        "evidence_status": "specific_signal",
+        "interpretation": "Technique-specific signal observed; attribution unverified",
+        "diagnosis": "A related operational rule fired. Window overlap does not establish malicious membership or attack success.",
+        "references": [
+          {
+            "id": "harrison:w:157893",
+            "rule": "web.probing",
+            "time": "2022-02-08T07:29:41+00:00",
+            "training": false
+          },
+          {
+            "id": "harrison:w:157894",
+            "rule": "web.probing",
+            "time": "2022-02-08T07:29:41+00:00",
+            "training": false
+          },
+          {
+            "id": "harrison:w:157895",
+            "rule": "web.probing",
+            "time": "2022-02-08T07:29:41+00:00",
+            "training": false
+          },
+          {
+            "id": "harrison:w:157896",
+            "rule": "web.probing",
+            "time": "2022-02-08T07:29:41+00:00",
+            "training": false
+          },
+          {
+            "id": "harrison:w:157897",
+            "rule": "web.probing",
+            "time": "2022-02-08T07:29:41+00:00",
+            "training": false
+          },
+          {
+            "id": "harrison:w:157898",
+            "rule": "web.probing",
+            "time": "2022-02-08T07:29:41+00:00",
+            "training": false
+          },
+          {
+            "id": "harrison:w:157899",
+            "rule": "web.probing",
+            "time": "2022-02-08T07:29:41+00:00",
+            "training": false
+          },
+          {
+            "id": "harrison:w:157900",
+            "rule": "web.probing",
+            "time": "2022-02-08T07:29:41+00:00",
+            "training": false
+          }
+        ],
+        "telemetry": {
+          "operational": {
+            "web": 413161,
+            "connection": 780,
+            "auth": 114,
+            "service": 6
+          },
+          "training": {},
+          "needed_any": [
+            "web"
+          ],
+          "collection_complete": false
+        }
+      },
+      {
+        "scenario": "harrison",
+        "phase": "webshell",
+        "start": "2022-02-08T07:55:59+00:00",
+        "end": "2022-02-08T07:56:37+00:00",
+        "records": 32,
+        "training": 0,
+        "categories": {
+          "anomaly": 1,
+          "background": 30,
+          "execution": 1
+        },
+        "relevant": 1,
+        "expected": [
+          "execution"
+        ],
+        "training_related": 0,
+        "generic_anomalies": 1,
+        "evidence_status": "specific_signal",
+        "interpretation": "Technique-specific signal observed; attribution unverified",
+        "diagnosis": "A related operational rule fired. Window overlap does not establish malicious membership or attack success.",
+        "references": [
+          {
+            "id": "harrison:a:10084",
+            "rule": "web.command",
+            "time": "2022-02-08T07:56:31+00:00",
+            "training": false
+          }
+        ],
+        "telemetry": {
+          "operational": {
+            "connection": 16,
+            "auth": 15,
+            "web": 1
+          },
+          "training": {},
+          "needed_any": [
+            "web",
+            "process"
+          ],
+          "collection_complete": false
+        }
+      },
+      {
+        "scenario": "harrison",
+        "phase": "cracking",
+        "start": "2022-02-08T07:56:37+00:00",
+        "end": "2022-02-08T08:35:59+00:00",
+        "records": 1256,
+        "training": 1,
+        "categories": {
+          "execution": 1,
+          "background": 1233,
+          "cracking": 1,
+          "anomaly": 21
+        },
+        "relevant": 1,
+        "expected": [
+          "cracking"
+        ],
+        "training_related": 0,
+        "generic_anomalies": 21,
+        "evidence_status": "specific_signal",
+        "interpretation": "Technique-specific signal observed; attribution unverified",
+        "diagnosis": "A related operational rule fired. Window overlap does not establish malicious membership or attack success.",
+        "references": [
+          {
+            "id": "harrison:a:10086",
+            "rule": "cracking.tool",
+            "time": "2022-02-08T07:57:06+00:00",
+            "training": false
+          }
+        ],
+        "telemetry": {
+          "operational": {
+            "web": 6,
+            "auth": 345,
+            "connection": 902,
+            "service": 2
+          },
+          "training": {},
+          "needed_any": [
+            "process",
+            "auth",
+            "web"
+          ],
+          "collection_complete": false
+        }
+      },
+      {
+        "scenario": "harrison",
+        "phase": "reverse_shell",
+        "start": "2022-02-08T08:35:59+00:00",
+        "end": "2022-02-08T08:36:37+00:00",
+        "records": 20,
+        "training": 0,
+        "categories": {
+          "background": 19,
+          "callback": 1
+        },
+        "relevant": 1,
+        "expected": [
+          "callback"
+        ],
+        "training_related": 0,
+        "generic_anomalies": 0,
+        "evidence_status": "specific_signal",
+        "interpretation": "Technique-specific signal observed; attribution unverified",
+        "diagnosis": "A related operational rule fired. Window overlap does not establish malicious membership or attack success.",
+        "references": [
+          {
+            "id": "harrison:a:10090",
+            "rule": "callback.command",
+            "time": "2022-02-08T08:36:28+00:00",
+            "training": false
+          }
+        ],
+        "telemetry": {
+          "operational": {
+            "connection": 16,
+            "auth": 3,
+            "web": 1
+          },
+          "training": {},
+          "needed_any": [
+            "process",
+            "connection",
+            "web"
+          ],
+          "collection_complete": false
+        }
+      },
+      {
+        "scenario": "harrison",
+        "phase": "privilege_escalation",
+        "start": "2022-02-08T08:36:37+00:00",
+        "end": "2022-02-08T08:37:26+00:00",
+        "records": 94,
+        "training": 0,
+        "categories": {
+          "background": 41,
+          "privilege": 19,
+          "anomaly": 34
+        },
+        "relevant": 19,
+        "expected": [
+          "privilege"
+        ],
+        "training_related": 0,
+        "generic_anomalies": 34,
+        "evidence_status": "specific_signal",
+        "interpretation": "Technique-specific signal observed; attribution unverified",
+        "diagnosis": "A related operational rule fired. Window overlap does not establish malicious membership or attack success.",
+        "references": [
+          {
+            "id": "harrison:a:10091",
+            "rule": "privilege.transition",
+            "time": "2022-02-08T08:36:38+00:00",
+            "training": false
+          },
+          {
+            "id": "harrison:a:10096",
+            "rule": "privilege.transition",
+            "time": "2022-02-08T08:36:38.070000+00:00",
+            "training": false
+          },
+          {
+            "id": "harrison:a:10097",
+            "rule": "privilege.transition",
+            "time": "2022-02-08T08:36:38.070000+00:00",
+            "training": false
+          },
+          {
+            "id": "harrison:a:10098",
+            "rule": "privilege.transition",
+            "time": "2022-02-08T08:36:38.080000+00:00",
+            "training": false
+          },
+          {
+            "id": "harrison:a:10104",
+            "rule": "privilege.transition",
+            "time": "2022-02-08T08:36:39.050000+00:00",
+            "training": false
+          },
+          {
+            "id": "harrison:w:570685",
+            "rule": "privilege.transition",
+            "time": "2022-02-08T08:36:54+00:00",
+            "training": false
+          },
+          {
+            "id": "harrison:a:10105",
+            "rule": "privilege.transition",
+            "time": "2022-02-08T08:36:54+00:00",
+            "training": false
+          },
+          {
+            "id": "harrison:w:570691",
+            "rule": "privilege.transition",
+            "time": "2022-02-08T08:36:57+00:00",
+            "training": false
+          }
+        ],
+        "telemetry": {
+          "operational": {
+            "auth": 63,
+            "service": 1,
+            "connection": 12,
+            "process": 4
+          },
+          "training": {},
+          "needed_any": [
+            "auth",
+            "process"
+          ],
+          "collection_complete": false
+        }
+      },
+      {
+        "scenario": "harrison",
+        "phase": "service_stop",
+        "start": "2022-02-08T09:14:59+00:00",
+        "end": "2022-02-08T09:15:01+00:00",
+        "records": 6,
+        "training": 0,
+        "categories": {
+          "background": 4,
+          "anomaly": 1,
+          "service": 1
+        },
+        "relevant": 1,
+        "expected": [
+          "service"
+        ],
+        "training_related": 0,
+        "generic_anomalies": 1,
+        "evidence_status": "specific_signal",
+        "interpretation": "Technique-specific signal observed; attribution unverified",
+        "diagnosis": "A related operational rule fired. Window overlap does not establish malicious membership or attack success.",
+        "references": [
+          {
+            "id": "harrison:a:10138",
+            "rule": "service.stop",
+            "time": "2022-02-08T09:15:00.830000+00:00",
+            "training": false
+          }
+        ],
+        "telemetry": {
+          "operational": {
+            "connection": 4,
+            "service": 2
+          },
+          "training": {},
+          "needed_any": [
+            "service"
+          ],
+          "collection_complete": false
+        }
+      },
+      {
+        "scenario": "harrison",
+        "phase": "dnsteal",
+        "start": "2022-02-08T09:15:01+00:00",
+        "end": "2022-02-08T11:15:01+00:00",
+        "records": 3239,
+        "training": 0,
+        "categories": {
+          "background": 3092,
+          "anomaly": 19,
+          "recon": 128
+        },
+        "relevant": 0,
+        "expected": [
+          "dns"
+        ],
+        "training_related": 0,
+        "generic_anomalies": 19,
+        "evidence_status": "insufficient_telemetry",
+        "interpretation": "Insufficient relevant telemetry in exported records",
+        "diagnosis": "No operational excerpts with the required field types were observed. Obtain original telemetry before tuning detection.",
+        "references": [],
+        "telemetry": {
+          "operational": {
+            "connection": 1866,
+            "auth": 1348,
+            "web": 6,
+            "service": 16
+          },
+          "training": {},
+          "needed_any": [
+            "dns"
+          ],
+          "collection_complete": false
+        }
+      },
+      {
+        "scenario": "santos",
+        "phase": "network_scans",
+        "start": "2022-01-17T11:15:00+00:00",
+        "end": "2022-01-17T11:21:30+00:00",
+        "records": 104,
+        "training": 0,
+        "categories": {
+          "background": 103,
+          "anomaly": 1
+        },
+        "relevant": 0,
+        "expected": [
+          "recon"
+        ],
+        "training_related": 0,
+        "generic_anomalies": 1,
+        "evidence_status": "unsupported_behavior",
+        "interpretation": "Relevant excerpts available; no technique-specific signal",
+        "diagnosis": "Review fields and behavior against the rules. Available excerpts do not establish complete collection or a detector false negative.",
+        "references": [],
+        "telemetry": {
+          "operational": {
+            "auth": 24,
+            "connection": 80
+          },
+          "training": {},
+          "needed_any": [
+            "connection"
+          ],
+          "collection_complete": false
+        }
+      },
+      {
+        "scenario": "santos",
+        "phase": "service_scans",
+        "start": "2022-01-17T11:21:30+00:00",
+        "end": "2022-01-17T11:22:00+00:00",
+        "records": 123,
+        "training": 0,
+        "categories": {
+          "recon": 28,
+          "anomaly": 28,
+          "background": 40,
+          "web": 27
+        },
+        "relevant": 28,
+        "expected": [
+          "recon"
+        ],
+        "training_related": 0,
+        "generic_anomalies": 28,
+        "evidence_status": "specific_signal",
+        "interpretation": "Technique-specific signal observed; attribution unverified",
+        "diagnosis": "A related operational rule fired. Window overlap does not establish malicious membership or attack success.",
+        "references": [
+          {
+            "id": "santos:w:108053",
+            "rule": "ssh.identification",
+            "time": "2022-01-17T11:21:32+00:00",
+            "training": false
+          },
+          {
+            "id": "santos:w:108054",
+            "rule": "ssh.identification",
+            "time": "2022-01-17T11:21:32+00:00",
+            "training": false
+          },
+          {
+            "id": "santos:w:108055",
+            "rule": "ssh.identification",
+            "time": "2022-01-17T11:21:32+00:00",
+            "training": false
+          },
+          {
+            "id": "santos:w:108056",
+            "rule": "ssh.identification",
+            "time": "2022-01-17T11:21:32+00:00",
+            "training": false
+          },
+          {
+            "id": "santos:w:108057",
+            "rule": "ssh.identification",
+            "time": "2022-01-17T11:21:32+00:00",
+            "training": false
+          },
+          {
+            "id": "santos:a:767",
+            "rule": "ssh.identification",
+            "time": "2022-01-17T11:21:32+00:00",
+            "training": false
+          },
+          {
+            "id": "santos:a:768",
+            "rule": "ssh.identification",
+            "time": "2022-01-17T11:21:32+00:00",
+            "training": false
+          },
+          {
+            "id": "santos:a:769",
+            "rule": "ssh.identification",
+            "time": "2022-01-17T11:21:32+00:00",
+            "training": false
+          }
+        ],
+        "telemetry": {
+          "operational": {
+            "auth": 15,
+            "connection": 70,
+            "web": 30
+          },
+          "training": {},
+          "needed_any": [
+            "connection",
+            "auth",
+            "web"
+          ],
+          "collection_complete": false
+        }
+      },
+      {
+        "scenario": "santos",
+        "phase": "dirb",
+        "start": "2022-01-17T11:22:00+00:00",
+        "end": "2022-01-17T11:22:21+00:00",
+        "records": 4522,
+        "training": 0,
+        "categories": {
+          "web": 4485,
+          "background": 8,
+          "anomaly": 29
+        },
+        "relevant": 4485,
+        "expected": [
+          "web"
+        ],
+        "training_related": 0,
+        "generic_anomalies": 29,
+        "evidence_status": "specific_signal",
+        "interpretation": "Technique-specific signal observed; attribution unverified",
+        "diagnosis": "A related operational rule fired. Window overlap does not establish malicious membership or attack success.",
+        "references": [
+          {
+            "id": "santos:w:108143",
+            "rule": "web.probing",
+            "time": "2022-01-17T11:22:02+00:00",
+            "training": false
+          },
+          {
+            "id": "santos:w:108144",
+            "rule": "web.probing",
+            "time": "2022-01-17T11:22:02+00:00",
+            "training": false
+          },
+          {
+            "id": "santos:w:108145",
+            "rule": "web.probing",
+            "time": "2022-01-17T11:22:02+00:00",
+            "training": false
+          },
+          {
+            "id": "santos:w:108146",
+            "rule": "web.probing",
+            "time": "2022-01-17T11:22:02+00:00",
+            "training": false
+          },
+          {
+            "id": "santos:w:108147",
+            "rule": "web.probing",
+            "time": "2022-01-17T11:22:02+00:00",
+            "training": false
+          },
+          {
+            "id": "santos:w:108148",
+            "rule": "web.probing",
+            "time": "2022-01-17T11:22:02+00:00",
+            "training": false
+          },
+          {
+            "id": "santos:w:108149",
+            "rule": "web.probing",
+            "time": "2022-01-17T11:22:02+00:00",
+            "training": false
+          },
+          {
+            "id": "santos:w:108150",
+            "rule": "web.probing",
+            "time": "2022-01-17T11:22:02+00:00",
+            "training": false
+          }
+        ],
+        "telemetry": {
+          "operational": {
+            "web": 4492
+          },
+          "training": {},
+          "needed_any": [
+            "web"
+          ],
+          "collection_complete": false
+        }
+      },
+      {
+        "scenario": "santos",
+        "phase": "wpscan",
+        "start": "2022-01-17T11:22:21+00:00",
+        "end": "2022-01-17T11:22:58+00:00",
+        "records": 6567,
+        "training": 0,
+        "categories": {
+          "web": 6537,
+          "anomaly": 19,
+          "background": 11
+        },
+        "relevant": 6537,
+        "expected": [
+          "web"
+        ],
+        "training_related": 0,
+        "generic_anomalies": 19,
+        "evidence_status": "specific_signal",
+        "interpretation": "Technique-specific signal observed; attribution unverified",
+        "diagnosis": "A related operational rule fired. Window overlap does not establish malicious membership or attack success.",
+        "references": [
+          {
+            "id": "santos:w:112602",
+            "rule": "web.probing",
+            "time": "2022-01-17T11:22:23+00:00",
+            "training": false
+          },
+          {
+            "id": "santos:a:863",
+            "rule": "web.probing",
+            "time": "2022-01-17T11:22:23+00:00",
+            "training": false
+          },
+          {
+            "id": "santos:w:112603",
+            "rule": "web.probing",
+            "time": "2022-01-17T11:22:24+00:00",
+            "training": false
+          },
+          {
+            "id": "santos:w:112604",
+            "rule": "web.probing",
+            "time": "2022-01-17T11:22:24+00:00",
+            "training": false
+          },
+          {
+            "id": "santos:w:112605",
+            "rule": "web.probing",
+            "time": "2022-01-17T11:22:24+00:00",
+            "training": false
+          },
+          {
+            "id": "santos:w:112606",
+            "rule": "web.probing",
+            "time": "2022-01-17T11:22:24+00:00",
+            "training": false
+          },
+          {
+            "id": "santos:w:112607",
+            "rule": "web.probing",
+            "time": "2022-01-17T11:22:24+00:00",
+            "training": false
+          },
+          {
+            "id": "santos:w:112608",
+            "rule": "web.probing",
+            "time": "2022-01-17T11:22:24+00:00",
+            "training": false
+          }
+        ],
+        "telemetry": {
+          "operational": {
+            "web": 6537,
+            "auth": 6,
+            "connection": 4
+          },
+          "training": {},
+          "needed_any": [
+            "web"
+          ],
+          "collection_complete": false
+        }
+      },
+      {
+        "scenario": "santos",
+        "phase": "webshell",
+        "start": "2022-01-17T11:22:58+00:00",
+        "end": "2022-01-17T11:24:16+00:00",
+        "records": 15,
+        "training": 0,
+        "categories": {
+          "background": 12,
+          "anomaly": 1,
+          "execution": 2
+        },
+        "relevant": 2,
+        "expected": [
+          "execution"
+        ],
+        "training_related": 0,
+        "generic_anomalies": 1,
+        "evidence_status": "specific_signal",
+        "interpretation": "Technique-specific signal observed; attribution unverified",
+        "diagnosis": "A related operational rule fired. Window overlap does not establish malicious membership or attack success.",
+        "references": [
+          {
+            "id": "santos:a:4156",
+            "rule": "web.command",
+            "time": "2022-01-17T11:24:14+00:00",
+            "training": false
+          },
+          {
+            "id": "santos:a:4157",
+            "rule": "web.command",
+            "time": "2022-01-17T11:24:14+00:00",
+            "training": false
+          }
+        ],
+        "telemetry": {
+          "operational": {
+            "auth": 9,
+            "connection": 4,
+            "web": 2
+          },
+          "training": {},
+          "needed_any": [
+            "web",
+            "process"
+          ],
+          "collection_complete": false
+        }
+      },
+      {
+        "scenario": "santos",
+        "phase": "cracking",
+        "start": "2022-01-17T11:24:16+00:00",
+        "end": "2022-01-17T11:57:35+00:00",
+        "records": 777,
+        "training": 1,
+        "categories": {
+          "execution": 1,
+          "background": 766,
+          "cracking": 1,
+          "anomaly": 9
+        },
+        "relevant": 1,
+        "expected": [
+          "cracking"
+        ],
+        "training_related": 0,
+        "generic_anomalies": 9,
+        "evidence_status": "specific_signal",
+        "interpretation": "Technique-specific signal observed; attribution unverified",
+        "diagnosis": "A related operational rule fired. Window overlap does not establish malicious membership or attack success.",
+        "references": [
+          {
+            "id": "santos:a:4159",
+            "rule": "cracking.tool",
+            "time": "2022-01-17T11:24:45+00:00",
+            "training": false
+          }
+        ],
+        "telemetry": {
+          "operational": {
+            "web": 16,
+            "auth": 381,
+            "connection": 384,
+            "service": 8
+          },
+          "training": {},
+          "needed_any": [
+            "process",
+            "auth",
+            "web"
+          ],
+          "collection_complete": false
+        }
+      },
+      {
+        "scenario": "santos",
+        "phase": "reverse_shell",
+        "start": "2022-01-17T11:57:35+00:00",
+        "end": "2022-01-17T11:58:17+00:00",
+        "records": 4,
+        "training": 0,
+        "categories": {
+          "callback": 1,
+          "background": 3
+        },
+        "relevant": 1,
+        "expected": [
+          "callback"
+        ],
+        "training_related": 0,
+        "generic_anomalies": 0,
+        "evidence_status": "specific_signal",
+        "interpretation": "Technique-specific signal observed; attribution unverified",
+        "diagnosis": "A related operational rule fired. Window overlap does not establish malicious membership or attack success.",
+        "references": [
+          {
+            "id": "santos:a:4162",
+            "rule": "callback.command",
+            "time": "2022-01-17T11:58:04+00:00",
+            "training": false
+          }
+        ],
+        "telemetry": {
+          "operational": {
+            "web": 1,
+            "auth": 3
+          },
+          "training": {},
+          "needed_any": [
+            "process",
+            "connection",
+            "web"
+          ],
+          "collection_complete": false
+        }
+      },
+      {
+        "scenario": "santos",
+        "phase": "privilege_escalation",
+        "start": "2022-01-17T11:58:17+00:00",
+        "end": "2022-01-17T11:58:59+00:00",
+        "records": 57,
+        "training": 0,
+        "categories": {
+          "background": 17,
+          "privilege": 15,
+          "anomaly": 25
+        },
+        "relevant": 15,
+        "expected": [
+          "privilege"
+        ],
+        "training_related": 0,
+        "generic_anomalies": 25,
+        "evidence_status": "specific_signal",
+        "interpretation": "Technique-specific signal observed; attribution unverified",
+        "diagnosis": "A related operational rule fired. Window overlap does not establish malicious membership or attack success.",
+        "references": [
+          {
+            "id": "santos:a:4163",
+            "rule": "privilege.transition",
+            "time": "2022-01-17T11:58:17+00:00",
+            "training": false
+          },
+          {
+            "id": "santos:a:4168",
+            "rule": "privilege.transition",
+            "time": "2022-01-17T11:58:17.660000+00:00",
+            "training": false
+          },
+          {
+            "id": "santos:a:4169",
+            "rule": "privilege.transition",
+            "time": "2022-01-17T11:58:17.660000+00:00",
+            "training": false
+          },
+          {
+            "id": "santos:a:4170",
+            "rule": "privilege.transition",
+            "time": "2022-01-17T11:58:17.660000+00:00",
+            "training": false
+          },
+          {
+            "id": "santos:a:4176",
+            "rule": "privilege.transition",
+            "time": "2022-01-17T11:58:18.020000+00:00",
+            "training": false
+          },
+          {
+            "id": "santos:w:116668",
+            "rule": "privilege.transition",
+            "time": "2022-01-17T11:58:27+00:00",
+            "training": false
+          },
+          {
+            "id": "santos:a:4177",
+            "rule": "privilege.transition",
+            "time": "2022-01-17T11:58:27+00:00",
+            "training": false
+          },
+          {
+            "id": "santos:w:116672",
+            "rule": "privilege.transition",
+            "time": "2022-01-17T11:58:29+00:00",
+            "training": false
+          }
+        ],
+        "telemetry": {
+          "operational": {
+            "auth": 40,
+            "service": 1,
+            "process": 3
+          },
+          "training": {},
+          "needed_any": [
+            "auth",
+            "process"
+          ],
+          "collection_complete": false
+        }
+      },
+      {
+        "scenario": "santos",
+        "phase": "service_stop",
+        "start": "2022-01-16T07:16:17+00:00",
+        "end": "2022-01-16T07:16:19+00:00",
+        "records": 3,
+        "training": 0,
+        "categories": {
+          "anomaly": 2,
+          "service": 1
+        },
+        "relevant": 1,
+        "expected": [
+          "service"
+        ],
+        "training_related": 0,
+        "generic_anomalies": 2,
+        "evidence_status": "specific_signal",
+        "interpretation": "Technique-specific signal observed; attribution unverified",
+        "diagnosis": "A related operational rule fired. Window overlap does not establish malicious membership or attack success.",
+        "references": [
+          {
+            "id": "santos:a:560",
+            "rule": "service.stop",
+            "time": "2022-01-16T07:16:18.020000+00:00",
+            "training": false
+          }
+        ],
+        "telemetry": {
+          "operational": {
+            "service": 2
+          },
+          "training": {},
+          "needed_any": [
+            "service"
+          ],
+          "collection_complete": false
+        }
+      },
+      {
+        "scenario": "santos",
+        "phase": "dnsteal",
+        "start": "2022-01-16T07:16:19+00:00",
+        "end": "2022-01-16T08:16:19+00:00",
+        "records": 832,
+        "training": 0,
+        "categories": {
+          "background": 826,
+          "anomaly": 6
+        },
+        "relevant": 0,
+        "expected": [
+          "dns"
+        ],
+        "training_related": 0,
+        "generic_anomalies": 6,
+        "evidence_status": "unsupported_behavior",
+        "interpretation": "Relevant excerpts available; no technique-specific signal",
+        "diagnosis": "Review fields and behavior against the rules. Available excerpts do not establish complete collection or a detector false negative.",
+        "references": [],
+        "telemetry": {
+          "operational": {
+            "connection": 288,
+            "auth": 530,
+            "service": 8,
+            "dns": 1,
+            "web": 1
+          },
+          "training": {},
+          "needed_any": [
+            "dns"
+          ],
+          "collection_complete": false
+        }
+      },
+      {
+        "scenario": "shaw",
+        "phase": "network_scans",
+        "start": "2022-01-29T14:37:00+00:00",
+        "end": "2022-01-29T14:38:37+00:00",
+        "records": 12,
+        "training": 0,
+        "categories": {
+          "background": 3,
+          "anomaly": 9
+        },
+        "relevant": 0,
+        "expected": [
+          "recon"
+        ],
+        "training_related": 0,
+        "generic_anomalies": 9,
+        "evidence_status": "insufficient_telemetry",
+        "interpretation": "Insufficient relevant telemetry in exported records",
+        "diagnosis": "No operational excerpts with the required field types were observed. Obtain original telemetry before tuning detection.",
+        "references": [],
+        "telemetry": {
+          "operational": {
+            "auth": 3,
+            "dns": 3
+          },
+          "training": {},
+          "needed_any": [
+            "connection"
+          ],
+          "collection_complete": false
+        }
+      },
+      {
+        "scenario": "shaw",
+        "phase": "service_scans",
+        "start": "2022-01-29T14:38:37+00:00",
+        "end": "2022-01-29T14:38:50+00:00",
+        "records": 3,
+        "training": 0,
+        "categories": {
+          "recon": 2,
+          "anomaly": 1
+        },
+        "relevant": 2,
+        "expected": [
+          "recon"
+        ],
+        "training_related": 0,
+        "generic_anomalies": 1,
+        "evidence_status": "specific_signal",
+        "interpretation": "Technique-specific signal observed; attribution unverified",
+        "diagnosis": "A related operational rule fired. Window overlap does not establish malicious membership or attack success.",
+        "references": [
+          {
+            "id": "shaw:w:44227",
+            "rule": "ssh.identification",
+            "time": "2022-01-29T14:38:38+00:00",
+            "training": false
+          },
+          {
+            "id": "shaw:a:735",
+            "rule": "ssh.identification",
+            "time": "2022-01-29T14:38:38+00:00",
+            "training": false
+          }
+        ],
+        "telemetry": {
+          "operational": {},
+          "training": {},
+          "needed_any": [
+            "connection",
+            "auth",
+            "web"
+          ],
+          "collection_complete": false
+        }
+      },
+      {
+        "scenario": "shaw",
+        "phase": "wpscan",
+        "start": "2022-01-29T14:38:50+00:00",
+        "end": "2022-01-29T14:39:14+00:00",
+        "records": 1478,
+        "training": 0,
+        "categories": {
+          "web": 1467,
+          "anomaly": 10,
+          "background": 1
+        },
+        "relevant": 1467,
+        "expected": [
+          "web"
+        ],
+        "training_related": 0,
+        "generic_anomalies": 10,
+        "evidence_status": "specific_signal",
+        "interpretation": "Technique-specific signal observed; attribution unverified",
+        "diagnosis": "A related operational rule fired. Window overlap does not establish malicious membership or attack success.",
+        "references": [
+          {
+            "id": "shaw:w:44228",
+            "rule": "web.probing",
+            "time": "2022-01-29T14:38:52+00:00",
+            "training": false
+          },
+          {
+            "id": "shaw:a:737",
+            "rule": "web.probing",
+            "time": "2022-01-29T14:38:52+00:00",
+            "training": false
+          },
+          {
+            "id": "shaw:w:44229",
+            "rule": "web.probing",
+            "time": "2022-01-29T14:38:53+00:00",
+            "training": false
+          },
+          {
+            "id": "shaw:w:44230",
+            "rule": "web.probing",
+            "time": "2022-01-29T14:38:53+00:00",
+            "training": false
+          },
+          {
+            "id": "shaw:w:44231",
+            "rule": "web.probing",
+            "time": "2022-01-29T14:38:53+00:00",
+            "training": false
+          },
+          {
+            "id": "shaw:w:44232",
+            "rule": "web.probing",
+            "time": "2022-01-29T14:38:53+00:00",
+            "training": false
+          },
+          {
+            "id": "shaw:w:44233",
+            "rule": "web.probing",
+            "time": "2022-01-29T14:38:53+00:00",
+            "training": false
+          },
+          {
+            "id": "shaw:w:44234",
+            "rule": "web.probing",
+            "time": "2022-01-29T14:38:53+00:00",
+            "training": false
+          }
+        ],
+        "telemetry": {
+          "operational": {
+            "web": 1467
+          },
+          "training": {},
+          "needed_any": [
+            "web"
+          ],
+          "collection_complete": false
+        }
+      },
+      {
+        "scenario": "shaw",
+        "phase": "dirb",
+        "start": "2022-01-29T14:39:14+00:00",
+        "end": "2022-01-29T14:39:40+00:00",
+        "records": 4522,
+        "training": 0,
+        "categories": {
+          "web": 4485,
+          "anomaly": 29,
+          "background": 8
+        },
+        "relevant": 4485,
+        "expected": [
+          "web"
+        ],
+        "training_related": 0,
+        "generic_anomalies": 29,
+        "evidence_status": "specific_signal",
+        "interpretation": "Technique-specific signal observed; attribution unverified",
+        "diagnosis": "A related operational rule fired. Window overlap does not establish malicious membership or attack success.",
+        "references": [
+          {
+            "id": "shaw:w:44957",
+            "rule": "web.probing",
+            "time": "2022-01-29T14:39:14+00:00",
+            "training": false
+          },
+          {
+            "id": "shaw:w:44958",
+            "rule": "web.probing",
+            "time": "2022-01-29T14:39:14+00:00",
+            "training": false
+          },
+          {
+            "id": "shaw:w:44959",
+            "rule": "web.probing",
+            "time": "2022-01-29T14:39:14+00:00",
+            "training": false
+          },
+          {
+            "id": "shaw:w:44960",
+            "rule": "web.probing",
+            "time": "2022-01-29T14:39:14+00:00",
+            "training": false
+          },
+          {
+            "id": "shaw:w:44961",
+            "rule": "web.probing",
+            "time": "2022-01-29T14:39:14+00:00",
+            "training": false
+          },
+          {
+            "id": "shaw:w:44962",
+            "rule": "web.probing",
+            "time": "2022-01-29T14:39:14+00:00",
+            "training": false
+          },
+          {
+            "id": "shaw:w:44963",
+            "rule": "web.probing",
+            "time": "2022-01-29T14:39:14+00:00",
+            "training": false
+          },
+          {
+            "id": "shaw:w:44964",
+            "rule": "web.probing",
+            "time": "2022-01-29T14:39:14+00:00",
+            "training": false
+          }
+        ],
+        "telemetry": {
+          "operational": {
+            "web": 4492
+          },
+          "training": {},
+          "needed_any": [
+            "web"
+          ],
+          "collection_complete": false
+        }
+      },
+      {
+        "scenario": "shaw",
+        "phase": "webshell",
+        "start": "2022-01-29T14:39:40+00:00",
+        "end": "2022-01-29T14:40:01+00:00",
+        "records": 1,
+        "training": 0,
+        "categories": {
+          "execution": 1
+        },
+        "relevant": 1,
+        "expected": [
+          "execution"
+        ],
+        "training_related": 0,
+        "generic_anomalies": 0,
+        "evidence_status": "specific_signal",
+        "interpretation": "Technique-specific signal observed; attribution unverified",
+        "diagnosis": "A related operational rule fired. Window overlap does not establish malicious membership or attack success.",
+        "references": [
+          {
+            "id": "shaw:a:1549",
+            "rule": "web.command",
+            "time": "2022-01-29T14:39:56+00:00",
+            "training": false
+          }
+        ],
+        "telemetry": {
+          "operational": {
+            "web": 1
+          },
+          "training": {},
+          "needed_any": [
+            "web",
+            "process"
+          ],
+          "collection_complete": false
+        }
+      },
+      {
+        "scenario": "shaw",
+        "phase": "cracking",
+        "start": "2022-01-29T14:40:01+00:00",
+        "end": "2022-01-29T15:20:10+00:00",
+        "records": 753,
+        "training": 1,
+        "categories": {
+          "execution": 1,
+          "anomaly": 106,
+          "cracking": 1,
+          "background": 603,
+          "recon": 40,
+          "web": 2
+        },
+        "relevant": 1,
+        "expected": [
+          "cracking"
+        ],
+        "training_related": 0,
+        "generic_anomalies": 106,
+        "evidence_status": "specific_signal",
+        "interpretation": "Technique-specific signal observed; attribution unverified",
+        "diagnosis": "A related operational rule fired. Window overlap does not establish malicious membership or attack success.",
+        "references": [
+          {
+            "id": "shaw:a:1552",
+            "rule": "cracking.tool",
+            "time": "2022-01-29T14:40:28+00:00",
+            "training": false
+          }
+        ],
+        "telemetry": {
+          "operational": {
+            "web": 5,
+            "auth": 242,
+            "connection": 408,
+            "service": 3,
+            "dns": 93
+          },
+          "training": {},
+          "needed_any": [
+            "process",
+            "auth",
+            "web"
+          ],
+          "collection_complete": false
+        }
+      },
+      {
+        "scenario": "shaw",
+        "phase": "reverse_shell",
+        "start": "2022-01-29T15:20:10+00:00",
+        "end": "2022-01-29T15:20:50+00:00",
+        "records": 5,
+        "training": 0,
+        "categories": {
+          "anomaly": 1,
+          "background": 3,
+          "callback": 1
+        },
+        "relevant": 1,
+        "expected": [
+          "callback"
+        ],
+        "training_related": 0,
+        "generic_anomalies": 1,
+        "evidence_status": "specific_signal",
+        "interpretation": "Technique-specific signal observed; attribution unverified",
+        "diagnosis": "A related operational rule fired. Window overlap does not establish malicious membership or attack success.",
+        "references": [
+          {
+            "id": "shaw:a:1657",
+            "rule": "callback.command",
+            "time": "2022-01-29T15:20:39+00:00",
+            "training": false
+          }
+        ],
+        "telemetry": {
+          "operational": {
+            "web": 2,
+            "auth": 3
+          },
+          "training": {},
+          "needed_any": [
+            "process",
+            "connection",
+            "web"
+          ],
+          "collection_complete": false
+        }
+      },
+      {
+        "scenario": "shaw",
+        "phase": "privilege_escalation",
+        "start": "2022-01-29T15:20:50+00:00",
+        "end": "2022-01-29T15:21:12+00:00",
+        "records": 54,
+        "training": 0,
+        "categories": {
+          "background": 14,
+          "privilege": 15,
+          "anomaly": 25
+        },
+        "relevant": 15,
+        "expected": [
+          "privilege"
+        ],
+        "training_related": 0,
+        "generic_anomalies": 25,
+        "evidence_status": "specific_signal",
+        "interpretation": "Technique-specific signal observed; attribution unverified",
+        "diagnosis": "A related operational rule fired. Window overlap does not establish malicious membership or attack success.",
+        "references": [
+          {
+            "id": "shaw:a:1658",
+            "rule": "privilege.transition",
+            "time": "2022-01-29T15:20:51+00:00",
+            "training": false
+          },
+          {
+            "id": "shaw:a:1663",
+            "rule": "privilege.transition",
+            "time": "2022-01-29T15:20:51.210000+00:00",
+            "training": false
+          },
+          {
+            "id": "shaw:a:1664",
+            "rule": "privilege.transition",
+            "time": "2022-01-29T15:20:51.210000+00:00",
+            "training": false
+          },
+          {
+            "id": "shaw:a:1665",
+            "rule": "privilege.transition",
+            "time": "2022-01-29T15:20:51.220000+00:00",
+            "training": false
+          },
+          {
+            "id": "shaw:a:1671",
+            "rule": "privilege.transition",
+            "time": "2022-01-29T15:20:51.800000+00:00",
+            "training": false
+          },
+          {
+            "id": "shaw:w:50078",
+            "rule": "privilege.transition",
+            "time": "2022-01-29T15:21:02+00:00",
+            "training": false
+          },
+          {
+            "id": "shaw:a:1672",
+            "rule": "privilege.transition",
+            "time": "2022-01-29T15:21:02+00:00",
+            "training": false
+          },
+          {
+            "id": "shaw:w:50079",
+            "rule": "privilege.transition",
+            "time": "2022-01-29T15:21:04+00:00",
+            "training": false
+          }
+        ],
+        "telemetry": {
+          "operational": {
+            "auth": 37,
+            "service": 1,
+            "process": 3
+          },
+          "training": {},
+          "needed_any": [
+            "auth",
+            "process"
+          ],
+          "collection_complete": false
+        }
+      },
+      {
+        "scenario": "shaw",
+        "phase": "service_stop",
+        "start": "2022-01-28T21:08:00+00:00",
+        "end": "2022-01-28T21:08:02+00:00",
+        "records": 2,
+        "training": 0,
+        "categories": {
+          "anomaly": 1,
+          "service": 1
+        },
+        "relevant": 1,
+        "expected": [
+          "service"
+        ],
+        "training_related": 0,
+        "generic_anomalies": 1,
+        "evidence_status": "specific_signal",
+        "interpretation": "Technique-specific signal observed; attribution unverified",
+        "diagnosis": "A related operational rule fired. Window overlap does not establish malicious membership or attack success.",
+        "references": [
+          {
+            "id": "shaw:a:646",
+            "rule": "service.stop",
+            "time": "2022-01-28T21:08:01.490000+00:00",
+            "training": false
+          }
+        ],
+        "telemetry": {
+          "operational": {
+            "service": 2
+          },
+          "training": {},
+          "needed_any": [
+            "service"
+          ],
+          "collection_complete": false
+        }
+      },
+      {
+        "scenario": "shaw",
+        "phase": "dnsteal",
+        "start": "2022-01-28T21:08:02+00:00",
+        "end": "2022-01-28T22:08:02+00:00",
+        "records": 105,
+        "training": 0,
+        "categories": {
+          "background": 105
+        },
+        "relevant": 0,
+        "expected": [
+          "dns"
+        ],
+        "training_related": 0,
+        "generic_anomalies": 0,
+        "evidence_status": "insufficient_telemetry",
+        "interpretation": "Insufficient relevant telemetry in exported records",
+        "diagnosis": "No operational excerpts with the required field types were observed. Obtain original telemetry before tuning detection.",
+        "references": [],
+        "telemetry": {
+          "operational": {
+            "auth": 96,
+            "service": 9
+          },
+          "training": {},
+          "needed_any": [
+            "dns"
+          ],
+          "collection_complete": false
+        }
+      },
+      {
+        "scenario": "wardbeck",
+        "phase": "network_scans",
+        "start": "2022-01-23T12:10:00+00:00",
+        "end": "2022-01-23T12:11:00+00:00",
+        "records": 3,
+        "training": 0,
+        "categories": {
+          "background": 3
+        },
+        "relevant": 0,
+        "expected": [
+          "recon"
+        ],
+        "training_related": 0,
+        "generic_anomalies": 0,
+        "evidence_status": "insufficient_telemetry",
+        "interpretation": "Insufficient relevant telemetry in exported records",
+        "diagnosis": "No operational excerpts with the required field types were observed. Obtain original telemetry before tuning detection.",
+        "references": [],
+        "telemetry": {
+          "operational": {
+            "auth": 3
+          },
+          "training": {},
+          "needed_any": [
+            "connection"
+          ],
+          "collection_complete": false
+        }
+      },
+      {
+        "scenario": "wardbeck",
+        "phase": "service_scans",
+        "start": "2022-01-23T12:11:00+00:00",
+        "end": "2022-01-23T12:11:27+00:00",
+        "records": 163,
+        "training": 0,
+        "categories": {
+          "recon": 20,
+          "anomaly": 103,
+          "background": 19,
+          "web": 21
+        },
+        "relevant": 20,
+        "expected": [
+          "recon"
+        ],
+        "training_related": 0,
+        "generic_anomalies": 103,
+        "evidence_status": "specific_signal",
+        "interpretation": "Technique-specific signal observed; attribution unverified",
+        "diagnosis": "A related operational rule fired. Window overlap does not establish malicious membership or attack success.",
+        "references": [
+          {
+            "id": "wardbeck:w:74345",
+            "rule": "ssh.identification",
+            "time": "2022-01-23T12:11:01+00:00",
+            "training": false
+          },
+          {
+            "id": "wardbeck:w:74346",
+            "rule": "ssh.identification",
+            "time": "2022-01-23T12:11:01+00:00",
+            "training": false
+          },
+          {
+            "id": "wardbeck:w:74347",
+            "rule": "ssh.identification",
+            "time": "2022-01-23T12:11:01+00:00",
+            "training": false
+          },
+          {
+            "id": "wardbeck:w:74348",
+            "rule": "ssh.identification",
+            "time": "2022-01-23T12:11:01+00:00",
+            "training": false
+          },
+          {
+            "id": "wardbeck:a:2032",
+            "rule": "ssh.identification",
+            "time": "2022-01-23T12:11:01+00:00",
+            "training": false
+          },
+          {
+            "id": "wardbeck:a:2053",
+            "rule": "ssh.identification",
+            "time": "2022-01-23T12:11:01+00:00",
+            "training": false
+          },
+          {
+            "id": "wardbeck:a:2068",
+            "rule": "ssh.identification",
+            "time": "2022-01-23T12:11:01+00:00",
+            "training": false
+          },
+          {
+            "id": "wardbeck:a:2069",
+            "rule": "ssh.identification",
+            "time": "2022-01-23T12:11:01+00:00",
+            "training": false
+          }
+        ],
+        "telemetry": {
+          "operational": {
+            "auth": 48,
+            "connection": 34,
+            "web": 24
+          },
+          "training": {},
+          "needed_any": [
+            "connection",
+            "auth",
+            "web"
+          ],
+          "collection_complete": false
+        }
+      },
+      {
+        "scenario": "wardbeck",
+        "phase": "wpscan",
+        "start": "2022-01-23T12:11:27+00:00",
+        "end": "2022-01-23T12:11:49+00:00",
+        "records": 1509,
+        "training": 0,
+        "categories": {
+          "background": 4,
+          "web": 1495,
+          "anomaly": 10
+        },
+        "relevant": 1495,
+        "expected": [
+          "web"
+        ],
+        "training_related": 0,
+        "generic_anomalies": 10,
+        "evidence_status": "specific_signal",
+        "interpretation": "Technique-specific signal observed; attribution unverified",
+        "diagnosis": "A related operational rule fired. Window overlap does not establish malicious membership or attack success.",
+        "references": [
+          {
+            "id": "wardbeck:w:74404",
+            "rule": "web.probing",
+            "time": "2022-01-23T12:11:29+00:00",
+            "training": false
+          },
+          {
+            "id": "wardbeck:a:2139",
+            "rule": "web.probing",
+            "time": "2022-01-23T12:11:29+00:00",
+            "training": false
+          },
+          {
+            "id": "wardbeck:w:74405",
+            "rule": "web.probing",
+            "time": "2022-01-23T12:11:30+00:00",
+            "training": false
+          },
+          {
+            "id": "wardbeck:w:74406",
+            "rule": "web.probing",
+            "time": "2022-01-23T12:11:30+00:00",
+            "training": false
+          },
+          {
+            "id": "wardbeck:w:74407",
+            "rule": "web.probing",
+            "time": "2022-01-23T12:11:30+00:00",
+            "training": false
+          },
+          {
+            "id": "wardbeck:w:74408",
+            "rule": "web.probing",
+            "time": "2022-01-23T12:11:30+00:00",
+            "training": false
+          },
+          {
+            "id": "wardbeck:w:74409",
+            "rule": "web.probing",
+            "time": "2022-01-23T12:11:30+00:00",
+            "training": false
+          },
+          {
+            "id": "wardbeck:w:74410",
+            "rule": "web.probing",
+            "time": "2022-01-23T12:11:30+00:00",
+            "training": false
+          }
+        ],
+        "telemetry": {
+          "operational": {
+            "auth": 3,
+            "web": 1495
+          },
+          "training": {},
+          "needed_any": [
+            "web"
+          ],
+          "collection_complete": false
+        }
+      },
+      {
+        "scenario": "wardbeck",
+        "phase": "dirb",
+        "start": "2022-01-23T12:11:49+00:00",
+        "end": "2022-01-23T12:12:17+00:00",
+        "records": 4522,
+        "training": 0,
+        "categories": {
+          "web": 4485,
+          "background": 8,
+          "anomaly": 29
+        },
+        "relevant": 4485,
+        "expected": [
+          "web"
+        ],
+        "training_related": 0,
+        "generic_anomalies": 29,
+        "evidence_status": "specific_signal",
+        "interpretation": "Technique-specific signal observed; attribution unverified",
+        "diagnosis": "A related operational rule fired. Window overlap does not establish malicious membership or attack success.",
+        "references": [
+          {
+            "id": "wardbeck:w:75151",
+            "rule": "web.probing",
+            "time": "2022-01-23T12:11:49+00:00",
+            "training": false
+          },
+          {
+            "id": "wardbeck:w:75152",
+            "rule": "web.probing",
+            "time": "2022-01-23T12:11:49+00:00",
+            "training": false
+          },
+          {
+            "id": "wardbeck:w:75153",
+            "rule": "web.probing",
+            "time": "2022-01-23T12:11:49+00:00",
+            "training": false
+          },
+          {
+            "id": "wardbeck:w:75154",
+            "rule": "web.probing",
+            "time": "2022-01-23T12:11:49+00:00",
+            "training": false
+          },
+          {
+            "id": "wardbeck:w:75155",
+            "rule": "web.probing",
+            "time": "2022-01-23T12:11:49+00:00",
+            "training": false
+          },
+          {
+            "id": "wardbeck:w:75156",
+            "rule": "web.probing",
+            "time": "2022-01-23T12:11:49+00:00",
+            "training": false
+          },
+          {
+            "id": "wardbeck:w:75157",
+            "rule": "web.probing",
+            "time": "2022-01-23T12:11:49+00:00",
+            "training": false
+          },
+          {
+            "id": "wardbeck:w:75158",
+            "rule": "web.probing",
+            "time": "2022-01-23T12:11:49+00:00",
+            "training": false
+          }
+        ],
+        "telemetry": {
+          "operational": {
+            "web": 4492
+          },
+          "training": {},
+          "needed_any": [
+            "web"
+          ],
+          "collection_complete": false
+        }
+      },
+      {
+        "scenario": "wardbeck",
+        "phase": "webshell",
+        "start": "2022-01-23T12:12:17+00:00",
+        "end": "2022-01-23T12:13:45+00:00",
+        "records": 15,
+        "training": 0,
+        "categories": {
+          "background": 13,
+          "execution": 2
+        },
+        "relevant": 2,
+        "expected": [
+          "execution"
+        ],
+        "training_related": 0,
+        "generic_anomalies": 0,
+        "evidence_status": "specific_signal",
+        "interpretation": "Technique-specific signal observed; attribution unverified",
+        "diagnosis": "A related operational rule fired. Window overlap does not establish malicious membership or attack success.",
+        "references": [
+          {
+            "id": "wardbeck:a:2961",
+            "rule": "web.command",
+            "time": "2022-01-23T12:12:36+00:00",
+            "training": false
+          },
+          {
+            "id": "wardbeck:a:2962",
+            "rule": "web.command",
+            "time": "2022-01-23T12:13:43+00:00",
+            "training": false
+          }
+        ],
+        "telemetry": {
+          "operational": {
+            "auth": 9,
+            "connection": 4,
+            "web": 2
+          },
+          "training": {},
+          "needed_any": [
+            "web",
+            "process"
+          ],
+          "collection_complete": false
+        }
+      },
+      {
+        "scenario": "wardbeck",
+        "phase": "cracking",
+        "start": "2022-01-23T12:13:45+00:00",
+        "end": "2022-01-23T12:54:17+00:00",
+        "records": 756,
+        "training": 1,
+        "categories": {
+          "execution": 1,
+          "background": 749,
+          "cracking": 1,
+          "anomaly": 5
+        },
+        "relevant": 1,
+        "expected": [
+          "cracking"
+        ],
+        "training_related": 0,
+        "generic_anomalies": 5,
+        "evidence_status": "specific_signal",
+        "interpretation": "Technique-specific signal observed; attribution unverified",
+        "diagnosis": "A related operational rule fired. Window overlap does not establish malicious membership or attack success.",
+        "references": [
+          {
+            "id": "wardbeck:a:2964",
+            "rule": "cracking.tool",
+            "time": "2022-01-23T12:14:14+00:00",
+            "training": false
+          }
+        ],
+        "telemetry": {
+          "operational": {
+            "web": 12,
+            "auth": 375,
+            "connection": 368,
+            "service": 9
+          },
+          "training": {},
+          "needed_any": [
+            "process",
+            "auth",
+            "web"
+          ],
+          "collection_complete": false
+        }
+      },
+      {
+        "scenario": "wardbeck",
+        "phase": "reverse_shell",
+        "start": "2022-01-23T12:54:17+00:00",
+        "end": "2022-01-23T12:55:00+00:00",
+        "records": 6,
+        "training": 0,
+        "categories": {
+          "background": 6
+        },
+        "relevant": 0,
+        "expected": [
+          "callback"
+        ],
+        "training_related": 0,
+        "generic_anomalies": 0,
+        "evidence_status": "insufficient_telemetry",
+        "interpretation": "Insufficient relevant telemetry in exported records",
+        "diagnosis": "No operational excerpts with the required field types were observed. Obtain original telemetry before tuning detection.",
+        "references": [],
+        "telemetry": {
+          "operational": {
+            "auth": 6
+          },
+          "training": {},
+          "needed_any": [
+            "process",
+            "connection",
+            "web"
+          ],
+          "collection_complete": false
+        }
+      },
+      {
+        "scenario": "wardbeck",
+        "phase": "privilege_escalation",
+        "start": "2022-01-23T12:55:00+00:00",
+        "end": "2022-01-23T12:55:31+00:00",
+        "records": 41,
+        "training": 0,
+        "categories": {
+          "background": 8,
+          "privilege": 15,
+          "anomaly": 18
+        },
+        "relevant": 15,
+        "expected": [
+          "privilege"
+        ],
+        "training_related": 0,
+        "generic_anomalies": 18,
+        "evidence_status": "specific_signal",
+        "interpretation": "Technique-specific signal observed; attribution unverified",
+        "diagnosis": "A related operational rule fired. Window overlap does not establish malicious membership or attack success.",
+        "references": [
+          {
+            "id": "wardbeck:a:2967",
+            "rule": "privilege.transition",
+            "time": "2022-01-23T12:55:01+00:00",
+            "training": false
+          },
+          {
+            "id": "wardbeck:a:2970",
+            "rule": "privilege.transition",
+            "time": "2022-01-23T12:55:01.080000+00:00",
+            "training": false
+          },
+          {
+            "id": "wardbeck:a:2971",
+            "rule": "privilege.transition",
+            "time": "2022-01-23T12:55:01.090000+00:00",
+            "training": false
+          },
+          {
+            "id": "wardbeck:a:2972",
+            "rule": "privilege.transition",
+            "time": "2022-01-23T12:55:01.090000+00:00",
+            "training": false
+          },
+          {
+            "id": "wardbeck:a:2973",
+            "rule": "privilege.transition",
+            "time": "2022-01-23T12:55:01.360000+00:00",
+            "training": false
+          },
+          {
+            "id": "wardbeck:w:80387",
+            "rule": "privilege.transition",
+            "time": "2022-01-23T12:55:14+00:00",
+            "training": false
+          },
+          {
+            "id": "wardbeck:a:2974",
+            "rule": "privilege.transition",
+            "time": "2022-01-23T12:55:14+00:00",
+            "training": false
+          },
+          {
+            "id": "wardbeck:w:80388",
+            "rule": "privilege.transition",
+            "time": "2022-01-23T12:55:15+00:00",
+            "training": false
+          }
+        ],
+        "telemetry": {
+          "operational": {
+            "auth": 30,
+            "process": 3
+          },
+          "training": {},
+          "needed_any": [
+            "auth",
+            "process"
+          ],
+          "collection_complete": false
+        }
+      },
+      {
+        "scenario": "wardbeck",
+        "phase": "service_stop",
+        "start": "2022-01-20T22:12:27+00:00",
+        "end": "2022-01-20T22:12:29+00:00",
+        "records": 2,
+        "training": 2,
+        "categories": {
+          "background": 1,
+          "service": 1
+        },
+        "relevant": 0,
+        "expected": [
+          "service"
+        ],
+        "training_related": 1,
+        "generic_anomalies": 0,
+        "evidence_status": "training_only",
+        "interpretation": "Related evidence exists only in training mode",
+        "diagnosis": "Operational exclusion: a rule recognized the record, but training evidence cannot establish operational detection.",
+        "references": [
+          {
+            "id": "wardbeck:a:740",
+            "rule": "service.stop",
+            "time": "2022-01-20T22:12:28.500000+00:00",
+            "training": true
+          }
+        ],
+        "telemetry": {
+          "operational": {},
+          "training": {
+            "service": 2
+          },
+          "needed_any": [
+            "service"
+          ],
+          "collection_complete": false
+        }
+      },
+      {
+        "scenario": "wardbeck",
+        "phase": "dnsteal",
+        "start": "2022-01-20T22:12:29+00:00",
+        "end": "2022-01-20T23:12:29+00:00",
+        "records": 23,
+        "training": 6,
+        "categories": {
+          "background": 23
+        },
+        "relevant": 0,
+        "expected": [
+          "dns"
+        ],
+        "training_related": 0,
+        "generic_anomalies": 0,
+        "evidence_status": "insufficient_telemetry",
+        "interpretation": "Insufficient relevant telemetry in exported records",
+        "diagnosis": "No operational excerpts with the required field types were observed. Obtain original telemetry before tuning detection.",
+        "references": [],
+        "telemetry": {
+          "operational": {
+            "service": 9,
+            "connection": 8
+          },
+          "training": {
+            "dns": 6
+          },
+          "needed_any": [
+            "dns"
+          ],
+          "collection_complete": false
+        }
+      },
+      {
+        "scenario": "wheeler",
+        "phase": "network_scans",
+        "start": "2022-01-30T07:35:13+00:00",
+        "end": "2022-01-30T07:39:03+00:00",
+        "records": 643,
+        "training": 0,
+        "categories": {
+          "background": 565,
+          "anomaly": 2,
+          "recon": 76
+        },
+        "relevant": 76,
+        "expected": [
+          "recon"
+        ],
+        "training_related": 0,
+        "generic_anomalies": 2,
+        "evidence_status": "specific_signal",
+        "interpretation": "Technique-specific signal observed; attribution unverified",
+        "diagnosis": "A related operational rule fired. Window overlap does not establish malicious membership or attack success.",
+        "references": [
+          {
+            "id": "wheeler:w:151236",
+            "rule": "scan.fanout",
+            "time": "2022-01-30T07:36:26.942831+00:00",
+            "training": false
+          },
+          {
+            "id": "wheeler:w:151237",
+            "rule": "scan.fanout",
+            "time": "2022-01-30T07:36:26.942831+00:00",
+            "training": false
+          },
+          {
+            "id": "wheeler:w:151238",
+            "rule": "scan.fanout",
+            "time": "2022-01-30T07:36:26.942831+00:00",
+            "training": false
+          },
+          {
+            "id": "wheeler:w:151239",
+            "rule": "scan.fanout",
+            "time": "2022-01-30T07:36:26.942831+00:00",
+            "training": false
+          },
+          {
+            "id": "wheeler:w:151244",
+            "rule": "scan.fanout",
+            "time": "2022-01-30T07:36:27.001407+00:00",
+            "training": false
+          },
+          {
+            "id": "wheeler:w:151245",
+            "rule": "scan.fanout",
+            "time": "2022-01-30T07:36:27.001407+00:00",
+            "training": false
+          },
+          {
+            "id": "wheeler:w:151246",
+            "rule": "scan.fanout",
+            "time": "2022-01-30T07:36:27.001407+00:00",
+            "training": false
+          },
+          {
+            "id": "wheeler:w:151247",
+            "rule": "scan.fanout",
+            "time": "2022-01-30T07:36:27.001407+00:00",
+            "training": false
+          }
+        ],
+        "telemetry": {
+          "operational": {
+            "connection": 628,
+            "auth": 15
+          },
+          "training": {},
+          "needed_any": [
+            "connection"
+          ],
+          "collection_complete": false
+        }
+      },
+      {
+        "scenario": "wheeler",
+        "phase": "service_scans",
+        "start": "2022-01-30T07:39:03+00:00",
+        "end": "2022-01-30T07:39:29+00:00",
+        "records": 270,
+        "training": 0,
+        "categories": {
+          "anomaly": 95,
+          "recon": 44,
+          "web": 87,
+          "background": 44
+        },
+        "relevant": 44,
+        "expected": [
+          "recon"
+        ],
+        "training_related": 0,
+        "generic_anomalies": 95,
+        "evidence_status": "specific_signal",
+        "interpretation": "Technique-specific signal observed; attribution unverified",
+        "diagnosis": "A related operational rule fired. Window overlap does not establish malicious membership or attack success.",
+        "references": [
+          {
+            "id": "wheeler:w:151394",
+            "rule": "ssh.identification",
+            "time": "2022-01-30T07:39:04+00:00",
+            "training": false
+          },
+          {
+            "id": "wheeler:w:151395",
+            "rule": "ssh.identification",
+            "time": "2022-01-30T07:39:04+00:00",
+            "training": false
+          },
+          {
+            "id": "wheeler:w:151396",
+            "rule": "ssh.identification",
+            "time": "2022-01-30T07:39:04+00:00",
+            "training": false
+          },
+          {
+            "id": "wheeler:w:151397",
+            "rule": "ssh.identification",
+            "time": "2022-01-30T07:39:04+00:00",
+            "training": false
+          },
+          {
+            "id": "wheeler:w:151398",
+            "rule": "ssh.identification",
+            "time": "2022-01-30T07:39:04+00:00",
+            "training": false
+          },
+          {
+            "id": "wheeler:w:151399",
+            "rule": "ssh.identification",
+            "time": "2022-01-30T07:39:04+00:00",
+            "training": false
+          },
+          {
+            "id": "wheeler:a:863",
+            "rule": "ssh.identification",
+            "time": "2022-01-30T07:39:04+00:00",
+            "training": false
+          },
+          {
+            "id": "wheeler:a:870",
+            "rule": "ssh.identification",
+            "time": "2022-01-30T07:39:04+00:00",
+            "training": false
+          }
+        ],
+        "telemetry": {
+          "operational": {
+            "auth": 30,
+            "web": 91,
+            "connection": 72
+          },
+          "training": {},
+          "needed_any": [
+            "connection",
+            "auth",
+            "web"
+          ],
+          "collection_complete": false
+        }
+      },
+      {
+        "scenario": "wheeler",
+        "phase": "wpscan",
+        "start": "2022-01-30T07:56:04+00:00",
+        "end": "2022-01-30T07:56:46+00:00",
+        "records": 13323,
+        "training": 0,
+        "categories": {
+          "web": 13271,
+          "anomaly": 17,
+          "background": 35
+        },
+        "relevant": 13271,
+        "expected": [
+          "web"
+        ],
+        "training_related": 0,
+        "generic_anomalies": 17,
+        "evidence_status": "specific_signal",
+        "interpretation": "Technique-specific signal observed; attribution unverified",
+        "diagnosis": "A related operational rule fired. Window overlap does not establish malicious membership or attack success.",
+        "references": [
+          {
+            "id": "wheeler:w:564544",
+            "rule": "web.probing",
+            "time": "2022-01-30T07:56:07+00:00",
+            "training": false
+          },
+          {
+            "id": "wheeler:a:5505",
+            "rule": "web.probing",
+            "time": "2022-01-30T07:56:07+00:00",
+            "training": false
+          },
+          {
+            "id": "wheeler:w:564545",
+            "rule": "web.probing",
+            "time": "2022-01-30T07:56:09+00:00",
+            "training": false
+          },
+          {
+            "id": "wheeler:w:564546",
+            "rule": "web.probing",
+            "time": "2022-01-30T07:56:09+00:00",
+            "training": false
+          },
+          {
+            "id": "wheeler:w:564547",
+            "rule": "web.probing",
+            "time": "2022-01-30T07:56:09+00:00",
+            "training": false
+          },
+          {
+            "id": "wheeler:w:564548",
+            "rule": "web.probing",
+            "time": "2022-01-30T07:56:09+00:00",
+            "training": false
+          },
+          {
+            "id": "wheeler:w:564549",
+            "rule": "web.probing",
+            "time": "2022-01-30T07:56:09+00:00",
+            "training": false
+          },
+          {
+            "id": "wheeler:w:564550",
+            "rule": "web.probing",
+            "time": "2022-01-30T07:56:09+00:00",
+            "training": false
+          }
+        ],
+        "telemetry": {
+          "operational": {
+            "web": 13271,
+            "connection": 32
+          },
+          "training": {},
+          "needed_any": [
+            "web"
+          ],
+          "collection_complete": false
+        }
+      },
+      {
+        "scenario": "wheeler",
+        "phase": "dirb",
+        "start": "2022-01-30T07:39:29+00:00",
+        "end": "2022-01-30T07:56:04+00:00",
+        "records": 417542,
+        "training": 0,
+        "categories": {
+          "web": 415123,
+          "background": 1004,
+          "anomaly": 1415
+        },
+        "relevant": 415123,
+        "expected": [
+          "web"
+        ],
+        "training_related": 0,
+        "generic_anomalies": 1415,
+        "evidence_status": "specific_signal",
+        "interpretation": "Technique-specific signal observed; attribution unverified",
+        "diagnosis": "A related operational rule fired. Window overlap does not establish malicious membership or attack success.",
+        "references": [
+          {
+            "id": "wheeler:w:151535",
+            "rule": "web.probing",
+            "time": "2022-01-30T07:39:29+00:00",
+            "training": false
+          },
+          {
+            "id": "wheeler:w:151536",
+            "rule": "web.probing",
+            "time": "2022-01-30T07:39:29+00:00",
+            "training": false
+          },
+          {
+            "id": "wheeler:w:151537",
+            "rule": "web.probing",
+            "time": "2022-01-30T07:39:29+00:00",
+            "training": false
+          },
+          {
+            "id": "wheeler:w:151538",
+            "rule": "web.probing",
+            "time": "2022-01-30T07:39:29+00:00",
+            "training": false
+          },
+          {
+            "id": "wheeler:w:151539",
+            "rule": "web.probing",
+            "time": "2022-01-30T07:39:29+00:00",
+            "training": false
+          },
+          {
+            "id": "wheeler:w:151540",
+            "rule": "web.probing",
+            "time": "2022-01-30T07:39:29+00:00",
+            "training": false
+          },
+          {
+            "id": "wheeler:w:151541",
+            "rule": "web.probing",
+            "time": "2022-01-30T07:39:29+00:00",
+            "training": false
+          },
+          {
+            "id": "wheeler:w:151542",
+            "rule": "web.probing",
+            "time": "2022-01-30T07:39:29+00:00",
+            "training": false
+          }
+        ],
+        "telemetry": {
+          "operational": {
+            "web": 415236,
+            "connection": 316,
+            "auth": 51
+          },
+          "training": {},
+          "needed_any": [
+            "web"
+          ],
+          "collection_complete": false
+        }
+      },
+      {
+        "scenario": "wheeler",
+        "phase": "webshell",
+        "start": "2022-01-30T07:56:46+00:00",
+        "end": "2022-01-30T07:57:08+00:00",
+        "records": 10,
+        "training": 0,
+        "categories": {
+          "background": 8,
+          "execution": 2
+        },
+        "relevant": 2,
+        "expected": [
+          "execution"
+        ],
+        "training_related": 0,
+        "generic_anomalies": 0,
+        "evidence_status": "specific_signal",
+        "interpretation": "Technique-specific signal observed; attribution unverified",
+        "diagnosis": "A related operational rule fired. Window overlap does not establish malicious membership or attack success.",
+        "references": [
+          {
+            "id": "wheeler:a:12158",
+            "rule": "web.command",
+            "time": "2022-01-30T07:56:52+00:00",
+            "training": false
+          },
+          {
+            "id": "wheeler:a:12159",
+            "rule": "web.command",
+            "time": "2022-01-30T07:56:57+00:00",
+            "training": false
+          }
+        ],
+        "telemetry": {
+          "operational": {
+            "connection": 8,
+            "web": 2
+          },
+          "training": {},
+          "needed_any": [
+            "web",
+            "process"
+          ],
+          "collection_complete": false
+        }
+      },
+      {
+        "scenario": "wheeler",
+        "phase": "reverse_shell",
+        "start": "2022-01-30T17:51:12+00:00",
+        "end": "2022-01-30T17:51:52+00:00",
+        "records": 25,
+        "training": 0,
+        "categories": {
+          "background": 23,
+          "anomaly": 1,
+          "callback": 1
+        },
+        "relevant": 1,
+        "expected": [
+          "callback"
+        ],
+        "training_related": 0,
+        "generic_anomalies": 1,
+        "evidence_status": "specific_signal",
+        "interpretation": "Technique-specific signal observed; attribution unverified",
+        "diagnosis": "A related operational rule fired. Window overlap does not establish malicious membership or attack success.",
+        "references": [
+          {
+            "id": "wheeler:a:12170",
+            "rule": "callback.command",
+            "time": "2022-01-30T17:51:41+00:00",
+            "training": false
+          }
+        ],
+        "telemetry": {
+          "operational": {
+            "connection": 24,
+            "web": 1
+          },
+          "training": {},
+          "needed_any": [
+            "process",
+            "connection",
+            "web"
+          ],
+          "collection_complete": false
+        }
+      },
+      {
+        "scenario": "wheeler",
+        "phase": "privilege_escalation",
+        "start": "2022-01-30T17:51:52+00:00",
+        "end": "2022-01-30T17:52:20+00:00",
+        "records": 53,
+        "training": 0,
+        "categories": {
+          "background": 20,
+          "privilege": 15,
+          "anomaly": 18
+        },
+        "relevant": 15,
+        "expected": [
+          "privilege"
+        ],
+        "training_related": 0,
+        "generic_anomalies": 18,
+        "evidence_status": "specific_signal",
+        "interpretation": "Technique-specific signal observed; attribution unverified",
+        "diagnosis": "A related operational rule fired. Window overlap does not establish malicious membership or attack success.",
+        "references": [
+          {
+            "id": "wheeler:a:12171",
+            "rule": "privilege.transition",
+            "time": "2022-01-30T17:51:52+00:00",
+            "training": false
+          },
+          {
+            "id": "wheeler:a:12174",
+            "rule": "privilege.transition",
+            "time": "2022-01-30T17:51:52.700000+00:00",
+            "training": false
+          },
+          {
+            "id": "wheeler:a:12175",
+            "rule": "privilege.transition",
+            "time": "2022-01-30T17:51:52.700000+00:00",
+            "training": false
+          },
+          {
+            "id": "wheeler:a:12176",
+            "rule": "privilege.transition",
+            "time": "2022-01-30T17:51:52.700000+00:00",
+            "training": false
+          },
+          {
+            "id": "wheeler:a:12177",
+            "rule": "privilege.transition",
+            "time": "2022-01-30T17:51:52.780000+00:00",
+            "training": false
+          },
+          {
+            "id": "wheeler:w:598657",
+            "rule": "privilege.transition",
+            "time": "2022-01-30T17:52:07+00:00",
+            "training": false
+          },
+          {
+            "id": "wheeler:a:12178",
+            "rule": "privilege.transition",
+            "time": "2022-01-30T17:52:07+00:00",
+            "training": false
+          },
+          {
+            "id": "wheeler:w:598658",
+            "rule": "privilege.transition",
+            "time": "2022-01-30T17:52:10+00:00",
+            "training": false
+          }
+        ],
+        "telemetry": {
+          "operational": {
+            "auth": 27,
+            "connection": 16,
+            "process": 3
+          },
+          "training": {},
+          "needed_any": [
+            "auth",
+            "process"
+          ],
+          "collection_complete": false
+        }
+      },
+      {
+        "scenario": "wheeler",
+        "phase": "service_stop",
+        "start": "2022-01-29T05:27:24+00:00",
+        "end": "2022-01-29T05:27:26+00:00",
+        "records": 2,
+        "training": 0,
+        "categories": {
+          "anomaly": 1,
+          "service": 1
+        },
+        "relevant": 1,
+        "expected": [
+          "service"
+        ],
+        "training_related": 0,
+        "generic_anomalies": 1,
+        "evidence_status": "specific_signal",
+        "interpretation": "Technique-specific signal observed; attribution unverified",
+        "diagnosis": "A related operational rule fired. Window overlap does not establish malicious membership or attack success.",
+        "references": [
+          {
+            "id": "wheeler:a:735",
+            "rule": "service.stop",
+            "time": "2022-01-29T05:27:25.220000+00:00",
+            "training": false
+          }
+        ],
+        "telemetry": {
+          "operational": {
+            "service": 2
+          },
+          "training": {},
+          "needed_any": [
+            "service"
+          ],
+          "collection_complete": false
+        }
+      },
+      {
+        "scenario": "wheeler",
+        "phase": "dnsteal",
+        "start": "2022-01-29T05:27:26+00:00",
+        "end": "2022-01-29T06:27:26+00:00",
+        "records": 466,
+        "training": 0,
+        "categories": {
+          "anomaly": 9,
+          "background": 457
+        },
+        "relevant": 0,
+        "expected": [
+          "dns"
+        ],
+        "training_related": 0,
+        "generic_anomalies": 9,
+        "evidence_status": "unsupported_behavior",
+        "interpretation": "Relevant excerpts available; no technique-specific signal",
+        "diagnosis": "Review fields and behavior against the rules. Available excerpts do not establish complete collection or a detector false negative.",
+        "references": [],
+        "telemetry": {
+          "operational": {
+            "web": 1,
+            "auth": 165,
+            "service": 10,
+            "dns": 4,
+            "connection": 286
+          },
+          "training": {},
+          "needed_any": [
+            "dns"
+          ],
+          "collection_complete": false
+        }
+      },
+      {
+        "scenario": "wilson",
+        "phase": "network_scans",
+        "start": "2022-02-07T10:57:17+00:00",
+        "end": "2022-02-07T10:59:13+00:00",
+        "records": 190,
+        "training": 0,
+        "categories": {
+          "background": 186,
+          "anomaly": 4
+        },
+        "relevant": 0,
+        "expected": [
+          "recon"
+        ],
+        "training_related": 0,
+        "generic_anomalies": 4,
+        "evidence_status": "unsupported_behavior",
+        "interpretation": "Relevant excerpts available; no technique-specific signal",
+        "diagnosis": "Review fields and behavior against the rules. Available excerpts do not establish complete collection or a detector false negative.",
+        "references": [],
+        "telemetry": {
+          "operational": {
+            "connection": 184,
+            "auth": 6
+          },
+          "training": {},
+          "needed_any": [
+            "connection"
+          ],
+          "collection_complete": false
+        }
+      },
+      {
+        "scenario": "wilson",
+        "phase": "service_scans",
+        "start": "2022-02-07T10:59:13+00:00",
+        "end": "2022-02-07T10:59:44+00:00",
+        "records": 329,
+        "training": 0,
+        "categories": {
+          "anomaly": 122,
+          "recon": 56,
+          "web": 90,
+          "background": 61
+        },
+        "relevant": 56,
+        "expected": [
+          "recon"
+        ],
+        "training_related": 0,
+        "generic_anomalies": 122,
+        "evidence_status": "specific_signal",
+        "interpretation": "Technique-specific signal observed; attribution unverified",
+        "diagnosis": "A related operational rule fired. Window overlap does not establish malicious membership or attack success.",
+        "references": [
+          {
+            "id": "wilson:w:152238",
+            "rule": "ssh.identification",
+            "time": "2022-02-07T10:59:15+00:00",
+            "training": false
+          },
+          {
+            "id": "wilson:w:152239",
+            "rule": "ssh.identification",
+            "time": "2022-02-07T10:59:15+00:00",
+            "training": false
+          },
+          {
+            "id": "wilson:w:152240",
+            "rule": "ssh.identification",
+            "time": "2022-02-07T10:59:15+00:00",
+            "training": false
+          },
+          {
+            "id": "wilson:w:152241",
+            "rule": "ssh.identification",
+            "time": "2022-02-07T10:59:15+00:00",
+            "training": false
+          },
+          {
+            "id": "wilson:w:152242",
+            "rule": "ssh.identification",
+            "time": "2022-02-07T10:59:15+00:00",
+            "training": false
+          },
+          {
+            "id": "wilson:w:152243",
+            "rule": "ssh.identification",
+            "time": "2022-02-07T10:59:15+00:00",
+            "training": false
+          },
+          {
+            "id": "wilson:w:152244",
+            "rule": "ssh.identification",
+            "time": "2022-02-07T10:59:15+00:00",
+            "training": false
+          },
+          {
+            "id": "wilson:w:152245",
+            "rule": "ssh.identification",
+            "time": "2022-02-07T10:59:15+00:00",
+            "training": false
+          }
+        ],
+        "telemetry": {
+          "operational": {
+            "auth": 45,
+            "web": 94,
+            "connection": 96
+          },
+          "training": {},
+          "needed_any": [
+            "connection",
+            "auth",
+            "web"
+          ],
+          "collection_complete": false
+        }
+      },
+      {
+        "scenario": "wilson",
+        "phase": "wpscan",
+        "start": "2022-02-07T11:19:53+00:00",
+        "end": "2022-02-07T11:20:27+00:00",
+        "records": 6459,
+        "training": 0,
+        "categories": {
+          "background": 58,
+          "web": 6382,
+          "anomaly": 19
+        },
+        "relevant": 6382,
+        "expected": [
+          "web"
+        ],
+        "training_related": 0,
+        "generic_anomalies": 19,
+        "evidence_status": "specific_signal",
+        "interpretation": "Technique-specific signal observed; attribution unverified",
+        "diagnosis": "A related operational rule fired. Window overlap does not establish malicious membership or attack success.",
+        "references": [
+          {
+            "id": "wilson:w:576770",
+            "rule": "web.probing",
+            "time": "2022-02-07T11:19:56+00:00",
+            "training": false
+          },
+          {
+            "id": "wilson:a:5572",
+            "rule": "web.probing",
+            "time": "2022-02-07T11:19:56+00:00",
+            "training": false
+          },
+          {
+            "id": "wilson:w:576771",
+            "rule": "web.probing",
+            "time": "2022-02-07T11:19:57+00:00",
+            "training": false
+          },
+          {
+            "id": "wilson:w:576772",
+            "rule": "web.probing",
+            "time": "2022-02-07T11:19:57+00:00",
+            "training": false
+          },
+          {
+            "id": "wilson:w:576773",
+            "rule": "web.probing",
+            "time": "2022-02-07T11:19:57+00:00",
+            "training": false
+          },
+          {
+            "id": "wilson:w:576774",
+            "rule": "web.probing",
+            "time": "2022-02-07T11:19:57+00:00",
+            "training": false
+          },
+          {
+            "id": "wilson:w:576775",
+            "rule": "web.probing",
+            "time": "2022-02-07T11:19:57+00:00",
+            "training": false
+          },
+          {
+            "id": "wilson:w:576776",
+            "rule": "web.probing",
+            "time": "2022-02-07T11:19:57+00:00",
+            "training": false
+          }
+        ],
+        "telemetry": {
+          "operational": {
+            "auth": 9,
+            "connection": 48,
+            "web": 6383
+          },
+          "training": {},
+          "needed_any": [
+            "web"
+          ],
+          "collection_complete": false
+        }
+      },
+      {
+        "scenario": "wilson",
+        "phase": "dirb",
+        "start": "2022-02-07T10:59:44+00:00",
+        "end": "2022-02-07T11:19:53+00:00",
+        "records": 428885,
+        "training": 0,
+        "categories": {
+          "web": 426186,
+          "background": 1278,
+          "anomaly": 1421
+        },
+        "relevant": 426186,
+        "expected": [
+          "web"
+        ],
+        "training_related": 0,
+        "generic_anomalies": 1421,
+        "evidence_status": "specific_signal",
+        "interpretation": "Technique-specific signal observed; attribution unverified",
+        "diagnosis": "A related operational rule fired. Window overlap does not establish malicious membership or attack success.",
+        "references": [
+          {
+            "id": "wilson:w:152409",
+            "rule": "web.probing",
+            "time": "2022-02-07T10:59:44+00:00",
+            "training": false
+          },
+          {
+            "id": "wilson:w:152410",
+            "rule": "web.probing",
+            "time": "2022-02-07T10:59:44+00:00",
+            "training": false
+          },
+          {
+            "id": "wilson:w:152411",
+            "rule": "web.probing",
+            "time": "2022-02-07T10:59:44+00:00",
+            "training": false
+          },
+          {
+            "id": "wilson:w:152412",
+            "rule": "web.probing",
+            "time": "2022-02-07T10:59:44+00:00",
+            "training": false
+          },
+          {
+            "id": "wilson:w:152413",
+            "rule": "web.probing",
+            "time": "2022-02-07T10:59:44+00:00",
+            "training": false
+          },
+          {
+            "id": "wilson:w:152414",
+            "rule": "web.probing",
+            "time": "2022-02-07T10:59:44+00:00",
+            "training": false
+          },
+          {
+            "id": "wilson:w:152415",
+            "rule": "web.probing",
+            "time": "2022-02-07T10:59:44+00:00",
+            "training": false
+          },
+          {
+            "id": "wilson:w:152416",
+            "rule": "web.probing",
+            "time": "2022-02-07T10:59:44+00:00",
+            "training": false
+          }
+        ],
+        "telemetry": {
+          "operational": {
+            "web": 426293,
+            "auth": 186,
+            "connection": 456,
+            "dns": 1
+          },
+          "training": {},
+          "needed_any": [
+            "web"
+          ],
+          "collection_complete": false
+        }
+      },
+      {
+        "scenario": "wilson",
+        "phase": "webshell",
+        "start": "2022-02-07T11:20:27+00:00",
+        "end": "2022-02-07T11:20:39+00:00",
+        "records": 41,
+        "training": 0,
+        "categories": {
+          "background": 39,
+          "anomaly": 1,
+          "execution": 1
+        },
+        "relevant": 1,
+        "expected": [
+          "execution"
+        ],
+        "training_related": 0,
+        "generic_anomalies": 1,
+        "evidence_status": "specific_signal",
+        "interpretation": "Technique-specific signal observed; attribution unverified",
+        "diagnosis": "A related operational rule fired. Window overlap does not establish malicious membership or attack success.",
+        "references": [
+          {
+            "id": "wilson:a:8784",
+            "rule": "web.command",
+            "time": "2022-02-07T11:20:37+00:00",
+            "training": false
+          }
+        ],
+        "telemetry": {
+          "operational": {
+            "connection": 40,
+            "web": 1
+          },
+          "training": {},
+          "needed_any": [
+            "web",
+            "process"
+          ],
+          "collection_complete": false
+        }
+      },
+      {
+        "scenario": "wilson",
+        "phase": "cracking",
+        "start": "2022-02-07T11:20:39+00:00",
+        "end": "2022-02-07T11:47:40+00:00",
+        "records": 1287,
+        "training": 0,
+        "categories": {
+          "execution": 1,
+          "anomaly": 10,
+          "background": 891,
+          "recon": 384,
+          "cracking": 1
+        },
+        "relevant": 1,
+        "expected": [
+          "cracking"
+        ],
+        "training_related": 0,
+        "generic_anomalies": 10,
+        "evidence_status": "specific_signal",
+        "interpretation": "Technique-specific signal observed; attribution unverified",
+        "diagnosis": "A related operational rule fired. Window overlap does not establish malicious membership or attack success.",
+        "references": [
+          {
+            "id": "wilson:a:8786",
+            "rule": "cracking.tool",
+            "time": "2022-02-07T11:21:03+00:00",
+            "training": false
+          }
+        ],
+        "telemetry": {
+          "operational": {
+            "web": 10,
+            "connection": 798,
+            "auth": 477,
+            "service": 8
+          },
+          "training": {},
+          "needed_any": [
+            "process",
+            "auth",
+            "web"
+          ],
+          "collection_complete": false
+        }
+      },
+      {
+        "scenario": "wilson",
+        "phase": "reverse_shell",
+        "start": "2022-02-07T11:47:40+00:00",
+        "end": "2022-02-07T11:48:18+00:00",
+        "records": 18,
+        "training": 0,
+        "categories": {
+          "recon": 4,
+          "background": 13,
+          "callback": 1
+        },
+        "relevant": 1,
+        "expected": [
+          "callback"
+        ],
+        "training_related": 0,
+        "generic_anomalies": 0,
+        "evidence_status": "specific_signal",
+        "interpretation": "Technique-specific signal observed; attribution unverified",
+        "diagnosis": "A related operational rule fired. Window overlap does not establish malicious membership or attack success.",
+        "references": [
+          {
+            "id": "wilson:a:8788",
+            "rule": "callback.command",
+            "time": "2022-02-07T11:48:08+00:00",
+            "training": false
+          }
+        ],
+        "telemetry": {
+          "operational": {
+            "connection": 8,
+            "auth": 9,
+            "web": 1
+          },
+          "training": {},
+          "needed_any": [
+            "process",
+            "connection",
+            "web"
+          ],
+          "collection_complete": false
+        }
+      },
+      {
+        "scenario": "wilson",
+        "phase": "privilege_escalation",
+        "start": "2022-02-07T11:48:18+00:00",
+        "end": "2022-02-07T11:48:53+00:00",
+        "records": 31,
+        "training": 0,
+        "categories": {
+          "background": 17,
+          "privilege": 10,
+          "anomaly": 4
+        },
+        "relevant": 10,
+        "expected": [
+          "privilege"
+        ],
+        "training_related": 0,
+        "generic_anomalies": 4,
+        "evidence_status": "specific_signal",
+        "interpretation": "Technique-specific signal observed; attribution unverified",
+        "diagnosis": "A related operational rule fired. Window overlap does not establish malicious membership or attack success.",
+        "references": [
+          {
+            "id": "wilson:a:8789",
+            "rule": "privilege.transition",
+            "time": "2022-02-07T11:48:18+00:00",
+            "training": false
+          },
+          {
+            "id": "wilson:a:8792",
+            "rule": "privilege.transition",
+            "time": "2022-02-07T11:48:18.650000+00:00",
+            "training": false
+          },
+          {
+            "id": "wilson:a:8793",
+            "rule": "privilege.transition",
+            "time": "2022-02-07T11:48:18.650000+00:00",
+            "training": false
+          },
+          {
+            "id": "wilson:a:8794",
+            "rule": "privilege.transition",
+            "time": "2022-02-07T11:48:18.660000+00:00",
+            "training": false
+          },
+          {
+            "id": "wilson:a:8796",
+            "rule": "privilege.transition",
+            "time": "2022-02-07T11:48:19.010000+00:00",
+            "training": false
+          },
+          {
+            "id": "wilson:w:581359",
+            "rule": "privilege.transition",
+            "time": "2022-02-07T11:48:32+00:00",
+            "training": false
+          },
+          {
+            "id": "wilson:w:581360",
+            "rule": "privilege.transition",
+            "time": "2022-02-07T11:48:39+00:00",
+            "training": false
+          },
+          {
+            "id": "wilson:w:581362",
+            "rule": "privilege.transition",
+            "time": "2022-02-07T11:48:39+00:00",
+            "training": false
+          }
+        ],
+        "telemetry": {
+          "operational": {
+            "auth": 22,
+            "process": 4
+          },
+          "training": {},
+          "needed_any": [
+            "auth",
+            "process"
+          ],
+          "collection_complete": false
+        }
+      },
+      {
+        "scenario": "wilson",
+        "phase": "service_stop",
+        "start": "2022-02-06T10:47:15+00:00",
+        "end": "2022-02-06T10:47:17+00:00",
+        "records": 2,
+        "training": 0,
+        "categories": {
+          "anomaly": 1,
+          "service": 1
+        },
+        "relevant": 1,
+        "expected": [
+          "service"
+        ],
+        "training_related": 0,
+        "generic_anomalies": 1,
+        "evidence_status": "specific_signal",
+        "interpretation": "Technique-specific signal observed; attribution unverified",
+        "diagnosis": "A related operational rule fired. Window overlap does not establish malicious membership or attack success.",
+        "references": [
+          {
+            "id": "wilson:a:783",
+            "rule": "service.stop",
+            "time": "2022-02-06T10:47:16.810000+00:00",
+            "training": false
+          }
+        ],
+        "telemetry": {
+          "operational": {
+            "service": 2
+          },
+          "training": {},
+          "needed_any": [
+            "service"
+          ],
+          "collection_complete": false
+        }
+      },
+      {
+        "scenario": "wilson",
+        "phase": "dnsteal",
+        "start": "2022-02-06T10:47:17+00:00",
+        "end": "2022-02-06T11:47:17+00:00",
+        "records": 2866,
+        "training": 0,
+        "categories": {
+          "background": 2172,
+          "recon": 672,
+          "anomaly": 22
+        },
+        "relevant": 0,
+        "expected": [
+          "dns"
+        ],
+        "training_related": 0,
+        "generic_anomalies": 22,
+        "evidence_status": "insufficient_telemetry",
+        "interpretation": "Insufficient relevant telemetry in exported records",
+        "diagnosis": "No operational excerpts with the required field types were observed. Obtain original telemetry before tuning detection.",
+        "references": [],
+        "telemetry": {
+          "operational": {
+            "auth": 1090,
+            "connection": 1760,
+            "web": 1,
+            "service": 8
+          },
+          "training": {},
+          "needed_any": [
+            "dns"
+          ],
+          "collection_complete": false
+        }
+      }
+    ],
+    "outcomes": 2655821,
+    "summary": {
+      "insufficient_telemetry": 9,
+      "specific_signal": 62,
+      "unsupported_behavior": 7,
+      "training_only": 1
+    },
+    "phases": {
+      "network_scans": {
+        "windows": 8,
+        "specific_signal": 1,
+        "statuses": {
+          "insufficient_telemetry": 3,
+          "unsupported_behavior": 4,
+          "specific_signal": 1
+        }
+      },
+      "service_scans": {
+        "windows": 8,
+        "specific_signal": 8,
+        "statuses": {
+          "specific_signal": 8
+        }
+      },
+      "dirb": {
+        "windows": 8,
+        "specific_signal": 8,
+        "statuses": {
+          "specific_signal": 8
+        }
+      },
+      "wpscan": {
+        "windows": 8,
+        "specific_signal": 8,
+        "statuses": {
+          "specific_signal": 8
+        }
+      },
+      "webshell": {
+        "windows": 8,
+        "specific_signal": 8,
+        "statuses": {
+          "specific_signal": 8
+        }
+      },
+      "cracking": {
+        "windows": 7,
+        "specific_signal": 7,
+        "statuses": {
+          "specific_signal": 7
+        }
+      },
+      "reverse_shell": {
+        "windows": 8,
+        "specific_signal": 7,
+        "statuses": {
+          "specific_signal": 7,
+          "insufficient_telemetry": 1
+        }
+      },
+      "privilege_escalation": {
+        "windows": 8,
+        "specific_signal": 8,
+        "statuses": {
+          "specific_signal": 8
+        }
+      },
+      "service_stop": {
+        "windows": 8,
+        "specific_signal": 7,
+        "statuses": {
+          "specific_signal": 7,
+          "training_only": 1
+        }
+      },
+      "dnsteal": {
+        "windows": 8,
+        "specific_signal": 0,
+        "statuses": {
+          "insufficient_telemetry": 5,
+          "unsupported_behavior": 3
+        }
+      }
+    },
+    "score": {
+      "percent": 78.5,
+      "detected": 62,
+      "total": 79,
+      "possible_misses": 8,
+      "insufficient_telemetry": 9,
+      "definition": "Percentage of labeled attack windows with an operational technique-specific signal. All labeled windows are included; this is detection coverage, not record-level accuracy."
+    },
+    "note": "Labels describe time windows, not individual malicious records. Specific signals, generic anomalies, training-only evidence and missing telemetry are reported separately. This is not precision, recall or proof of success. Intervals are [start, end).",
+    "isolation": "Read only after replay completion. Frozen classifications and groups are unchanged."
+  }
+}

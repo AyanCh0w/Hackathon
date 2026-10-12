@@ -120,7 +120,7 @@ class EvidenceGraph {
       exit => exit.remove()
     ).attr('class', d => 'graph-edge' + (d.confidence === 'low' ? ' weak' : ''))
       .attr('data-from', d => d.from).attr('data-to', d => d.to);
-    this.linkSelection.select('title').text(d => d.basis + ' · ' + d.time);
+    this.linkSelection.select('title').text(d => (d.relationship || 'inferred') + ' relationship · ' + d.basis + ' · alerts ' + (d.evidence_ids || []).join(', ') + ' · ' + d.time);
     this.nodeSelection = this.nodeLayer.selectAll('.graph-node').data(this.nodes, d => d.id).join(
       enter => {
         const node = enter.append('g').attr('tabindex', 0).attr('role', 'button');

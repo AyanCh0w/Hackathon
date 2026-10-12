@@ -20,7 +20,7 @@ from telemetry import normalize
 
 
 def report(ref):
-    return {'summary': '<script>untrusted text</script>', 'assessment': 'investigate', 'confidence': 'low',
+    return {'narrative_evidence_ids': [ref], 'answers': [{'question': 'Why escalated?', 'answer': 'Observed transition', 'status': 'supported', 'evidence_ids': [ref]}], 'summary': '<script>untrusted text</script>', 'assessment': 'investigate', 'confidence': 'low',
             'confidence_reason': 'Missing corroboration',
             'findings': [{'observation': 'Privilege transition', 'meaning': 'Check authorization', 'evidence_ids': [ref]}],
             'possible_explanations': ['Approved maintenance'],
@@ -70,6 +70,20 @@ class AnalysisTests(unittest.TestCase):
         self.assertEqual(context['node']['count'], 150)
         self.assertEqual(context['snapshot']['processed'], 150)
 
+    def test_demo_suppression_does_not_change_review_queue(self):
+        from incident_workflow import Suppressions
+        import time
+        store = Suppressions(Path(self.temp.name) / 'suppression.json')
+        group = next(iter(self.run.engine.groups.values()))
+        group['actor'] = '192.0.2.1'
+        store.approve(group, 'Reviewer', 'Reviewed maintenance', time.time()+60)
+        before = copy.deepcopy(self.run.engine.snapshot()['review_queue'])
+        with patch.object(server, 'SUPPRESSIONS', store):
+            snapshot = self.run.snapshot()
+            self.assertTrue(snapshot['suppression_demo_only'])
+            self.assertEqual(snapshot['review_queue'], before)
+            self.assertNotIn('suppression', snapshot['groups'][0])
+
     def test_provider_request_and_bound_citations(self):
         context = self.run.analysis_context(self.gid)
         answer = report(context['evidence_ids'][0])
@@ -83,6 +97,9 @@ class AnalysisTests(unittest.TestCase):
                 {'type': 'message', 'content': [{'type': 'output_text', 'text': json.dumps(answer)}]}]}).encode())
         with patch.dict(os.environ, {'OPENAI_API_KEY': 'test-key'}), patch.object(ai_analysis, 'urlopen', side_effect=response):
             self.assertEqual(ai_analysis.analyze(context)['analysis'], answer)
+            answer['findings'][0]['evidence_ids'] = []
+            with self.assertRaisesRegex(ai_analysis.AnalysisError, 'unsupported evidence'):
+                ai_analysis.analyze(context)
             answer['findings'][0]['evidence_ids'] = ['invented']
             with self.assertRaisesRegex(ai_analysis.AnalysisError, 'unsupported evidence'):
                 ai_analysis.analyze(context)
@@ -129,6 +146,13 @@ class AnalysisTests(unittest.TestCase):
                     urlopen(Request(url, data=data, headers={'Origin': 'http://other.example'}))
                 self.assertEqual(caught.exception.code, 403)
                 caught.exception.close()
+                for endpoint in ('/api/suppress', '/api/unsuppress'):
+                    with self.assertRaises(HTTPError) as caught:
+                        urlopen(Request(f'http://127.0.0.1:{service.server_port}{endpoint}', data=data,
+                                        headers={'Content-Type': 'application/json'}))
+                    self.assertEqual(caught.exception.code, 403)
+                    self.assertIn('For demo only', caught.exception.read().decode())
+                    caught.exception.close()
                 with patch.object(server, 'analyze', return_value={'analysis': report(self.events[0]['id'])}):
                     with urlopen(Request(url, data=data, headers={'Content-Type': 'application/json'})) as response:
                         self.assertEqual(json.load(response)['analysis']['assessment'], 'investigate')
