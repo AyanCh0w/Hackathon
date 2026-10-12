@@ -366,7 +366,7 @@ class Run:
         return review(group, retrieve)
 
     def analysis_context(self, gid):
-        """Freeze public node details and traces without reading future records or labels."""
+        """Freeze the selected alert and directly connected investigation nodes."""
         with self.lock:
             if gid not in self.engine.groups:
                 raise ValueError('Group not found')
@@ -375,7 +375,11 @@ class Run:
             members = [row for row in self.engine.timeline if row[2] == gid]
             edges = copy.deepcopy([e for e in self.engine.edges.values() if gid in (e['from'], e['to'])])
             neighbor_ids = {e['from'] if e['to'] == gid else e['to'] for e in edges}
-            neighbors = [copy.deepcopy(self.engine.public_group(self.engine.groups[n])) for n in sorted(neighbor_ids)]
+            neighbors = [copy.deepcopy(self.engine.public_group(self.engine.groups[n])) for n in sorted(neighbor_ids)
+                         if self.engine.groups[n]['priority'] == 'investigate']
+            included_neighbors = {node['id'] for node in neighbors[:20]}
+            edges = [edge for edge in edges if
+                     (edge['from'] if edge['to'] == gid else edge['to']) in included_neighbors]
             histories = [self.engine.history, self.engine.signal_history, *self.engine.dataset_history.values(), *self.engine.dataset_signal_history.values()]
             decisions = {e['id']: copy.deepcopy(e) for history in histories for e in history if e.get('group') == gid}
             meta = next(m for m in self.dataset_meta if m['scenario'] == group['scenario'])
@@ -386,7 +390,8 @@ class Run:
         with closing(sqlite3.connect(meta['cache'])) as db:
             records = [public_record(json.loads(row[0])) for row in db.execute(
                 'SELECT payload FROM events WHERE record_id IN (' + ','.join('?' for _ in ids) + ') ORDER BY ts,source_order,line', tuple(ids))]
-        investigation = self.investigate(gid, (group, cutoff, prefix))
+        # Nearby telemetry retrieval can include nodes outside this one-hop scope.
+        investigation = review(group, budget=0)
         context = {'snapshot': {'run': self.id, 'group': gid, 'processed': prefix, 'cutoff': iso(cutoff)},
                    'node': group, 'member_records': records, 'connections': edges, 'connected_nodes': neighbors,
                    'decision_trace': sorted(decisions.values(), key=lambda e: e['id'])[-100:],
@@ -396,21 +401,47 @@ class Run:
         context['connected_nodes'] = neighbors[:20]
         for node in context['connected_nodes']:
             node['evidence'] = node['evidence'][:4]
-        while len(json.dumps(context).encode()) > 180000 and context['member_records']:
+        # Raw strings and repeated metadata can dominate even after member sampling.
+        # Bound those fields too, keeping record IDs intact for citation validation.
+        truncated_fields = 0
+        def compact(value, string_limit=1500, list_limit=20, key=''):
+            nonlocal truncated_fields
+            if isinstance(value, str) and key not in ('id', 'group', 'from', 'to') and not key.endswith('_ids'):
+                if len(value) > string_limit:
+                    truncated_fields += 1
+                    return value[:string_limit] + ' [truncated]'
+            elif isinstance(value, list):
+                if key not in ('member_records', 'connected_nodes', 'connections', 'ledger') and len(value) > list_limit:
+                    truncated_fields += 1
+                    value = value[:list_limit]
+                return [compact(item, string_limit, list_limit, key) for item in value]
+            elif isinstance(value, dict):
+                return {name: compact(item, string_limit, list_limit, name) for name, item in value.items()}
+            return value
+        context = compact(context)
+        while len(json.dumps(context).encode()) > 160000 and context['member_records']:
             context['member_records'] = context['member_records'][::2] if len(context['member_records']) > 1 else []
-        if len(json.dumps(context).encode()) > 240000:
-            raise AnalysisError('This node has too much connected context for one analysis. Inspect its evidence directly.', 413)
-        evidence = list(group['evidence']) + context['member_records']
+        if len(json.dumps(context).encode()) > 160000:
+            context = compact(context, string_limit=500, list_limit=4)
+        while len(json.dumps(context).encode()) > 160000 and context['decision_trace']:
+            context['decision_trace'].pop(0)
+        while len(json.dumps(context).encode()) > 160000 and context['connected_nodes']:
+            context['connected_nodes'].pop()
+        retained = {node['id'] for node in context['connected_nodes']}
+        context['connections'] = [edge for edge in context['connections'] if
+                                  (edge['from'] if edge['to'] == gid else edge['to']) in retained]
+        evidence = list(context['node']['evidence']) + context['member_records']
         for node in context['connected_nodes']:
             evidence.extend(node['evidence'])
-        for entry in investigation['ledger']:
+        for entry in context['investigation_trace']['ledger']:
             evidence.extend(entry.get('records', []))
         context['evidence_ids'] = sorted({e['id'] for e in evidence})
         context['coverage'] = {'total_members': len(members), 'included_members': len(context['member_records']),
                                'member_traces_sampled': len(context['member_records']) < len(members),
                                'connected_nodes_total': total_neighbors, 'connected_nodes_included': len(context['connected_nodes']),
                                'decision_entries_included': len(context['decision_trace']), 'decision_trace_retained_only': True,
-                               'retrieval_queries': investigation['queries'], 'redacted': True}
+                               'retrieval_queries': investigation['queries'], 'redacted': True,
+                               'truncated_fields': truncated_fields}
         return context
 
     def ai_analysis(self, gid, question=''):
@@ -593,7 +624,7 @@ def main():
     args = parser.parse_args()
     prepare('russellmitchell')
     service = ThreadingHTTPServer(('127.0.0.1', args.port), Handler)
-    print(f'Replay Lab: http://127.0.0.1:{args.port}', flush=True)
+    print(f'Konos: http://127.0.0.1:{args.port}', flush=True)
     service.serve_forever()
 
 

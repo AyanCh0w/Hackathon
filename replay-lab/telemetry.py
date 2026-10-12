@@ -10,7 +10,7 @@ from datetime import datetime, timezone
 from urllib.parse import unquote_plus, urlsplit, parse_qs
 
 SCENARIOS = ('russellmitchell', 'fox', 'harrison', 'santos', 'shaw', 'wardbeck', 'wheeler', 'wilson')
-VERSION = 8
+VERSION = 9
 
 # Structural coverage, not a promise of complete collection.
 CAPABILITIES = {'connection': 1, 'dns': 2, 'process': 4, 'auth': 8, 'service': 16, 'web': 32}
@@ -110,6 +110,11 @@ def process_features(e):
     return command_features(commands)
 
 
+def training_flag(value):
+    """Only explicit training values exclude evidence; strings are not truthiness."""
+    return value is True or value == 1 or (isinstance(value, str) and value.lower() in ('true', '1'))
+
+
 def number(value):
     try:
         return int(value)
@@ -125,8 +130,10 @@ def structural_fields(data, raw, url):
         m = re.search(r':(\d+)$', str(data.get('dstip', '')))
         dst_port = number(m[1]) if m else 0
     dns = data.get('dns') if isinstance(data.get('dns'), dict) else {}
-    queries = dns.get('queries') or ([dns] if dns.get('rrname') else [])
-    query_rows = [{'name': str(q.get('rrname') or q.get('name') or '').rstrip('.').lower()[:1024],
+    queries = dns.get('queries') or ([dns] if dns.get('rrname') or dns.get('query') else [])
+    if dns.get('type') == 'answer' or dns.get('qr') is True:
+        queries = []
+    query_rows = [{'name': str(q.get('rrname') or q.get('name') or q.get('query') or '').rstrip('.').lower()[:1024],
                    'type': str(q.get('rrtype') or q.get('type') or '').upper()}
                   for q in queries[:32] if isinstance(q, dict)]
     m = re.search(r'query\[([^\]]+)\]\s+(\S+)', raw)
@@ -165,6 +172,7 @@ def structural_fields(data, raw, url):
         caps |= CAPABILITIES['web']
     return {'capabilities': caps, 'src_port': number(data.get('src_port') or data.get('srcport')),
             'dst_port': dst_port, 'protocol': str(data.get('proto') or data.get('protocol') or '').upper(),
+            'connection_failed': str(flow.get('state') or data.get('conn_state') or '').upper() in ('REJ', 'S0', 'RST', 'FAILED') or bool(re.search(r'\b(?:REJECT|DROP)\b', raw)),
             'flow_id': str(data.get('flow_id') or ''), 'flow_state': str(flow.get('state') or data.get('conn_state') or ''),
             'bytes_out': number(flow.get('bytes_toserver')), 'bytes_in': number(flow.get('bytes_toclient')),
             'dns_queries': query_rows, 'dns_rcode': str(dns.get('rcode') or ''),
@@ -190,7 +198,7 @@ def normalize(obj, filename, line):
         location = str(locations[0]) if locations else ''
         detector = str(component.get('AnalysisComponentType', 'AMiner'))
         description = str(component.get('Message', component.get('AnalysisComponentName', detector)))
-        training = bool(component.get('TrainingMode'))
+        training = training_flag(component.get('TrainingMode'))
         level = 0
     else:
         stamp = datetime.fromisoformat(obj['@timestamp'].replace('Z', '+00:00')).timestamp()
@@ -269,7 +277,7 @@ def normalize_external(obj, scenario, filename, line):
               'rule': {'id': 'external', 'level': 0, 'description': str(obj.get('event_type') or 'raw telemetry')}}
     event = normalize(native, scenario + '_wazuh.json', line)
     event.update(id=f'{scenario}:n:{line}', source='Telemetry', file=filename,
-                 detector='External ' + str(obj.get('event_type') or 'telemetry'), training=bool(obj.get('training')))
+                 detector='External ' + str(obj.get('event_type') or 'telemetry'), training=training_flag(obj.get('training')))
     event['origin_file'] = str(obj.get('origin_file') or filename)
     event['origin_line'] = number(obj.get('origin_line')) or line
     event['origin_hash'] = str(obj.get('origin_hash') or '')

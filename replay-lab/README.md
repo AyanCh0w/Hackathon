@@ -1,6 +1,6 @@
-# Trace: Security Replay and Investigation Lab
+# Konos: Security Replay and Investigation Lab
 
-Trace is a local cybersecurity prototype that turns large collections of security alerts and logs into an inspectable stream of findings. It replays events in chronological order, classifies observed behavior, groups related evidence, and connects those groups into incident candidates that an analyst can investigate.
+Konos is a local cybersecurity prototype that turns large collections of security alerts and logs into an inspectable stream of findings. It replays events in chronological order, classifies observed behavior, groups related evidence, and connects those groups into incident candidates that an analyst can investigate.
 
 The goal is to help analysts answer: **What happened, which evidence supports it, what might be related, and what should we check next?** The browser interface shows the replay, evidence graph, review priorities, source records, and decision ledger. Detection uses deterministic rules and bounded behavioral windows; optional AI analysis explains a selected node using its observed evidence.
 
@@ -141,24 +141,24 @@ These results do **not** establish record-level accuracy, precision, recall, F1,
 
 The design combines ideas from security research with the concrete limitations found in the AIT exports. These are adaptations, rather than reproductions of the papers' architectures or performance.
 
-| Research | Relevant idea | Included in Trace | Boundary / future work |
+| Research | Relevant idea | Included in Konos | Boundary / future work |
 | --- | --- | --- | --- |
-| [AIDA: From Investigation Failures to Reliable SOC Agents](https://arxiv.org/abs/2610.10608) | Preserve investigation history, challenge a proposed decision independently, and require stronger evidence before dismissing an alert. | A deterministic evidence ledger records retrieval outcomes, a supported thesis, benign challenges, missing corroboration, and a qualified verdict. Empty retrieval does not justify a benign dismissal. | Trace does not implement AIDA's independent investigator, challenger, and judge agents. Its deterministic challenge is not independent model reasoning. |
+| [AIDA: From Investigation Failures to Reliable SOC Agents](https://arxiv.org/abs/2610.10608) | Preserve investigation history, challenge a proposed decision independently, and require stronger evidence before dismissing an alert. | A deterministic evidence ledger records retrieval outcomes, a supported thesis, benign challenges, missing corroboration, and a qualified verdict. Empty retrieval does not justify a benign dismissal. | Konos does not implement AIDA's independent investigator, challenger, and judge agents. Its deterministic challenge is not independent model reasoning. |
 | [SERA-IDS](https://arxiv.org/abs/2610.03999) | Represent decision knowledge as structured conditions with confidence and provenance; freeze the experience library during testing. | Versioned rules expose conditions, benign counterexamples, provenance, and experimental status in `detection.py`. Saved evaluations compare fixed classifier versions. | No learned experience library, retrieval-augmented small-language-model classifier, or NetFlow training experiment is implemented. |
 | [Correct Answers, Unsupported Findings](https://arxiv.org/abs/2610.09581) | A plausible finding needs an explicit binding to the preserved record that supports it. | Record IDs, file/line references, and evidence hashes bind findings to observations. AI response validation rejects citation IDs outside the supplied evidence. | A valid locator establishes which record was cited; it does not establish that every interpretation of that record is correct. |
 | [Case-Level Verification in Scanner-LLM Cascades](https://arxiv.org/abs/2610.08406) | An aggregated alert can contain mixed cases; suppressing the entire group can hide a true detection. | Grouping preserves member references and separates repeated detector outputs from distinct evidence. Analysts can inspect individual records. | No DAST request-replay verifier or automated member-level benign suppression is implemented. |
 | [Constrained-Action AI Remediation for SIEM/XDR](https://arxiv.org/abs/2610.09906) | Separate model recommendations from validated execution. | The current review boundary is read-only; command content is inspected as data, and AI advice cannot change classifications or act on hosts. | The paper's guardrails proxy, validated remediation templates, and response executor are not implemented. |
-| [Improving DNS Exfiltration Detection via Transformer Pretraining](https://arxiv.org/abs/2604.09849) | Evaluate DNS classifiers at low false-positive operating points, with thresholds selected on validation and frozen for testing. | Current DNS rules inspect lexical properties and bounded query sequences. The paper informs the proposed calibration and learned-detector experiment. | No pretrained DNS Transformer exists in Trace. Independent benign data, event labels, and fixed operating-point validation remain necessary. |
+| [Improving DNS Exfiltration Detection via Transformer Pretraining](https://arxiv.org/abs/2604.09849) | Evaluate DNS classifiers at low false-positive operating points, with thresholds selected on validation and frozen for testing. | Current DNS rules inspect lexical properties and bounded query sequences. The paper informs the proposed calibration and learned-detector experiment. | No pretrained DNS Transformer exists in Konos. Independent benign data, event labels, and fixed operating-point validation remain necessary. |
 
 Additional research was considered for extensions: [Sigma-Hunter](https://arxiv.org/abs/2610.09007) for model-assisted Sigma rule generation, [NetAgent](https://arxiv.org/abs/2610.07386) for specialist network-analysis orchestration, and [Organizational Context for the Enterprise Security Brain](https://arxiv.org/abs/2610.12540) for authoritative asset, ownership, and maintenance context. These capabilities are not currently implemented.
 
-AIDA reports an F1 of 0.958 on its evaluated alerts. Trace's 91.1% augmented attack-window coverage measures a different task with different labels and cannot be compared with that F1. Research results belong to their respective experimental settings, not to this implementation. [AIDA paper](https://arxiv.org/abs/2610.10608)
+AIDA reports an F1 of 0.958 on its evaluated alerts. Konos's 91.1% augmented attack-window coverage measures a different task with different labels and cannot be compared with that F1. Research results belong to their respective experimental settings, not to this implementation. [AIDA paper](https://arxiv.org/abs/2610.10608)
 
 ## What is different from a basic version, and why it helps
 
 Here, a **basic version** means an alert viewer that classifies each record independently, sorts by sensor severity or volume, and provides little structured investigation support. This is a reference design for explaining the project, not a claim that all SIEM products work this way. The actual measured comparator is the frozen earlier classifier in [baseline.py](baseline.py), which already recognizes several web, callback, privilege, service, and scan signals.
 
-| Basic reference design | Trace's addition | Practical reason |
+| Basic reference design | Konos's addition | Practical reason |
 | --- | --- | --- |
 | Independent per-record checks | Bounded behavioral windows for scans, authentication attacks, and DNS sequences | Detect patterns spread across individually weak observations. |
 | Repeated alerts dominate the queue | Distinct-evidence counting, episodes, and evidence-based priority tiers | Keep sparse command/callback evidence visible alongside large scanning bursts. |
@@ -173,11 +173,11 @@ The project contribution is the integration of these mechanisms into a small, in
 
 The evidence for improvement is specific: on unchanged alerts, the current evaluated rules cover **62 rather than 54 of 79 windows**. With augmented inputs, the paired comparison covers **72 rather than 55 windows**. These evaluations support improved technique-window coverage over the earlier local classifier. They do not isolate the benefit of each feature, prove reduced analyst workload or false positives, or establish superiority over commercial systems. Ablations and independent validation are needed for those claims.
 
-The saved paired evaluations identify rule version `2026-10-12.4`; the current rule catalog identifies `2026-10-12.5`. Consequently, the reported numbers describe the saved version and should be regenerated before attributing them to the latest checkout.
+The saved paired evaluations identify rule version `2026-10-12.4`; the current rule catalog identifies `2026-10-12.7`. Consequently, the reported numbers describe the saved version and should be regenerated before attributing them to the latest checkout.
 
 ## Limiting false positives through tracked evidence and sequences
 
-Trace aims to limit unsupported escalation by grounding findings in **tracked records, observed event sequences, and explicit evidence requirements**. A suspicious string or high-severity alert is a starting observation. Stronger conclusions require evidence appropriate to that conclusion.
+Konos aims to limit unsupported escalation by grounding findings in **tracked records, observed event sequences, and explicit evidence requirements**. A suspicious string or high-severity alert is a starting observation. Stronger conclusions require evidence appropriate to that conclusion.
 
 ### Track what supports each finding
 
@@ -209,26 +209,26 @@ This design targets **false-positive escalation and unsupported attack claims**,
 
 ## How this relates to CrowdStrike
 
-Comparison based on public CrowdStrike documentation checked October 12, 2026. The closest counterparts are **Falcon Next-Gen SIEM** for ingestion, queries, correlation, and investigation; **Threat Graph** for telemetry relationships; and **Charlotte AI** for AI-assisted triage. The similarities below are architectural comparisons, not evidence that Trace uses CrowdStrike internals or integrates with Falcon.
+Comparison based on public CrowdStrike documentation checked October 12, 2026. The closest counterparts are **Falcon Next-Gen SIEM** for ingestion, queries, correlation, and investigation; **Threat Graph** for telemetry relationships; and **Charlotte AI** for AI-assisted triage. The similarities below are architectural comparisons, not evidence that Konos uses CrowdStrike internals or integrates with Falcon.
 
-| Area | Trace | Documented CrowdStrike capability |
+| Area | Konos | Documented CrowdStrike capability |
 | --- | --- | --- |
 | Data and detection | Local historical alert exports and selected native logs; transparent rules and experimental windows. | Falcon investigation APIs expose detections, incidents, and raw-telemetry searches, including custom correlation rules. [Developer documentation](https://developer.crowdstrike.com/accomplish/investigate-threats/) |
-| Relationship graph | Episode links use explicit scenario, host, observed source, and time conditions, with weaker links marked. | Threat Graph ingests and enriches endpoint telemetry. Trace's temporal episode graph has substantially less telemetry context. [Threat Graph overview](https://www.crowdstrike.com/resources/wp-content/brochures/datasheets/threat-graph.pdf) |
+| Relationship graph | Episode links use explicit scenario, host, observed source, and time conditions, with weaker links marked. | Threat Graph ingests and enriches endpoint telemetry. Konos's temporal episode graph has substantially less telemetry context. [Threat Graph overview](https://www.crowdstrike.com/resources/wp-content/brochures/datasheets/threat-graph.pdf) |
 | Investigation interface | Live evidence map, record inspector, deterministic review ledger, and incident candidates. | Next-Gen SIEM case management presents attack activity, asset relationships, and threat context in a visual investigation graph. [Incident management](https://www.crowdstrike.com/en-us/platform/next-gen-siem/incident-management/) |
 | AI | Optional OpenAI explanation of a frozen, redacted node snapshot; core classifications stay deterministic. | Charlotte AI offers detection triage and agent workflows with configurable automatic actions and human review. [Charlotte AI](https://www.crowdstrike.com/en-us/platform/charlotte-ai//) |
 | Response | Read-only investigation and recommendations. | Fusion SOAR and Charlotte Agentic SOAR connect investigation to automated workflows and response. [Incident management](https://www.crowdstrike.com/en-us/platform/next-gen-siem/incident-management/) |
 | Evaluation | Public local regression artifacts and explicit attack-window coverage limits. | CrowdStrike describes Charlotte AI triage accuracy as agreement with Falcon Complete MDR expert decisions. This is a different metric and population. [Metric definition](https://www.crowdstrike.com/en-us/platform/charlotte-ai//) |
 
-Trace follows the same broad direction of turning scattered observations into contextual investigations. Its useful distinction for a hackathon or research setting is that the implemented rules, link conditions, source evidence, and evaluation process can be inspected and changed locally. It can run its core demonstration without a commercial account, endpoint deployment, or hosted model inference.
+Konos follows the same broad direction of turning scattered observations into contextual investigations. Its useful distinction for a hackathon or research setting is that the implemented rules, link conditions, source evidence, and evaluation process can be inspected and changed locally. It can run its core demonstration without a commercial account, endpoint deployment, or hosted model inference.
 
-CrowdStrike's documented scope includes telemetry-backed investigation and operational response capabilities that this prototype does not provide. A local graph and an AI explanation are therefore insufficient grounds to claim parity with Falcon. There has been no head-to-head test: Trace's coverage figures cannot show that it detects more attacks, responds faster, or produces fewer false positives than CrowdStrike.
+CrowdStrike's documented scope includes telemetry-backed investigation and operational response capabilities that this prototype does not provide. A local graph and an AI explanation are therefore insufficient grounds to claim parity with Falcon. There has been no head-to-head test: Konos's coverage figures cannot show that it detects more attacks, responds faster, or produces fewer false positives than CrowdStrike.
 
 A possible future use is as an experimental replay and evidence-review companion: prototype rules on historical logs, validate their evidence requirements, then translate suitable conditions into production correlation rules. That is a proposed workflow; this repository currently contains no CrowdStrike connector, CQL rule exporter, or Falcon response integration.
 
 ## Real-world applications
 
-Trace can serve as a prototype for several security workflows:
+Konos can serve as a prototype for several security workflows:
 
 - **Security operations triage:** group related SIEM alerts, highlight evidence worth reviewing, and guide analysts toward corroborating logs.
 - **Incident reconstruction:** inspect a chronological sequence of suspicious requests, identity transitions, and service activity while preserving uncertainty about their relationships.
@@ -242,7 +242,7 @@ The current implementation is a local replay lab. Production use would require l
 
 Requires Python 3.10+ and a modern browser. The core application needs no additional Python packages or API key.
 
-Download or clone this project, then open a terminal in its root folder (the folder containing this README). Datasets, native telemetry, local credentials, and generated caches are excluded from Git; code, tests, documentation, and saved evaluation summaries are included.
+Download or clone this project, then open a terminal in the repository root (the folder containing `replay-lab/`). Commands below use that directory unless stated otherwise. Datasets, native telemetry, local credentials, and generated caches are excluded from Git; code, tests, documentation, and saved evaluation summaries are included.
 
 ### Download the data separately
 
@@ -283,24 +283,25 @@ PY
 You may delete `ait_ads.zip` after extraction. Keep `labels.csv` at the project root for **Verify at end**; replay itself uses the alert files. Expected layout:
 
 ```text
-README.md
 labels.csv
 ait_ads/
   russellmitchell_aminer.json
   russellmitchell_wazuh.json
   ... remaining fourteen scenario files
-server.py
+replay-lab/
+  README.md
+  server.py
 ```
 
 ### Start the application
 
 ```sh
-python3 server.py
+python3 replay-lab/server.py
 ```
 
-Open <http://127.0.0.1:8787>, select datasets, and start replay. After completion, choose **Verify at end** to inspect labeled-window coverage.
+Open [the local application](http://127.0.0.1:8788), select datasets, and start replay. After completion, choose **Verify at end** to inspect labeled-window coverage.
 
-The first preparation builds local SQLite caches under `.cache/`. Start with the default Russellmitchell scenario to keep initial preparation small. All eight scenarios and optional native telemetry can consume tens of GB in inputs and caches. Stop the server before deleting caches; they are rebuilt on the next preparation.
+The default port is `8788`; use `--port 8787` (or another available port) to override it. The first preparation builds local SQLite caches under `replay-lab/.cache/`. Start with the default Russellmitchell scenario to keep initial preparation small. All eight scenarios and optional native telemetry can consume tens of GB in inputs and caches. Stop the server before deleting caches; they are rebuilt on the next preparation.
 
 ### Optional native telemetry
 
@@ -309,29 +310,31 @@ In **Replay settings**, enable **Ignore raw telemetry** to prepare and replay on
 The alert files are sufficient to run the application. To reproduce the augmented evaluations, download the selected native logs separately using the included acquisition script:
 
 ```sh
-python3 fetch_ait_telemetry.py --scenarios russellmitchell fox harrison santos shaw wardbeck wheeler wilson
+python3 replay-lab/fetch_ait_telemetry.py --scenarios russellmitchell fox harrison santos shaw wardbeck wheeler wilson
 ```
 
-This creates raw logs, normalized JSONL files, and manifests in the ignored `telemetry-inputs/` directory. Restart the server afterward. The current full selection uses about 11 GB before replay caches. See the [native telemetry details](#native-telemetry-and-reproducibility) for provenance and limitations.
+This creates raw logs, normalized JSONL files, and manifests in the ignored `replay-lab/telemetry-inputs/` directory. Restart the server afterward. The current full selection uses about 11 GB before replay caches. See the [native telemetry details](#native-telemetry-and-reproducibility) for provenance and limitations.
 
 ### Checks and evaluations
 
 Run the implementation tests:
 
 ```sh
-python3 -m unittest discover -s tests -v
+python3 -m unittest discover -s replay-lab/tests -v
 ```
 
 Reproduce the paired evaluations:
 
 ```sh
-python3 tests/evaluate_improvements.py --alert-only
-python3 tests/evaluate_improvements.py
+python3 replay-lab/tests/evaluate_improvements.py --alert-only
+python3 replay-lab/tests/evaluate_improvements.py
 ```
 
 The second command includes native inputs when available. See the sections below for telemetry acquisition, optional OpenAI setup, replay controls, and implementation limits. AI node analysis sends a redacted evidence snapshot to OpenAI when requested and requires an API key; the core replay operates locally.
 
 ## Project layout
+
+Application paths below are relative to `replay-lab/`; `ait_ads/` and `labels.csv` are at the repository root in this checkout. The server also accepts both beside `server.py` when running a standalone copy. `.gitignore` is at the repository root.
 
 ```text
 README.md                   Project overview and setup
@@ -343,6 +346,9 @@ engine.py                   Classification, groups, and relationships
 investigation.py            Evidence review
 verification.py             Completed-run label verification
 ai_analysis.py              Optional AI explanation
+incident_workflow.py        Incident timelines and disabled suppression boundary
+benchmark.py                Paired triage workload comparison
+baseline.py                 Frozen earlier classifier
 fetch_ait_telemetry.py       Optional native data downloader
 static/                     Browser interface and vendored assets
 tests/                      Tests and saved evaluation summaries
@@ -361,7 +367,7 @@ telemetry-inputs/           Optional downloaded native telemetry (ignored)
 
 ## Optional AI node analysis
 
-Copy `.env.example` to `.env` and set `OPENAI_API_KEY`, or export it in the shell that starts the server. Exported variables take precedence. Restart the server after changing settings. `OPENAI_MODEL` is optional (default `gpt-6-astra`) and must support the Responses API with structured outputs. No additional Python packages are needed. `.env` is ignored by Git and cannot be served by the static-file endpoint.
+Copy `replay-lab/.env.example` to `replay-lab/.env` and set `OPENAI_API_KEY`, or export it in the shell that starts the server. Exported variables take precedence. Restart the server after changing settings. `OPENAI_MODEL` is optional (the code fallback is `gpt-6-astra`; the example environment file sets `gpt-5.6-luna`) and must support the Responses API with structured outputs. No additional Python packages are needed. `.env` is ignored by Git and cannot be served by the static-file endpoint.
 
 Click a graph node or evidence group, then **Analyze node with AI**. The result explains the evidence, confidence and possible benign explanations, gives prioritized next checks and escalation criteria, and links citations to source records. Missing-key, provider, quota and timeout errors appear in the inspector with a retry button.
 
@@ -420,8 +426,8 @@ The inspectable evidence groups and uncertainty-marked relationships provide a f
 The public source acquisition uses [AIT-LDS v2.1](https://zenodo.org/records/19483937). It downloads only selected ZIP ranges, verifies each selected member's CRC, and preserves raw files and a manifest. Selection includes DNS, authentication, audit, firewall syslog/kernel records, and firewall/intranet Suricata flows, DNS and alerts. It excludes attacker logs and labels and never filters by attack times. Repeated acquisition reuses files only when size and CRC match. No packet capture is imported.
 
 ```sh
-python3 fetch_ait_telemetry.py --scenarios russellmitchell fox harrison santos shaw wardbeck wheeler wilson
-python3 tests/evaluate_improvements.py
+python3 replay-lab/fetch_ait_telemetry.py --scenarios russellmitchell fox harrison santos shaw wardbeck wheeler wilson
+python3 replay-lab/tests/evaluate_improvements.py
 ```
 
 The latest raw source is v2.1, whereas the original AIT-ADS exports derive from v2.0: augmented results therefore measure a change of available evidence as well as rules. Syslog without a year is explicitly interpreted as 2022 UTC, and manifests record that assumption. File-derived host identity is marked. The publisher reports Shaw's DNS exfiltration is absent from its DNS logs; an empty result there cannot establish benign behavior.
@@ -431,10 +437,10 @@ The latest raw source is v2.1, whereas the original AIT-ADS exports derive from 
 ## Verify the implementation
 
 ```sh
-python3 -m unittest discover -s tests -v
+python3 -m unittest discover -s replay-lab/tests -v
 ```
 
-Tests cover priority ordering without alert-volume inflation, training-to-operational promotion, distinct web-burst escalation, priority and dataset shortlist coverage, event timestamps, nested EVE records without `full_log`, redaction, command inspection happening after preparation, causal prefix preservation, weak relationship marking, repeat counting, training separation, cross-dataset entity isolation, label-file denial throughout a complete replay, pause/step behavior, record conservation, and verification leaving inference unchanged. With the server running, `python3 tests/check_live.py` prepares all eight datasets and checks the completion gate, static-file isolation, a mixed replay, and frozen verification.
+Tests cover priority ordering without alert-volume inflation, training-to-operational promotion, distinct web-burst escalation, priority and dataset shortlist coverage, event timestamps, nested EVE records without `full_log`, redaction, command inspection happening after preparation, causal prefix preservation, weak relationship marking, repeat counting, training separation, cross-dataset entity isolation, label-file denial throughout a complete replay, pause/step behavior, record conservation, and verification leaving inference unchanged. With the server running, `python3 replay-lab/tests/check_live.py` prepares all eight datasets and checks the completion gate, static-file isolation, a mixed replay, and frozen verification.
 
 Caches are ignored in `.gitignore`; prepared scenario SQLite files live under `.cache/`. Stop the server with Ctrl+C. Runs are in memory, with at most four retained sessions; completed runs put their ID in the local page URL, so refresh restores their frozen results while that server session remains available. A server restart or expiry of the four-run history starts a fresh view. Dataset checkboxes are remembered. The measured full-dataset check, including priority totals and ranking, is recorded in `tests/all-dataset-run-results.json`; the mixed-run completion-gate and verification checks are in `tests/live-check-results.json`. Browser checks for dragging, attached line endpoints, spring motion, freeze, pan, zoom, keyboard inspection, and priority filters are recorded in `tests/graph-interaction-results.json`. The final 79-window label verification left the completed inference unchanged.
 
@@ -466,7 +472,7 @@ The benchmark compares raw severity ranking (fixed severity threshold 10), a hos
 
 The saved full-alert comparison is [triage-benchmark.json](tests/triage-benchmark.json). Its results expose the tradeoff between a smaller review queue and missed review windows; do not infer better detection merely from alert reduction.
 
-The latest unchanged-alert run processed **2,655,821 records** (2,651,082 operational).
+The saved unchanged-alert benchmark used rules `2026-10-12.6`, before the current `2026-10-12.7` changes. Regenerate it before attributing these results to the current checkout. That run processed **2,655,821 records** (2,651,082 operational).
 
 | Method | Review items | Windows with review signals | Missed review windows | Median latency in covered windows |
 | --- | ---: | ---: | ---: | ---: |
@@ -475,3 +481,13 @@ The latest unchanged-alert run processed **2,655,821 records** (2,651,082 operat
 | pipeline | 16 | 30/79 | 49 | 8.0 s |
 
 Pipeline technique-specific coverage is **62/79**; review escalation coverage is **30/79**. The reduced queue trades away review coverage under the current priority policy. Latency medians include different covered windows and should not be treated as a paired speed improvement. No reviewed benign cases were supplied, so false-positive rates and measured human review time remain unavailable.
+
+## Separate benign replay and incident retention checks
+
+Rules version `2026-10-12.7` adds observable connection-failure counts and fixed-window connection rates to scan decisions, DNS query-volume and encoded-subdomain rules, query/answer separation, and explicit training-flag parsing. Cache schema 9 forces preparation to normalize these fields again. The first operational record now replaces a training-only group explanation even when confidence is equal; training observations remain excluded from behavioral thresholds and verification.
+
+Run `python3 replay-lab/tests/evaluate_security.py` from the repository root. The saved `tests/security-evaluation.json` is a **synthetic smoke experiment**, not production accuracy: 2,000 benign events replayed in their own engine, 3,000 labeled attack events, precision 1.0, zero false alerts per 1,000 benign events, attack-event recall 1.0. Three thousand matched records become one incident with reconnaissance, execution, and callback stages, representative evidence IDs and relationship witnesses. Full membership remains in the engine timeline; representative citations are samples.
+
+For empirical evaluation, pass `--benign benign.jsonl --attacks attacks.jsonl --output result.json`. Each line requires `timestamp` and `expected_family` plus native telemetry fields; benign truth must be `background`. Inputs replay independently in chronological order. An alert is an operational technique classification, independent of review priority. Wrong-family alerts count as both false alerts and missed attack events. Recall includes prefix events before aggregate thresholds fire. Precision depends on the supplied mix of benign and malicious events. Do not infer benign truth from time outside attack windows; no independently labeled benign corpus is currently supplied.
+
+`tests/wardbeck-training-regression.json` checks the actual service-stop window using previously normalized source records. Native audit evidence supplies an operational service-stop signal. The alert-only record remains training-only; it is not relabeled to inflate coverage. New regression tests also check deduplication, DNS answer exclusion, DNS volume, encoded labels, scan measurements and evidence-stage retention.

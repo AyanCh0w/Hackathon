@@ -3,7 +3,7 @@ from collections import Counter, OrderedDict, deque
 import math
 import re
 
-RULES_VERSION = '2026-10-12.6'
+RULES_VERSION = '2026-10-12.7'
 # Thresholds are engineering starting points, not calibrated deployment operating points.
 RULES = {
     'scan.signature': {'family': 'recon', 'condition': 'explicit scan signature', 'counterexample': 'approved vulnerability scanner'},
@@ -12,6 +12,8 @@ RULES = {
     'scan.fanout': {'family': 'recon', 'condition': '>=20 distinct destination ports OR >=12 destination hosts in 60s, >=20 distinct connections', 'counterexample': 'monitoring, service discovery, approved scanning'},
     'scan.slow': {'family': 'recon', 'condition': '>=40 distinct destination ports OR >=25 destination hosts in 15m, >=40 distinct connections', 'counterexample': 'batch monitoring or approved scanning'},
     'scan.rejected_ports': {'family': 'recon', 'condition': '>=10 distinct TCP destination ports on one destination in 60s with explicit REJECT/DROP SYN records or REJ flow outcomes', 'counterexample': 'approved service checks, authorized scan, or broken firewall policy'},
+    'dns.volume': {'family': 'dns', 'condition': '>=100 distinct query observations per client/suffix in 60s', 'counterexample': 'busy resolver or service discovery'},
+    'dns.encoded': {'family': 'dns', 'condition': 'subdomain label >=24 chars, entropy >=3.5, alphanumeric with digits, or >=32 hex chars', 'counterexample': 'CDN identifiers or telemetry'},
     'dns.lexical': {'family': 'dns', 'condition': 'name >=80 chars or label >=45 chars; all query types', 'counterexample': 'DKIM, anti-abuse and CDN names'},
     'dns.sequence': {'family': 'dns', 'condition': '>=12 distinct names per client/suffix in 5m AND mean label entropy >=3.5 AND mean longest label >=25', 'counterexample': 'telemetry SDK or anti-abuse DNS'},
     'dns.slow': {'family': 'dns', 'condition': '>=30 distinct names per client/suffix in 1h AND mean label entropy >=3.5 AND mean longest label >=25', 'counterexample': 'legitimate device telemetry'},
@@ -77,6 +79,7 @@ class BehavioralDetectors:
     def __init__(self, max_entities=4096):
         self.windows = OrderedDict()
         self.max_entities = max_entities
+        self.last_metrics = {}
 
     def window(self, key, seconds):
         key = (*key, seconds)
@@ -89,6 +92,7 @@ class BehavioralDetectors:
         return window
 
     def observe(self, e):
+        self.last_metrics = {}
         if e['training']:
             return None
         stamp, scenario, actor = e['timestamp'], e['scenario'], e['src']
@@ -109,9 +113,16 @@ class BehavioralDetectors:
             for seconds, ports, hosts, count, rule in ((60, 20, 12, 20, 'scan.fanout'), (900, 40, 25, 40, 'scan.slow')):
                 window = self.window(('flow', scenario, actor), seconds)
                 rows = window.add(stamp, key, (e['dst'], e['dst_port']))
+                failure_window = self.window(('flow-failures', scenario, actor), seconds)
+                failure_window.add(stamp, key, int(e.get('connection_failed', False)))
+                self.last_metrics = {'window_seconds': seconds, 'connections': len(rows),
+                    'unique_destination_hosts': len(window.counts[0]),
+                    'unique_destination_ports': len(window.counts[1]) - int(0 in window.counts[1]),
+                    'connection_failures': int(failure_window.totals[0]),
+                    'connections_per_second': len(rows) / seconds}
                 observed_ports=len(window.counts[1])-int(0 in window.counts[1])
                 if len(rows) >= count and (observed_ports >= ports or len(window.counts[0]) >= hosts):
-                    return 'recon', 'medium', f'{len(rows)} distinct observed connections across {observed_ports} ports / {len(window.counts[0])} destinations within {seconds}s; approved scanning remains possible.', rule
+                    return 'recon', 'medium', f'{len(rows)} distinct observed connections across {observed_ports} ports / {len(window.counts[0])} destinations within {seconds}s; {int(failure_window.totals[0])} explicit failures, {len(rows)/seconds:.2f} connections/s; approved scanning remains possible.', rule
         if actor and e.get('auth_failed') and e['host'] != 'unresolved host':
             for seconds, count, users, rule in ((900, 20, 10, 'auth.spray'), (300, 10, 1, 'auth.failures')):
                 window = self.window(('auth', scenario, actor, e['host']), seconds)
@@ -125,6 +136,10 @@ class BehavioralDetectors:
             # Two-label suffix is an explicit heuristic, not Public Suffix List resolution.
             suffix = '.'.join(labels[-2:])
             if actor and name:
+                volume = self.window(('dns-volume', scenario, actor, suffix), 60)
+                volume.add(stamp, (e['evidence_key'], name), '')
+                if len(volume.rows) >= 100:
+                    return 'dns', 'medium', f'{len(volume.rows)} distinct query observations for {suffix} in 60s; busy resolvers remain possible.', 'dns.volume'
                 for seconds, count, rule in ((300, 12, 'dns.sequence'), (3600, 30, 'dns.slow')):
                     window = self.window(('dns', scenario, actor, suffix), seconds)
                     rows = window.add(stamp, name, (len(longest), entropy(longest)))

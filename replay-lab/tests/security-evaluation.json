@@ -1,0 +1,176 @@
+{
+  "rules_version": "2026-10-12.7",
+  "source": "synthetic smoke fixtures; not empirical deployment accuracy",
+  "benign": {
+    "events": 2000,
+    "true_alerts": 0,
+    "false_alerts": 0,
+    "missed_attack_events": 0,
+    "detected_stages": []
+  },
+  "attacks": {
+    "events": 3000,
+    "true_alerts": 3000,
+    "false_alerts": 0,
+    "missed_attack_events": 0,
+    "detected_stages": [
+      "callback",
+      "execution",
+      "recon"
+    ]
+  },
+  "alert_precision": 1.0,
+  "false_alerts_per_1000_benign_events": 0.0,
+  "attack_event_recall": 1.0,
+  "incidents": [
+    {
+      "groups": [
+        "g1",
+        "g2",
+        "g3"
+      ],
+      "matched_records": 3000,
+      "stages": [
+        "callback",
+        "execution",
+        "recon"
+      ],
+      "timeline": [
+        {
+          "group": "g1",
+          "first": "2022-01-24T04:00:00Z",
+          "last": "2022-01-24T04:01:39.900000Z",
+          "technique": "recon",
+          "host": "server",
+          "actor": "192.0.2.5",
+          "evidence_ids": [
+            "fox:n:1",
+            "fox:n:2",
+            "fox:n:3",
+            "fox:n:4",
+            "fox:n:5",
+            "fox:n:6",
+            "fox:n:7"
+          ],
+          "priority": "investigate",
+          "reason": "A supported attack pattern or an operational change linked to a supported attack signal merits investigation. Also linked to another rule family by observed entity / time matches; causality is unproven."
+        },
+        {
+          "group": "g2",
+          "first": "2022-01-24T04:01:40Z",
+          "last": "2022-01-24T04:03:19.900000Z",
+          "technique": "execution",
+          "host": "server",
+          "actor": "192.0.2.5",
+          "evidence_ids": [
+            "fox:n:1001",
+            "fox:n:1002",
+            "fox:n:1003",
+            "fox:n:1004",
+            "fox:n:1005",
+            "fox:n:1006",
+            "fox:n:2000"
+          ],
+          "priority": "high",
+          "reason": "Command / callback content or a web-account identity transition merits prompt review; success remains unconfirmed. Also linked to another rule family by observed entity / time matches; causality is unproven."
+        },
+        {
+          "group": "g3",
+          "first": "2022-01-24T04:03:20Z",
+          "last": "2022-01-24T04:04:59.900000Z",
+          "technique": "callback",
+          "host": "server",
+          "actor": "192.0.2.5",
+          "evidence_ids": [
+            "fox:n:2001",
+            "fox:n:2002",
+            "fox:n:2003",
+            "fox:n:2004",
+            "fox:n:2005",
+            "fox:n:2006",
+            "fox:n:3000"
+          ],
+          "priority": "high",
+          "reason": "Command / callback content or a web-account identity transition merits prompt review; success remains unconfirmed. Also linked to another rule family by observed entity / time matches; causality is unproven."
+        }
+      ],
+      "edges": [
+        {
+          "id": "g1|g2",
+          "from": "g1",
+          "to": "g2",
+          "basis": "same observed source and host within 15 min",
+          "time": "2022-01-24T04:01:40Z",
+          "confidence": "medium",
+          "relationship": "inferred",
+          "evidence_ids": [
+            "fox:n:1000",
+            "fox:n:1001"
+          ],
+          "confirmed_evidence": [
+            {
+              "field": "host",
+              "value": "server",
+              "evidence_ids": [
+                "fox:n:1000",
+                "fox:n:1001"
+              ]
+            }
+          ]
+        },
+        {
+          "id": "g1|g3",
+          "from": "g1",
+          "to": "g3",
+          "basis": "same observed source and host within 15 min",
+          "time": "2022-01-24T04:03:20Z",
+          "confidence": "medium",
+          "relationship": "inferred",
+          "evidence_ids": [
+            "fox:n:1000",
+            "fox:n:2001"
+          ],
+          "confirmed_evidence": [
+            {
+              "field": "host",
+              "value": "server",
+              "evidence_ids": [
+                "fox:n:1000",
+                "fox:n:2001"
+              ]
+            }
+          ]
+        },
+        {
+          "id": "g2|g3",
+          "from": "g2",
+          "to": "g3",
+          "basis": "same observed source and host within 15 min",
+          "time": "2022-01-24T04:03:20Z",
+          "confidence": "medium",
+          "relationship": "inferred",
+          "evidence_ids": [
+            "fox:n:2000",
+            "fox:n:2001"
+          ],
+          "confirmed_evidence": [
+            {
+              "field": "host",
+              "value": "server",
+              "evidence_ids": [
+                "fox:n:2000",
+                "fox:n:2001"
+              ]
+            }
+          ]
+        }
+      ]
+    }
+  ],
+  "incident_count": 1,
+  "limitations": [
+    "Event-level metrics require explicit truth; attack windows alone cannot establish precision.",
+    "Recall counts the expected family on each event; aggregate detectors may miss early prefix events.",
+    "Incident links preserve evidence stages but do not prove causality."
+  ]
+}

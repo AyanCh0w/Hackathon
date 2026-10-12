@@ -8,7 +8,7 @@ import time
 from collections import Counter, deque
 from telemetry import payload_features, process_features
 from investigation import public_record
-from detection import BehavioralDetectors, RULES, RULES_VERSION
+from detection import BehavioralDetectors, RULES, RULES_VERSION, entropy
 
 FAMILIES = {
     'background': ('Routine / background', 0),
@@ -73,6 +73,9 @@ def classify_detail(e):
         return 'service', 'medium', 'Explicit service stop / stopping record. Operational intent is unknown.', 'service.stop'
     for query in e.get('dns_queries', []):
         domain = query['name']
+        labels = domain.split('.')[:-2]
+        if any((len(label) >= 24 and entropy(label) >= 3.5 and label.isalnum() and any(c.isdigit() for c in label)) or (len(label) >= 32 and re.fullmatch(r'[0-9a-f]+', label)) for label in labels):
+            return 'dns', 'low', 'Encoded-looking DNS subdomain label; CDN identifiers and telemetry remain possible.', 'dns.encoded'
         if len(domain) >= 80 or max(map(len, domain.split('.')), default=0) >= 45:
             return 'dns', 'low', 'Long DNS query name. Length is an anomaly signal, not proof of exfiltration.', 'dns.lexical'
     if any(token in text for token in ('nmap', 'portscan', 'port scan', 'masscan')):
@@ -214,7 +217,7 @@ class OnlineEngine:
             value = e.get(key) or (e.get('origin_file') if key == 'location' else '')
             if value:
                 counts[value] += 1
-        if not e['training'] and {'low': 0, 'medium': 1, 'high': 2}[confidence] > {'low': 0, 'medium': 1, 'high': 2}[group['confidence']]:
+        if first_operational or (not e['training'] and {'low': 0, 'medium': 1, 'high': 2}[confidence] > {'low': 0, 'medium': 1, 'high': 2}[group['confidence']]):
             group['confidence'], group['reason'] = confidence, reason
         unique = e['evidence_key'] not in group['keys']
         if unique:
@@ -306,6 +309,8 @@ class OnlineEngine:
         self.stages['connect']['last'] = e['time']
         logrow = {k: e[k] for k in ('id', 'scenario', 'timestamp', 'time', 'source', 'host', 'src', 'description', 'raw', 'file', 'line', 'training')}
         logrow.update({k: e.get(k, '') for k in ('dst', 'sensor', 'location', 'host_basis', 'evidence_hash')})
+        if self.behavior.last_metrics:
+            logrow['behavior_metrics'] = dict(self.behavior.last_metrics)
         logrow.update({'family': family, 'confidence': confidence, 'reason': reason, 'group': gid})
         self.recent.append(logrow)
         self.timeline.append((e['timestamp'], family, gid, e['training'], e['scenario'], e.get('capabilities', 0), rule_id, e['id']))

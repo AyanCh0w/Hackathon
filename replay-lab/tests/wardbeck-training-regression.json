@@ -1,0 +1,96 @@
+{
+  "augmented": {
+    "records": 12,
+    "service_stop": {
+      "scenario": "wardbeck",
+      "phase": "service_stop",
+      "start": "2022-01-20T22:12:27+00:00",
+      "end": "2022-01-20T22:12:29+00:00",
+      "records": 12,
+      "training": 2,
+      "categories": {
+        "background": 10,
+        "service": 2
+      },
+      "relevant": 1,
+      "expected": [
+        "service"
+      ],
+      "training_related": 1,
+      "generic_anomalies": 0,
+      "evidence_status": "specific_signal",
+      "interpretation": "Technique-specific signal observed; attribution unverified",
+      "diagnosis": "A related operational rule fired. Window overlap does not establish malicious membership or attack success.",
+      "references": [
+        {
+          "id": "wardbeck:n:407",
+          "rule": "service.stop",
+          "time": "2022-01-20T22:12:28.499000+00:00",
+          "training": false
+        },
+        {
+          "id": "wardbeck:a:740",
+          "rule": "service.stop",
+          "time": "2022-01-20T22:12:28.500000+00:00",
+          "training": true
+        }
+      ],
+      "telemetry": {
+        "operational": {
+          "dns": 4,
+          "connection": 2,
+          "service": 2
+        },
+        "training": {
+          "service": 2
+        },
+        "needed_any": [
+          "service"
+        ],
+        "collection_complete": false
+      }
+    }
+  },
+  "alerts_only": {
+    "records": 2,
+    "service_stop": {
+      "scenario": "wardbeck",
+      "phase": "service_stop",
+      "start": "2022-01-20T22:12:27+00:00",
+      "end": "2022-01-20T22:12:29+00:00",
+      "records": 2,
+      "training": 2,
+      "categories": {
+        "background": 1,
+        "service": 1
+      },
+      "relevant": 0,
+      "expected": [
+        "service"
+      ],
+      "training_related": 1,
+      "generic_anomalies": 0,
+      "evidence_status": "training_only",
+      "interpretation": "Related evidence exists only in training mode",
+      "diagnosis": "Operational exclusion: a rule recognized the record, but training evidence cannot establish operational detection.",
+      "references": [
+        {
+          "id": "wardbeck:a:740",
+          "rule": "service.stop",
+          "time": "2022-01-20T22:12:28.500000+00:00",
+          "training": true
+        }
+      ],
+      "telemetry": {
+        "operational": {},
+        "training": {
+          "service": 2
+        },
+        "needed_any": [
+          "service"
+        ],
+        "collection_complete": false
+      }
+    }
+  }
+}

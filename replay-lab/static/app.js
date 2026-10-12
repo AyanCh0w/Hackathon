@@ -377,7 +377,7 @@ function nodeAnalysis(group,runId){
   const result=el('div','ai-analysis-result');result.setAttribute('role','status');result.setAttribute('aria-live','polite');
   const question=el('input');question.placeholder='Ask an investigation question';question.setAttribute('aria-label','Investigation question');
   section.append(question);
-  section.append(el('h3','','Understand this node'),el('p','detail-subtitle','Get an evidence-backed assessment and prioritized next steps. Sends redacted node details, sampled member traces, connections, and investigation results to OpenAI.'),button,result);
+  section.append(el('h3','','Understand this node'),el('p','detail-subtitle','Get an evidence-backed assessment and prioritized next steps. Sends only the selected alert, its sampled member traces, and directly connected investigation nodes to OpenAI.'),button,result);
   button.onclick=async()=>{
     button.disabled=true;button.textContent='Analyzing node…';result.setAttribute('aria-busy','true');
     result.replaceChildren(el('p','','Gathering evidence and analyzing what to check next. This can take up to a minute.'));

@@ -70,6 +70,44 @@ class AnalysisTests(unittest.TestCase):
         self.assertEqual(context['node']['count'], 150)
         self.assertEqual(context['snapshot']['processed'], 150)
 
+    def test_context_excludes_other_neighbors_and_broad_retrieval(self):
+        base = copy.deepcopy(self.run.engine.groups[self.gid])
+        for node_id, priority in [('direct', 'investigate'), ('context', 'context'),
+                                  ('high', 'high'), ('indirect', 'investigate')]:
+            node = copy.deepcopy(base)
+            node.update(id=node_id, priority=priority)
+            node['evidence'] = [dict(base['evidence'][0], id=node_id + '-evidence')]
+            self.run.engine.groups[node_id] = node
+        self.run.engine.edges = {
+            'direct': {'from': self.gid, 'to': 'direct'},
+            'context': {'from': 'context', 'to': self.gid},
+            'high': {'from': self.gid, 'to': 'high'},
+            'indirect': {'from': 'direct', 'to': 'indirect'},
+        }
+        with patch.object(self.run, 'investigate', side_effect=AssertionError('Unscoped retrieval')):
+            context = self.run.analysis_context(self.gid)
+        self.assertEqual([node['id'] for node in context['connected_nodes']], ['direct'])
+        self.assertEqual(context['connections'], [{'from': self.gid, 'to': 'direct'}])
+        self.assertIn('direct-evidence', context['evidence_ids'])
+        for excluded in ('context', 'high', 'indirect'):
+            self.assertNotIn(excluded + '-evidence', context['evidence_ids'])
+        self.assertEqual(context['coverage']['retrieval_queries'], 0)
+
+    def test_oversized_evidence_is_bounded_without_rejecting_analysis(self):
+        group = self.run.engine.groups[self.gid]
+        group['evidence'][0]['raw'] = 'large trace ' * 100000
+        with closing(sqlite3.connect(self.run.dataset_meta[0]['cache'])) as db:
+            for event in self.events[:150]:
+                event['raw'] = 'large trace ' * 2000
+                db.execute('UPDATE events SET payload=? WHERE record_id=?',
+                           (json.dumps(event), event['id']))
+            db.commit()
+        context = self.run.analysis_context(self.gid)
+        self.assertLess(len(json.dumps(context).encode()), 180000)
+        self.assertGreater(context['coverage']['truncated_fields'], 0)
+        self.assertIn(group['evidence'][0]['id'], context['evidence_ids'])
+        self.assertTrue(context['coverage']['member_traces_sampled'])
+
     def test_demo_suppression_does_not_change_review_queue(self):
         from incident_workflow import Suppressions
         import time
